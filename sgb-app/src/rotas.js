@@ -1,16 +1,7 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-import ListagemAutor from './views/listagem-autor';
-import ListagemLivro from './views/listagem-livro';
-import ListagemEditora from './views/listagem-editora';
-import ListagemExemplar from './views/listagem-exemplar';
-import ListagemReserva from './views/listagem-reserva';
-import ListagemEmprestimo from './views/listagem-emprestimo';
-import ListagemLeitor from './views/listagem-leitor';
-import ListagemBibliotecario from './views/listagem-bibliotecario';
-import ListagemAdministrador from './views/listagem-administrador';
-import ListagemParametro from './views/listagem-parametro';
+import Listagem from './views/listagem';
 
 import CadastroAutor from './views/cadastro-autor';
 import CadastroLivro from './views/cadastro-livro';
@@ -27,27 +18,26 @@ function Rotas(props) {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/listagem-autor" element={<ListagemAutor />} />
-                <Route path="/listagem-livro" element={<ListagemLivro />} />
-                <Route path="/listagem-editora" element={<ListagemEditora />} />
-                <Route path="/listagem-exemplar" element={<ListagemExemplar />} />
-                <Route path="/listagem-reserva" element={<ListagemReserva />} />
-                <Route path="/listagem-emprestimo" element={<ListagemEmprestimo />} />
-                <Route path="/listagem-leitor" element={<ListagemLeitor />} />
-                <Route path="/listagem-bibliotecario" element={<ListagemBibliotecario />} />
-                <Route path="/listagem-administrador" element={<ListagemAdministrador />} />
-                <Route path="/listagem-parametro" element={<ListagemParametro />} />
+                <Route path="/listagem-autores" element={<Listagem pagina="autores" />} />
+                <Route path="/listagem-livros" element={<Listagem pagina="livros" />} />
+                <Route path="/listagem-editoras" element={<Listagem pagina="editoras" />} />
+                <Route path="/listagem-exemplares" element={<Listagem pagina="exemplares" />} />
+                <Route path="/listagem-reservas" element={<Listagem pagina="reservas" />} />
+                <Route path="/listagem-emprestimos" element={<Listagem pagina="emprestimos" />} />
+                <Route path="/listagem-leitores" element={<Listagem pagina="leitores" />} />
+                <Route path="/listagem-funcionarios" element={<Listagem pagina="funcionarios" />} />
+                <Route path="/listagem-parametros" element={<Listagem pagina="parametros" />} />
 
-                <Route path="/cadastro-autor" element={<CadastroAutor />} />
-                <Route path="/cadastro-livro" element={<CadastroLivro />} />
-                <Route path="/cadastro-editora" element={<CadastroEditora />} />
-                <Route path="/cadastro-exemplar" element={<CadastroExemplar />} />
-                <Route path="/cadastro-reserva" element={<CadastroReserva />} />
-                <Route path="/cadastro-emprestimo" element={<CadastroEmprestimo />} />
-                <Route path="/cadastro-leitor" element={<CadastroLeitor />} />
-                <Route path="/cadastro-bibliotecario" element={<CadastroBibliotecario />} />
-                <Route path="/cadastro-administrador" element={<CadastroAdministrador />} />
-                <Route path="/cadastro-parametro" element={<CadastroParametro />} />
+                <Route path="/cadastro-autores" element={<CadastroAutor />} />
+                <Route path="/cadastro-livros" element={<CadastroLivro />} />
+                <Route path="/cadastro-editoras" element={<CadastroEditora />} />
+                <Route path="/cadastro-exemplares" element={<CadastroExemplar />} />
+                <Route path="/cadastro-reservas" element={<CadastroReserva />} />
+                <Route path="/cadastro-emprestimos" element={<CadastroEmprestimo />} />
+                <Route path="/cadastro-leitores" element={<CadastroLeitor />} />
+                <Route path="/cadastro-bibliotecarios" element={<CadastroBibliotecario />} />
+                <Route path="/cadastro-administradores" element={<CadastroAdministrador />} />
+                <Route path="/cadastro-parametros" element={<CadastroParametro />} />
             </Routes>
         </BrowserRouter>
     )

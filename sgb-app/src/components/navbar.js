@@ -25,70 +25,63 @@ function Navbar(props) {
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-autor'
+                            href='/listagem-autores'
                             label='Autores'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-editora'
+                            href='/listagem-editoras'
                             label='Editoras'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-livro'
+                            href='/listagem-livros'
                             label='Livros'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-exemplar'
+                            href='/listagem-exemplares'
                             label='Exemplares'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-reserva'
+                            href='/listagem-reservas'
                             label='Reservas'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-emprestimo'
+                            href='/listagem-emprestimos'
                             label='Empréstimos'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-leitor'
+                            href='/listagem-leitores'
                             label='Leitores'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-bibliotecario'
-                            label='Bibliotecários'
+                            href='/listagem-funcionarios'
+                            label='Funcionários'
                         />
                     </ul>
                     <ul className='navbar-nav'>
                         <NavbarItem
                             render='true'
-                            href='/listagem-administrador'
-                            label='Administradores'
-                        />
-                    </ul>
-                    <ul className='navbar-nav'>
-                        <NavbarItem
-                            render='true'
-                            href='/listagem-parametro'
+                            href='/listagem-parametros'
                             label='Parâmetros'
                         />
                     </ul>

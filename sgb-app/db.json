@@ -1,0 +1,324 @@
+{
+    "parametros": [
+        {
+            "id": 1,
+            "prazoEmp": 7,
+            "limEmp": 3,
+            "permReno": true,
+            "PermRenoFila": false,
+            "diasReno": 3,
+            "prazoRet": 1,
+            "qtfRec": 5
+        }
+    ],
+    "leitores": [
+        {
+            "id": 1,
+            "dtNasc": "2001-01-01",
+            "nome": "Erick Rezende Martins",
+            "CPF": "00000000001",
+            "telefone": "32999999999",
+            "email": "erickrezendemartins@email.com",
+            "senha": "erick123",
+            "foto": "",
+            "livrosLidos": 1,
+            "ativo": true
+        }
+    ],
+    "funcionarios": [
+        {
+            "id": 1,
+            "isAdmin": true,
+            "dtNasc": "2002-02-02",
+            "nome": "Marco Antonio",
+            "CPF": "00000000002",
+            "telefone": "32999999999",
+            "email": "marcoantonio@email.com",
+            "senha": "marco123",
+            "foto": "",
+            "ativo": true
+        },
+        {
+            "id": 2,
+            "isAdmin": false,
+            "dtNasc": "2003-03-03",
+            "nome": "Rhuan Pablo de Carvalho",
+            "CPF": "00000000003",
+            "telefone": "32999999999",
+            "email": "rhuanpablodecarvalho@email.com",
+            "senha": "rhuan123",
+            "foto": "",
+            "ativo": true
+        }
+    ],
+    "autores": [
+        {
+            "id": 1,
+            "nome": "George Orwell",
+            "citacao": "ORWELL, George",
+            "nacionalidade": "Britânica",
+            "ativo": true
+        },
+        {
+            "id": 2,
+            "nome": "J.R.R. Tolkien",
+            "citacao": "TOLKIEN, J.R.R.",
+            "nacionalidade": "Britânica",
+            "ativo": true
+        },
+        {
+            "id": 3,
+            "nome": "Machado de Assis",
+            "citacao": "ASSIS, Machado de",
+            "nacionalidade": "Brasileira",
+            "ativo": true
+        },
+        {
+            "id": 4,
+            "nome": "Aldous Huxley",
+            "citacao": "HUXLEY, Aldous",
+            "nacionalidade": "Britânica",
+            "ativo": true
+        },
+        {
+            "id": 5,
+            "nome": "Paulo Coelho",
+            "citacao": "COELHO, Paulo",
+            "nacionalidade": "Brasileira",
+            "ativo": true
+        }
+    ],
+    "generos": [
+        {
+            "id": 1,
+            "nome": "Romance"
+        },
+        {
+            "id": 2,
+            "nome": "Fantasia"
+        },
+        {
+            "id": 3,
+            "nome": "Ficção Científica"
+        },
+        {
+            "id": 4,
+            "nome": "Aventura"
+        }
+    ],
+    "editoras": [
+        {
+            "id": 1,
+            "nome": "Editora Melhoramentos",
+            "ativo": true
+        },
+        {
+            "id": 2,
+            "nome": "HarperCollins",
+            "ativo": true
+        },
+        {
+            "id": 3,
+            "nome": "Pergaminho",
+            "ativo": false
+        }
+    ],
+    "livros": [
+        {
+            "id": 1,
+            "titulo": "1984",
+            "ISBN": "9788535914849",
+            "dtPublicacao": "1949",
+            "numPaginas": 312,
+            "sinopsis": "Em um regime totalitário governado pelo Grande Irmão, o cidadão Winston Smith trabalha alterando dados históricos para o Partido. À medida que questiona o sistema, ele inicia um romance proibido e tenta resistir à vigilância absoluta da Polícia do Pensamento.",
+            "idAutor": 1,
+            "idGenero": 3,
+            "idEditora": 2,
+            "ativo": true,
+            "recomendado": true
+        },
+        {
+            "id": 2,
+            "titulo": "O Hobbit",
+            "ISBN": "9788578274085",
+            "dtPublicacao": "1937",
+            "numPaginas": 310,
+            "sinopsis": "O pacato hobbit Bilbo Bolseiro é retirado de sua vida confortável pelo mago Gandalf e um grupo de anões. Juntos, eles embarcam em uma perigosa jornada até a Montanha Solitária para recuperar um tesouro protegido pelo temível dragão Smaug.",
+            "idAutor": 2,
+            "idGenero": 2,
+            "idEditora": 2,
+            "ativo": true,
+            "recomendado": false
+        },
+        {
+            "id": 3,
+            "titulo": "Dom Casmurro",
+            "ISBN": "9788506069783",
+            "dtPublicacao": "1899",
+            "numPaginas": 413,
+            "sinopsis": "Bento Santiago, já idoso, relembra sua juventude e seu intenso amor por Capitu. Consumido pelo ciúme e pela desconfiança de ter sido traído por ela com seu melhor amigo, Escobar, o narrador constrói sua versão dos fatos sobre a polêmica cumplicidade dos olhos de ressaca.",
+            "idAutor": 3,
+            "idGenero": 1,
+            "idEditora": 1,
+            "ativo": true,
+            "recomendado": true
+        },
+        {
+            "id": 4,
+            "titulo": "O Senhor dos Anéis",
+            "ISBN": "9786555114355",
+            "dtPublicacao": "1954",
+            "numPaginas": 423,
+            "sinopsis": "Em uma Terra-média ameaçada pelas forças das trevas, o jovem hobbit Frodo Baggins recebe a missão de destruir o Um Anel no Monte da Perdição. Para isso, ele conta com a ajuda de uma comitiva formada por homens, anões, elfos, hobbits e o mago Gandalf.",
+            "idAutor": 4,
+            "idGenero": 2,
+            "idEditora": 2,
+            "ativo": true,
+            "recomendado": false
+        }
+    ],
+    "reservas": [
+        {
+            "id": 1,
+            "dtReserva": "2026-09-25",
+            "primeiro": true,
+            "idLivro": 1,
+            "idPerfil": 1
+        },
+        {
+            "id": 2,
+            "dtReserva": "2026-09-26",
+            "primeiro": false,
+            "idLivro": 1,
+            "idPerfil": 2
+        },
+        {
+            "id": 3,
+            "dtReserva": "2026-09-20",
+            "primeiro": true,
+            "idLivro": 2,
+            "idPerfil": 1
+        },
+        {
+            "id": 4,
+            "dtReserva": "2026-09-21",
+            "primeiro": false,
+            "idLivro": 3,
+            "idPerfil": 1
+        }
+    ],
+    "exemplares": [
+        {
+            "id": 1,
+            "idLivro": 1,
+            "identificacao": "1984-COP-01",
+            "status": "Emprestado",
+            "ativo": true
+        },
+        {
+            "id": 2,
+            "idLivro": 1,
+            "identificacao": "1984-COP-02",
+            "status": "Disponível",
+            "ativo": true
+        },
+        {
+            "id": 3,
+            "idLivro": 1,
+            "identificacao": "1984-COP-03",
+            "status": "Disponível",
+            "ativo": true
+        },
+        {
+            "id": 4,
+            "idLivro": 2,
+            "identificacao": "HOB-COP-01",
+            "status": "Emprestado",
+            "ativo": false
+        },
+        {
+            "id": 5,
+            "idLivro": 2,
+            "identificacao": "HOB-COP-02",
+            "status": "Em Manutenção",
+            "ativo": true
+        },
+        {
+            "id": 6,
+            "idLivro": 3,
+            "identificacao": "DCA-COP-01",
+            "status": "Emprestado",
+            "ativo": true
+        },
+        {
+            "id": 7,
+            "idLivro": 4,
+            "identificacao": "SDA-COP-01",
+            "status": "Disponível",
+            "ativo": true
+        },
+        {
+            "id": 8,
+            "idLivro": 4,
+            "identificacao": "SDA-COP-02",
+            "status": "Em Manutenção",
+            "ativo": false
+        },
+        {
+            "id": 9,
+            "idLivro": 4,
+            "identificacao": "SDA-COP-03",
+            "status": "Disponível",
+            "ativo": true
+        },
+        {
+            "id": 10,
+            "idLivro": 4,
+            "identificacao": "SDA-COP-01",
+            "status": "Perdido",
+            "ativo": false
+        }
+    ],
+    "emprestimos": [
+        {
+            "id": 1,
+            "exemplar": 1,
+            "idPerfil": 1,
+            "dtEmprestimo": "2026-09-01",
+            "dtEta": "2026-09-08",
+            "dtDevolucao": "2026-09-08",
+            "renovado": false,
+            "status": "Devolvido"
+        },
+        {
+            "id": 2,
+            "exemplar": 1,
+            "idPerfil": 1,
+            "dtEmprestimo": "2026-09-12",
+            "dtEta": "2026-09-19",
+            "dtDevolucao": null,
+            "renovado": false,
+            "status": "Atrasado"
+        },
+        {
+            "id": 3,
+            "exemplar": 2,
+            "idPerfil": 1,
+            "dtEmprestimo": "2026-09-19",
+            "dtEta": "2026-09-29",
+            "dtDevolucao": "2026-09-29",
+            "renovado": true,
+            "status": "Devolvido"
+        },
+        {
+            "id": 4,
+            "exemplar": 3,
+            "idPerfil": 1,
+            "dtEmprestimo": "2026-09-22",
+            "dtEta": "2026-09-29",
+            "dtDevolucao": null,
+            "renovado": false,
+            "status": "Ativo"
+        }
+    ]
+}
