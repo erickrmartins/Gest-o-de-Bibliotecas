@@ -15,17 +15,17 @@ import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios.js';
 
-function Listagem({ pagina }) {
+function ListagemExemplar() {
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/${pagina}`;
+    const baseURL = `${BASE_URL}/exemplares`;
 
     const cadastrar = () => {
-        navigate(`/cadastro-${pagina}`);
+        navigate(`/cadastro-exemplares`);
     };
 
     const editar = (id) => {
-        navigate(`/cadastro-${pagina}/${id}`);
+        navigate(`/cadastro-exemplares/${id}`);
     };
 
     async function deletar(id) {
@@ -37,31 +37,29 @@ function Listagem({ pagina }) {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`${pagina} deletado com sucesso!`);
+                mensagemSucesso(`Exemplar deletado com sucesso!`);
                 setDados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar ${pagina}!`);
+                mensagemErro(`Erro ao deletar Exemplar!`);
             });
     };
 
     const [dados, setDados] = React.useState(null);
-    const [campos, setCampos] = React.useState(null);
 
     React.useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 setDados(response.data);
-                setCampos(Object.keys(response.data[0]));
             })
-            .catch((error)   => {
+            .catch((error) => {
                 mensagemErro('Erro ao se conectar ao servidor!');
             });
     }, []);
 
     return (
         <div className="container">
-            <Card title={`Listagem de ${pagina}`}>
+            <Card title={`Listagem de Exemplares`}>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="bs-component">
@@ -70,30 +68,24 @@ function Listagem({ pagina }) {
                                 className="btn btn-primary"
                                 onClick={() => cadastrar()}
                             >
-                                Cadastrar {pagina}
+                                Cadastrar Exemplar
                             </button>
 
                             <table className="table table-hover">
                                 <thead>
                                     <tr>
-                                        {campos && campos.map((campo, index) => (
-                                            <th scope="col" key={index}>{campo.toUpperCase()}</th>
-                                        ))}
+                                        <th scope="col">Livro</th>
+                                        <th scope="col">Identificação</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">AÇÕES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {dados && dados.map((item) => (
-                                        <tr key={item.id}>
-                                            {campos && campos.map((campo, index) => (
-                                                <td key={index}>
-                                                    {typeof item[campo] === 'boolean' ?
-                                                        (item[campo] ? <True /> : <False />)
-                                                        :
-                                                        (item[campo])
-                                                    }
-                                                </td>
-                                            ))}
+                                        <tr >
+                                            <td>{item.idLivros}</td>
+                                            <td>{item.identificacao}</td>
+                                            <td>{item.status}</td>
                                             <td>
                                                 <Stack spacing={1} padding={0} direction='row'>
                                                     <IconButton
@@ -122,4 +114,4 @@ function Listagem({ pagina }) {
     );
 }
 
-export default Listagem;
+export default ListagemExemplar;

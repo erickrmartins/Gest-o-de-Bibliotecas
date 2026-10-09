@@ -15,17 +15,17 @@ import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios.js';
 
-function Listagem({ pagina }) {
+function ListagemParametro() {
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/${pagina}`;
+    const baseURL = `${BASE_URL}/parametros`;
 
     const cadastrar = () => {
-        navigate(`/cadastro-${pagina}`);
+        navigate(`/cadastro-parametros`);
     };
 
     const editar = (id) => {
-        navigate(`/cadastro-${pagina}/${id}`);
+        navigate(`/cadastro-parametros/${id}`);
     };
 
     async function deletar(id) {
@@ -37,63 +37,55 @@ function Listagem({ pagina }) {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`${pagina} deletado com sucesso!`);
+                mensagemSucesso(`Parâmetro deletado com sucesso!`);
                 setDados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar ${pagina}!`);
+                mensagemErro(`Erro ao deletar Parâmetro!`);
             });
     };
 
     const [dados, setDados] = React.useState(null);
-    const [campos, setCampos] = React.useState(null);
 
     React.useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 setDados(response.data);
-                setCampos(Object.keys(response.data[0]));
             })
-            .catch((error)   => {
+            .catch((error) => {
                 mensagemErro('Erro ao se conectar ao servidor!');
             });
     }, []);
 
     return (
         <div className="container">
-            <Card title={`Listagem de ${pagina}`}>
+            <Card title={`Listagem de Parâmetros`}>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="bs-component">
-                            <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={() => cadastrar()}
-                            >
-                                Cadastrar {pagina}
-                            </button>
-
                             <table className="table table-hover">
                                 <thead>
                                     <tr>
-                                        {campos && campos.map((campo, index) => (
-                                            <th scope="col" key={index}>{campo.toUpperCase()}</th>
-                                        ))}
-                                        <th scope="col">AÇÕES</th>
+                                        <th scope="col">Prazo Empréstimo</th>
+                                        <th scope="col">Limite Empréstimo</th>
+                                        <th scope="col">Permitir Renovação</th>
+                                        <th scope="col">Renovação com Fila</th>
+                                        <th scope="col">Dias Renovação</th>
+                                        <th scope="col">Prazo Retirada</th>
+                                        <th scope="col">Recomendados</th>
+                                        <th scope="col">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {dados && dados.map((item) => (
-                                        <tr key={item.id}>
-                                            {campos && campos.map((campo, index) => (
-                                                <td key={index}>
-                                                    {typeof item[campo] === 'boolean' ?
-                                                        (item[campo] ? <True /> : <False />)
-                                                        :
-                                                        (item[campo])
-                                                    }
-                                                </td>
-                                            ))}
+                                        <tr >
+                                            <td>{item.prazoEmprestimo}</td>
+                                            <td>{item.limiteEmprestimo}</td>
+                                            <td>{item.permitirRenovacao ? <True/> : <False/>}</td>
+                                            <td>{item.renovacaoComFila ? <True/> : <False/>}</td>
+                                            <td>{item.diasRenovacao}</td>
+                                            <td>{item.prazoRetirada}</td>
+                                            <td>{item.recomendados}</td>
                                             <td>
                                                 <Stack spacing={1} padding={0} direction='row'>
                                                     <IconButton
@@ -101,12 +93,6 @@ function Listagem({ pagina }) {
                                                         onClick={() => editar(item.id)}
                                                     >
                                                         <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
                                                     </IconButton>
                                                 </Stack>
                                             </td>
@@ -122,4 +108,4 @@ function Listagem({ pagina }) {
     );
 }
 
-export default Listagem;
+export default ListagemParametro;
