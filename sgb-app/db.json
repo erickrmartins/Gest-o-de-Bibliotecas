@@ -5,7 +5,7 @@
       "prazoEmprestimo": 7,
       "limiteEmprestimo": 3,
       "permitirRenovacao": true,
-      "renovacaoComFila": false,
+      "renovacaoComFila": "true",
       "diasRenovacao": 3,
       "prazoRetirada": 1,
       "recomendados": 5
@@ -15,8 +15,32 @@
     {
       "id": "1",
       "dtNasc": "2001-01-01",
-      "nome": "Erick Rezende Martins",
-      "CPF": "00000000001",
+      "nome": "Leitor 1",
+      "cpf": "00000000001",
+      "telefone": "32999999999",
+      "email": "erickrezendemartins@email.com",
+      "senha": "erick123",
+      "foto": "",
+      "livrosLidos": 1,
+      "ativo": true
+    },
+    {
+      "id": "1",
+      "dtNasc": "2001-01-01",
+      "nome": "Leitor 2",
+      "cpf": "00000000001",
+      "telefone": "32999999999",
+      "email": "erickrezendemartins@email.com",
+      "senha": "erick123",
+      "foto": "",
+      "livrosLidos": 1,
+      "ativo": true
+    },
+    {
+      "id": "1",
+      "dtNasc": "2001-01-01",
+      "nome": "Leitor 3",
+      "cpf": "00000000001",
       "telefone": "32999999999",
       "email": "erickrezendemartins@email.com",
       "senha": "erick123",
@@ -31,7 +55,7 @@
       "isAdmin": true,
       "dtNasc": "2002-02-02",
       "nome": "Marco Antonio",
-      "CPF": "00000000002",
+      "cpf": "00000000002",
       "telefone": "32999999999",
       "email": "marcoantonio@email.com",
       "senha": "marco123",
@@ -43,7 +67,7 @@
       "isAdmin": false,
       "dtNasc": "2003-03-03",
       "nome": "Rhuan Pablo de Carvalho",
-      "CPF": "00000000003",
+      "cpf": "00000000003",
       "telefone": "32999999999",
       "email": "rhuanpablodecarvalho@email.com",
       "senha": "rhuan123",
@@ -217,8 +241,7 @@
       "id": "1",
       "idLivros": "1984",
       "identificacao": "1984-COP-01",
-      "status": "Emprestado",
-      "ativo": true
+      "status": "Em Manutenção"
     },
     {
       "id": "2",

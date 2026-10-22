@@ -92,7 +92,7 @@ function ListagemFuncionario() {
                                             <td>{item.senha}</td>
                                             <td>{item.telefone}</td>
                                             <td>{item.dtNasc}</td>
-                                            <td>{item.CPF}</td>
+                                            <td>{item.cpf}</td>
                                             <td>{item.isAdmin ? <True /> : <False />}</td>
                                             <td>
                                                 <Stack spacing={1} padding={0} direction='row'>

@@ -18,6 +18,7 @@ import CadastroExemplar from './views/cadastro-exemplar';
 import CadastroReserva from './views/cadastro-reserva';
 import CadastroEmprestimo from './views/cadastro-emprestimo';
 import CadastroLeitor from './views/cadastro-leitor';
+import CadastroFuncionario from './views/cadastro-funcionario';
 import CadastroBibliotecario from './views/cadastro-bibliotecario';
 import CadastroAdministrador from './views/cadastro-administrador';
 import CadastroParametro from './views/cadastro-parametro';
@@ -43,6 +44,7 @@ function Rotas(props) {
                 <Route path="/cadastro-reservas/:idParam?" element={<CadastroReserva />} />
                 <Route path="/cadastro-emprestimos/:idParam?" element={<CadastroEmprestimo />} />
                 <Route path="/cadastro-leitores/:idParam?" element={<CadastroLeitor />} />
+                <Route path='/cadastro-funcionarios/:idParam?' element={<CadastroFuncionario />} />
                 <Route path="/cadastro-bibliotecarios/:idParam?" element={<CadastroBibliotecario />} />
                 <Route path="/cadastro-administradores/:idParam?" element={<CadastroAdministrador />} />
                 <Route path="/cadastro-parametros/:idParam?" element={<CadastroParametro />} />

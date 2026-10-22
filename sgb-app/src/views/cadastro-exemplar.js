@@ -21,7 +21,7 @@ function CadastroExemplar() {
     const baseURL = `${BASE_URL}/exemplares`;
 
     const [id, setId] = useState('');
-    const [idLivro, setIdLivro] = useState('');
+    const [idLivros, setIdLivros] = useState('');
     const [identificacao, setIdentificacao] = useState('');
     const [status, setStatus] = useState('');
 
@@ -31,12 +31,12 @@ function CadastroExemplar() {
     function inicializar() {
         if (idParam == null) {
             setId('');
-            setIdLivro('');
+            setIdLivros('');
             setIdentificacao('');
             setStatus('');
         } else {
             setId(dados.id);
-            setIdLivro(dados.idLivro);
+            setIdLivros(dados.idLivros);
             setIdentificacao(dados.identificacao);
             setStatus(dados.status);
         }
@@ -45,7 +45,7 @@ function CadastroExemplar() {
     async function salvar() {
         let data = {
             id,
-            idLivro,
+            idLivros,
             identificacao,
             status
         };
@@ -82,11 +82,18 @@ function CadastroExemplar() {
             setDados(response.data);
         });
         setId(dados.id);
-        setIdLivro(dados.idLivro);
+        setIdLivros(dados.idLivros);
         setIdentificacao(dados.identificacao);
         setStatus(dados.status);
     }
 
+    const [dadosLivros, setDadosLivros] = React.useState([]);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/livros`).then((response) => {
+            setDadosLivros(response.data);
+        });
+    }, []);
 
     useEffect(() => {
         if (idParam) {
@@ -95,6 +102,7 @@ function CadastroExemplar() {
     }, [id]);
 
     if (!dados) return null;
+    if (!dadosLivros) return null;
 
     return (
         <div className='container'>
@@ -102,15 +110,23 @@ function CadastroExemplar() {
                 <div className='row'>
                     <div className='col-lg-12'>
                         <div className='bs-component'>
-                            <FormGroup label='ID do Livro: *' htmlFor='inputIdLivro'>
-                                <input
-                                    type='text'
-                                    id='inputIdLivro'
-                                    value={idLivro}
-                                    className='form-control'
-                                    name='idLivro'
-                                    onChange={(e) => setIdLivro(e.target.value)}
-                                />
+                            <FormGroup label='Livro: *' htmlFor='selectLivro'>
+                                <select
+                                    className='form-select'
+                                    id='selectLivro'
+                                    name='idLivros'
+                                    value={idLivros}
+                                    onChange={(e) => setIdLivros(e.target.value)}
+                                >
+                                    <option key='0' value='0'>
+                                        {' '}
+                                    </option>
+                                    {dadosLivros.map((dado) => (
+                                        <option key={dado.id} value={dado.nome}>
+                                            {dado.nome}
+                                        </option>
+                                    ))}
+                                </select>
                             </FormGroup>
                             <FormGroup label='Identificação: *' htmlFor='inputIdentificacao'>
                                 <input
@@ -122,15 +138,27 @@ function CadastroExemplar() {
                                     onChange={(e) => setIdentificacao(e.target.value)}
                                 />
                             </FormGroup>
-                            <FormGroup label='Status: *' htmlFor='inputStatus'>
-                                <input
-                                    type='text'
-                                    id='inputStatus'
-                                    value={status}
-                                    className='form-control'
+                            <FormGroup label='Status: *' htmlFor='selectStatus'>
+                                <select
+                                    className='form-select'
+                                    id='selectStatus'
                                     name='status'
+                                    value={status}
                                     onChange={(e) => setStatus(e.target.value)}
-                                />
+                                >
+                                    <option key='0' value='Disponível'>
+                                        Disponível
+                                    </option>
+                                    <option key='1' value='Emprestado'>
+                                        Emprestado
+                                    </option>
+                                    <option key='0' value='Em Manutenção'>
+                                        Em Manutenção
+                                    </option>
+                                    <option key='0' value='Perdido'>
+                                        Perdido
+                                    </option>
+                                </select>
                             </FormGroup>
                             <Stack spacing={1} padding={1} direction='row'>
                                 <button
