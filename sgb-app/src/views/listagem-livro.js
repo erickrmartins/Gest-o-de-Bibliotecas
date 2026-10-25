@@ -1,5 +1,8 @@
 import React from 'react';
 import Card from '../components/cards';
+import SubCard from '../components/sub-card.js';
+import BtnNewRow from '../components/btnNewRow.js';
+
 import '../custom.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,8 +10,8 @@ import { mensagemSucesso, mensagemErro } from '../components/toastr';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import EditIcon from '@mui/icons-material/EditOutlined';
 import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
@@ -46,12 +49,21 @@ function ListagemLivro() {
     };
 
     const [dados, setDados] = React.useState(null);
-    const [campos, setCampos] = React.useState(null);
+    const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
+
+    function procurar(filtro) {
+        const resultado = dados.filter((dado) =>
+            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
+        );
+
+        setDadosFiltrados(resultado);
+    }
 
     React.useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 setDados(response.data);
+                setDadosFiltrados(response.data);
             })
             .catch((error) => {
                 mensagemErro('Erro ao se conectar ao servidor!');
@@ -61,67 +73,80 @@ function ListagemLivro() {
     return (
         <div className="container">
             <Card title={`Listagem de Livros`}>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <div className="bs-component">
-                            <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={() => cadastrar()}
-                            >
-                                Cadastrar Livro
-                            </button>
-
-                            <table className="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Titulo</th>
-                                        <th scope="col">ISBN</th>
-                                        <th scope="col">Ano</th>
-                                        <th scope="col">Genero</th>
-                                        <th scope="col">Páginas</th>
-                                        <th scope="col">Editora</th>
-                                        <th scope="col">Autor</th>
-                                        <th scope="col">Sinopse</th>
-                                        <th scope="col">Recomendado</th>
-                                        <th scope="col">AÇÕES</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {dados && dados.map((item) => (
-                                        <tr >
-                                            <td>{item.nome}</td>
-                                            <td>{item.ISBN}</td>
-                                            <td>{item.dtPublicacao}</td>
-                                            <td>{item.idGeneros}</td>
-                                            <td>{item.numPaginas}</td>
-                                            <td>{item.idEditoras}</td>
-                                            <td>{item.idAutores}</td>
-                                            <td>{item.sinopsis}</td>
-                                            <td>{item.recomendado ? <True /> : <False />}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => editar(item.id)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div className='d-flex mb-4'>
+                    <form className='d-flex' role='search'>
+                        <input
+                            className='form-control me-2'
+                            type='search'
+                            placeholder='Busque por um dado'
+                            aria-label='Procurar'
+                            onChange={(e) => procurar(e.target.value)}
+                        />
+                    </form>
+                    <BtnNewRow search={() => procurar()} btnText="Novo Livro" btnAoClicar={() => cadastrar()} />
                 </div>
+                <SubCard className="row">
+
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Ano</th>
+                                <th scope="col">Genero</th>
+                                <th scope="col">Páginas</th>
+                                <th scope="col">Editora</th>
+                                <th scope="col">Autor</th>
+                                <th scope="col">Sinopse</th>
+                                <th scope="col">Recomendado</th>
+                                <th scope="col">AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                dadosFiltrados.map((item) => (
+                                    <tr key={item.id}>
+                                        <td>{item.nome}</td>
+                                        <td>{item.isbn}</td>
+                                        <td>{item.dtPublicacao}</td>
+                                        <td>{item.idGeneros}</td>
+                                        <td>{item.numPaginas}</td>
+                                        <td>{item.idEditoras}</td>
+                                        <td>{item.idAutores}</td>
+                                        <td>{item.sinopsis}</td>
+                                        <td>{item.recomendado ? <True /> : <False />}</td>
+                                        <td>
+                                            <Stack spacing={1} padding={0} direction='row'>
+                                                <IconButton
+                                                    aria-label='edit'
+                                                    onClick={() => editar(item.id)}
+                                                >
+                                                    <EditIcon />
+                                                </IconButton>
+                                                <IconButton
+                                                    aria-label='delete'
+                                                    onClick={() => deletar(item.id)}
+                                                >
+                                                    <DeleteIcon
+                                                        style={
+                                                            { fill: "var(--bs-danger)" }}
+                                                    />
+                                                </IconButton>
+                                            </Stack>
+                                        </td>
+                                    </tr>
+                                )) :
+                                (
+                                    <tr>
+                                        <td>
+                                            Nenhum dado foi encontrado.
+                                        </td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </SubCard>
             </Card>
         </div>
     );
