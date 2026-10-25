@@ -51,7 +51,7 @@ function ListagemAutor() {
     const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
 
     function procurar(filtro) {
-        const resultado = dados.filter((dado) => 
+        const resultado = dados.filter((dado) =>
             dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
         );
 
@@ -71,18 +71,20 @@ function ListagemAutor() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Autores`}>
-                <div className='d-flex mb-4'>
-                    <form className='d-flex' role='search'>
-                        <input
-                            className='form-control me-2'
-                            type='search'
-                            placeholder='Busque por um dado'
-                            aria-label='Procurar'
-                            onChange={(e) => procurar(e.target.value)}
-                        />
-                    </form>
-                    <BtnNewRow search={() => procurar()} btnText="Novo Autor" btnAoClicar={() => cadastrar()} />
+            <Card title={`Listagem de Autores`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
+                <div className='d-flex mb-4 w-100'>
+                    <div className='d-flex w-100'>
+                        <form className='d-flex w-25' role='search'>
+                            <input
+                                className='form-control me-2 curvatura shadow-sm ps-4'
+                                type='search'
+                                placeholder='Busque por um dado'
+                                aria-label='Procurar'
+                                onChange={(e) => procurar(e.target.value)}
+                            />
+                        </form>
+                        <BtnNewRow search={() => procurar()} btnText="Novo Autor" btnAoClicar={() => cadastrar()} />
+                    </div>
                 </div>
                 <SubCard className="row">
                     <div className="col-lg-12">
@@ -98,36 +100,36 @@ function ListagemAutor() {
                             </thead>
                             <tbody>
                                 {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                dadosFiltrados.map((item) => (
-                                    <tr key={item.id}>
-                                        <td>{item.nome}</td>
-                                        <td>{item.citacao}</td>
-                                        <td>{item.nacionalidade}</td>
-                                        <td>
-                                            <Stack spacing={1} padding={0} direction='row'>
-                                                <IconButton
-                                                    aria-label='edit'
-                                                    onClick={() => editar(item.id)}
-                                                >
-                                                    <EditIcon />
-                                                </IconButton>
-                                                <IconButton
-                                                    aria-label='delete'
-                                                    onClick={() => deletar(item.id)}
-                                                >
-                                                    <DeleteIcon />
-                                                </IconButton>
-                                            </Stack>
-                                        </td>
-                                    </tr>
-                                )) :
-                                (
-                                    <tr>
-                                        <td>
-                                            Nenhum dado foi encontrado.
-                                        </td>
-                                    </tr>
-                                )
+                                    dadosFiltrados.map((item) => (
+                                        <tr key={item.id}>
+                                            <td>{item.nome}</td>
+                                            <td>{item.citacao}</td>
+                                            <td>{item.nacionalidade}</td>
+                                            <td>
+                                                <Stack spacing={1} padding={0} direction='row'>
+                                                    <IconButton
+                                                        aria-label='edit'
+                                                        onClick={() => editar(item.id)}
+                                                    >
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                    <IconButton
+                                                        aria-label='delete'
+                                                        onClick={() => deletar(item.id)}
+                                                    >
+                                                        <DeleteIcon />
+                                                    </IconButton>
+                                                </Stack>
+                                            </td>
+                                        </tr>
+                                    )) :
+                                    (
+                                        <tr>
+                                            <td>
+                                                Nenhum dado foi encontrado.
+                                            </td>
+                                        </tr>
+                                    )
                                 }
                             </tbody>
                         </table>

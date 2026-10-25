@@ -1,347 +1,238 @@
 {
   "parametros": [
-    {
-      "id": "1",
-      "prazoEmprestimo": 7,
-      "limiteEmprestimo": 3,
-      "permitirRenovacao": true,
-      "renovacaoComFila": "true",
-      "diasRenovacao": 3,
-      "prazoRetirada": 1,
-      "recomendados": 5
-    }
+    {"id": "1", "prazoEmprestimo": 7, "limiteEmprestimo": 3, "permitirRenovacao": true, "renovacaoComFila": "true", "diasRenovacao": 3, "prazoRetirada": 1, "recomendados": 5}
   ],
   "leitores": [
-    {
-      "id": "1",
-      "dtNasc": "2001-01-01",
-      "nome": "Leitor 1",
-      "cpf": "00000000001",
-      "telefone": "32999999999",
-      "email": "erickrezendemartins@email.com",
-      "senha": "erick123",
-      "foto": "",
-      "livrosLidos": 1,
-      "ativo": true
-    },
-    {
-      "id": "1",
-      "dtNasc": "2001-01-01",
-      "nome": "Leitor 2",
-      "cpf": "00000000001",
-      "telefone": "32999999999",
-      "email": "erickrezendemartins@email.com",
-      "senha": "erick123",
-      "foto": "",
-      "livrosLidos": 1,
-      "ativo": true
-    },
-    {
-      "id": "1",
-      "dtNasc": "2001-01-01",
-      "nome": "Leitor 3",
-      "cpf": "00000000001",
-      "telefone": "32999999999",
-      "email": "erickrezendemartins@email.com",
-      "senha": "erick123",
-      "foto": "",
-      "livrosLidos": 1,
-      "ativo": true
-    }
+    {"id": "1", "dtNasc": "2001-01-01", "nome": "Leitor 1", "cpf": "00000000001", "telefone": "32999999999", "email": "erickrezendemartins@email.com", "senha": "erick123", "foto": "", "livrosLidos": 1, "ativo": true},
+    {"id": "1", "dtNasc": "2001-01-01", "nome": "Leitor 2", "cpf": "00000000001", "telefone": "32999999999", "email": "erickrezendemartins@email.com", "senha": "erick123", "foto": "", "livrosLidos": 1, "ativo": true},
+    {"id": "1", "dtNasc": "2001-01-01", "nome": "Leitor 3", "cpf": "00000000001", "telefone": "32999999999", "email": "erickrezendemartins@email.com", "senha": "erick123", "foto": "", "livrosLidos": 1, "ativo": true}
   ],
   "funcionarios": [
-    {
-      "id": "1",
-      "isAdmin": true,
-      "dtNasc": "2002-02-02",
-      "nome": "Marco Antonio",
-      "cpf": "00000000002",
-      "telefone": "32999999999",
-      "email": "marcoantonio@email.com",
-      "senha": "marco123",
-      "foto": "",
-      "ativo": true
-    },
-    {
-      "id": "2",
-      "isAdmin": false,
-      "dtNasc": "2003-03-03",
-      "nome": "Rhuan Pablo de Carvalho",
-      "cpf": "00000000003",
-      "telefone": "32999999999",
-      "email": "rhuanpablodecarvalho@email.com",
-      "senha": "rhuan123",
-      "foto": "",
-      "ativo": true
-    }
+    {"id": "1", "isAdmin": true, "dtNasc": "2002-02-02", "nome": "Marco Antonio", "cpf": "00000000002", "telefone": "32999999999", "email": "marcoantonio@email.com", "senha": "marco123", "foto": "", "ativo": true},
+    {"id": "2", "isAdmin": false, "dtNasc": "2003-03-03", "nome": "Rhuan Pablo de Carvalho", "cpf": "00000000003", "telefone": "32999999999", "email": "rhuanpablodecarvalho@email.com", "senha": "rhuan123", "foto": "", "ativo": true}
   ],
   "autores": [
-    {
-      "id": "1",
-      "nome": "George Orwell",
-      "citacao": "ORWELL, George",
-      "nacionalidade": "Britânica",
-      "ativo": true
-    },
-    {
-      "id": "2",
-      "nome": "J.R.R. Tolkien",
-      "citacao": "TOLKIEN, J.R.R.",
-      "nacionalidade": "Britânica",
-      "ativo": true
-    },
-    {
-      "id": "3",
-      "nome": "Machado de Assis",
-      "citacao": "ASSIS, Machado de",
-      "nacionalidade": "Brasileira",
-      "ativo": true
-    },
-    {
-      "id": "4",
-      "nome": "Aldous Huxley",
-      "citacao": "HUXLEY, Aldous",
-      "nacionalidade": "Britânica",
-      "ativo": true
-    },
-    {
-      "id": "5",
-      "nome": "Paulo Coelho",
-      "citacao": "COELHO, Paulo",
-      "nacionalidade": "Brasileira",
-      "ativo": true
-    }
+    {"id": "1", "nome": "George Orwell", "citacao": "ORWELL, George", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "2", "nome": "J.R.R. Tolkien", "citacao": "TOLKIEN, J.R.R.", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "3", "nome": "Machado de Assis", "citacao": "ASSIS, Machado de", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "4", "nome": "Aldous Huxley", "citacao": "HUXLEY, Aldous", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "5", "nome": "Paulo Coelho", "citacao": "COELHO, Paulo", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "6", "nome": "Jane Austen", "citacao": "AUSTEN, Jane", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "7", "nome": "Agatha Christie", "citacao": "CHRISTIE, Agatha", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "8", "nome": "Gabriel García Márquez", "citacao": "GARCÍA MÁRQUEZ, Gabriel", "nacionalidade": "Colombiana", "ativo": true},
+    {"id": "9", "nome": "Clarice Lispector", "citacao": "LISPECTOR, Clarice", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "10", "nome": "José Saramago", "citacao": "SARAMAGO, José", "nacionalidade": "Portuguesa", "ativo": true},
+    {"id": "11", "nome": "Haruki Murakami", "citacao": "MURAKAMI, Haruki", "nacionalidade": "Japonesa", "ativo": true},
+    {"id": "12", "nome": "Victor Hugo", "citacao": "HUGO, Victor", "nacionalidade": "Francesa", "ativo": true},
+    {"id": "13", "nome": "Antoine de Saint-Exupéry", "citacao": "SAINT-EXUPÉRY, Antoine de", "nacionalidade": "Francesa", "ativo": true},
+    {"id": "14", "nome": "Fyodor Dostoevsky", "citacao": "DOSTOIEVSKI, Fiódor", "nacionalidade": "Russa", "ativo": true},
+    {"id": "15", "nome": "Leo Tolstoy", "citacao": "TOLSTÓI, Liev", "nacionalidade": "Russa", "ativo": true},
+    {"id": "16", "nome": "Frank Herbert", "citacao": "HERBERT, Frank", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "17", "nome": "Mary Shelley", "citacao": "SHELLEY, Mary", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "18", "nome": "F. Scott Fitzgerald", "citacao": "FITZGERALD, F. Scott", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "19", "nome": "Harper Lee", "citacao": "LEE, Harper", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "20", "nome": "J.K. Rowling", "citacao": "ROWLING, J.K.", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "21", "nome": "J. D. Salinger", "citacao": "SALINGER, J. D.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "22", "nome": "Ray Bradbury", "citacao": "BRADBURY, Ray", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "23", "nome": "Suzanne Collins", "citacao": "COLLINS, Suzanne", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "24", "nome": "C. S. Lewis", "citacao": "LEWIS, C. S.", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "25", "nome": "Emily Brontë", "citacao": "BRONTË, Emily", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "26", "nome": "Charlotte Brontë", "citacao": "BRONTË, Charlotte", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "27", "nome": "Charles Dickens", "citacao": "DICKENS, Charles", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "28", "nome": "Bram Stoker", "citacao": "STOKER, Bram", "nacionalidade": "Irlandesa", "ativo": true},
+    {"id": "29", "nome": "Oscar Wilde", "citacao": "WILDE, Oscar", "nacionalidade": "Irlandesa", "ativo": true},
+    {"id": "30", "nome": "Margaret Atwood", "citacao": "ATWOOD, Margaret", "nacionalidade": "Canadense", "ativo": true},
+    {"id": "31", "nome": "Ernest Hemingway", "citacao": "HEMINGWAY, Ernest", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "32", "nome": "Albert Camus", "citacao": "CAMUS, Albert", "nacionalidade": "Francesa", "ativo": true},
+    {"id": "33", "nome": "Isaac Asimov", "citacao": "ASIMOV, Isaac", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "34", "nome": "Umberto Eco", "citacao": "ECO, Umberto", "nacionalidade": "Italiana", "ativo": true},
+    {"id": "35", "nome": "Miguel de Cervantes", "citacao": "CERVANTES, Miguel de", "nacionalidade": "Espanhola", "ativo": true},
+    {"id": "36", "nome": "Herman Melville", "citacao": "MELVILLE, Herman", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "37", "nome": "Mark Twain", "citacao": "TWAIN, Mark", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "38", "nome": "Alexandre Dumas", "citacao": "DUMAS, Alexandre", "nacionalidade": "Francesa", "ativo": true},
+    {"id": "39", "nome": "Virginia Woolf", "citacao": "WOOLF, Virginia", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "40", "nome": "Stephen King", "citacao": "KING, Stephen", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "41", "nome": "Kurt Vonnegut", "citacao": "VONNEGUT, Kurt", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "42", "nome": "Markus Zusak", "citacao": "ZUSAK, Markus", "nacionalidade": "Australiana", "ativo": true},
+    {"id": "43", "nome": "John Green", "citacao": "GREEN, John", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "44", "nome": "Dan Brown", "citacao": "BROWN, Dan", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "45", "nome": "Patrick Rothfuss", "citacao": "ROTHFUSS, Patrick", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "46", "nome": "George R. R. Martin", "citacao": "MARTIN, George R. R.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "47", "nome": "William Gibson", "citacao": "GIBSON, William", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "48", "nome": "Rick Riordan", "citacao": "RIORDAN, Rick", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "49", "nome": "Chimamanda Ngozi Adichie", "citacao": "ADICHIE, Chimamanda Ngozi", "nacionalidade": "Nigeriana", "ativo": true},
+    {"id": "50", "nome": "Graciliano Ramos", "citacao": "RAMOS, Graciliano", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "51", "nome": "Jorge Amado", "citacao": "AMADO, Jorge", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "52", "nome": "João Guimarães Rosa", "citacao": "ROSA, João Guimarães", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "53", "nome": "Aluísio Azevedo", "citacao": "AZEVEDO, Aluísio", "nacionalidade": "Brasileira", "ativo": true},
+    {"id": "54", "nome": "Terry Pratchett", "citacao": "PRATCHETT, Terry", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "55", "nome": "Neil Gaiman", "citacao": "GAIMAN, Neil", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "56", "nome": "Steven D. Levitt", "citacao": "LEVITT, Steven D.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "57", "nome": "Stephen J. Dubner", "citacao": "DUBNER, Stephen J.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "58", "nome": "William Strunk Jr.", "citacao": "STRUNK JR., William", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "59", "nome": "E. B. White", "citacao": "WHITE, E. B.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "60", "nome": "Alan Moore", "citacao": "MOORE, Alan", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "61", "nome": "Dave Gibbons", "citacao": "GIBBONS, Dave", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "62", "nome": "Richard H. Thaler", "citacao": "THALER, Richard H.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "63", "nome": "Cass R. Sunstein", "citacao": "SUNSTEIN, Cass R.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "64", "nome": "Daron Acemoglu", "citacao": "ACEMOGLU, Daron", "nacionalidade": "Turca", "ativo": true},
+    {"id": "65", "nome": "James A. Robinson", "citacao": "ROBINSON, James A.", "nacionalidade": "Britânica", "ativo": true},
+    {"id": "66", "nome": "Thomas H. Cormen", "citacao": "CORMEN, Thomas H.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "67", "nome": "Charles E. Leiserson", "citacao": "LEISERSON, Charles E.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "68", "nome": "Ronald L. Rivest", "citacao": "RIVEST, Ronald L.", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "69", "nome": "Clifford Stein", "citacao": "STEIN, Clifford", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "70", "nome": "Harold Abelson", "citacao": "ABELSON, Harold", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "71", "nome": "Gerald Jay Sussman", "citacao": "SUSSMAN, Gerald Jay", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "72", "nome": "Karl Marx", "citacao": "MARX, Karl", "nacionalidade": "Alemã", "ativo": true},
+    {"id": "73", "nome": "Friedrich Engels", "citacao": "ENGELS, Friedrich", "nacionalidade": "Alemã", "ativo": true},
+    {"id": "74", "nome": "Andrew Hunt", "citacao": "HUNT, Andrew", "nacionalidade": "Norte-Americana", "ativo": true},
+    {"id": "75", "nome": "David Thomas", "citacao": "THOMAS, David", "nacionalidade": "Britânica", "ativo": true}
   ],
   "generos": [
-    {
-      "id": "1",
-      "nome": "Romance"
-    },
-    {
-      "id": "2",
-      "nome": "Fantasia"
-    },
-    {
-      "id": "3",
-      "nome": "Ficção Científica"
-    },
-    {
-      "id": "4",
-      "nome": "Aventura"
-    }
+    {"id": "1", "nome": "Romance"},
+    {"id": "2", "nome": "Fantasia"},
+    {"id": "3", "nome": "Ficção"},
+    {"id": "4", "nome": "Aventura"},
+    {"id": "5", "nome": "Mistério"},
+    {"id": "6", "nome": "Terror"},
+    {"id": "7", "nome": "Drama"},
+    {"id": "8", "nome": "Distopia"},
+    {"id": "9", "nome": "Clássico"},
+    {"id": "10", "nome": "Ficção"},
+    {"id": "11", "nome": "Infantil"},
+    {"id": "12", "nome": "Magia"},
+    {"id": "13", "nome": "Realismo"},
+    {"id": "14", "nome": "Ficção Científica"},
+    {"id": "15", "nome": "Suspense"},
+    {"id": "16", "nome": "Gótico"},
+    {"id": "17", "nome": "Naturalismo"},
+    {"id": "18", "nome": "Regionalismo"},
+    {"id": "19", "nome": "Sátira"},
+    {"id": "20", "nome": "Cyberpunk"},
+    {"id": "21", "nome": "Existencialismo"},
+    {"id": "22", "nome": "Realismo Mágico"},
+    {"id": "23", "nome": "Economia"},
+    {"id": "24", "nome": "Quadrinhos"},
+    {"id": "25", "nome": "Tecnologia"},
+    {"id": "26", "nome": "Redação"},
+    {"id": "27", "nome": "Política"}
   ],
   "editoras": [
-    {
-      "id": "1",
-      "nome": "Editora Melhoramentos"
-    },
-    {
-      "id": "2",
-      "nome": "HarperCollins",
-      "ativo": true
-    },
-    {
-      "id": "3",
-      "nome": "Pergaminho",
-      "ativo": false
-    }
+    {"id": "1", "nome": "Editora Melhoramentos", "ativo": true},
+    {"id": "2", "nome": "HarperCollins", "ativo": true},
+    {"id": "3", "nome": "Pergaminho", "ativo": false},
+    {"id": "4", "nome": "Companhia das Letras", "ativo": true},
+    {"id": "5", "nome": "Rocco", "ativo": true},
+    {"id": "6", "nome": "Record", "ativo": true},
+    {"id": "7", "nome": "Intrínseca", "ativo": true},
+    {"id": "8", "nome": "Aleph", "ativo": true},
+    {"id": "9", "nome": "Zahar", "ativo": true},
+    {"id": "10", "nome": "Penguin-Companhia", "ativo": true},
+    {"id": "11", "nome": "Biblioteca Azul", "ativo": true},
+    {"id": "12", "nome": "Vintage", "ativo": true},
+    {"id": "13", "nome": "Penguin", "ativo": true},
+    {"id": "14", "nome": "Ace", "ativo": true},
+    {"id": "15", "nome": "Dover Publications", "ativo": true},
+    {"id": "16", "nome": "Scribner", "ativo": true},
+    {"id": "17", "nome": "Little, Brown and Company", "ativo": true},
+    {"id": "18", "nome": "Simon & Schuster", "ativo": true},
+    {"id": "19", "nome": "Scholastic", "ativo": true},
+    {"id": "20", "nome": "Penguin Classics", "ativo": true},
+    {"id": "21", "nome": "Anchor Books", "ativo": true},
+    {"id": "22", "nome": "Bantam Books", "ativo": true},
+    {"id": "23", "nome": "Harcourt", "ativo": true},
+    {"id": "24", "nome": "Ecco", "ativo": true},
+    {"id": "25", "nome": "Farrar, Straus and Giroux", "ativo": true},
+    {"id": "26", "nome": "Dial Press", "ativo": true},
+    {"id": "27", "nome": "Knopf", "ativo": true},
+    {"id": "28", "nome": "Dutton", "ativo": true},
+    {"id": "29", "nome": "Doubleday", "ativo": true},
+    {"id": "30", "nome": "DAW Books", "ativo": true},
+    {"id": "31", "nome": "Hyperion", "ativo": true},
+    {"id": "32", "nome": "William Morrow", "ativo": true},
+    {"id": "33", "nome": "Longman", "ativo": true},
+    {"id": "34", "nome": "DC Comics", "ativo": true},
+    {"id": "35", "nome": "Crown Business", "ativo": true},
+    {"id": "36", "nome": "MIT Press", "ativo": true},
+    {"id": "37", "nome": "Addison-Wesley", "ativo": true}
   ],
   "livros": [
-    {
-      "id": "1",
-      "nome": "1984",
-      "isbn": "9788535914849",
-      "dtPublicacao": "1949",
-      "numPaginas": 312,
-      "sinopsis": "Em um regime totalitário governado pelo Grande Irmão, o cidadão Winston Smith trabalha alterando dados históricos para o Partido. À medida que questiona o sistema, ele inicia um romance proibido e tenta resistir à vigilância absoluta da Polícia do Pensamento.",
-      "idAutores": "George Orwell",
-      "idGeneros": "Ficção Científica",
-      "idEditoras": "HarperCollins",
-      "ativo": true,
-      "recomendado": true
-    },
-    {
-      "id": "2",
-      "nome": "O Hobbit",
-      "isbn": "9788578274085",
-      "dtPublicacao": "1937",
-      "numPaginas": 310,
-      "sinopsis": "O pacato hobbit Bilbo Bolseiro é retirado de sua vida confortável pelo mago Gandalf e um grupo de anões. Juntos, eles embarcam em uma perigosa jornada até a Montanha Solitária para recuperar um tesouro protegido pelo temível dragão Smaug.",
-      "idAutores": "J.R.R. Tolkien",
-      "idGeneros": "Fantasia",
-      "idEditoras": "HarperCollins",
-      "ativo": true,
-      "recomendado": false
-    },
-    {
-      "id": "3",
-      "nome": "Dom Casmurro",
-      "isbn": "9788506069783",
-      "dtPublicacao": "1899",
-      "numPaginas": 413,
-      "sinopsis": "Bento Santiago, já idoso, relembra sua juventude e seu intenso amor por Capitu. Consumido pelo ciúme e pela desconfiança de ter sido traído por ela com seu melhor amigo, Escobar, o narrador constrói sua versão dos fatos sobre a polêmica cumplicidade dos olhos de ressaca.",
-      "idAutores": "Machado de Assis",
-      "idGeneros": "Romance",
-      "idEditoras": "Editora Melhoramentos",
-      "ativo": true,
-      "recomendado": true
-    },
-    {
-      "id": "4",
-      "nome": "O Senhor dos Anéis",
-      "isbn": "9786555114355",
-      "dtPublicacao": "1954",
-      "numPaginas": 423,
-      "sinopsis": "Em uma Terra-média ameaçada pelas forças das trevas, o jovem hobbit Frodo Baggins recebe a missão de destruir o Um Anel no Monte da Perdição. Para isso, ele conta com a ajuda de uma comitiva formada por homens, anões, elfos, hobbits e o mago Gandalf.",
-      "idAutores": "J.R.R. Tolkien",
-      "idGeneros": "Fantasia",
-      "idEditoras": "HarperCollins",
-      "ativo": true,
-      "recomendado": false
-    }
+    {"id": "1", "nome": "1984", "isbn": "9788535914849", "dtPublicacao": "1949", "numPaginas": 312, "sinopsis": "Em um regime totalitário governado pelo Grande Irmão, Winston Smith trabalha no Ministério da Verdade, onde altera registros históricos. Ao questionar o sistema e iniciar um relacionamento proibido, ele passa a desafiar o controle absoluto do Partido.", "idAutores": ["George Orwell"], "idGeneros": "Distopia", "idEditoras": "Companhia das Letras", "ativo": true, "recomendado": true},
+    {"id": "2", "nome": "O Hobbit", "isbn": "9788578274085", "dtPublicacao": "1937", "numPaginas": 310, "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.", "idAutores": ["J.R.R. Tolkien"], "idGeneros": "Fantasia", "idEditoras": "HarperCollins", "ativo": true, "recomendado": true},
+    {"id": "3", "nome": "Dom Casmurro", "isbn": "9788506069783", "dtPublicacao": "1899", "numPaginas": 413, "sinopsis": "Bento Santiago relembra sua juventude, seu relacionamento com Capitu e a crescente suspeita de que ela o teria traído com seu melhor amigo, Escobar.", "idAutores": ["Machado de Assis"], "idGeneros": "Romance", "idEditoras": "Editora Melhoramentos", "ativo": true, "recomendado": true},
+    {"id": "4", "nome": "O Senhor dos Anéis", "isbn": "9786555114355", "dtPublicacao": "1954", "numPaginas": 423, "sinopsis": "Frodo Bolseiro recebe a missão de levar o Um Anel até Mordor e destruí-lo antes que Sauron consiga recuperar seu poder.", "idAutores": ["J.R.R. Tolkien"], "idGeneros": "Fantasia", "idEditoras": "HarperCollins", "ativo": true, "recomendado": true},
+    {"id": "5", "nome": "Admirável Mundo Novo", "isbn": "9788535909838", "dtPublicacao": "1932", "numPaginas": 312, "sinopsis": "Em uma sociedade futurista organizada por castas e condicionamento psicológico, os indivíduos vivem sob controle estatal e são mantidos em constante estado de satisfação.", "idAutores": ["Aldous Huxley"], "idGeneros": "Ficção", "idEditoras": "Biblioteca Azul", "ativo": true, "recomendado": true},
+    {"id": "6", "nome": "O Alquimista", "isbn": "9788576650284", "dtPublicacao": "1988", "numPaginas": 208, "sinopsis": "O jovem pastor Santiago parte em uma jornada pelo deserto em busca de um tesouro. Durante a viagem, encontra pessoas que o ajudam a compreender seus sonhos e sua própria trajetória.", "idAutores": ["Paulo Coelho"], "idGeneros": "Aventura", "idEditoras": "Rocco", "ativo": true, "recomendado": false},
+    {"id": "7", "nome": "Orgulho e Preconceito", "isbn": "9780141439518", "dtPublicacao": "1813", "numPaginas": 480, "sinopsis": "Elizabeth Bennet enfrenta as expectativas sociais de sua época enquanto desenvolve uma relação complexa com o reservado e orgulhoso Sr. Darcy.", "idAutores": ["Jane Austen"], "idGeneros": "Romance", "idEditoras": "Penguin-Companhia", "ativo": true, "recomendado": true},
+    {"id": "8", "nome": "Assassinato no Expresso do Oriente", "isbn": "9780062074001", "dtPublicacao": "1934", "numPaginas": 274, "sinopsis": "Durante uma viagem no Expresso do Oriente, Hercule Poirot precisa descobrir quem matou um passageiro enquanto o trem está parado por causa da neve.", "idAutores": ["Agatha Christie"], "idGeneros": "Mistério", "idEditoras": "HarperCollins", "ativo": true, "recomendado": true},
+    {"id": "9", "nome": "Cem Anos de Solidão", "isbn": "9788501012078", "dtPublicacao": "1967", "numPaginas": 448, "sinopsis": "A história acompanha várias gerações da família Buendía na fictícia cidade de Macondo, misturando acontecimentos históricos, familiares e elementos fantásticos.", "idAutores": ["Gabriel García Márquez"], "idGeneros": "Realismo", "idEditoras": "Record", "ativo": true, "recomendado": true},
+    {"id": "10", "nome": "A Hora da Estrela", "isbn": "9788520926601", "dtPublicacao": "1977", "numPaginas": 88, "sinopsis": "Macabéa, uma jovem nordestina vivendo no Rio de Janeiro, leva uma existência marcada pela pobreza, pela solidão e pela invisibilidade social.", "idAutores": ["Clarice Lispector"], "idGeneros": "Drama", "idEditoras": "Rocco", "ativo": true, "recomendado": false},
+    {"id": "11", "nome": "Ensaio sobre a Cegueira", "isbn": "9788573029983", "dtPublicacao": "1995", "numPaginas": 312, "sinopsis": "Uma epidemia de cegueira branca atinge uma cidade e provoca o colapso das estruturas sociais. Um pequeno grupo tenta sobreviver enquanto enfrenta a perda da ordem e da humanidade.", "idAutores": ["José Saramago"], "idGeneros": "Drama", "idEditoras": "Companhia das Letras", "ativo": true, "recomendado": true},
+    {"id": "12", "nome": "Norwegian Wood", "isbn": "9780375704024", "dtPublicacao": "1987", "numPaginas": 298, "sinopsis": "Toru Watanabe relembra sua juventude em Tóquio e os relacionamentos que marcaram sua vida durante um período de mudanças pessoais e sociais.", "idAutores": ["Haruki Murakami"], "idGeneros": "Romance", "idEditoras": "Vintage", "ativo": true, "recomendado": false},
+    {"id": "13", "nome": "Os Miseráveis", "isbn": "9780451419439", "dtPublicacao": "1862", "numPaginas": 1463, "sinopsis": "Jean Valjean busca reconstruir sua vida depois de anos de prisão, enquanto é perseguido pelo inspetor Javert em uma França marcada por profundas desigualdades sociais.", "idAutores": ["Victor Hugo"], "idGeneros": "Drama", "idEditoras": "Penguin", "ativo": true, "recomendado": true},
+    {"id": "14", "nome": "O Pequeno Príncipe", "isbn": "9780156012195", "dtPublicacao": "1943", "numPaginas": 96, "sinopsis": "Um piloto encontra no deserto um pequeno príncipe vindo de outro asteroide. Através das histórias de suas viagens, o personagem reflete sobre amizade, amor, responsabilidade e relações humanas.", "idAutores": ["Antoine de Saint-Exupéry"], "idGeneros": "Infantil", "idEditoras": "HarperCollins", "ativo": true, "recomendado": true},
+    {"id": "15", "nome": "Crime e Castigo", "isbn": "9780140449136", "dtPublicacao": "1866", "numPaginas": 671, "sinopsis": "Raskólnikov, um jovem estudante em dificuldades financeiras, comete um assassinato e passa a enfrentar as consequências psicológicas e morais de seu ato.", "idAutores": ["Fyodor Dostoevsky"], "idGeneros": "Drama", "idEditoras": "Penguin", "ativo": true, "recomendado": true},
+    {"id": "16", "nome": "Anna Kariênina", "isbn": "9780143035008", "dtPublicacao": "1878", "numPaginas": 864, "sinopsis": "Anna Kariênina vive um conflito entre as convenções da sociedade russa e sua paixão pelo conde Vronsky, enquanto outras histórias de amor e família se desenvolvem ao seu redor.", "idAutores": ["Leo Tolstoy"], "idGeneros": "Romance", "idEditoras": "Penguin", "ativo": true, "recomendado": false},
+    {"id": "17", "nome": "Duna", "isbn": "9780441172719", "dtPublicacao": "1965", "numPaginas": 896, "sinopsis": "Paul Atreides e sua família são enviados para o planeta desértico Arrakis, fonte da especiaria mais valiosa do universo. A mudança coloca Paul no centro de uma disputa política e econômica.", "idAutores": ["Frank Herbert"], "idGeneros": "Ficção", "idEditoras": "Ace", "ativo": true, "recomendado": true},
+    {"id": "18", "nome": "Frankenstein", "isbn": "9780486282114", "dtPublicacao": "1818", "numPaginas": 280, "sinopsis": "Victor Frankenstein cria uma criatura a partir de partes humanas e, horrorizado com o resultado, abandona sua criação. O abandono desencadeia uma série de acontecimentos trágicos.", "idAutores": ["Mary Shelley"], "idGeneros": "Terror", "idEditoras": "Dover Publications", "ativo": true, "recomendado": true},
+    {"id": "19", "nome": "O Grande Gatsby", "isbn": "9780743273565", "dtPublicacao": "1925", "numPaginas": 180, "sinopsis": "Narrado por Nick Carraway, o romance acompanha o misterioso milionário Jay Gatsby e sua obsessão por Daisy Buchanan durante a década de 1920.", "idAutores": ["F. Scott Fitzgerald"], "idGeneros": "Drama", "idEditoras": "Scribner", "ativo": true, "recomendado": false},
+    {"id": "20", "nome": "O Sol é para Todos", "isbn": "9780061120084", "dtPublicacao": "1960", "numPaginas": 323, "sinopsis": "Scout Finch narra sua infância em uma pequena cidade do Alabama enquanto seu pai, o advogado Atticus Finch, defende um homem negro acusado injustamente de um crime.", "idAutores": ["Harper Lee"], "idGeneros": "Clássico", "idEditoras": "HarperCollins", "ativo": true, "recomendado": true},
+    {"id": "21", "nome": "Harry Potter e a Pedra Filosofal", "isbn": "9788532511010", "dtPublicacao": "1997", "numPaginas": 263, "sinopsis": "Harry Potter vive com os tios, que o maltratam, até receber, em seu aniversário de onze anos, a notícia de que é um bruxo. Ele é levado à Escola de Magia e Bruxaria de Hogwarts, onde descobre a verdade sobre a morte de seus pais e enfrenta o bruxo Voldemort.", "idAutores": ["J.K. Rowling"], "idGeneros": "Fantasia", "idEditoras": "Rocco", "ativo": true, "recomendado": true},
+    {"id": "22", "nome": "A Revolução dos Bichos", "isbn": "9788535909555", "dtPublicacao": "1945", "numPaginas": 152, "sinopsis": "Os animais de uma fazenda expulsam o dono humano e tentam criar uma sociedade igualitária. Com o tempo, os porcos assumem o comando e instauram uma tirania ainda mais opressiva, numa fábula política inspirada na União Soviética.", "idAutores": ["George Orwell"], "idGeneros": "Sátira", "idEditoras": "Companhia das Letras", "ativo": true, "recomendado": true},
+    {"id": "23", "nome": "Fahrenheit 451", "isbn": "9781451673319", "dtPublicacao": "1953", "numPaginas": 249, "sinopsis": "Em uma sociedade futura que proíbe os livros, o bombeiro Guy Montag tem a função de queimá-los. Ao conhecer uma jovem vizinha e questionar sua rotina, ele começa a duvidar do sistema que serve.", "idAutores": ["Ray Bradbury"], "idGeneros": "Distopia", "idEditoras": "Simon & Schuster", "ativo": true, "recomendado": true},
+    {"id": "24", "nome": "Jogos Vorazes", "isbn": "9780439023528", "dtPublicacao": "2008", "numPaginas": 374, "sinopsis": "Na nação de Panem, jovens de doze distritos são sorteados a cada ano para lutar até a morte em um evento televisionado. Katniss Everdeen se oferece no lugar da irmã e precisa sobreviver à arena.", "idAutores": ["Suzanne Collins"], "idGeneros": "Distopia", "idEditoras": "Scholastic", "ativo": true, "recomendado": true},
+    {"id": "25", "nome": "O Leão, a Feiticeira e o Guarda-Roupa", "isbn": "9780064471046", "dtPublicacao": "1950", "numPaginas": 208, "sinopsis": "Quatro irmãos descobrem, no fundo de um guarda-roupa, o caminho para o reino mágico de Nárnia, dominado pela Feiticeira Branca. Ao lado do leão Aslam, eles lutam para libertar a terra do inverno eterno.", "idAutores": ["C. S. Lewis"], "idGeneros": "Fantasia", "idEditoras": "HarperCollins", "ativo": true, "recomendado": true},
+    {"id": "26", "nome": "O Conto da Aia", "isbn": "9780385490818", "dtPublicacao": "1985", "numPaginas": 311, "sinopsis": "Na república teocrática de Gilead, Offred é uma das aias, mulheres obrigadas a gerar filhos para a elite governante. Ela relata seu cotidiano de opressão e a memória da vida que tinha antes.", "idAutores": ["Margaret Atwood"], "idGeneros": "Distopia", "idEditoras": "Anchor Books", "ativo": true, "recomendado": true},
+    {"id": "27", "nome": "O Nome da Rosa", "isbn": "9780156001311", "dtPublicacao": "1980", "numPaginas": 502, "sinopsis": "No século XIV, o frade franciscano Guilherme de Baskerville e seu discípulo Adso investigam uma série de mortes misteriosas em uma abadia beneditina italiana, ligadas a uma biblioteca labiríntica e a um livro proibido.", "idAutores": ["Umberto Eco"], "idGeneros": "Mistério", "idEditoras": "Harcourt", "ativo": true, "recomendado": true},
+    {"id": "28", "nome": "Vidas Secas", "isbn": "9788501114785", "dtPublicacao": "1938", "numPaginas": 176, "sinopsis": "Uma família de retirantes, composta por Fabiano, sinhá Vitória, os dois filhos e a cachorra Baleia, migra pelo sertão nordestino fugindo da seca e enfrentando a miséria e a opressão.", "idAutores": ["Graciliano Ramos"], "idGeneros": "Regionalismo", "idEditoras": "Record", "ativo": true, "recomendado": true},
+    {"id": "29", "nome": "Capitães da Areia", "isbn": "9788535911695", "dtPublicacao": "1937", "numPaginas": 296, "sinopsis": "Um grupo de meninos abandonados vive em um trapiche no cais de Salvador, sobrevivendo de pequenos roubos sob a liderança de Pedro Bala, e se depara com a violência, a pobreza e o desejo de liberdade.", "idAutores": ["Jorge Amado"], "idGeneros": "Romance", "idEditoras": "Companhia das Letras", "ativo": true, "recomendado": true},
+    {"id": "30", "nome": "Memórias Póstumas de Brás Cubas", "isbn": "9788582850015", "dtPublicacao": "1881", "numPaginas": 368, "sinopsis": "Brás Cubas, já morto, conta sua vida em memórias irônicas e fragmentadas, revelando as futilidades, os amores frustrados e as contradições da sociedade brasileira do século XIX.", "idAutores": ["Machado de Assis"], "idGeneros": "Realismo", "idEditoras": "Penguin-Companhia", "ativo": true, "recomendado": true},
+    {"id": "31", "nome": "Belas Maldições", "isbn": "9780060853983", "dtPublicacao": "1990", "numPaginas": 400, "sinopsis": "O anjo Aziraphale e o demônio Crowley, que se acostumaram à vida na Terra, tentam impedir o Apocalipse depois que o filho do Diabo é trocado ao nascer e cresce como um menino comum na Inglaterra.", "idAutores": ["Terry Pratchett", "Neil Gaiman"], "idGeneros": "Fantasia", "idEditoras": "William Morrow", "ativo": true, "recomendado": true},
+    {"id": "32", "nome": "Freakonomics", "isbn": "9780060731335", "dtPublicacao": "2005", "numPaginas": 320, "sinopsis": "Os autores aplicam ferramentas da economia a temas inesperados, como o comportamento de professores, vendedores de drogas e pais, para mostrar como incentivos moldam as decisões das pessoas.", "idAutores": ["Steven D. Levitt", "Stephen J. Dubner"], "idGeneros": "Economia", "idEditoras": "William Morrow", "ativo": true, "recomendado": true},
+    {"id": "33", "nome": "Os Elementos do Estilo", "isbn": "9780205309023", "dtPublicacao": "1959", "numPaginas": 105, "sinopsis": "Guia clássico de redação em inglês, que reúne regras de uso, princípios de composição e recomendações de estilo para escrever com clareza e concisão.", "idAutores": ["William Strunk Jr.", "E. B. White"], "idGeneros": "Redação", "idEditoras": "Longman", "ativo": true, "recomendado": false},
+    {"id": "34", "nome": "Watchmen", "isbn": "9781401245252", "dtPublicacao": "1987", "numPaginas": 448, "sinopsis": "Em uma realidade alternativa em que super-heróis existem e mudaram a história, o assassinato de um ex-herói leva um grupo aposentado a investigar uma conspiração em meio à tensão da Guerra Fria.", "idAutores": ["Alan Moore", "Dave Gibbons"], "idGeneros": "Quadrinhos", "idEditoras": "DC Comics", "ativo": true, "recomendado": true},
+    {"id": "35", "nome": "Nudge", "isbn": "9780143115069", "dtPublicacao": "2008", "numPaginas": 312, "sinopsis": "Os autores explicam como pequenas mudanças na forma de apresentar as escolhas, chamadas de nudges, podem orientar as pessoas a decisões melhores sobre saúde, dinheiro e bem-estar sem restringir sua liberdade.", "idAutores": ["Richard H. Thaler", "Cass R. Sunstein"], "idGeneros": "Economia", "idEditoras": "Penguin", "ativo": true, "recomendado": false},
+    {"id": "36", "nome": "Por Que as Nações Fracassam", "isbn": "9780307719225", "dtPublicacao": "2012", "numPaginas": 529, "sinopsis": "Os autores defendem que a prosperidade ou a pobreza dos países depende da qualidade de suas instituições políticas e econômicas, e comparam casos de diferentes épocas e regiões do mundo.", "idAutores": ["Daron Acemoglu", "James A. Robinson"], "idGeneros": "Economia", "idEditoras": "Crown Business", "ativo": true, "recomendado": true},
+    {"id": "37", "nome": "Algoritmos: Teoria e Prática", "isbn": "9780262033848", "dtPublicacao": "2009", "numPaginas": 1312, "sinopsis": "Manual abrangente sobre projeto e análise de algoritmos, que cobre ordenação, grafos, programação dinâmica e estruturas de dados. Conhecido como CLRS, é usado em cursos de computação em todo o mundo.", "idAutores": ["Thomas H. Cormen", "Charles E. Leiserson", "Ronald L. Rivest", "Clifford Stein"], "idGeneros": "Tecnologia", "idEditoras": "MIT Press", "ativo": true, "recomendado": true},
+    {"id": "38", "nome": "Estrutura e Interpretação de Programas de Computador", "isbn": "9780262510875", "dtPublicacao": "1996", "numPaginas": 657, "sinopsis": "Livro-texto clássico de ciência da computação que usa a linguagem Scheme para ensinar abstração, recursão, modularidade e a construção de interpretadores.", "idAutores": ["Harold Abelson", "Gerald Jay Sussman"], "idGeneros": "Tecnologia", "idEditoras": "MIT Press", "ativo": true, "recomendado": false},
+    {"id": "39", "nome": "O Manifesto Comunista", "isbn": "9780140447576", "dtPublicacao": "1848", "numPaginas": 288, "sinopsis": "Publicado em 1848, o texto apresenta a visão de Marx e Engels sobre a história como luta de classes e defende a organização do proletariado contra a burguesia.", "idAutores": ["Karl Marx", "Friedrich Engels"], "idGeneros": "Política", "idEditoras": "Penguin Classics", "ativo": true, "recomendado": false},
+    {"id": "40", "nome": "O Programador Pragmático", "isbn": "9780135957059", "dtPublicacao": "2019", "numPaginas": 352, "sinopsis": "Reúne conselhos práticos sobre desenvolvimento de software, como escrever código flexível, automatizar tarefas, depurar com método e se comportar como profissional.", "idAutores": ["Andrew Hunt", "David Thomas"], "idGeneros": "Tecnologia", "idEditoras": "Addison-Wesley", "ativo": true, "recomendado": true}
   ],
   "reservas": [
-    {
-      "id": "1",
-      "dtReserva": "2026-09-25",
-      "primeiro": true,
-      "idLivros": "1984",
-      "idPerfis": "Erick"
-    },
-    {
-      "id": "2",
-      "dtReserva": "2026-09-26",
-      "primeiro": false,
-      "idLivros": "1984",
-      "idPerfis": "Marco"
-    },
-    {
-      "id": "3",
-      "dtReserva": "2026-09-20",
-      "primeiro": true,
-      "idLivros": "O Hobbit",
-      "idPerfis": "Erick"
-    },
-    {
-      "id": "4",
-      "dtReserva": "2026-09-21",
-      "primeiro": false,
-      "idLivros": "O Hobbit",
-      "idPerfis": "Erick"
-    }
+    {"id": "1", "dtReserva": "2026-09-25", "primeiro": true, "idLivros": "1984", "idPerfis": "Erick"},
+    {"id": "2", "dtReserva": "2026-09-26", "primeiro": false, "idLivros": "1984", "idPerfis": "Marco"},
+    {"id": "3", "dtReserva": "2026-09-20", "primeiro": true, "idLivros": "O Hobbit", "idPerfis": "Erick"},
+    {"id": "4", "dtReserva": "2026-09-21", "primeiro": false, "idLivros": "O Hobbit", "idPerfis": "Erick"},
+    {"id": "5", "dtReserva": "2026-10-01", "primeiro": true, "idLivros": "Dom Casmurro", "idPerfis": "Ana"},
+    {"id": "6", "dtReserva": "2026-10-03", "primeiro": true, "idLivros": "Cem Anos de Solidão", "idPerfis": "Lucas"},
+    {"id": "7", "dtReserva": "2026-10-05", "primeiro": false, "idLivros": "Cem Anos de Solidão", "idPerfis": "Marina"},
+    {"id": "8", "dtReserva": "2026-10-07", "primeiro": true, "idLivros": "Duna", "idPerfis": "João"},
+    {"id": "9", "dtReserva": "2026-10-08", "primeiro": false, "idLivros": "Duna", "idPerfis": "Carla"},
+    {"id": "10", "dtReserva": "2026-10-10", "primeiro": true, "idLivros": "O Pequeno Príncipe", "idPerfis": "Marina"},
+    {"id": "11", "dtReserva": "2026-10-12", "primeiro": true, "idLivros": "Assassinato no Expresso do Oriente", "idPerfis": "Lucas"},
+    {"id": "12", "dtReserva": "2026-10-13", "primeiro": false, "idLivros": "Assassinato no Expresso do Oriente", "idPerfis": "Ana"},
+    {"id": "13", "dtReserva": "2026-10-15", "primeiro": true, "idLivros": "Frankenstein", "idPerfis": "João"},
+    {"id": "14", "dtReserva": "2026-10-17", "primeiro": true, "idLivros": "Orgulho e Preconceito", "idPerfis": "Carla"},
+    {"id": "15", "dtReserva": "2026-10-18", "primeiro": false, "idLivros": "Orgulho e Preconceito", "idPerfis": "Marina"},
+    {"id": "16", "dtReserva": "2026-10-20", "primeiro": true, "idLivros": "Ensaio sobre a Cegueira", "idPerfis": "Erick"}
   ],
   "exemplares": [
-    {
-      "id": "1",
-      "idLivros": "1984",
-      "identificacao": "1984-COP-01",
-      "status": "Em Manutenção"
-    },
-    {
-      "id": "2",
-      "idLivros": "1984",
-      "identificacao": "1984-COP-02",
-      "status": "Disponível",
-      "ativo": true
-    },
-    {
-      "id": "3",
-      "idLivros": "1984",
-      "identificacao": "1984-COP-03",
-      "status": "Disponível",
-      "ativo": true
-    },
-    {
-      "id": "4",
-      "idLivros": "O Hobbit",
-      "identificacao": "HOB-COP-01",
-      "status": "Emprestado",
-      "ativo": false
-    },
-    {
-      "id": "5",
-      "idLivros": "O Hobbit",
-      "identificacao": "HOB-COP-02",
-      "status": "Em Manutenção",
-      "ativo": true
-    },
-    {
-      "id": "6",
-      "idLivros": "1984",
-      "identificacao": "DCA-COP-01",
-      "status": "Emprestado",
-      "ativo": true
-    },
-    {
-      "id": "7",
-      "idLivros": "O Senhor dos Anéis",
-      "identificacao": "SDA-COP-01",
-      "status": "Disponível",
-      "ativo": true
-    },
-    {
-      "id": "8",
-      "idLivros": "O Senhor dos Anéis",
-      "identificacao": "SDA-COP-02",
-      "status": "Em Manutenção",
-      "ativo": false
-    },
-    {
-      "id": "9",
-      "idLivros": "O Senhor dos Anéis",
-      "identificacao": "SDA-COP-03",
-      "status": "Disponível",
-      "ativo": true
-    },
-    {
-      "id": "10",
-      "idLivros": "O Senhor dos Anéis",
-      "identificacao": "SDA-COP-01",
-      "status": "Perdido",
-      "ativo": false
-    }
+    {"id": "1", "idLivros": "1984", "identificacao": "1984-COP-01", "status": "Em Manutenção"},
+    {"id": "2", "idLivros": "1984", "identificacao": "1984-COP-02", "status": "Disponível", "ativo": true},
+    {"id": "3", "idLivros": "1984", "identificacao": "1984-COP-03", "status": "Disponível", "ativo": true},
+    {"id": "4", "idLivros": "O Hobbit", "identificacao": "HOB-COP-01", "status": "Emprestado", "ativo": false},
+    {"id": "5", "idLivros": "O Hobbit", "identificacao": "HOB-COP-02", "status": "Em Manutenção", "ativo": true},
+    {"id": "6", "idLivros": "1984", "identificacao": "DCA-COP-01", "status": "Emprestado", "ativo": true},
+    {"id": "7", "idLivros": "O Senhor dos Anéis", "identificacao": "SDA-COP-01", "status": "Disponível", "ativo": true},
+    {"id": "8", "idLivros": "O Senhor dos Anéis", "identificacao": "SDA-COP-02", "status": "Em Manutenção", "ativo": false},
+    {"id": "9", "idLivros": "O Senhor dos Anéis", "identificacao": "SDA-COP-03", "status": "Disponível", "ativo": true},
+    {"id": "10", "idLivros": "O Senhor dos Anéis", "identificacao": "SDA-COP-01", "status": "Perdido", "ativo": false}
   ],
   "emprestimos": [
-    {
-      "id": "1",
-      "idExemplares": "1984-COP-01",
-      "idPerfis": "Erick",
-      "dtEmprestimo": "2026-09-01",
-      "dtEta": "2026-09-08",
-      "dtDevolucao": "2026-09-08",
-      "renovado": false,
-      "status": "Devolvido"
-    },
-    {
-      "id": "2",
-      "idExemplares": "1984-COP-01",
-      "idPerfis": "Erick",
-      "dtEmprestimo": "2026-09-12",
-      "dtEta": "2026-09-19",
-      "dtDevolucao": null,
-      "renovado": false,
-      "status": "Atrasado"
-    },
-    {
-      "id": "3",
-      "idExemplares": "1984-COP-02",
-      "idPerfis": "Erick",
-      "dtEmprestimo": "2026-09-19",
-      "dtEta": "2026-09-29",
-      "dtDevolucao": "2026-09-29",
-      "renovado": true,
-      "status": "Devolvido"
-    },
-    {
-      "id": "4",
-      "idExemplares": "1984-COP-03",
-      "idPerfis": "Erick",
-      "dtEmprestimo": "2026-09-22",
-      "dtEta": "2026-09-29",
-      "dtDevolucao": null,
-      "renovado": false,
-      "status": "Ativo"
-    }
+    {"id": "1", "idExemplares": "1984-COP-01", "idPerfis": "Erick", "dtEmprestimo": "2026-09-01", "dtEta": "2026-09-08", "dtDevolucao": "2026-09-08", "renovado": false, "status": "Devolvido"},
+    {"id": "2", "idExemplares": "1984-COP-01", "idPerfis": "Erick", "dtEmprestimo": "2026-09-12", "dtEta": "2026-09-19", "dtDevolucao": null, "renovado": false, "status": "Atrasado"},
+    {"id": "3", "idExemplares": "1984-COP-02", "idPerfis": "Erick", "dtEmprestimo": "2026-09-19", "dtEta": "2026-09-29", "dtDevolucao": "2026-09-29", "renovado": true, "status": "Devolvido"},
+    {"id": "4", "idExemplares": "1984-COP-03", "idPerfis": "Erick", "dtEmprestimo": "2026-09-22", "dtEta": "2026-09-29", "dtDevolucao": null, "renovado": false, "status": "Ativo"}
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
