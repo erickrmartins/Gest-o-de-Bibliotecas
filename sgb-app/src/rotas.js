@@ -23,33 +23,40 @@ import CadastroBibliotecario from './views/cadastro-bibliotecario';
 import CadastroAdministrador from './views/cadastro-administrador';
 import CadastroParametro from './views/cadastro-parametro';
 
+import NotFound from './views/notfound';
+import Gerenciar from './views/gerenciar';
+import Registrar from './views/registrar';
+
 function Rotas(props) {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/listagem-autores" element={<ListagemAutor />} />
-                <Route path="/listagem-livros" element={<ListagemLivro />} />
-                <Route path="/listagem-editoras" element={<ListagemEditora />} />
-                <Route path="/listagem-exemplares" element={<ListagemExemplar />} />
-                <Route path="/listagem-reservas" element={<ListagemReserva />} />
-                <Route path="/listagem-emprestimos" element={<ListagemEmprestimo />} />
-                <Route path="/listagem-leitores" element={<ListagemLeitor />} />
-                <Route path="/listagem-funcionarios" element={<ListagemFuncionario />} />
-                <Route path="/listagem-parametros" element={<ListagemParametro />} />
+        <Routes>
+            <Route path='/' element={<Gerenciar />} />
+            <Route path='/gerenciar' element={<Gerenciar />} />
+            <Route path='/registrar' element={<Registrar />} />
 
-                <Route path="/cadastro-autores/:idParam?" element={<CadastroAutor />} />
-                <Route path="/cadastro-livros/:idParam?" element={<CadastroLivro />} />
-                <Route path="/cadastro-editoras/:idParam?" element={<CadastroEditora />} />
-                <Route path="/cadastro-exemplares/:idParam?" element={<CadastroExemplar />} />
-                <Route path="/cadastro-reservas/:idParam?" element={<CadastroReserva />} />
-                <Route path="/cadastro-emprestimos/:idParam?" element={<CadastroEmprestimo />} />
-                <Route path="/cadastro-leitores/:idParam?" element={<CadastroLeitor />} />
-                <Route path='/cadastro-funcionarios/:idParam?' element={<CadastroFuncionario />} />
-                <Route path="/cadastro-bibliotecarios/:idParam?" element={<CadastroBibliotecario />} />
-                <Route path="/cadastro-administradores/:idParam?" element={<CadastroAdministrador />} />
-                <Route path="/cadastro-parametros/:idParam?" element={<CadastroParametro />} />
-            </Routes>
-        </BrowserRouter>
+            <Route path="/listagem-autores" element={<ListagemAutor />} />
+            <Route path="/listagem-livros" element={<ListagemLivro />} />
+            <Route path="/listagem-editoras" element={<ListagemEditora />} />
+            <Route path="/listagem-exemplares" element={<ListagemExemplar />} />
+            <Route path="/listagem-reservas" element={<ListagemReserva />} />
+            <Route path="/listagem-emprestimos" element={<ListagemEmprestimo />} />
+            <Route path="/listagem-leitores" element={<ListagemLeitor />} />
+            <Route path="/listagem-funcionarios" element={<ListagemFuncionario />} />
+            <Route path="/listagem-parametros" element={<ListagemParametro />} />
+
+            <Route path="/cadastro-autores/:idParam?" element={<CadastroAutor />} />
+            <Route path="/cadastro-livros/:idParam?" element={<CadastroLivro />} />
+            <Route path="/cadastro-editoras/:idParam?" element={<CadastroEditora />} />
+            <Route path="/cadastro-exemplares/:idParam?" element={<CadastroExemplar />} />
+            <Route path="/cadastro-reservas/:idParam?" element={<CadastroReserva />} />
+            <Route path="/cadastro-emprestimos/:idParam?" element={<CadastroEmprestimo />} />
+            <Route path="/cadastro-leitores/:idParam?" element={<CadastroLeitor />} />
+            <Route path='/cadastro-funcionarios/:idParam?' element={<CadastroFuncionario />} />
+            <Route path="/cadastro-bibliotecarios/:idParam?" element={<CadastroBibliotecario />} />
+            <Route path="/cadastro-administradores/:idParam?" element={<CadastroAdministrador />} />
+            <Route path="/cadastro-parametros/:idParam" element={<CadastroParametro />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
     )
 }
 

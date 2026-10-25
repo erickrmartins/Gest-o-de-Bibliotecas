@@ -136,7 +136,6 @@ function CadastroLivro() {
                                     onChange={(e) => setNome(e.target.value)}
                                 />
                             </FormGroup>
-
                             <FormGroup label='ISNB: *' htmlFor='inputISBN'>
                                 <input
                                     type='text'

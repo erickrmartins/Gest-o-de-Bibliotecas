@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../components/cards';
+import SubCard from '../components/sub-card.js';
 import '../custom.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,10 +20,6 @@ function ListagemParametro() {
     const navigate = useNavigate();
 
     const baseURL = `${BASE_URL}/parametros`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-parametros`);
-    };
 
     const editar = (id) => {
         navigate(`/cadastro-parametros/${id}`);
@@ -60,9 +57,7 @@ function ListagemParametro() {
     return (
         <div className="container">
             <Card title={`Listagem de Parâmetros`}>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <div className="bs-component">
+                <SubCard className="row">
                             <table className="table table-hover">
                                 <thead>
                                     <tr>
@@ -100,9 +95,7 @@ function ListagemParametro() {
                                     ))}
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
+                </SubCard>
             </Card>
         </div>
     );

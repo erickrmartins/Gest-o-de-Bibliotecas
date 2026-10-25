@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from '../components/cards';
+import SubCard from '../components/sub-card.js';
+import BtnNewRow from '../components/btnNewRow.js';
 import '../custom.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,11 +48,21 @@ function ListagemFuncionario() {
     };
 
     const [dados, setDados] = React.useState(null);
+    const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
+
+    function procurar(filtro) {
+        const resultado = dados.filter((dado) =>
+            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
+        );
+
+        setDadosFiltrados(resultado);
+    }
 
     React.useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 setDados(response.data);
+                setDadosFiltrados(response.data);
             })
             .catch((error) => {
                 mensagemErro('Erro ao se conectar ao servidor!');
@@ -60,63 +72,73 @@ function ListagemFuncionario() {
     return (
         <div className="container">
             <Card title={`Listagem de Funcionários`}>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <div className="bs-component">
-                            <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={() => cadastrar()}
-                            >
-                                Cadastrar Funcionário
-                            </button>
-
-                            <table className="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Senha</th>
-                                        <th scope="col">Telefone</th>
-                                        <th scope="col">Nascimento</th>
-                                        <th scope="col">CPF</th>
-                                        <th scope="col">Administrador?</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {dados && dados.map((item) => (
-                                        <tr >
-                                            <td>{item.nome}</td>
-                                            <td>{item.email}</td>
-                                            <td>{item.senha}</td>
-                                            <td>{item.telefone}</td>
-                                            <td>{item.dtNasc}</td>
-                                            <td>{item.cpf}</td>
-                                            <td>{item.isAdmin ? <True /> : <False />}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => editar(item.id)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div className='d-flex mb-4'>
+                    <form className='d-flex' role='search'>
+                        <input
+                            className='form-control me-2'
+                            type='search'
+                            placeholder='Busque por um dado'
+                            aria-label='Procurar'
+                            onChange={(e) => procurar(e.target.value)}
+                        />
+                    </form>
+                    <BtnNewRow search={() => procurar()} btnText="Novo Funcionário" btnAoClicar={() => cadastrar()} />
                 </div>
+                <SubCard className="row">
+
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Senha</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">Nascimento</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Administrador?</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                dadosFiltrados.map((item) => (
+                                    <tr key={item.id}>
+                                        <td>{item.nome}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.senha}</td>
+                                        <td>{item.telefone}</td>
+                                        <td>{item.dtNasc}</td>
+                                        <td>{item.cpf}</td>
+                                        <td>{item.isAdmin ? <True /> : <False />}</td>
+                                        <td>
+                                            <Stack spacing={1} padding={0} direction='row'>
+                                                <IconButton
+                                                    aria-label='edit'
+                                                    onClick={() => editar(item.id)}
+                                                >
+                                                    <EditIcon />
+                                                </IconButton>
+                                                <IconButton
+                                                    aria-label='delete'
+                                                    onClick={() => deletar(item.id)}
+                                                >
+                                                    <DeleteIcon />
+                                                </IconButton>
+                                            </Stack>
+                                        </td>
+                                    </tr>
+                                )) :
+                                (
+                                    <tr>
+                                        <td>
+                                            Nenhum dado foi encontrado.
+                                        </td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </SubCard>
             </Card>
         </div>
     );

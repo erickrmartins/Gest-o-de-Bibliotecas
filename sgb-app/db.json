@@ -110,12 +110,6 @@
       "citacao": "COELHO, Paulo",
       "nacionalidade": "Brasileira",
       "ativo": true
-    },
-    {
-      "id": "hSZbMCcIQek",
-      "nome": "asdasd",
-      "citacao": "asdasd",
-      "nacionalidade": "asdasd"
     }
   ],
   "generos": [
@@ -156,7 +150,7 @@
     {
       "id": "1",
       "nome": "1984",
-      "ISBN": "9788535914849",
+      "isbn": "9788535914849",
       "dtPublicacao": "1949",
       "numPaginas": 312,
       "sinopsis": "Em um regime totalitário governado pelo Grande Irmão, o cidadão Winston Smith trabalha alterando dados históricos para o Partido. À medida que questiona o sistema, ele inicia um romance proibido e tenta resistir à vigilância absoluta da Polícia do Pensamento.",
@@ -169,7 +163,7 @@
     {
       "id": "2",
       "nome": "O Hobbit",
-      "ISBN": "9788578274085",
+      "isbn": "9788578274085",
       "dtPublicacao": "1937",
       "numPaginas": 310,
       "sinopsis": "O pacato hobbit Bilbo Bolseiro é retirado de sua vida confortável pelo mago Gandalf e um grupo de anões. Juntos, eles embarcam em uma perigosa jornada até a Montanha Solitária para recuperar um tesouro protegido pelo temível dragão Smaug.",
@@ -182,7 +176,7 @@
     {
       "id": "3",
       "nome": "Dom Casmurro",
-      "ISBN": "9788506069783",
+      "isbn": "9788506069783",
       "dtPublicacao": "1899",
       "numPaginas": 413,
       "sinopsis": "Bento Santiago, já idoso, relembra sua juventude e seu intenso amor por Capitu. Consumido pelo ciúme e pela desconfiança de ter sido traído por ela com seu melhor amigo, Escobar, o narrador constrói sua versão dos fatos sobre a polêmica cumplicidade dos olhos de ressaca.",
@@ -195,7 +189,7 @@
     {
       "id": "4",
       "nome": "O Senhor dos Anéis",
-      "ISBN": "9786555114355",
+      "isbn": "9786555114355",
       "dtPublicacao": "1954",
       "numPaginas": 423,
       "sinopsis": "Em uma Terra-média ameaçada pelas forças das trevas, o jovem hobbit Frodo Baggins recebe a missão de destruir o Um Anel no Monte da Perdição. Para isso, ele conta com a ajuda de uma comitiva formada por homens, anões, elfos, hobbits e o mago Gandalf.",
