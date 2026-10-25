@@ -5,7 +5,7 @@ function BtnNewRow({ btnText, btnAoClicar }) {
     return (
         <button
             type="button"
-            className="btn btn-primary extraP d-flex align-items-center justify-content-center fw-semibold"
+            className="btn btn-primary extraP d-flex align-items-center justify-content-center fw-semibold curvatura shadow-sm"
             onClick={btnAoClicar}
         >
             <Add />{btnText}

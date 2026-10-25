@@ -56,7 +56,7 @@ function ListagemParametro() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Parâmetros`}>
+            <Card title={`Listagem de Parâmetros`} subtitle={"Aqui você pode alterar os paramêtros do sistema."}>
                 <SubCard className="row">
                             <table className="table table-hover">
                                 <thead>

@@ -38,7 +38,7 @@ function Gerenciar() {
                 .then((response) => {
                     setQuantidades((prev) => ({
                         ...prev,
-                        [item.id]: response.data.length + 1
+                        [item.id]: response.data.length
                     }))
                 });
         })
@@ -54,7 +54,7 @@ function Gerenciar() {
                                 id={item.id}
                                 imagem={item.imagem}
                                 titulo={item.titulo}
-                                qtd={quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
+                                qtd={item.url === "parametros" ? "Regras" : quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
                                 descricao={item.descricao}
                                 btnUrl={`/listagem-${item.url}`}
                             />

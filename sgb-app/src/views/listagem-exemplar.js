@@ -71,11 +71,11 @@ function ListagemExemplar() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Exemplares`}>
+            <Card title={`Listagem de Exemplares`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
-                    <form className='d-flex' role='search'>
+                    <form className='d-flex w-25' role='search'>
                         <input
-                            className='form-control me-2'
+                            className='form-control me-2 curvatura shadow-sm'
                             type='search'
                             placeholder='Busque por um dado'
                             aria-label='Procurar'

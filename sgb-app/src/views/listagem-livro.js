@@ -72,11 +72,11 @@ function ListagemLivro() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Livros`}>
+            <Card title={`Listagem de Livros`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
-                    <form className='d-flex' role='search'>
+                    <form className='d-flex w-25' role='search'>
                         <input
-                            className='form-control me-2'
+                            className='form-control me-2 curvatura shadow-sm'
                             type='search'
                             placeholder='Busque por um dado'
                             aria-label='Procurar'
@@ -86,20 +86,18 @@ function ListagemLivro() {
                     <BtnNewRow search={() => procurar()} btnText="Novo Livro" btnAoClicar={() => cadastrar()} />
                 </div>
                 <SubCard className="row">
-
                     <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Titulo</th>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Ano</th>
-                                <th scope="col">Genero</th>
-                                <th scope="col">Páginas</th>
-                                <th scope="col">Editora</th>
                                 <th scope="col">Autor</th>
-                                <th scope="col">Sinopse</th>
-                                <th scope="col">Recomendado</th>
-                                <th scope="col">AÇÕES</th>
+                                <th scope="col">Editora</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Genero</th>
+                                <th scope="col">Ano</th>
+                                <th scope="col">Pág.</th>
+                                <th scope="col">Rec.</th>
+                                <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,13 +105,12 @@ function ListagemLivro() {
                                 dadosFiltrados.map((item) => (
                                     <tr key={item.id}>
                                         <td>{item.nome}</td>
-                                        <td>{item.isbn}</td>
-                                        <td>{item.dtPublicacao}</td>
-                                        <td>{item.idGeneros}</td>
-                                        <td>{item.numPaginas}</td>
+                                        <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
                                         <td>{item.idEditoras}</td>
-                                        <td>{item.idAutores}</td>
-                                        <td>{item.sinopsis}</td>
+                                        <td>{item.isbn}</td>
+                                        <td>{item.idGeneros}</td>
+                                        <td>{item.dtPublicacao}</td>
+                                        <td>{item.numPaginas}</td>
                                         <td>{item.recomendado ? <True /> : <False />}</td>
                                         <td>
                                             <Stack spacing={1} padding={0} direction='row'>
