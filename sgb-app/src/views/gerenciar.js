@@ -56,7 +56,7 @@ function Gerenciar() {
                                 titulo={item.titulo}
                                 qtd={item.url === "parametros" ? "Regras" : quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
                                 descricao={item.descricao}
-                                btnUrl={`/listagem-${item.url}`}
+                                btnUrl={`/${item.url}`}
                             />
                         </div>
                     ))}

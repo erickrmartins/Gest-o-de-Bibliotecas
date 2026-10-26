@@ -4,7 +4,7 @@ import SubCard from '../components/sub-card.js';
 import BtnNewRow from '../components/btnNewRow.js';
 
 import '../custom.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { mensagemSucesso, mensagemErro } from '../components/toastr';
 
@@ -20,6 +20,7 @@ import { BASE_URL } from '../config/axios.js';
 
 function ListagemLivro() {
     const navigate = useNavigate();
+    const params = useParams();
 
     const baseURL = `${BASE_URL}/livros`;
 

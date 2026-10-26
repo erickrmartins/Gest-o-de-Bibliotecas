@@ -23,11 +23,11 @@ function ListagemReserva() {
     const baseURL = `${BASE_URL}/reservas`;
 
     const cadastrar = () => {
-        navigate(`/cadastro-reservas`);
+        navigate(`${window.location.pathname}/cadastrar`);
     };
 
     const editar = (id) => {
-        navigate(`/cadastro-reservas/${id}`);
+        navigate(`/cadastrar/${id}`);
     };
 
     async function deletar(id) {

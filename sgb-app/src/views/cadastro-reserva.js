@@ -13,6 +13,12 @@ import '../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
+import Breadcrumbs from '../components/breadcrumbs';
+const breadcrumbs = [
+    { nome: "Reservas", url: "/listagem-reservas" },
+    { nome: "Nova Reserva" }
+]
+
 function CadastroReserva() {
     const { idParam } = useParams();
 
