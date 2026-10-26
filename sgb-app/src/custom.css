@@ -73,9 +73,7 @@ a:hover {
 }
 
 /* NAVBAR */
-.navbar {
-    width: 95% !important;
-}
+
 
 /* BUTTON */
 
@@ -90,4 +88,8 @@ a:hover {
 .form-control:focus {
   box-shadow: none !important;
   border-color: #dee2e6 !important;
+}
+
+a {
+    text-decoration: none !important;
 }

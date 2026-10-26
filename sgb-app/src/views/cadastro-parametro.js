@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Breadcrumbs from '../components/breadcrumbs';
 
 import Stack from '@mui/material/Stack';
 
@@ -12,6 +13,11 @@ import '../custom.css';
 
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
+
+const breadcrumbs = [
+    { nome: "Parâmetros", url: "/listagem-parametros" },
+    { nome: "Alterar Parâmetros", url: "/" }
+]
 
 function CadastroParametro() {
     const { idParam } = useParams();
@@ -94,6 +100,7 @@ function CadastroParametro() {
 
     return (
         <div className='container'>
+            <Breadcrumbs crumbs={breadcrumbs} />
             <Card title='Cadastro de Parametro'>
                 <div className='row'>
                     <div className='col-lg-12'>

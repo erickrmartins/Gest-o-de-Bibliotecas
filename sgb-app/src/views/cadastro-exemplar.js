@@ -13,6 +13,12 @@ import '../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
+import Breadcrumbs from '../components/breadcrumbs';
+const breadcrumbs = [
+    { nome: "Exemplares", url: "/listagem-exemplares" },
+    { nome: "Novo Exemplar" }
+]
+
 function CadastroExemplar() {
     const { idParam } = useParams();
 
@@ -106,6 +112,7 @@ function CadastroExemplar() {
 
     return (
         <div className='container'>
+            <Breadcrumbs crumbs={breadcrumbs} />
             <Card title='Cadastro de exemplar'>
                 <div className='row'>
                     <div className='col-lg-12'>
