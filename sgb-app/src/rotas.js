@@ -1,29 +1,29 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-import ListagemAutor from './views/listagem-autor';
-import ListagemEditora from './views/listagem-editora';
-import ListagemLivro from './views/listagem-livro';
-import ListagemExemplar from './views/listagem-exemplar';
-import ListagemReserva from './views/listagem-reserva';
-import ListagemEmprestimo from './views/listagem-emprestimo';
-import ListagemLeitor from './views/listagem-leitor';
-import ListagemFuncionario from './views/listagem-funcionario';
-import ListagemParametro from './views/listagem-parametro';
+import ListagemAutor from './views/listagem/listagem-autor';
+import ListagemEditora from './views/listagem/listagem-editora';
+import ListagemLivro from './views/listagem/listagem-livro';
+import ListagemExemplar from './views/listagem/listagem-exemplar';
+import ListagemReserva from './views/listagem/listagem-reserva';
+import ListagemEmprestimo from './views/listagem/listagem-emprestimo';
+import ListagemLeitor from './views/listagem/listagem-leitor';
+import ListagemFuncionario from './views/listagem/listagem-funcionario';
+import ListagemParametro from './views/listagem/listagem-parametro';
 
-import CadastroAutor from './views/cadastro-autor';
-import CadastroLivro from './views/cadastro-livro';
-import CadastroEditora from './views/cadastro-editora';
-import CadastroExemplar from './views/cadastro-exemplar';
-import CadastroReserva from './views/cadastro-reserva';
-import CadastroEmprestimo from './views/cadastro-emprestimo';
-import CadastroLeitor from './views/cadastro-leitor';
-import CadastroFuncionario from './views/cadastro-funcionario';
-import CadastroParametro from './views/cadastro-parametro';
+import CadastroAutor from './views/cadastro/cadastro-autor';
+import CadastroLivro from './views/cadastro/cadastro-livro';
+import CadastroEditora from './views/cadastro/cadastro-editora';
+import CadastroExemplar from './views/cadastro/cadastro-exemplar';
+import CadastroReserva from './views/cadastro/cadastro-reserva';
+import CadastroEmprestimo from './views/cadastro/cadastro-emprestimo';
+import CadastroLeitor from './views/cadastro/cadastro-leitor';
+import CadastroFuncionario from './views/cadastro/cadastro-funcionario';
+import CadastroParametro from './views/cadastro/cadastro-parametro';
 
 import NotFound from './views/notfound';
-import Gerenciar from './views/gerenciar';
-import Registrar from './views/registrar';
+import Gerenciar from './views/dashboard/gerenciar';
+import Registrar from './views/dashboard/registrar';
 
 function Rotas(props) {
     return (

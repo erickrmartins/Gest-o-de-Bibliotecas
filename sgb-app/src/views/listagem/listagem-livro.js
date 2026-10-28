@@ -1,35 +1,29 @@
-import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
-import '../custom.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+
+import '../../custom.css';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import EditIcon from '@mui/icons-material/EditOutlined';
 import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
-function ListagemEmprestimo() {
+function ListagemLivro() {
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/emprestimos`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-emprestimos`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastro-emprestimos/${id}`);
-    };
-
+    const baseURL = `${BASE_URL}/livros`;
+    
     async function deletar(id) {
         let data = JSON.stringify({ id });
         let url = `${baseURL}/${id}`;
@@ -39,11 +33,11 @@ function ListagemEmprestimo() {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`Emprestimo deletado com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                mensagemSucesso(`Livro deletado com sucesso!`);
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar Emprestimo!`);
+                mensagemErro(`Erro ao deletar Livro!`);
             });
     };
 
@@ -52,7 +46,7 @@ function ListagemEmprestimo() {
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.idExemplares.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
@@ -71,7 +65,7 @@ function ListagemEmprestimo() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Emprestimos`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
+            <Card title={`Listagem de Livros`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
                     <form className='d-flex w-25' role='search'>
                         <input
@@ -82,18 +76,20 @@ function ListagemEmprestimo() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Novo Emprestimo" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Novo Livro"} />
                 </div>
                 <SubCard className="row">
-
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Exemplar</th>
-                                <th scope="col">Perfil</th>
-                                <th scope="col">Empréstimo</th>
-                                <th scope="col">ETA</th>
-                                <th scope="col">Devolução</th>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Autor</th>
+                                <th scope="col">Editora</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Genero</th>
+                                <th scope="col">Ano</th>
+                                <th scope="col">Pág.</th>
+                                <th scope="col">Rec.</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
@@ -101,16 +97,19 @@ function ListagemEmprestimo() {
                             {dadosFiltrados && dadosFiltrados.length > 0 ?
                                 dadosFiltrados.map((item) => (
                                     <tr key={item.id}>
-                                        <td>{item.idExemplares}</td>
-                                        <td>{item.idPerfis}</td>
-                                        <td>{item.dtEmprestimo}</td>
-                                        <td>{item.dtEta}</td>
-                                        <td>{item.dtDevolucao}</td>
+                                        <td>{item.nome}</td>
+                                        <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
+                                        <td>{item.idEditoras}</td>
+                                        <td>{item.isbn}</td>
+                                        <td>{item.idGeneros}</td>
+                                        <td>{item.dtPublicacao}</td>
+                                        <td>{item.numPaginas}</td>
+                                        <td>{item.recomendado ? <True /> : <False />}</td>
                                         <td>
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>
@@ -118,7 +117,10 @@ function ListagemEmprestimo() {
                                                     aria-label='delete'
                                                     onClick={() => deletar(item.id)}
                                                 >
-                                                    <DeleteIcon />
+                                                    <DeleteIcon
+                                                        style={
+                                                            { fill: "var(--bs-danger)" }}
+                                                    />
                                                 </IconButton>
                                             </Stack>
                                         </td>
@@ -135,9 +137,9 @@ function ListagemEmprestimo() {
                         </tbody>
                     </table>
                 </SubCard>
-            </Card >
-        </div >
+            </Card>
+        </div>
     );
 }
 
-export default ListagemEmprestimo;
+export default ListagemLivro;

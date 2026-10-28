@@ -3,21 +3,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/cards';
-import FormGroup from '../components/form-group';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+import FormGroup from '../../components/form-group.js';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
-
-import '../custom.css';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
-
-import Breadcrumbs from '../components/breadcrumbs';
-const breadcrumbs = [
-    { nome: "Autores", url: "/listagem-autores" },
-    { nome: "Novo Autor" }
-]
+import { BASE_URL } from '../../config/axios.js';
 
 function CadastroAutor() {
     const { idParam } = useParams();
@@ -32,6 +25,8 @@ function CadastroAutor() {
     const [nacionalidade, setNacionalidade] = useState('');
 
     const [dados, setDados] = React.useState([]);
+
+    const [tentouSalvar, setTentouSalvar] = useState(false);
 
     function inicializar() {
         if (idParam == null) {
@@ -62,7 +57,7 @@ function CadastroAutor() {
                 })
                 .then(function (response) {
                     mensagemSucesso(`Autor ${nome} cadastrado com sucesso!`);
-                    navigate(`/listagem-autores`);
+                    navigate(`/autores`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -74,7 +69,7 @@ function CadastroAutor() {
                 })
                 .then(function (response) {
                     mensagemSucesso(`Autor ${nome} alterado com sucesso!`);
-                    navigate(`/listagem-autores`);
+                    navigate(`/autores`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -103,10 +98,9 @@ function CadastroAutor() {
 
     return (
         <div className='container'>
-            <Breadcrumbs crumbs={breadcrumbs} />
-            <Card title='Cadastro de Autor'>
-                <div className='row'>
-                    <div className='col-lg-12'>
+            <Card title='Cadastro de Autor' subtitle="Campos com * são obrigatórios">
+                <SubCard className='row'>
+                    <div className='row col-12 p-4'>
                         <div className='bs-component'>
                             <FormGroup label='Nome: *' htmlFor='inputNome'>
                                 <input
@@ -138,25 +132,28 @@ function CadastroAutor() {
                                     onChange={(e) => setNacionalidade(e.target.value)}
                                 />
                             </FormGroup>
-                            <Stack spacing={1} padding={1} direction='row'>
-                                <button
-                                    onClick={salvar}
-                                    type='button'
-                                    className='btn btn-success'
-                                >
-                                    Salvar
-                                </button>
-                                <button
-                                    onClick={inicializar}
-                                    type='button'
-                                    className='btn btn-danger'
-                                >
-                                    Cancelar
-                                </button>
-                            </Stack>
                         </div>
                     </div>
-                </div>
+                    <div className='d-flex flex-column justify-content-center align-items-end'>
+                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                        <Stack spacing={1} padding={1} direction='row'>
+                            <button
+                                onClick={inicializar}
+                                type='button'
+                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                onClick={salvar}
+                                type='button'
+                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                            >
+                                Salvar Parâmetro
+                            </button>
+                        </Stack>
+                    </div>
+                </SubCard>
             </Card>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import Rotas from './rotas.js';
-import NavBar from './components/navbar';
+import NavBar from './components/navbar/navbar.js';
 import Breadcrumbs from './components/breadcrumbs.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <NavBar />
+        <NavBar/>
         <Breadcrumbs/>
         <Rotas/>
       </div>

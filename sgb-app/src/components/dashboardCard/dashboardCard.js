@@ -2,14 +2,15 @@ import { useNavigate } from "react-router-dom";
 import styles from "./dashboardCard.module.css"
 
 const bgColors = [
-    "#F9A8D4",
-    "#FDBA74",
-    "#A5B4FC",
-    "#6EE7B7",
-    "#CBD5E1",
     "#FDE047",
-    "#93C5FD",
-    "#C4B5FD"
+    "#FDBA74",
+    "#F9A8D4",
+    "#C4B5FD",
+    "#A5B4FC", 
+    "#93C5FD", 
+    "#67E8F9", 
+    "#6EE7B7", 
+    "#CBD5E1" 
 ]
 
 function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl }) {
@@ -19,7 +20,7 @@ function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl }) {
     return (
         <div className={styles.dbCard} onClick={() => navigate(btnUrl)}>
             <div className={styles.dbTitle}>
-                <div className={styles.dbImageBg} style={{ backgroundColor: bgColors.at(bgId) }}>
+                <div className={styles.dbImageBg} style={{ "--selected-color": bgColors.at(bgId) }}>
                     {imagem}
                 </div>
                 <div className={styles.dbTextBg}>

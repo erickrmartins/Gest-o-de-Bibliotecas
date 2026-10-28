@@ -3,21 +3,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/cards';
-import FormGroup from '../components/form-group';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+import FormGroup from '../../components/form-group.js';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
-
-import '../custom.css';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
-
-import Breadcrumbs from '../components/breadcrumbs';
-const breadcrumbs = [
-    { nome: "Empréstimos", url: "/listagem-emprestimos" },
-    { nome: "Novo Empréstimo" }
-]
+import { BASE_URL } from '../../config/axios.js';
 
 function CadastroEmprestimo() {
     const { idParam } = useParams();
@@ -36,6 +29,7 @@ function CadastroEmprestimo() {
     const [status, setStatus] = useState('');
 
     const [dados, setDados] = React.useState([]);
+    const [tentouSalvar, setTentouSalvar] = useState(false);
 
     function inicializar() {
         if (idParam == null) {
@@ -78,7 +72,7 @@ function CadastroEmprestimo() {
                 })
                 .then(function (response) {
                     mensagemSucesso(`Emprestimo ${id} cadastrada com sucesso!`);
-                    navigate(`/listagem-emprestimos`);
+                    navigate(`/emprestimos`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -90,7 +84,7 @@ function CadastroEmprestimo() {
                 })
                 .then(function (response) {
                     mensagemSucesso(`Emprestimo ${id} alterada com sucesso!`);
-                    navigate(`/listagem-emprestimos`);
+                    navigate(`/emprestimos`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -139,11 +133,10 @@ function CadastroEmprestimo() {
 
     return (
         <div className='container'>
-            <Breadcrumbs crumbs={breadcrumbs} />
-            <Card title='Cadastro de Emprestimo'>
-                <div className='row'>
-                    <div className='col-lg-12'>
-                        <div className='bs-component'>
+            <Card title='Cadastro de Emprestimo' subtitle="Campos com * são obrigatórios">
+                <SubCard className='row'>
+                    <div className='row col-12 p-4'>
+                        <div className='bs-component col-lg-6 col-sm-12'>
                             <FormGroup label='Perfil: *' htmlFor='selectPerfil'>
                                 <select
                                     className='form-select'
@@ -162,6 +155,8 @@ function CadastroEmprestimo() {
                                     ))}
                                 </select>
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6 col-sm-12'>
                             <FormGroup label='Exemplar: *' htmlFor='selectExemplar'>
                                 <select
                                     className='form-select'
@@ -180,6 +175,8 @@ function CadastroEmprestimo() {
                                     ))}
                                 </select>
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-4'>
                             <FormGroup label='Data do Empréstimo: *' htmlFor='inputDtEmprestimo'>
                                 <input
                                     type='date'
@@ -197,6 +194,8 @@ function CadastroEmprestimo() {
                                     }
                                 />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-4'>
                             <FormGroup label='Data Estimada da Devolução: ' htmlFor='inputEta'>
                                 <input
                                     type='date'
@@ -207,6 +206,8 @@ function CadastroEmprestimo() {
                                     readOnly
                                 />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-4'>
                             <FormGroup label='Data de Devolução: ' htmlFor='inputDtDevolucao'>
                                 <input
                                     type='date'
@@ -217,6 +218,8 @@ function CadastroEmprestimo() {
                                     onChange={(e) => setDtDevolucao(e.target.value)}
                                 />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6 col-sm-12'>
                             <FormGroup label='Renovado: ' htmlFor='selectRenovado'>
                                 <select
                                     className='form-select'
@@ -233,6 +236,8 @@ function CadastroEmprestimo() {
                                     </option>
                                 </select>
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6 col-sm-12'>
                             <FormGroup label='Status: *' htmlFor='selectStatus'>
                                 <select
                                     className='form-select'
@@ -252,25 +257,28 @@ function CadastroEmprestimo() {
                                     </option>
                                 </select>
                             </FormGroup>
-                            <Stack spacing={1} padding={1} direction='row'>
-                                <button
-                                    onClick={salvar}
-                                    type='button'
-                                    className='btn btn-success'
-                                >
-                                    Salvar
-                                </button>
-                                <button
-                                    onClick={inicializar}
-                                    type='button'
-                                    className='btn btn-danger'
-                                >
-                                    Cancelar
-                                </button>
-                            </Stack>
                         </div>
                     </div>
-                </div>
+                    <div className='d-flex flex-column justify-content-center align-items-end'>
+                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                        <Stack spacing={1} padding={1} direction='row'>
+                            <button
+                                onClick={inicializar}
+                                type='button'
+                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                onClick={salvar}
+                                type='button'
+                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                            >
+                                Salvar Parâmetro
+                            </button>
+                        </Stack>
+                    </div>
+                </SubCard>
             </Card>
         </div>
     );

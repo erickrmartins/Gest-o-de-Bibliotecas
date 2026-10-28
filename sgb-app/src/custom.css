@@ -3,23 +3,59 @@
    ========================================================= */
 
 :root {
-    --bs-primary: #4A3328 !important;
-
-    --color-primary-dark: #34231C;
-    --color-primary-light: #EDE4DE;
-
+    /* Fundos */
     --color-background: #f5f7ff;
     --color-surface: #FFFFFF;
 
-    --color-text: #29211D;
-    --color-text-secondary: #5E514A;
-    --color-text-muted: #887B73;
+    /* Texto */
+    --color-text: #1F2923;
+    --color-text-secondary: #66736B;
+    --color-text-muted: #96A29B;
 
-    --color-border: #DDD3CC;
+    /* Bordas */
+    --color-border: #DCE4DF;
+    --color-border-hover: #C5D1C9;
 
-    --color-success: #52705A;
-    --color-warning: #A4773B;
-    --color-danger: #A34F46;
+    /* Cor principal */
+    --color-primary: #3F6B52;
+    --color-primary-hover: #335941;
+    --color-primary-light: #E8F1EB;
+
+    /* Botão principal */
+    --color-button-bg: #3F6B52;
+    --color-button-border: #3F6B52;
+    --color-button-text: #FFFFFF;
+
+    --color-button-bg-hover: #335941;
+    --color-button-border-hover: #335941;
+
+    /* Botão secundário */
+    --color-button-secondary-bg: #FFFFFF;
+    --color-button-secondary-border: #C5D1C9;
+    --color-button-secondary-text: #34433A;
+
+    --color-button-secondary-hover-bg: #F0F4F1;
+    --color-button-secondary-hover-border: #9EAEA3;
+
+    /* Links */
+    --color-link: #3F6B52;
+    --color-link-hover: #294A36;
+
+    /* Sucesso */
+    --color-success: #397A55;
+    --color-success-light: #E8F4EC;
+
+    /* Aviso */
+    --color-warning: #B47A27;
+    --color-warning-light: #FFF4DD;
+
+    /* Erro */
+    --color-danger: #B64D4D;
+    --color-danger-light: #FCECEC;
+
+    /* Destaque */
+    --color-accent: #C49A52;
+    --color-accent-light: #F8F0DF;
 }
 
 /* =========================================================
@@ -86,10 +122,49 @@ a:hover {
 }
 
 .form-control:focus {
-  box-shadow: none !important;
-  border-color: #dee2e6 !important;
+    box-shadow: none !important;
+    border-color: #dee2e6 !important;
 }
 
 a {
     text-decoration: none !important;
+}
+
+/* FONTS */
+
+body {
+    font-family: "DM Sans", sans-serif !important;
+}
+
+.fs-7 {
+    font-size: 0.75rem !important;
+}
+
+/* Alterando o tema para verde */
+.btn-primary {
+    background-color: var(--color-button-bg) !important;
+    border: 1px solid var(--color-button-border) !important;
+
+    &:hover {
+        background-color: var(--color-button-bg-hover) !important;
+        border: 1px solid var(--color-button-border-hover) !important;
+    }
+}
+
+.breadcrumbA {
+    color: var(--color-link) !important;
+
+    &:hover {
+        color: var(--color-link-hover) !important;
+    }
+}
+
+.autorSelec {
+    transition: 0.3s ease;
+
+    &:hover {
+        background-color: var(--bs-danger);
+        color: var(--color-surface);
+        cursor: pointer;
+    }
 }

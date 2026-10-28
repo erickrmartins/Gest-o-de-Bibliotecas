@@ -1,34 +1,25 @@
 import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
-import '../custom.css';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+
+import '../../custom.css';
 import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import True from '@mui/icons-material/CheckCircleOutlineOutlined';
-import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
-function ListagemExemplar() {
+function ListagemEditora() {
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/exemplares`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-exemplares`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastro-exemplares/${id}`);
-    };
+    const baseURL = `${BASE_URL}/editoras`;
 
     async function deletar(id) {
         let data = JSON.stringify({ id });
@@ -39,11 +30,11 @@ function ListagemExemplar() {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`Exemplar deletado com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                mensagemSucesso(`Editora deletada com sucesso!`);
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar Exemplar!`);
+                mensagemErro(`Erro ao deletar Editora!`);
             });
     };
 
@@ -52,7 +43,7 @@ function ListagemExemplar() {
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.identificacao.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
@@ -71,7 +62,7 @@ function ListagemExemplar() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Exemplares`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
+            <Card title={`Listagem de Editoras`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
                     <form className='d-flex w-25' role='search'>
                         <input
@@ -82,16 +73,14 @@ function ListagemExemplar() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Novo Exemplar" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Nova Editora"} />
                 </div>
-                <SubCard className="row">
 
+                <SubCard className='row'>
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Livro</th>
-                                <th scope="col">Identificação</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Nome</th>
                                 <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
@@ -99,14 +88,12 @@ function ListagemExemplar() {
                             {dadosFiltrados && dadosFiltrados.length > 0 ?
                                 dadosFiltrados.map((item) => (
                                     <tr key={item.id}>
-                                        <td>{item.identificacao}</td>
-                                        <td>{item.idLivros}</td>
-                                        <td>{item.status}</td>
+                                        <td>{item.nome}</td>
                                         <td>
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>
@@ -136,4 +123,4 @@ function ListagemExemplar() {
     );
 }
 
-export default ListagemExemplar;
+export default ListagemEditora;

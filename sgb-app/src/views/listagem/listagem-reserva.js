@@ -1,11 +1,10 @@
 import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
-import '../custom.css';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+import '../../custom.css';
 import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
@@ -15,20 +14,13 @@ import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
 function ListagemReserva() {
     const navigate = useNavigate();
 
     const baseURL = `${BASE_URL}/reservas`;
-
-    const cadastrar = () => {
-        navigate(`${window.location.pathname}/cadastrar`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastrar/${id}`);
-    };
 
     async function deletar(id) {
         let data = JSON.stringify({ id });
@@ -40,7 +32,7 @@ function ListagemReserva() {
             })
             .then(function (response) {
                 mensagemSucesso(`Reserva deletada com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
                 mensagemErro(`Erro ao deletar Reserva!`);
@@ -82,7 +74,7 @@ function ListagemReserva() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Nova Reserva" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Nova Reserva"} />
                 </div>
                 <SubCard className="row">
 
@@ -108,7 +100,7 @@ function ListagemReserva() {
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>

@@ -1,11 +1,11 @@
 import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
-import '../custom.css';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+
+import '../../custom.css';
 import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
@@ -15,20 +15,13 @@ import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
-function ListagemEditora() {
+function ListagemFuncionario() {
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/editoras`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-editoras`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastro-editoras/${id}`);
-    };
+    const baseURL = `${BASE_URL}/funcionarios`;
 
     async function deletar(id) {
         let data = JSON.stringify({ id });
@@ -39,11 +32,11 @@ function ListagemEditora() {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`Editora deletada com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                mensagemSucesso(`Funcionário deletado com sucesso!`);
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar Editora!`);
+                mensagemErro(`Erro ao deletar Funcionário!`);
             });
     };
 
@@ -71,7 +64,7 @@ function ListagemEditora() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Editoras`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
+            <Card title={`Listagem de Funcionários`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
                     <form className='d-flex w-25' role='search'>
                         <input
@@ -82,15 +75,21 @@ function ListagemEditora() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Nova Editora" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Novo Funcionário"} />
                 </div>
+                <SubCard className="row">
 
-                <SubCard className='row'>
                     <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Nome</th>
-                                <th scope="col">AÇÕES</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Senha</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">Nascimento</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Administrador?</th>
+                                <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -98,11 +97,17 @@ function ListagemEditora() {
                                 dadosFiltrados.map((item) => (
                                     <tr key={item.id}>
                                         <td>{item.nome}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.senha}</td>
+                                        <td>{item.telefone}</td>
+                                        <td>{item.dtNasc}</td>
+                                        <td>{item.cpf}</td>
+                                        <td>{item.isAdmin ? <True /> : <False />}</td>
                                         <td>
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>
@@ -132,4 +137,4 @@ function ListagemEditora() {
     );
 }
 
-export default ListagemEditora;
+export default ListagemFuncionario;

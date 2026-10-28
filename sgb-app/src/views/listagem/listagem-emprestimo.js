@@ -1,34 +1,25 @@
 import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
-import '../custom.css';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+
+import '../../custom.css';
 import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import True from '@mui/icons-material/CheckCircleOutlineOutlined';
-import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
-function ListagemFuncionario() {
+function ListagemEmprestimo() {
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/funcionarios`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-funcionarios`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastro-funcionarios/${id}`);
-    };
+    const baseURL = `${BASE_URL}/emprestimos`;
 
     async function deletar(id) {
         let data = JSON.stringify({ id });
@@ -39,11 +30,11 @@ function ListagemFuncionario() {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`Funcionário deletado com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                mensagemSucesso(`Emprestimo deletado com sucesso!`);
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar Funcionário!`);
+                mensagemErro(`Erro ao deletar Emprestimo!`);
             });
     };
 
@@ -52,7 +43,7 @@ function ListagemFuncionario() {
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.idExemplares.toLowerCase().startsWith(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
@@ -71,7 +62,7 @@ function ListagemFuncionario() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Funcionários`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
+            <Card title={`Listagem de Emprestimos`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
                     <form className='d-flex w-25' role='search'>
                         <input
@@ -82,20 +73,18 @@ function ListagemFuncionario() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Novo Funcionário" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Novo Empréstimo"} />
                 </div>
                 <SubCard className="row">
 
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Senha</th>
-                                <th scope="col">Telefone</th>
-                                <th scope="col">Nascimento</th>
-                                <th scope="col">CPF</th>
-                                <th scope="col">Administrador?</th>
+                                <th scope="col">Exemplar</th>
+                                <th scope="col">Perfil</th>
+                                <th scope="col">Empréstimo</th>
+                                <th scope="col">ETA</th>
+                                <th scope="col">Devolução</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
@@ -103,18 +92,16 @@ function ListagemFuncionario() {
                             {dadosFiltrados && dadosFiltrados.length > 0 ?
                                 dadosFiltrados.map((item) => (
                                     <tr key={item.id}>
-                                        <td>{item.nome}</td>
-                                        <td>{item.email}</td>
-                                        <td>{item.senha}</td>
-                                        <td>{item.telefone}</td>
-                                        <td>{item.dtNasc}</td>
-                                        <td>{item.cpf}</td>
-                                        <td>{item.isAdmin ? <True /> : <False />}</td>
+                                        <td>{item.idExemplares}</td>
+                                        <td>{item.idPerfis}</td>
+                                        <td>{item.dtEmprestimo}</td>
+                                        <td>{item.dtEta}</td>
+                                        <td>{item.dtDevolucao}</td>
                                         <td>
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>
@@ -139,9 +126,9 @@ function ListagemFuncionario() {
                         </tbody>
                     </table>
                 </SubCard>
-            </Card>
-        </div>
+            </Card >
+        </div >
     );
 }
 
-export default ListagemFuncionario;
+export default ListagemEmprestimo;
