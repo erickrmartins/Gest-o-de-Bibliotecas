@@ -11,6 +11,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 function CadastroAutor() {
     const { idParam } = useParams();
@@ -43,6 +44,12 @@ function CadastroAutor() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!nome || !citacao || !nacionalidade) {
+            return;
+        }
+
         let data = {
             id,
             nome,
@@ -111,6 +118,7 @@ function CadastroAutor() {
                                     name='nome'
                                     onChange={(e) => setNome(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
                             </FormGroup>
                             <FormGroup label='Citação: *' htmlFor='inputCitacao'>
                                 <input
@@ -121,6 +129,7 @@ function CadastroAutor() {
                                     name='citacao'
                                     onChange={(e) => setCitacao(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={citacao} />
                             </FormGroup>
                             <FormGroup label='Nacionalidade: *' htmlFor='inputNacionalidade'>
                                 <input
@@ -131,6 +140,7 @@ function CadastroAutor() {
                                     name='nacionalidade'
                                     onChange={(e) => setNacionalidade(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nacionalidade} />
                             </FormGroup>
                         </div>
                     </div>

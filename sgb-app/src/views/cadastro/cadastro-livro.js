@@ -14,6 +14,7 @@ import '../../custom.css';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 function CadastroLivro() {
     const { idParam } = useParams();
@@ -61,6 +62,12 @@ function CadastroLivro() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!nome || !isbn || !dtPublicacao || !numPaginas || !idEditoras || !idAutores || !idGeneros || !sinopse) {
+            return;
+        }
+
         let data = {
             id,
             nome,
@@ -156,6 +163,7 @@ function CadastroLivro() {
                                     name='nome'
                                     onChange={(e) => setNome(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-6'>
@@ -168,7 +176,9 @@ function CadastroLivro() {
                                     name='isbn'
                                     onChange={(e) => setIsbn(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={isbn} />
                             </FormGroup>
+
                         </div>
                         <div className='bs-component col-6'>
                             <FormGroup label='Editora: *' htmlFor='inputIdEditora'>
@@ -188,6 +198,7 @@ function CadastroLivro() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idEditoras} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-4'>
@@ -200,6 +211,7 @@ function CadastroLivro() {
                                     name='dtPublicacao'
                                     onChange={(e) => setDtPublicacao(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtPublicacao} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-4'>
@@ -212,6 +224,7 @@ function CadastroLivro() {
                                     name='numPaginas'
                                     onChange={(e) => setNumPaginas(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={numPaginas} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-4'>
@@ -232,6 +245,7 @@ function CadastroLivro() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idGeneros} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-12'>
@@ -268,6 +282,7 @@ function CadastroLivro() {
                                         {autor}
                                     </span>
                                 ))}
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idAutor} />
                             </div>
                         </div>
                         <div className='bs-component mt-2'>
@@ -280,6 +295,7 @@ function CadastroLivro() {
                                     name='sinopse'
                                     onChange={(e) => setSinopse(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={sinopse} />
                             </FormGroup>
                         </div>
                     </div>

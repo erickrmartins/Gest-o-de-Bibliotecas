@@ -11,6 +11,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 function CadastroEmprestimo() {
     const { idParam } = useParams();
@@ -54,6 +55,12 @@ function CadastroEmprestimo() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if(!idExemplares || !idPerfis || !dtEmprestimo || !dtEta || !dtDevolucao || !renovado || !status) {
+            return;
+        }
+
         let data = {
             id,
             idExemplares,
@@ -154,6 +161,7 @@ function CadastroEmprestimo() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idPerfis} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6 col-sm-12'>
@@ -174,6 +182,7 @@ function CadastroEmprestimo() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idExemplares} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-4'>
@@ -193,6 +202,7 @@ function CadastroEmprestimo() {
                                     }
                                     }
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEmprestimo} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-4'>
@@ -205,6 +215,7 @@ function CadastroEmprestimo() {
                                     name='dtEta'
                                     readOnly
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEta} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-4'>
@@ -217,10 +228,11 @@ function CadastroEmprestimo() {
                                     name='dtDevolucao'
                                     onChange={(e) => setDtDevolucao(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtDevolucao} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6 col-sm-12'>
-                            <FormGroup label='Renovado: ' htmlFor='selectRenovado'>
+                            <FormGroup label='Renovado: *' htmlFor='selectRenovado'>
                                 <select
                                     className='form-select'
                                     id='selectRenovado'
@@ -235,6 +247,7 @@ function CadastroEmprestimo() {
                                         Sim
                                     </option>
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={renovado} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6 col-sm-12'>
@@ -256,6 +269,7 @@ function CadastroEmprestimo() {
                                         Atrasado
                                     </option>
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
                             </FormGroup>
                         </div>
                     </div>

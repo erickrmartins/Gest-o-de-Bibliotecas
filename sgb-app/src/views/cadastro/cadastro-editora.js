@@ -11,6 +11,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 function CadastroEditora() {
     const { idParam } = useParams();
@@ -36,6 +37,13 @@ function CadastroEditora() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!nome) {
+            return;
+        }
+
+
         let data = {
             id,
             nome,
@@ -100,6 +108,7 @@ function CadastroEditora() {
                                     name='nome'
                                     onChange={(e) => setNome(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
                             </FormGroup>
                         </div>
                     </div>

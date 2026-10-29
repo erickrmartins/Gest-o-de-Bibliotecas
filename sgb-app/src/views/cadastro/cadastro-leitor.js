@@ -12,6 +12,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 
 function CadastroLeitor() {
@@ -53,6 +54,12 @@ function CadastroLeitor() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!nome || !dtNasc || !cpf || !telefone || !email || !senha) {
+            return;
+        }
+
         let data = {
             id,
             nome,
@@ -127,6 +134,7 @@ function CadastroLeitor() {
                                     name='nome'
                                     onChange={(e) => setNome(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-4'>
@@ -140,6 +148,7 @@ function CadastroLeitor() {
                                     name='cpf'
                                     onChange={(e) => setCpf(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={cpf} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6'>
@@ -152,6 +161,7 @@ function CadastroLeitor() {
                                     name='dtNasc'
                                     onChange={(e) => setDtNasc(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtNasc} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6'>
@@ -164,6 +174,7 @@ function CadastroLeitor() {
                                     name='telefone'
                                     onChange={(e) => setTelefone(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6'>
@@ -176,6 +187,7 @@ function CadastroLeitor() {
                                     name='email'
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
                             </FormGroup>
                         </div>
                         <div className='bs-component col-lg-6'>
@@ -188,6 +200,7 @@ function CadastroLeitor() {
                                     name='senha'
                                     onChange={(e) => setSenha(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={senha} />
                             </FormGroup>
                         </div>
                     </div>

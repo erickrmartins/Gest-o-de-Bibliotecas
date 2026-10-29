@@ -11,12 +11,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
-
-import Breadcrumbs from '../../components/breadcrumbs.js';
-const breadcrumbs = [
-    { nome: "Exemplares", url: "/listagem-exemplares" },
-    { nome: "Novo Exemplar" }
-]
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 function CadastroExemplar() {
     const { idParam } = useParams();
@@ -49,6 +44,12 @@ function CadastroExemplar() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!idLivros || !identificacao || !status) {
+            return
+        }
+
         let data = {
             id,
             idLivros,
@@ -133,6 +134,7 @@ function CadastroExemplar() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idLivros} />
                             </FormGroup>
                             <FormGroup label='Identificação: *' htmlFor='inputIdentificacao'>
                                 <input
@@ -143,6 +145,7 @@ function CadastroExemplar() {
                                     name='identificacao'
                                     onChange={(e) => setIdentificacao(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={identificacao} />
                             </FormGroup>
                             <FormGroup label='Status: *' htmlFor='selectStatus'>
                                 <select
@@ -165,6 +168,7 @@ function CadastroExemplar() {
                                         Perdido
                                     </option>
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
                             </FormGroup>
                         </div>
                     </div>
