@@ -1,36 +1,27 @@
 import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
 
-import '../custom.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import '../../custom.css';
+import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import EditIcon from '@mui/icons-material/EditOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
-function ListagemLivro() {
+function ListagemExemplar() {
     const navigate = useNavigate();
-    const params = useParams();
 
-    const baseURL = `${BASE_URL}/livros`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-livros`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastro-livros/${id}`);
-    };
+    const baseURL = `${BASE_URL}/exemplares`;
 
     async function deletar(id) {
         let data = JSON.stringify({ id });
@@ -41,11 +32,11 @@ function ListagemLivro() {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(function (response) {
-                mensagemSucesso(`Livro deletado com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                mensagemSucesso(`Exemplar deletado com sucesso!`);
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
-                mensagemErro(`Erro ao deletar Livro!`);
+                mensagemErro(`Erro ao deletar Exemplar!`);
             });
     };
 
@@ -54,7 +45,7 @@ function ListagemLivro() {
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.identificacao.toLowerCase().startsWith(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
@@ -73,7 +64,7 @@ function ListagemLivro() {
 
     return (
         <div className="container">
-            <Card title={`Listagem de Livros`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
+            <Card title={`Listagem de Exemplares`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
                 <div className='d-flex mb-4'>
                     <form className='d-flex w-25' role='search'>
                         <input
@@ -84,40 +75,31 @@ function ListagemLivro() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Novo Livro" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Novo Exemplar"} />
                 </div>
                 <SubCard className="row">
+
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Titulo</th>
-                                <th scope="col">Autor</th>
-                                <th scope="col">Editora</th>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Genero</th>
-                                <th scope="col">Ano</th>
-                                <th scope="col">Pág.</th>
-                                <th scope="col">Rec.</th>
-                                <th scope="col">Ações</th>
+                                <th scope="col">Livro</th>
+                                <th scope="col">Identificação</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
                         <tbody>
                             {dadosFiltrados && dadosFiltrados.length > 0 ?
                                 dadosFiltrados.map((item) => (
                                     <tr key={item.id}>
-                                        <td>{item.nome}</td>
-                                        <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
-                                        <td>{item.idEditoras}</td>
-                                        <td>{item.isbn}</td>
-                                        <td>{item.idGeneros}</td>
-                                        <td>{item.dtPublicacao}</td>
-                                        <td>{item.numPaginas}</td>
-                                        <td>{item.recomendado ? <True /> : <False />}</td>
+                                        <td>{item.identificacao}</td>
+                                        <td>{item.idLivros}</td>
+                                        <td>{item.status}</td>
                                         <td>
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>
@@ -125,10 +107,7 @@ function ListagemLivro() {
                                                     aria-label='delete'
                                                     onClick={() => deletar(item.id)}
                                                 >
-                                                    <DeleteIcon
-                                                        style={
-                                                            { fill: "var(--bs-danger)" }}
-                                                    />
+                                                    <DeleteIcon />
                                                 </IconButton>
                                             </Stack>
                                         </td>
@@ -150,4 +129,4 @@ function ListagemLivro() {
     );
 }
 
-export default ListagemLivro;
+export default ListagemExemplar;

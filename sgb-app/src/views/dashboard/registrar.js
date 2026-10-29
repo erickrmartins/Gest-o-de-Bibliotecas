@@ -1,6 +1,6 @@
-import Card from "../components/cards";
-import SubCard from "../components/sub-card";
-import DashboardCard from "../components/dashboardCard.js/dashboardCard";
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+import DashboardCard from "../../components/dashboardCard/dashboardCard.js";
 
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
 import BusinessOutlined from '@mui/icons-material/BusinessOutlined';

@@ -1,35 +1,25 @@
 import React from 'react';
-import Card from '../components/cards';
-import SubCard from '../components/sub-card.js';
-import BtnNewRow from '../components/btnNewRow.js';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
 
-import '../custom.css';
+import '../../custom.css';
 import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import True from '@mui/icons-material/CheckCircleOutlineOutlined';
-import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios.js';
+import { BASE_URL } from '../../config/axios.js';
+import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 
 function ListagemLeitor() {
     const navigate = useNavigate();
 
     const baseURL = `${BASE_URL}/leitores`;
-
-    const cadastrar = () => {
-        navigate(`/cadastro-leitores`);
-    };
-
-    const editar = (id) => {
-        navigate(`/cadastro-leitores/${id}`);
-    };
 
     async function deletar(id) {
         let data = JSON.stringify({ id });
@@ -41,7 +31,7 @@ function ListagemLeitor() {
             })
             .then(function (response) {
                 mensagemSucesso(`Leitor deletado com sucesso!`);
-                setDados(dados.filter((item) => item.id !== id));
+                setDadosFiltrados(dados.filter((item) => item.id !== id));
             })
             .catch(function (error) {
                 mensagemErro(`Erro ao deletar Leitor!`);
@@ -83,7 +73,7 @@ function ListagemLeitor() {
                             onChange={(e) => procurar(e.target.value)}
                         />
                     </form>
-                    <BtnNewRow search={() => procurar()} btnText="Novo Leitor" btnAoClicar={() => cadastrar()} />
+                    <BtnCadastrar btnText={"Novo Leitor"} />
                 </div>
                 <SubCard className="row">
 
@@ -115,7 +105,7 @@ function ListagemLeitor() {
                                             <Stack spacing={1} padding={0} direction='row'>
                                                 <IconButton
                                                     aria-label='edit'
-                                                    onClick={() => editar(item.id)}
+                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
                                                 >
                                                     <EditIcon />
                                                 </IconButton>

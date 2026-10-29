@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import Card from "../components/cards";
-import DashboardCard from "../components/dashboardCard.js/dashboardCard";
+import Card from '../../components/cards/card.js';
+import DashboardCard from "../../components/dashboardCard/dashboardCard.js";
 
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
 import BusinessOutlined from '@mui/icons-material/BusinessOutlined';
@@ -14,7 +14,7 @@ import BadgeOutlined from '@mui/icons-material/BadgeOutlined';
 import TuneOutlined from '@mui/icons-material/TuneOutlined';
 
 import axios from "axios";
-import { BASE_URL } from "../config/axios";
+import { BASE_URL } from "../../config/axios.js";
 
 const items = [
     { id: 1, imagem: <MenuBookOutlined fontSize="medium" />, titulo: "Livros", descricao: "títulos no acervo", url: "livros" },
@@ -25,7 +25,7 @@ const items = [
     { id: 6, imagem: <AssignmentOutlined fontSize="medium" />, titulo: "Empréstimos", descricao: "ativos atualmente", url: "emprestimos" },
     { id: 7, imagem: <GroupOutlined fontSize="medium" />, titulo: "Leitores", descricao: "leitores cadastrados", url: "leitores" },
     { id: 8, imagem: <BadgeOutlined fontSize="medium" />, titulo: "Funcionários", descricao: "funcionários cadastrados", url: "funcionarios" },
-    { id: 9, imagem: <TuneOutlined fontSize="medium" />, titulo: "Parâmetros", descricao: "do sistema", url: "parametros" },
+    { id: 9, imagem: <TuneOutlined fontSize="medium" />, titulo: "Parâmetros", descricao: "parâmetros do sistema", url: "parametros" },
 ];
 
 function Gerenciar() {
@@ -47,14 +47,14 @@ function Gerenciar() {
     return (
         <div className="container">
             <Card title="Gerenciar" subtitle="Selecione uma opção para obter mais informações.">
-                <div className="row g-3 mb-4">
+                <div className="row g-3">
                     {items.map((item) => (
                         <div key={item.id} className="col-12 col-sm-12 col-md-6 col-lg-4">
                             <DashboardCard
                                 id={item.id}
                                 imagem={item.imagem}
                                 titulo={item.titulo}
-                                qtd={item.url === "parametros" ? "Regras" : quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
+                                qtd={item.url === "parametros" ? "Os" : quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
                                 descricao={item.descricao}
                                 btnUrl={`/${item.url}`}
                             />

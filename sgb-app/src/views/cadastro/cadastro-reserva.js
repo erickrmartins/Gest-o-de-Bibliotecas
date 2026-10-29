@@ -3,21 +3,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/cards';
-import FormGroup from '../components/form-group';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
+import FormGroup from '../../components/form-group.js';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
-
-import '../custom.css';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
+import { BASE_URL } from '../../config/axios.js';
 
-import Breadcrumbs from '../components/breadcrumbs';
-const breadcrumbs = [
-    { nome: "Reservas", url: "/listagem-reservas" },
-    { nome: "Nova Reserva" }
-]
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
 function CadastroReserva() {
     const { idParam } = useParams();
@@ -26,29 +21,22 @@ function CadastroReserva() {
 
     const baseURL = `${BASE_URL}/reservas`;
 
+    const [dados, setDados] = React.useState([]);
+
     const [id, setId] = useState('');
     const [dtReserva, setDtReserva] = useState('');
     const [idLivros, setIdLivros] = useState('');
     const [idPerfis, setIdPerfis] = useState('');
 
-
-    const [dados, setDados] = React.useState([]);
-
-    function inicializar() {
-        if (idParam == null) {
-            setId('');
-            setDtReserva('');
-            setIdLivros('');
-            setIdPerfis('');
-        } else {
-            setId(dados.id);
-            setDtReserva(dados.dtReserva);
-            setIdLivros(dados.idLivros);
-            setIdPerfis(dados.idPerfis);
-        }
-    }
+    const [tentouSalvar, setTentouSalvar] = useState(false);
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!dtReserva || !idLivros || !idPerfis) {
+            return;
+        }
+
         let data = {
             id,
             dtReserva,
@@ -63,7 +51,7 @@ function CadastroReserva() {
                 })
                 .then(function (response) {
                     mensagemSucesso(`Reserva ${id} cadastrada com sucesso!`);
-                    navigate(`/listagem-reservas`);
+                    navigate(`/reservas`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -75,11 +63,26 @@ function CadastroReserva() {
                 })
                 .then(function (response) {
                     mensagemSucesso(`Reserva ${id} alterada com sucesso!`);
-                    navigate(`/listagem-reservas`);
+                    navigate(`/reservas`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
                 });
+        }
+    }
+
+
+    function inicializar() {
+        if (idParam == null) {
+            setId('');
+            setDtReserva('');
+            setIdLivros('');
+            setIdPerfis('');
+        } else {
+            setId(dados.id);
+            setDtReserva(dados.dtReserva);
+            setIdLivros(dados.idLivros);
+            setIdPerfis(dados.idPerfis);
         }
     }
 
@@ -116,11 +119,11 @@ function CadastroReserva() {
 
     return (
         <div className='container'>
-            <Card title='Cadastro de Reserva'>
-                <div className='row'>
-                    <div className='col-lg-12'>
-                        <div className='bs-component'>
-                            <FormGroup label='Perfil: *' htmlFor='selectPerfil'>
+            <Card title='Cadastro de Reserva' subtitle="Campos com * são obrigatórios">
+                <SubCard className='row'>
+                    <div className='col-lg-12 p-4'>
+                        <div className='bs-component mb-4'>
+                            <FormGroup className="fs-2" label='Perfil: *' htmlFor='selectPerfil'>
                                 <select
                                     className='form-select'
                                     id='selectPerfil'
@@ -128,7 +131,7 @@ function CadastroReserva() {
                                     value={idPerfis}
                                     onChange={(e) => setIdPerfis(e.target.value)}
                                 >
-                                    <option key='0' value='0'>
+                                    <option key='0' value=''>
                                         {' '}
                                     </option>
                                     {dadosPerfis.map((dado) => (
@@ -137,6 +140,7 @@ function CadastroReserva() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idPerfis}/>
                             </FormGroup>
                             <FormGroup label='Data: *' htmlFor='inputDtReserva'>
                                 <input
@@ -147,6 +151,7 @@ function CadastroReserva() {
                                     name='dtReserva'
                                     onChange={(e) => setDtReserva(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtReserva}/>
                             </FormGroup>
                             <FormGroup label='Livro: *' htmlFor='selectLivro'>
                                 <select
@@ -156,7 +161,7 @@ function CadastroReserva() {
                                     value={idLivros}
                                     onChange={(e) => setIdLivros(e.target.value)}
                                 >
-                                    <option key='0' value='Disponível'>
+                                    <option key='0' value=''>
                                         {' '}
                                     </option>
                                     {dadosLivros.map((dado) => (
@@ -165,26 +170,30 @@ function CadastroReserva() {
                                         </option>
                                     ))}
                                 </select>
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idLivros}/>
                             </FormGroup>
+                        </div>
+                        <div className='d-flex flex-column justify-content-center align-items-end'>
+                            <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
                             <Stack spacing={1} padding={1} direction='row'>
-                                <button
-                                    onClick={salvar}
-                                    type='button'
-                                    className='btn btn-success'
-                                >
-                                    Salvar
-                                </button>
                                 <button
                                     onClick={inicializar}
                                     type='button'
-                                    className='btn btn-danger'
+                                    className='btn btn-outline-danger curvatura fw-semibold ls-wide'
                                 >
                                     Cancelar
+                                </button>
+                                <button
+                                    onClick={salvar}
+                                    type='button'
+                                    className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                                >
+                                    Salvar Reserva
                                 </button>
                             </Stack>
                         </div>
                     </div>
-                </div>
+                </SubCard>
             </Card>
         </div>
     );

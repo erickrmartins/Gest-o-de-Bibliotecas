@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarItem from './navbarItem';
-import '../custom.css'
 import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -9,35 +8,36 @@ const items = [
         "id": 1,
         "label": "Listagens",
         "items": [
-            { "id": 1, "href": '/listagem-autores', "label": 'Autores', "render": true },
-            { "id": 2, "href": '/listagem-editoras', "label": 'Editoras', "render": true },
-            { "id": 3, "href": '/listagem-livros', "label": 'Livros', "render": true },
-            { "id": 4, "href": '/listagem-exemplares', "label": 'Exemplares', "render": true },
-            { "id": 5, "href": '/listagem-reservas', "label": 'Reservas', "render": true },
-            { "id": 6, "href": '/listagem-emprestimos', "label": 'Empréstimos', "render": true },
-            { "id": 7, "href": '/listagem-leitores', "label": 'Leitores', "render": true },
-            { "id": 8, "href": '/listagem-funcionarios', "label": 'Funcionários', "render": true },
-            { "id": 9, "href": '/listagem-parametros', "label": 'Parâmetros', "render": true }
+            { "id": 1, "href": '/autores', "label": 'Autores', "render": true },
+            { "id": 2, "href": '/editoras', "label": 'Editoras', "render": true },
+            { "id": 3, "href": '/livros', "label": 'Livros', "render": true },
+            { "id": 4, "href": '/exemplares', "label": 'Exemplares', "render": true },
+            { "id": 5, "href": '/reservas', "label": 'Reservas', "render": true },
+            { "id": 6, "href": '/emprestimos', "label": 'Empréstimos', "render": true },
+            { "id": 7, "href": '/leitores', "label": 'Leitores', "render": true },
+            { "id": 8, "href": '/funcionarios', "label": 'Funcionários', "render": true },
+            { "id": 9, "href": '/parametros', "label": 'Parâmetros', "render": true }
         ]
     },
     {
         "id": 2,
         "label": "Cadastros",
         "items": [
-            { "id": 1, "href": '/cadastro-autores', "label": 'Autores', "render": true },
-            { "id": 2, "href": '/cadastro-editoras', "label": 'Editoras', "render": true },
-            { "id": 3, "href": '/cadastro-livros', "label": 'Livros', "render": true },
-            { "id": 4, "href": '/cadastro-exemplares', "label": 'Exemplares', "render": true },
-            { "id": 5, "href": '/cadastro-reservas', "label": 'Reservas', "render": true },
-            { "id": 6, "href": '/cadastro-emprestimos', "label": 'Empréstimos', "render": true },
-            { "id": 7, "href": '/cadastro-leitores', "label": 'Leitores', "render": true },
-            { "id": 8, "href": '/cadastro-funcionarios', "label": 'Funcionários', "render": true },
+            { "id": 1, "href": '/autores/cadastrar', "label": 'Autores', "render": true },
+            { "id": 2, "href": '/editoras/cadastrar', "label": 'Editoras', "render": true },
+            { "id": 3, "href": '/livros/cadastrar', "label": 'Livros', "render": true },
+            { "id": 4, "href": '/exemplares/cadastrar', "label": 'Exemplares', "render": true },
+            { "id": 5, "href": '/reservas/cadastrar', "label": 'Reservas', "render": true },
+            { "id": 6, "href": '/emprestimos/cadastrar', "label": 'Empréstimos', "render": true },
+            { "id": 7, "href": '/leitores/cadastrar', "label": 'Leitores', "render": true },
+            { "id": 8, "href": '/funcionarios/cadastrar', "label": 'Funcionários', "render": true },
         ]
     }
 ]
 
 function Navbar(props) {
     const navigate = useNavigate();
+    const [search, setSearch] = useState('');
 
     return (
         <div className='container py-3'>
@@ -58,16 +58,18 @@ function Navbar(props) {
                     </button>
 
                     <div className='collapse navbar-collapse justify-content-between align-items-center w-100' id='navbarResponsive'>
-                        <form className='d-flex mx-auto w-75' role='search' onSubmit={() => navigate('/listagem-livros')}>
+                        <form className='d-flex mx-auto w-75' role='search' onSubmit={() => navigate(`/procurar/${search}`)}>
                             <div className="input-group">
                                 <span className="input-group-text bg-white border-end-0">
-                                    <SearchIcon style={{fill: "var(--bs-secondary-color)"}}/>
+                                    <SearchIcon style={{ fill: "var(--bs-secondary-color)" }} />
                                 </span>
                                 <input
                                     className='form-control border-start-0 ps-0'
                                     type='search'
                                     placeholder='Digite o nome de um livro'
                                     aria-label='Procurar'
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
                                 />
                             </div>
                             <button className='d-none' type='submit'>Procurar</button>
@@ -81,13 +83,12 @@ function Navbar(props) {
                                     </a>
                                     <ul className='dropdown-menu align-items-center justify-content-center'>
                                         {type.items.map((item) => (
-                                            <li key={item.id}>
-                                                <NavbarItem
-                                                    render={item.render}
-                                                    href={item.href}
-                                                    label={item.label}
-                                                />
-                                            </li>
+                                            <NavbarItem
+                                                key={item.id}
+                                                render={item.render}
+                                                href={item.href}
+                                                label={item.label}
+                                            />
                                         ))}
                                     </ul>
                                 </li>

@@ -3,28 +3,24 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/cards';
-import FormGroup from '../components/form-group';
+import Card from '../../components/cards/card.js';
+import SubCard from '../../components/cards/sub-card.js';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import FormGroup from '../../components/form-group.js';
 
-import '../custom.css';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
+import { BASE_URL } from '../../config/axios.js';
+import ChecarAsterisco from '../../utills/checar-asterisco.js';
 
-import Breadcrumbs from '../components/breadcrumbs';
-const breadcrumbs = [
-    { nome: "Funcionários", url: "/listagem-funcionarios" },
-    { nome: "Novo Funcionário" }
-]
 
-function CadastroFuncionario() {
+function CadastroLeitor() {
     const { idParam } = useParams();
 
     const navigate = useNavigate();
 
-    const baseURL = `${BASE_URL}/funcionarios`;
+    const baseURL = `${BASE_URL}/leitores`;
 
     const [id, setId] = useState('');
     const [nome, setNome] = useState('');
@@ -35,6 +31,7 @@ function CadastroFuncionario() {
     const [senha, setSenha] = useState('');
 
     const [dados, setDados] = React.useState([]);
+    const [tentouSalvar, setTentouSalvar] = useState(false);
 
     function inicializar() {
         if (idParam == null) {
@@ -57,6 +54,12 @@ function CadastroFuncionario() {
     }
 
     async function salvar() {
+        setTentouSalvar(true);
+
+        if (!nome || !dtNasc || !cpf || !telefone || !email || !senha) {
+            return;
+        }
+
         let data = {
             id,
             nome,
@@ -73,8 +76,8 @@ function CadastroFuncionario() {
                     headers: { 'Content-Type': 'application/json' },
                 })
                 .then(function (response) {
-                    mensagemSucesso(`Funcionario ${nome} cadastrado com sucesso!`);
-                    navigate(`/listagem-funcionarios`);
+                    mensagemSucesso(`Leitor ${nome} cadastrado com sucesso!`);
+                    navigate(`/leitores`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -85,8 +88,8 @@ function CadastroFuncionario() {
                     headers: { 'Content-Type': 'application/json' },
                 })
                 .then(function (response) {
-                    mensagemSucesso(`Funcionario ${nome} alterado com sucesso!`);
-                    navigate(`/listagem-funcionarios`);
+                    mensagemSucesso(`Leitor ${nome} alterado com sucesso!`);
+                    navigate(`/leitores`);
                 })
                 .catch(function (error) {
                     mensagemErro(error.response.data);
@@ -118,11 +121,10 @@ function CadastroFuncionario() {
 
     return (
         <div className='container'>
-            <Breadcrumbs crumbs={breadcrumbs} />
-            <Card title='Cadastro de Funcionario'>
-                <div className='row'>
-                    <div className='col-lg-12'>
-                        <div className='bs-component'>
+            <Card title='Cadastro de Leitor' subtitle="Campos com * são obrigatórios">
+                <SubCard className='row'>
+                    <div className='row col-12 p-4'>
+                        <div className='bs-component col-lg-8'>
                             <FormGroup label='Nome: *' htmlFor='inputNome'>
                                 <input
                                     type='text'
@@ -132,7 +134,10 @@ function CadastroFuncionario() {
                                     name='nome'
                                     onChange={(e) => setNome(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-4'>
                             <FormGroup label='CPF: *' htmlFor='inputCpf'>
                                 <input
                                     type='text'
@@ -143,7 +148,10 @@ function CadastroFuncionario() {
                                     name='cpf'
                                     onChange={(e) => setCpf(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={cpf} />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6'>
                             <FormGroup label='Data de Nascimento: *' htmlFor='inputDtNasc'>
                                 <input
                                     type='date'
@@ -153,7 +161,10 @@ function CadastroFuncionario() {
                                     name='dtNasc'
                                     onChange={(e) => setDtNasc(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtNasc} />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6'>
                             <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
                                 <input
                                     type='text'
@@ -163,7 +174,10 @@ function CadastroFuncionario() {
                                     name='telefone'
                                     onChange={(e) => setTelefone(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6'>
                             <FormGroup label='E-mail: *' htmlFor='inputEmail'>
                                 <input
                                     type='email'
@@ -173,7 +187,10 @@ function CadastroFuncionario() {
                                     name='email'
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
                             </FormGroup>
+                        </div>
+                        <div className='bs-component col-lg-6'>
                             <FormGroup label='Senha: *' htmlFor='inputSenha'>
                                 <input
                                     type='password'
@@ -183,29 +200,33 @@ function CadastroFuncionario() {
                                     name='senha'
                                     onChange={(e) => setSenha(e.target.value)}
                                 />
+                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={senha} />
                             </FormGroup>
-                            <Stack spacing={1} padding={1} direction='row'>
-                                <button
-                                    onClick={salvar}
-                                    type='button'
-                                    className='btn btn-success'
-                                >
-                                    Salvar
-                                </button>
-                                <button
-                                    onClick={inicializar}
-                                    type='button'
-                                    className='btn btn-danger'
-                                >
-                                    Cancelar
-                                </button>
-                            </Stack>
                         </div>
                     </div>
-                </div>
+                    <div className='d-flex flex-column justify-content-center align-items-end'>
+                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                        <Stack spacing={1} padding={1} direction='row'>
+                            <button
+                                onClick={inicializar}
+                                type='button'
+                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                onClick={salvar}
+                                type='button'
+                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                            >
+                                Salvar Parâmetro
+                            </button>
+                        </Stack>
+                    </div>
+                </SubCard>
             </Card>
         </div>
     );
 }
 
-export default CadastroFuncionario;
+export default CadastroLeitor;
