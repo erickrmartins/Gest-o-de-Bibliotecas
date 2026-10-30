@@ -6,15 +6,15 @@ function BookCard({ livro }) {
     const navigate = useNavigate();
 
     return (
-        <div 
-        className={styles.card}
-        onClick={() => navigate(`/livros/${livro.id}`)}
+        <div
+            className={styles.card}
+            onClick={() => navigate(`/livros/${livro.id}`)}
         >
             <img
                 src={`/covers/${livro.isbn}.jpg`}
                 alt={`Capa de ${livro.nome}`}
                 className={styles.cardImg}
-                />
+            />
         </div>
     )
 }

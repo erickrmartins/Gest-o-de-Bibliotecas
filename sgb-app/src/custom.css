@@ -178,3 +178,28 @@ body {
         color: var(--color-link-hover) !important;
     }
 }
+
+.generoSelect {
+    color: var(--color-link) !important;
+    border: 1px solid var(--color-link);
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-surface) !important;
+        background-color: var(--color-link) !important;
+    }
+}
+
+.generoSelected {
+    color: var(--bs-danger) !important;
+    border: 1px solid var(--bs-danger) !important;
+
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-surface) !important;
+        background-color: var(--bs-danger) !important;
+    }
+}

@@ -9,7 +9,7 @@
 
     height: 100%;
     max-width: 400px;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.75rem;
     transition: 0.3s ease;
 
     &:hover {
@@ -20,6 +20,7 @@
 
 .cardImg {
     object-fit: cover;
+    aspect-ratio: 2/3;
     width: 100%;
     height: 100%;
     border-radius: 12px;
