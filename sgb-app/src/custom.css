@@ -168,3 +168,13 @@ body {
         cursor: pointer;
     }
 }
+
+.a-main {
+    color: var(--color-text) !important;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+        color: var(--color-link-hover) !important;
+    }
+}

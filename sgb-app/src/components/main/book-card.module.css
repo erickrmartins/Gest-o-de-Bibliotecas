@@ -1,0 +1,38 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 200px;
+
+    height: 100%;
+    max-width: 400px;
+    padding-bottom: 0.25rem;
+    transition: 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+}
+
+.cardImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+
+    background-color: var(--color-surface);
+}
+
+.cardImgErro {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+
+    border: 1px solid black;
+    background-color: aqua;
+}
