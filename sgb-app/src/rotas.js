@@ -24,11 +24,12 @@ import CadastroParametro from './views/cadastro/cadastro-parametro';
 import NotFound from './views/notfound';
 import Gerenciar from './views/dashboard/gerenciar';
 import Registrar from './views/dashboard/registrar';
+import Acervo from './views/acervo';
 
 function Rotas(props) {
     return (
         <Routes>
-            <Route path='/' element={<Gerenciar />} />
+            <Route path='/' element={<Acervo />} />
             <Route path='/gerenciar' element={<Gerenciar />} />
             <Route path='/registrar' element={<Registrar />} />
 
