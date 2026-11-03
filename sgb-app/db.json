@@ -1181,6 +1181,571 @@
       "idEditoras": "HarperCollins",
       "ativo": true,
       "recomendado": true
+    },
+    {
+      "id": "1",
+      "nome": "1984",
+      "isbn": "9788535914849",
+      "dtPublicacao": "1949",
+      "numPaginas": 312,
+      "idEditoras": "Companhia das Letras",
+      "idAutores": [
+        "George Orwell"
+      ],
+      "idGeneros": "Distopia"
+    },
+    {
+      "id": "2",
+      "nome": "O Hobbit",
+      "isbn": "9788578274085",
+      "dtPublicacao": "1937",
+      "numPaginas": 310,
+      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
+      "idAutores": [
+        "J.R.R. Tolkien"
+      ],
+      "idGeneros": "Fantasia",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "3",
+      "nome": "Dom Casmurro",
+      "isbn": "9788506069783",
+      "dtPublicacao": "1899",
+      "numPaginas": 413,
+      "sinopsis": "Bento Santiago relembra sua juventude, seu relacionamento com Capitu e a crescente suspeita de que ela o teria traído com seu melhor amigo, Escobar.",
+      "idAutores": [
+        "Machado de Assis"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Editora Melhoramentos",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "4",
+      "nome": "O Senhor dos Anéis",
+      "isbn": "9786555114355",
+      "dtPublicacao": "1954",
+      "numPaginas": 423,
+      "sinopsis": "Frodo Bolseiro recebe a missão de levar o Um Anel até Mordor e destruí-lo antes que Sauron consiga recuperar seu poder.",
+      "idAutores": [
+        "J.R.R. Tolkien"
+      ],
+      "idGeneros": "Fantasia",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "5",
+      "nome": "Admirável Mundo Novo",
+      "isbn": "9788535909838",
+      "dtPublicacao": "1932",
+      "numPaginas": 312,
+      "sinopsis": "Em uma sociedade futurista organizada por castas e condicionamento psicológico, os indivíduos vivem sob controle estatal e são mantidos em constante estado de satisfação.",
+      "idAutores": [
+        "Aldous Huxley"
+      ],
+      "idGeneros": "Ficção",
+      "idEditoras": "Biblioteca Azul",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "6",
+      "nome": "O Alquimista",
+      "isbn": "9788576650284",
+      "dtPublicacao": "1988",
+      "numPaginas": 208,
+      "sinopsis": "O jovem pastor Santiago parte em uma jornada pelo deserto em busca de um tesouro. Durante a viagem, encontra pessoas que o ajudam a compreender seus sonhos e sua própria trajetória.",
+      "idAutores": [
+        "Paulo Coelho"
+      ],
+      "idGeneros": "Aventura",
+      "idEditoras": "Rocco",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "7",
+      "nome": "Orgulho e Preconceito",
+      "isbn": "9780141439518",
+      "dtPublicacao": "1813",
+      "numPaginas": 480,
+      "sinopsis": "Elizabeth Bennet enfrenta as expectativas sociais de sua época enquanto desenvolve uma relação complexa com o reservado e orgulhoso Sr. Darcy.",
+      "idAutores": [
+        "Jane Austen"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Penguin-Companhia",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "9",
+      "nome": "Cem Anos de Solidão",
+      "isbn": "9788501012078",
+      "dtPublicacao": "1967",
+      "numPaginas": 448,
+      "sinopsis": "A história acompanha várias gerações da família Buendía na fictícia cidade de Macondo, misturando acontecimentos históricos, familiares e elementos fantásticos.",
+      "idAutores": [
+        "Gabriel García Márquez"
+      ],
+      "idGeneros": "Realismo",
+      "idEditoras": "Record",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "10",
+      "nome": "A Hora da Estrela",
+      "isbn": "9788520926601",
+      "dtPublicacao": "1977",
+      "numPaginas": 88,
+      "sinopsis": "Macabéa, uma jovem nordestina vivendo no Rio de Janeiro, leva uma existência marcada pela pobreza, pela solidão e pela invisibilidade social.",
+      "idAutores": [
+        "Clarice Lispector"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Rocco",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "11",
+      "nome": "Ensaio sobre a Cegueira",
+      "isbn": "9788573029983",
+      "dtPublicacao": "1995",
+      "numPaginas": 312,
+      "sinopsis": "Uma epidemia de cegueira branca atinge uma cidade e provoca o colapso das estruturas sociais. Um pequeno grupo tenta sobreviver enquanto enfrenta a perda da ordem e da humanidade.",
+      "idAutores": [
+        "José Saramago"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Companhia das Letras",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "12",
+      "nome": "Norwegian Wood",
+      "isbn": "9780375704024",
+      "dtPublicacao": "1987",
+      "numPaginas": 298,
+      "sinopsis": "Toru Watanabe relembra sua juventude em Tóquio e os relacionamentos que marcaram sua vida durante um período de mudanças pessoais e sociais.",
+      "idAutores": [
+        "Haruki Murakami"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Vintage",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "13",
+      "nome": "Os Miseráveis",
+      "isbn": "9780451419439",
+      "dtPublicacao": "1862",
+      "numPaginas": 1463,
+      "sinopsis": "Jean Valjean busca reconstruir sua vida depois de anos de prisão, enquanto é perseguido pelo inspetor Javert em uma França marcada por profundas desigualdades sociais.",
+      "idAutores": [
+        "Victor Hugo"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Penguin",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "14",
+      "nome": "O Pequeno Príncipe",
+      "isbn": "9780156012195",
+      "dtPublicacao": "1943",
+      "numPaginas": 96,
+      "sinopsis": "Um piloto encontra no deserto um pequeno príncipe vindo de outro asteroide. Através das histórias de suas viagens, o personagem reflete sobre amizade, amor, responsabilidade e relações humanas.",
+      "idAutores": [
+        "Antoine de Saint-Exupéry"
+      ],
+      "idGeneros": "Infantil",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "15",
+      "nome": "Crime e Castigo",
+      "isbn": "9780140449136",
+      "dtPublicacao": "1866",
+      "numPaginas": 671,
+      "sinopsis": "Raskólnikov, um jovem estudante em dificuldades financeiras, comete um assassinato e passa a enfrentar as consequências psicológicas e morais de seu ato.",
+      "idAutores": [
+        "Fyodor Dostoevsky"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Penguin",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "16",
+      "nome": "Anna Kariênina",
+      "isbn": "9780143035008",
+      "dtPublicacao": "1878",
+      "numPaginas": 864,
+      "sinopsis": "Anna Kariênina vive um conflito entre as convenções da sociedade russa e sua paixão pelo conde Vronsky, enquanto outras histórias de amor e família se desenvolvem ao seu redor.",
+      "idAutores": [
+        "Liev Tolstoy"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Penguin",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "17",
+      "nome": "Duna",
+      "isbn": "9780441172719",
+      "dtPublicacao": "1965",
+      "numPaginas": 896,
+      "sinopsis": "Paul Atreides e sua família são enviados para o planeta desértico Arrakis, fonte da especiaria mais valiosa do universo. A mudança coloca Paul no centro de uma disputa política e econômica.",
+      "idAutores": [
+        "Frank Herbert"
+      ],
+      "idGeneros": "Ficção",
+      "idEditoras": "Ace",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "18",
+      "nome": "Frankenstein",
+      "isbn": "9780486282114",
+      "dtPublicacao": "1818",
+      "numPaginas": 280,
+      "sinopsis": "Victor Frankenstein cria uma criatura a partir de partes humanas e, horrorizado com o resultado, abandona sua criação. O abandono desencadeia uma série de acontecimentos trágicos.",
+      "idAutores": [
+        "Mary Shelley"
+      ],
+      "idGeneros": "Terror",
+      "idEditoras": "Dover Publications",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "19",
+      "nome": "O Grande Gatsby",
+      "isbn": "9780743273565",
+      "dtPublicacao": "1925",
+      "numPaginas": 180,
+      "sinopsis": "Narrado por Nick Carraway, o romance acompanha o misterioso milionário Jay Gatsby e sua obsessão por Daisy Buchanan durante a década de 1920.",
+      "idAutores": [
+        "F. Scott Fitzgerald"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Scribner",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "20",
+      "nome": "O Sol é para Todos",
+      "isbn": "9780061120084",
+      "dtPublicacao": "1960",
+      "numPaginas": 323,
+      "sinopsis": "Scout Finch narra sua infância em uma pequena cidade do Alabama enquanto seu pai, o advogado Atticus Finch, defende um homem negro acusado injustamente de um crime.",
+      "idAutores": [
+        "Harper Lee"
+      ],
+      "idGeneros": "Clássico",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    
+    {
+      "id": "1",
+      "nome": "1984",
+      "isbn": "9788535914849",
+      "dtPublicacao": "1949",
+      "numPaginas": 312,
+      "idEditoras": "Companhia das Letras",
+      "idAutores": [
+        "George Orwell"
+      ],
+      "idGeneros": "Distopia"
+    },
+    {
+      "id": "2",
+      "nome": "O Hobbit",
+      "isbn": "9788578274085",
+      "dtPublicacao": "1937",
+      "numPaginas": 310,
+      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
+      "idAutores": [
+        "J.R.R. Tolkien"
+      ],
+      "idGeneros": "Fantasia",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "3",
+      "nome": "Dom Casmurro",
+      "isbn": "9788506069783",
+      "dtPublicacao": "1899",
+      "numPaginas": 413,
+      "sinopsis": "Bento Santiago relembra sua juventude, seu relacionamento com Capitu e a crescente suspeita de que ela o teria traído com seu melhor amigo, Escobar.",
+      "idAutores": [
+        "Machado de Assis"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Editora Melhoramentos",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "4",
+      "nome": "O Senhor dos Anéis",
+      "isbn": "9786555114355",
+      "dtPublicacao": "1954",
+      "numPaginas": 423,
+      "sinopsis": "Frodo Bolseiro recebe a missão de levar o Um Anel até Mordor e destruí-lo antes que Sauron consiga recuperar seu poder.",
+      "idAutores": [
+        "J.R.R. Tolkien"
+      ],
+      "idGeneros": "Fantasia",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "5",
+      "nome": "Admirável Mundo Novo",
+      "isbn": "9788535909838",
+      "dtPublicacao": "1932",
+      "numPaginas": 312,
+      "sinopsis": "Em uma sociedade futurista organizada por castas e condicionamento psicológico, os indivíduos vivem sob controle estatal e são mantidos em constante estado de satisfação.",
+      "idAutores": [
+        "Aldous Huxley"
+      ],
+      "idGeneros": "Ficção",
+      "idEditoras": "Biblioteca Azul",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "6",
+      "nome": "O Alquimista",
+      "isbn": "9788576650284",
+      "dtPublicacao": "1988",
+      "numPaginas": 208,
+      "sinopsis": "O jovem pastor Santiago parte em uma jornada pelo deserto em busca de um tesouro. Durante a viagem, encontra pessoas que o ajudam a compreender seus sonhos e sua própria trajetória.",
+      "idAutores": [
+        "Paulo Coelho"
+      ],
+      "idGeneros": "Aventura",
+      "idEditoras": "Rocco",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "7",
+      "nome": "Orgulho e Preconceito",
+      "isbn": "9780141439518",
+      "dtPublicacao": "1813",
+      "numPaginas": 480,
+      "sinopsis": "Elizabeth Bennet enfrenta as expectativas sociais de sua época enquanto desenvolve uma relação complexa com o reservado e orgulhoso Sr. Darcy.",
+      "idAutores": [
+        "Jane Austen"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Penguin-Companhia",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "9",
+      "nome": "Cem Anos de Solidão",
+      "isbn": "9788501012078",
+      "dtPublicacao": "1967",
+      "numPaginas": 448,
+      "sinopsis": "A história acompanha várias gerações da família Buendía na fictícia cidade de Macondo, misturando acontecimentos históricos, familiares e elementos fantásticos.",
+      "idAutores": [
+        "Gabriel García Márquez"
+      ],
+      "idGeneros": "Realismo",
+      "idEditoras": "Record",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "10",
+      "nome": "A Hora da Estrela",
+      "isbn": "9788520926601",
+      "dtPublicacao": "1977",
+      "numPaginas": 88,
+      "sinopsis": "Macabéa, uma jovem nordestina vivendo no Rio de Janeiro, leva uma existência marcada pela pobreza, pela solidão e pela invisibilidade social.",
+      "idAutores": [
+        "Clarice Lispector"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Rocco",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "11",
+      "nome": "Ensaio sobre a Cegueira",
+      "isbn": "9788573029983",
+      "dtPublicacao": "1995",
+      "numPaginas": 312,
+      "sinopsis": "Uma epidemia de cegueira branca atinge uma cidade e provoca o colapso das estruturas sociais. Um pequeno grupo tenta sobreviver enquanto enfrenta a perda da ordem e da humanidade.",
+      "idAutores": [
+        "José Saramago"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Companhia das Letras",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "12",
+      "nome": "Norwegian Wood",
+      "isbn": "9780375704024",
+      "dtPublicacao": "1987",
+      "numPaginas": 298,
+      "sinopsis": "Toru Watanabe relembra sua juventude em Tóquio e os relacionamentos que marcaram sua vida durante um período de mudanças pessoais e sociais.",
+      "idAutores": [
+        "Haruki Murakami"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Vintage",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "13",
+      "nome": "Os Miseráveis",
+      "isbn": "9780451419439",
+      "dtPublicacao": "1862",
+      "numPaginas": 1463,
+      "sinopsis": "Jean Valjean busca reconstruir sua vida depois de anos de prisão, enquanto é perseguido pelo inspetor Javert em uma França marcada por profundas desigualdades sociais.",
+      "idAutores": [
+        "Victor Hugo"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Penguin",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "14",
+      "nome": "O Pequeno Príncipe",
+      "isbn": "9780156012195",
+      "dtPublicacao": "1943",
+      "numPaginas": 96,
+      "sinopsis": "Um piloto encontra no deserto um pequeno príncipe vindo de outro asteroide. Através das histórias de suas viagens, o personagem reflete sobre amizade, amor, responsabilidade e relações humanas.",
+      "idAutores": [
+        "Antoine de Saint-Exupéry"
+      ],
+      "idGeneros": "Infantil",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "15",
+      "nome": "Crime e Castigo",
+      "isbn": "9780140449136",
+      "dtPublicacao": "1866",
+      "numPaginas": 671,
+      "sinopsis": "Raskólnikov, um jovem estudante em dificuldades financeiras, comete um assassinato e passa a enfrentar as consequências psicológicas e morais de seu ato.",
+      "idAutores": [
+        "Fyodor Dostoevsky"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Penguin",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "16",
+      "nome": "Anna Kariênina",
+      "isbn": "9780143035008",
+      "dtPublicacao": "1878",
+      "numPaginas": 864,
+      "sinopsis": "Anna Kariênina vive um conflito entre as convenções da sociedade russa e sua paixão pelo conde Vronsky, enquanto outras histórias de amor e família se desenvolvem ao seu redor.",
+      "idAutores": [
+        "Liev Tolstoy"
+      ],
+      "idGeneros": "Romance",
+      "idEditoras": "Penguin",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "17",
+      "nome": "Duna",
+      "isbn": "9780441172719",
+      "dtPublicacao": "1965",
+      "numPaginas": 896,
+      "sinopsis": "Paul Atreides e sua família são enviados para o planeta desértico Arrakis, fonte da especiaria mais valiosa do universo. A mudança coloca Paul no centro de uma disputa política e econômica.",
+      "idAutores": [
+        "Frank Herbert"
+      ],
+      "idGeneros": "Ficção",
+      "idEditoras": "Ace",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "18",
+      "nome": "Frankenstein",
+      "isbn": "9780486282114",
+      "dtPublicacao": "1818",
+      "numPaginas": 280,
+      "sinopsis": "Victor Frankenstein cria uma criatura a partir de partes humanas e, horrorizado com o resultado, abandona sua criação. O abandono desencadeia uma série de acontecimentos trágicos.",
+      "idAutores": [
+        "Mary Shelley"
+      ],
+      "idGeneros": "Terror",
+      "idEditoras": "Dover Publications",
+      "ativo": true,
+      "recomendado": true
+    },
+    {
+      "id": "19",
+      "nome": "O Grande Gatsby",
+      "isbn": "9780743273565",
+      "dtPublicacao": "1925",
+      "numPaginas": 180,
+      "sinopsis": "Narrado por Nick Carraway, o romance acompanha o misterioso milionário Jay Gatsby e sua obsessão por Daisy Buchanan durante a década de 1920.",
+      "idAutores": [
+        "F. Scott Fitzgerald"
+      ],
+      "idGeneros": "Drama",
+      "idEditoras": "Scribner",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "20",
+      "nome": "O Sol é para Todos",
+      "isbn": "9780061120084",
+      "dtPublicacao": "1960",
+      "numPaginas": 323,
+      "sinopsis": "Scout Finch narra sua infância em uma pequena cidade do Alabama enquanto seu pai, o advogado Atticus Finch, defende um homem negro acusado injustamente de um crime.",
+      "idAutores": [
+        "Harper Lee"
+      ],
+      "idGeneros": "Clássico",
+      "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": true
     }
   ],
   "reservas": [
