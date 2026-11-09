@@ -26,6 +26,9 @@ import Gerenciar from './views/dashboard/gerenciar';
 import Registrar from './views/dashboard/registrar';
 import Acervo from './views/acervo';
 
+import Login from './views/login/login';
+import Cadastro from './views/login/cadastro';
+
 function Rotas(props) {
     return (
         <Routes>
@@ -52,6 +55,10 @@ function Rotas(props) {
             <Route path="/leitores/cadastrar/:idParam?" element={<CadastroLeitor />} />
             <Route path='/funcionarios/cadastrar/:idParam?' element={<CadastroFuncionario />} />
             <Route path="/parametros/cadastrar/:idParam" element={<CadastroParametro />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastrar" element={<Cadastro />} />
+
             <Route path="*" element={<NotFound />} />
         </Routes>
     )
