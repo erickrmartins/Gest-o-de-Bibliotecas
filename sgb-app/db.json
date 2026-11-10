@@ -47,6 +47,15 @@
       "foto": "",
       "livrosLidos": 1,
       "ativo": true
+    },
+    {
+      "id": "mnIELbGwHdA",
+      "nome": "123",
+      "dtNasc": "2026-11-09",
+      "cpf": "123",
+      "telefone": "123123",
+      "email": "123",
+      "senha": "123"
     }
   ],
   "funcionarios": [
@@ -1464,7 +1473,6 @@
       "ativo": true,
       "recomendado": true
     },
-    
     {
       "id": "1",
       "nome": "1984",

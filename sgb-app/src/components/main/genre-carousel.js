@@ -41,9 +41,9 @@ function GenreCarousel({ genero, livros, maximizar }) {
                 </div>
                 {maximizar ? null : (
                     <div className="d-flex justify-content-center align-items-center mt-2" style={{ gap: "1rem" }}>
-                        <a className="bg-white p-2 curvatura generoSelect text-center" onClick={() => alterar({ botao: -1 })}>&lt;</a>
+                        <a className="bg-white px-2 py-1 curvatura generoSelect text-center" onClick={() => alterar({ botao: -1 })}>&lt;</a>
                         <span>{index + 1}</span>
-                        <a className="bg-white p-2 curvatura generoSelect text-center" onClick={() => alterar({ botao: 1 })}>&gt;</a>
+                        <a className="bg-white px-2 py-1 curvatura generoSelect text-center" onClick={() => alterar({ botao: 1 })}>&gt;</a>
                     </div>
                 )}
             </SubCard >

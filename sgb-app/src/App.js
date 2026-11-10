@@ -9,13 +9,21 @@ import './custom.css';
 import 'toastr/build/toastr.css';
 import 'toastr/build/toastr.min';
 
+const path = window.location.pathname;
+const isLoginPage = path === '/login' || path === '/cadastrar';
+
 class App extends React.Component {
+
   render() {
     return (
       <div className="container">
-        <NavBar/>
-        <Breadcrumbs/>
-        <Rotas/>
+        {isLoginPage ? null : (
+          <>
+            <NavBar />
+            <Breadcrumbs />
+          </>
+        )}
+        <Rotas />
       </div>
     );
 
