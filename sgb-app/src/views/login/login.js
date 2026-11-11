@@ -20,7 +20,7 @@ function Login() {
         e.preventDefault();
 
         await axios.get(`${BASE_URL}/${role}`).then((response) => {
-            const user = response.data.find((user) => user.email === email && user.senha === senha);
+            const user = response.data.find((user) => (user.email === email || user.cpf === email) && user.senha === senha);
             if (user) {
                 navigate('/');
             }

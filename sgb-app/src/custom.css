@@ -2,60 +2,61 @@
    SGB — IDENTIDADE VISUAL
    ========================================================= */
 
+
 :root {
     /* Fundos */
-    --color-background: #f5f7ff;
+    --color-background: #F5F1EB;
     --color-surface: #FFFFFF;
 
     /* Texto */
-    --color-text: #1F2923;
-    --color-text-secondary: #66736B;
-    --color-text-muted: #96A29B;
+    --color-text: #342820;
+    --color-text-secondary: #756457;
+    --color-text-muted: #A99A8C;
 
     /* Bordas */
-    --color-border: #DCE4DF;
-    --color-border-hover: #C5D1C9;
+    --color-border: #E5DAD0;
+    --color-border-hover: #CDBBAA;
 
     /* Cor principal */
-    --color-primary: #3F6B52;
-    --color-primary-hover: #335941;
-    --color-primary-light: #E8F1EB;
+    --color-primary: #79533D;
+    --color-primary-hover: #60412F;
+    --color-primary-light: #F0E6DC;
 
     /* Botão principal */
-    --color-button-bg: #3F6B52;
-    --color-button-border: #3F6B52;
+    --color-button-bg: #79533D;
+    --color-button-border: #79533D;
     --color-button-text: #FFFFFF;
 
-    --color-button-bg-hover: #335941;
-    --color-button-border-hover: #335941;
+    --color-button-bg-hover: #60412F;
+    --color-button-border-hover: #60412F;
 
     /* Botão secundário */
     --color-button-secondary-bg: #FFFFFF;
-    --color-button-secondary-border: #C5D1C9;
-    --color-button-secondary-text: #34433A;
+    --color-button-secondary-border: #D8C8B9;
+    --color-button-secondary-text: #604A39;
 
-    --color-button-secondary-hover-bg: #F0F4F1;
-    --color-button-secondary-hover-border: #9EAEA3;
+    --color-button-secondary-hover-bg: #F4EDE5;
+    --color-button-secondary-hover-border: #BCA590;
 
     /* Links */
-    --color-link: #3F6B52;
-    --color-link-hover: #294A36;
+    --color-link: #79533D;
+    --color-link-hover: #503725;
 
     /* Sucesso */
-    --color-success: #397A55;
-    --color-success-light: #E8F4EC;
+    --color-success: #667653;
+    --color-success-light: #EDF1E7;
 
     /* Aviso */
-    --color-warning: #B47A27;
-    --color-warning-light: #FFF4DD;
+    --color-warning: #B17A36;
+    --color-warning-light: #FAF0DF;
 
     /* Erro */
-    --color-danger: #B64D4D;
-    --color-danger-light: #FCECEC;
+    --color-danger: #A65345;
+    --color-danger-light: #F8EAE6;
 
     /* Destaque */
-    --color-accent: #C49A52;
-    --color-accent-light: #F8F0DF;
+    --color-accent: #B77B58;
+    --color-accent-light: #F5E8DE;
 }
 
 /* =========================================================
@@ -66,7 +67,7 @@ body {
     min-height: 100%;
     background-color: var(--color-background) !important;
 
-    color: var(--color-text);
+    color: var(--color-text) !important;
     min-height: 100vh;
 }
 
