@@ -13,8 +13,13 @@ function BookCard({ livro }) {
             <img
                 src={`/covers/${livro.isbn}.jpg`}
                 alt={`Capa de ${livro.nome}`}
-                className={styles.cardImg}
+                className={`curvatura ${styles.cardImg}`}
             />
+
+            <div className={`d-flex flex-column align-items-start mt-2 ${styles.cardText}`}>
+                <h5 className="ms-0 fs-6">{livro.nome}</h5>
+                <p className="ms-0 text-muted fs-7">{livro.idAutores[0]}</p>
+            </div>
         </div>
     )
 }

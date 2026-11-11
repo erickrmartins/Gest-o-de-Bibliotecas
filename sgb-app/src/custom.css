@@ -118,7 +118,7 @@ a:hover {
 }
 
 .curvatura {
-    border-radius: 24px !important;
+    border-radius: 8px !important;
 }
 
 .form-control:focus {
@@ -138,6 +138,18 @@ body {
 
 .fs-7 {
     font-size: 0.75rem !important;
+}
+
+.fs-8 {
+    font-size: 0.625rem !important;
+}
+
+.fs-9 {
+    font-size: 0.5rem !important;
+}
+
+.fs-10 {
+    font-size: 0.375rem !important;
 }
 
 /* Alterando o tema para verde */

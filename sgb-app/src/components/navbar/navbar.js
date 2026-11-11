@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavbarItem from './navbarItem';
 import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
+import NavbarProfile from './navbarProfile';
+
+import axios from 'axios';
+import { BASE_URL } from '../../config/axios';
+
+const baseUrl = `${BASE_URL}/leitores/1`
+
 
 const items = [
     {
@@ -36,8 +43,11 @@ const items = [
 ]
 
 function Navbar(props) {
-    const navigate = useNavigate();
-    const [search, setSearch] = useState('');
+    const [profile, setProfile] = useState('');
+
+    useEffect(() => {
+        axios.get(baseUrl).then((response) => setProfile(response.data))
+    }, []);
 
     return (
         <div className='container py-3'>
@@ -56,45 +66,26 @@ function Navbar(props) {
                     >
                         <span className='navbar-toggler-icon'></span>
                     </button>
+                    <ul className="d-flex align-items-center justify-content-center gap-3 list-unstyled m-0 p-0">
+                        <NavbarItem
+                            destino="/"
+                            label="Acervo"
+                            render={true}
+                        />
 
-                    <div className='collapse navbar-collapse justify-content-between align-items-center w-100' id='navbarResponsive'>
-                        <form className='d-flex mx-auto w-75' role='search' onSubmit={() => navigate(`/procurar/${search}`)}>
-                            <div className="input-group">
-                                <span className="input-group-text bg-white border-end-0">
-                                    <SearchIcon style={{ fill: "var(--bs-secondary-color)" }} />
-                                </span>
-                                <input
-                                    className='form-control border-start-0 ps-0'
-                                    type='search'
-                                    placeholder='Digite o nome de um livro'
-                                    aria-label='Procurar'
-                                    value={search}
-                                    onChange={(e) => setSearch(e.target.value)}
-                                />
-                            </div>
-                            <button className='d-none' type='submit'>Procurar</button>
-                        </form>
+                        <NavbarItem
+                            destino="/gerenciar"
+                            label="Gerenciar"
+                            render={true}
+                        />
 
-                        <ul className='navbar-nav mb-2 mb-lg-0'>
-                            {items.map((type) => (
-                                <li className='nav-item dropdown' key={type.id}>
-                                    <a className='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                        {type.label}
-                                    </a>
-                                    <ul className='dropdown-menu align-items-center justify-content-center'>
-                                        {type.items.map((item) => (
-                                            <NavbarItem
-                                                key={item.id}
-                                                render={item.render}
-                                                href={item.href}
-                                                label={item.label}
-                                            />
-                                        ))}
-                                    </ul>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                        <NavbarItem
+                            destino="/registrar"
+                            label="Registrar"
+                            render={true}
+                        />
+                    </ul>
+                    <NavbarProfile profile={profile} />
                 </div>
             </nav>
         </div>
