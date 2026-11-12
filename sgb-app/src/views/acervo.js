@@ -1,5 +1,6 @@
 import Card from "../components/cards/card";
 import GenreCarousel from "../components/main/genre-carousel";
+import Recommended from "../components/recommended/recommended";
 
 
 import axios from "axios";
@@ -19,6 +20,7 @@ function Acervo() {
     const [pesquisa, setPesquisa] = useState('');
     const [pesquisaAtiva, setPesquisaAtiva] = useState(false);
     const [resultadosPesquisa, setResultadosPesquisa] = useState([]);
+    const [recomendados, setRecomendados] = useState([]);
 
     function getLivrosByGenero(genero) {
         return livros.filter((livro) => livro.idGeneros === genero);
@@ -49,22 +51,27 @@ function Acervo() {
             titulo = generoSelec;
             livrosFiltrados = getLivrosByGenero(generoSelec);
         } else {
-            titulo = "Todos os livros";
-            livrosFiltrados = livros;
+            return (generos.map((genero) => <GenreCarousel titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />));
         }
 
         return (
-            <GenreCarousel genero={titulo} livros={livrosFiltrados} maximizar={true} />
+            <GenreCarousel titulo={titulo} livros={livrosFiltrados} maximizar={true} />
         );
     }
 
-    useEffect(() => {
-        axios.get(`${BASE_URL}/livros`).then((response) => setLivros(response.data));
+    useEffect(() => {   
+        axios.get(`${BASE_URL}/livros`).then((response) => {
+            setLivros(response.data);
+            setRecomendados(response.data.filter((livro) => livro.recomendado));
+        });
         axios.get(`${BASE_URL}/generos`).then((response) => setGeneros(response.data));
     }, []);
 
     return (
         <div className="container">
+            {recomendados.length > 0 && (
+                <Recommended livro={recomendados[Math.floor(Math.random() * recomendados.length)]} />
+            )}
             <Card title="Acervo" subtitle="Esses são os livros disponíveis em nosso acervo">
                 <div className="row g-2 mb-4 align-items-center">
                     <div className="col-12 col-lg-6">
@@ -111,6 +118,7 @@ function Acervo() {
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
+                        <GenreCarousel titulo="Recomendados pela biblioteca" livros={recomendados}/>
                         {mostrarLivros()}
                     </div>
                 </div>

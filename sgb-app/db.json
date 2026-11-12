@@ -614,111 +614,138 @@
   "generos": [
     {
       "id": "1",
-      "nome": "Romance"
+      "nome": "Romance",
+      "label": "Laços profundos, corações interligados."
     },
     {
       "id": "2",
-      "nome": "Fantasia"
+      "nome": "Fantasia",
+      "label": "Reinos mágicos, jornadas épicas."
     },
     {
       "id": "3",
-      "nome": "Ficção"
+      "nome": "Ficção",
+      "label": "Outros mundos, novas ideias."
     },
     {
       "id": "4",
-      "nome": "Aventura"
+      "nome": "Aventura",
+      "label": "Riscos altos, destinos inexplorados."
     },
     {
       "id": "5",
-      "nome": "Mistério"
+      "nome": "Mistério",
+      "label": "Pistas ocultas, segredos revelados."
     },
     {
       "id": "6",
-      "nome": "Terror"
+      "nome": "Terror",
+      "label": "Medos sombrios, noites sem sono."
     },
     {
       "id": "7",
-      "nome": "Drama"
+      "nome": "Drama",
+      "label": "Conflitos humanos, emoções intensas."
     },
     {
       "id": "8",
-      "nome": "Distopia"
+      "nome": "Distopia",
+      "label": "Futuros sombrios, resistência humana."
     },
     {
       "id": "9",
-      "nome": "Clássico"
+      "nome": "Clássico",
+      "label": "Obras eternas, histórias atemporais."
     },
     {
       "id": "10",
-      "nome": "Ficção"
+      "nome": "Ficção",
+      "label": "Realidades inventadas, imaginação livre."
     },
     {
       "id": "11",
-      "nome": "Infantil"
+      "nome": "Infantil",
+      "label": "Pequenos leitores, grandes descobertas."
     },
     {
       "id": "12",
-      "nome": "Magia"
+      "nome": "Magia",
+      "label": "Feitiços antigos, poderes ocultos."
     },
     {
       "id": "13",
-      "nome": "Realismo"
+      "nome": "Realismo",
+      "label": "Vida nua, retratos fiéis."
     },
     {
       "id": "14",
-      "nome": "Ficção Científica"
+      "nome": "Ficção Científica",
+      "label": "Ciência avançada, futuros possíveis."
     },
     {
       "id": "15",
-      "nome": "Suspense"
+      "nome": "Suspense",
+      "label": "Tensão constante, viradas inesperadas."
     },
     {
       "id": "16",
-      "nome": "Gótico"
+      "nome": "Gótico",
+      "label": "Sombras antigas, atmosfera sombria."
     },
     {
       "id": "17",
-      "nome": "Naturalismo"
+      "nome": "Naturalismo",
+      "label": "Instintos humanos, realidade crua."
     },
     {
       "id": "18",
-      "nome": "Regionalismo"
+      "nome": "Regionalismo",
+      "label": "Raízes locais, culturas vivas."
     },
     {
       "id": "19",
-      "nome": "Sátira"
+      "nome": "Sátira",
+      "label": "Crítica afiada, humor inteligente."
     },
     {
       "id": "20",
-      "nome": "Cyberpunk"
+      "nome": "Cyberpunk",
+      "label": "Alta tecnologia, baixa qualidade."
     },
     {
       "id": "21",
-      "nome": "Existencialismo"
+      "nome": "Existencialismo",
+      "label": "Sentido da vida, escolhas."
     },
     {
       "id": "22",
-      "nome": "Realismo Mágico"
+      "nome": "Realismo Mágico",
+      "label": "O fantástico no cotidiano."
     },
     {
       "id": "23",
-      "nome": "Economia"
+      "nome": "Economia",
+      "label": "Mercados, recursos e decisões."
     },
     {
       "id": "24",
-      "nome": "Quadrinhos"
+      "nome": "Quadrinhos",
+      "label": "Arte sequencial, histórias visuais."
     },
     {
       "id": "25",
-      "nome": "Tecnologia"
+      "nome": "Tecnologia",
+      "label": "Inovação constante, futuro digital."
     },
     {
       "id": "26",
-      "nome": "Redação"
+      "nome": "Redação",
+      "label": "Ideias claras, escrita precisa."
     },
     {
       "id": "27",
-      "nome": "Política"
+      "nome": "Política",
+      "label": "Poder, sociedade e decisões."
     }
   ],
   "editoras": [
@@ -916,10 +943,13 @@
       "dtPublicacao": "1949",
       "numPaginas": 312,
       "idEditoras": "Companhia das Letras",
+      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
       "idAutores": [
         "George Orwell"
       ],
-      "idGeneros": "Distopia"
+      "idGeneros": "Distopia",
+      "ativo": true,
+      "recomendado": true
     },
     {
       "id": "2",
@@ -979,7 +1009,7 @@
       "idGeneros": "Ficção",
       "idEditoras": "Biblioteca Azul",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "6",
@@ -994,7 +1024,7 @@
       "idGeneros": "Aventura",
       "idEditoras": "Rocco",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "7",
@@ -1009,7 +1039,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Penguin-Companhia",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "9",
@@ -1039,7 +1069,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Rocco",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "11",
@@ -1054,7 +1084,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Companhia das Letras",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "12",
@@ -1084,7 +1114,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "14",
@@ -1099,7 +1129,7 @@
       "idGeneros": "Infantil",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "15",
@@ -1114,7 +1144,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "16",
@@ -1144,7 +1174,7 @@
       "idGeneros": "Ficção",
       "idEditoras": "Ace",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "18",
@@ -1159,7 +1189,7 @@
       "idGeneros": "Terror",
       "idEditoras": "Dover Publications",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "19",
@@ -1189,7 +1219,7 @@
       "idGeneros": "Clássico",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "1",
@@ -1216,7 +1246,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "3",
@@ -1231,7 +1261,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Editora Melhoramentos",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "4",
@@ -1246,7 +1276,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "5",
@@ -1261,7 +1291,7 @@
       "idGeneros": "Ficção",
       "idEditoras": "Biblioteca Azul",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "6",
@@ -1291,7 +1321,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Penguin-Companhia",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "9",
@@ -1306,7 +1336,7 @@
       "idGeneros": "Realismo",
       "idEditoras": "Record",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "10",
@@ -1336,7 +1366,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Companhia das Letras",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "12",
@@ -1366,7 +1396,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "14",
@@ -1381,7 +1411,7 @@
       "idGeneros": "Infantil",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "15",
@@ -1396,7 +1426,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "16",
@@ -1426,7 +1456,7 @@
       "idGeneros": "Ficção",
       "idEditoras": "Ace",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "18",
@@ -1441,7 +1471,7 @@
       "idGeneros": "Terror",
       "idEditoras": "Dover Publications",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "19",
@@ -1471,7 +1501,7 @@
       "idGeneros": "Clássico",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "1",
@@ -1498,7 +1528,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "3",
@@ -1513,7 +1543,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Editora Melhoramentos",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "4",
@@ -1528,7 +1558,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "5",
@@ -1543,7 +1573,7 @@
       "idGeneros": "Ficção",
       "idEditoras": "Biblioteca Azul",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "6",
@@ -1573,7 +1603,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Penguin-Companhia",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "9",
@@ -1588,7 +1618,7 @@
       "idGeneros": "Realismo",
       "idEditoras": "Record",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "10",
@@ -1618,7 +1648,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Companhia das Letras",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "12",
@@ -1648,7 +1678,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "14",
@@ -1663,7 +1693,7 @@
       "idGeneros": "Infantil",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "15",
@@ -1678,7 +1708,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "16",
@@ -1708,7 +1738,7 @@
       "idGeneros": "Ficção",
       "idEditoras": "Ace",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "18",
@@ -1723,7 +1753,7 @@
       "idGeneros": "Terror",
       "idEditoras": "Dover Publications",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "19",
@@ -1753,7 +1783,7 @@
       "idGeneros": "Clássico",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     }
   ],
   "reservas": [
