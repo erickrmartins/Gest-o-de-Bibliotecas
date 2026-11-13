@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import Card from '../../components/cards/card.js';
-import SubCard from '../../components/cards/sub-card.js';
+import Card from '../../components/ui/card.js';
+import SubCard from '../../components/ui/sub-card.js';
 
 import '../../custom.css';
 import { useNavigate, useParams } from 'react-router-dom';

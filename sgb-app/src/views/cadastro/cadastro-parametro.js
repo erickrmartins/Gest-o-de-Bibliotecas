@@ -3,11 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../../components/cards/card.js';
-import SubCard from '../../components/cards/sub-card.js';
+import Card from '../../components/ui/card.js';
+import SubCard from '../../components/ui/sub-card.js';
 
-import FormGroup from '../../components/form-group.js';
-import ChecarAsterisco from '../../utills/checar-asterisco.js';
+import FormGroup from '../../components/ui/form-group.js';
+import ChecarAsterisco from '../../utils/checar-asterisco.js';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 

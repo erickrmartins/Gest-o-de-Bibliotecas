@@ -8,7 +8,7 @@ function calcularVisiveis(largura) {
     return 3;                     // xs
 }
 
-function GenreCarousel({ titulo, livros, maximizar }) {
+function GenreCarousel({ titulo, livros, maximizar, limpar }) {
     const [index, setIndex] = useState(0);
     const [visiveis, setVisiveis] = useState(calcularVisiveis(window.innerWidth));
     const maxIndex = Math.max(0, livros.length - visiveis);
@@ -46,16 +46,20 @@ function GenreCarousel({ titulo, livros, maximizar }) {
 
     return !(livros.length > 0) ? null : (
         <div className="mb-4">
-            <div className="d-flex justify-content-between">
-                <div className="d-flex justify-content-center align-items-center mt-2 mb-3">
-                    <h3 className="fw-semibold m-0">{titulo}</h3>
+            <div className="d-flex justify-content-between align-items-center mt-2">
+                <div className="d-flex justify-content-center align-items-center">
+                    <h3 className="fw-semibold m-0 fs-4">{titulo}</h3>
                 </div>
-                {maximizar ? null : (
-                    <div className="d-flex justify-content-center align-items-center mt-2 mb-3" style={{ gap: "1rem" }}>
-                        <a className="fs-3 generoSelect px-3 py-1 curvatura" onClick={() => alterar({ botao: -1 })}>&lt;</a>
-                        <a className="fs-3 generoSelect px-3 py-1 curvatura" onClick={() => alterar({ botao: 1 })}>&gt;</a>
-                    </div>
-                )}
+                <div>
+                    {maximizar ?
+                        <button className="btn btn-primary fs-7" onClick={limpar}>Limpar Filtros</button>
+                        : (
+                            <div className="d-flex justify-content-center align-items-center mt-2 mb-3" style={{ gap: "1rem" }}>
+                                <a className="fs-5 generoSelect px-3 py-1 curvatura" onClick={() => alterar({ botao: -1 })}>&lt;</a>
+                                <a className="fs-5 generoSelect px-3 py-1 curvatura" onClick={() => alterar({ botao: 1 })}>&gt;</a>
+                            </div>
+                        )}
+                </div>
             </div>
             <div className="row">
                 {maximizar ? livros.map((livro) => (

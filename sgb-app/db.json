@@ -11,6 +11,13 @@
       "recomendados": "5"
     }
   ],
+  "usuarioLogado": [
+    {
+      "id": "1",
+      "isFuncionario": false,
+      "idUsuario": "1"
+    }
+  ],
   "leitores": [
     {
       "id": "1",
@@ -615,137 +622,137 @@
     {
       "id": "1",
       "nome": "Romance",
-      "label": "Laços profundos, corações interligados."
+      "label": "Para se apaixonar de novo"
     },
     {
       "id": "2",
       "nome": "Fantasia",
-      "label": "Reinos mágicos, jornadas épicas."
+      "label": "Mundos que você vai querer habitar"
     },
     {
       "id": "3",
       "nome": "Ficção",
-      "label": "Outros mundos, novas ideias."
+      "label": "E se tudo fosse diferente?"
     },
     {
       "id": "4",
       "nome": "Aventura",
-      "label": "Riscos altos, destinos inexplorados."
+      "label": "Prepare-se para a próxima jornada"
     },
     {
       "id": "5",
       "nome": "Mistério",
-      "label": "Pistas ocultas, segredos revelados."
+      "label": "Você consegue descobrir primeiro?"
     },
     {
       "id": "6",
       "nome": "Terror",
-      "label": "Medos sombrios, noites sem sono."
+      "label": "Leia com a luz acesa"
     },
     {
       "id": "7",
       "nome": "Drama",
-      "label": "Conflitos humanos, emoções intensas."
+      "label": "Histórias que apertam o coração"
     },
     {
       "id": "8",
       "nome": "Distopia",
-      "label": "Futuros sombrios, resistência humana."
+      "label": "O futuro que ninguém quer"
     },
     {
       "id": "9",
       "nome": "Clássico",
-      "label": "Obras eternas, histórias atemporais."
+      "label": "Leituras que nunca saem de moda"
     },
     {
       "id": "10",
       "nome": "Ficção",
-      "label": "Realidades inventadas, imaginação livre."
+      "label": "Imaginação sem limites"
     },
     {
       "id": "11",
       "nome": "Infantil",
-      "label": "Pequenos leitores, grandes descobertas."
+      "label": "Para pequenos leitores sonhadores"
     },
     {
       "id": "12",
       "nome": "Magia",
-      "label": "Feitiços antigos, poderes ocultos."
+      "label": "Feitiços, segredos e encantamentos"
     },
     {
       "id": "13",
       "nome": "Realismo",
-      "label": "Vida nua, retratos fiéis."
+      "label": "A vida como ela é"
     },
     {
       "id": "14",
       "nome": "Ficção Científica",
-      "label": "Ciência avançada, futuros possíveis."
+      "label": "O amanhã começa aqui"
     },
     {
       "id": "15",
       "nome": "Suspense",
-      "label": "Tensão constante, viradas inesperadas."
+      "label": "Impossível parar na metade"
     },
     {
       "id": "16",
       "nome": "Gótico",
-      "label": "Sombras antigas, atmosfera sombria."
+      "label": "Para noites escuras e chuvosas"
     },
     {
       "id": "17",
       "nome": "Naturalismo",
-      "label": "Instintos humanos, realidade crua."
+      "label": "Sem filtros, sem concessões"
     },
     {
       "id": "18",
       "nome": "Regionalismo",
-      "label": "Raízes locais, culturas vivas."
+      "label": "Brasil de norte a sul"
     },
     {
       "id": "19",
       "nome": "Sátira",
-      "label": "Crítica afiada, humor inteligente."
+      "label": "Rir para não chorar"
     },
     {
       "id": "20",
       "nome": "Cyberpunk",
-      "label": "Alta tecnologia, baixa qualidade."
+      "label": "Neon, chips e rebeldia"
     },
     {
       "id": "21",
       "nome": "Existencialismo",
-      "label": "Sentido da vida, escolhas."
+      "label": "Perguntas que não calam"
     },
     {
       "id": "22",
       "nome": "Realismo Mágico",
-      "label": "O fantástico no cotidiano."
+      "label": "Quando o impossível parece normal"
     },
     {
       "id": "23",
       "nome": "Economia",
-      "label": "Mercados, recursos e decisões."
+      "label": "Entenda como o dinheiro move tudo"
     },
     {
       "id": "24",
       "nome": "Quadrinhos",
-      "label": "Arte sequencial, histórias visuais."
+      "label": "Páginas que ganham vida"
     },
     {
       "id": "25",
       "nome": "Tecnologia",
-      "label": "Inovação constante, futuro digital."
+      "label": "O mundo digital por dentro"
     },
     {
       "id": "26",
       "nome": "Redação",
-      "label": "Ideias claras, escrita precisa."
+      "label": "Escreva melhor, convença mais"
     },
     {
       "id": "27",
       "nome": "Política",
-      "label": "Poder, sociedade e decisões."
+      "label": "Entenda quem decide por nós"
     }
   ],
   "editoras": [
@@ -1054,7 +1061,7 @@
       "idGeneros": "Realismo",
       "idEditoras": "Record",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "10",
