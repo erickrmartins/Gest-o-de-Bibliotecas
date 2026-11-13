@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Card from '../../components/cards/card.js';
+import Card from '../../components/ui/card.js';
 import DashboardCard from "../../components/dashboardCard/dashboardCard.js";
 
 import PersonOutlined from '@mui/icons-material/PersonOutlined';

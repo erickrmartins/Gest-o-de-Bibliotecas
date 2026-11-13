@@ -2,16 +2,16 @@ import { useNavigate } from "react-router-dom";
 import styles from "./dashboardCard.module.css"
 
 const bgColors = [
-    "#FDE047",
-    "#FDBA74",
-    "#F9A8D4",
-    "#C4B5FD",
-    "#A5B4FC", 
-    "#93C5FD", 
-    "#67E8F9", 
-    "#6EE7B7", 
-    "#CBD5E1" 
-]
+    "#A8C98A",
+    "#91BB78",
+    "#7EAD69",
+    "#6FA45F",
+    "#82B59A",
+    "#6DA88B",
+    "#5F987B",
+    "#9BB77A",
+    "#78A66D"
+];
 
 function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl }) {
     const navigate = useNavigate();

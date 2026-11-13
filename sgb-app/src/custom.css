@@ -39,8 +39,8 @@
     --color-button-secondary-hover-border: #BCA590;
 
     /* Links */
-    --color-link: #79533D;
-    --color-link-hover: #503725;
+    --color-link: #503725;
+    --color-link-hover: #79533D;
 
     /* Sucesso */
     --color-success: #667653;
@@ -138,19 +138,19 @@ body {
 }
 
 .fs-7 {
-    font-size: 0.75rem !important;
+    font-size: 0.875rem !important;
 }
 
 .fs-8 {
-    font-size: 0.625rem !important;
+    font-size: 0.750rem !important;
 }
 
 .fs-9 {
-    font-size: 0.5rem !important;
+    font-size: 0.625rem !important;
 }
 
 .fs-10 {
-    font-size: 0.375rem !important;
+    font-size: 0.5rem !important;
 }
 
 /* Alterando o tema para verde */
@@ -199,7 +199,8 @@ body {
     cursor: pointer;
 
     &:hover {
-        background-color: var(--color-button-secondary-hover-bg) !important;
+        background-color: var(--color-link-hover) !important;
+        color: var(--color-background) !important;
     }
 }
 
@@ -230,4 +231,44 @@ body {
 
 .color-secundary {
     color: var(--color-text-secondary) !important;
+}
+
+.navbar-item-new {
+    color: var(--color-text-secondary) !important;
+
+    &:hover {
+        color: var(--color-text) !important;
+    }
+}
+
+.navbar-item-selected {
+    color: var(--color-accent) !important;
+    background-color: var(--color-accent-light) !important;
+}
+
+.genre-style {
+    color: var(--color-text) !important;
+    background-color: var(--color-border) !important;
+}
+
+.recommended-style {
+    color: var(--color-success-light);
+    background-color: var(--color-success);
+}
+
+.image-cover {
+    object-fit: cover;
+    aspect-ratio: 2/3;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-background);
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+
+    background-color: var(--color-surface);
+
+}
+
+.color-success {
+    color: var(--color-success) !important;
 }

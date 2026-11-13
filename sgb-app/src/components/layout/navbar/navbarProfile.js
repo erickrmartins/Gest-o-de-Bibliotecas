@@ -69,9 +69,7 @@ function NavbarProfile({ profile }) {
                 <li><hr className="dropdown-divider" /></li>
 
                 <li>
-                    <button className="dropdown-item" onClick={() => console.log("Sair")}>
-                        Sair
-                    </button>
+                    <Link className="dropdown-item" to="/login">Sair</Link>
                 </li>
             </ul>
         </div>

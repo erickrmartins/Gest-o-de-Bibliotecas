@@ -1,12 +1,13 @@
 import styles from './login.module.css';
 import { Link } from 'react-router-dom';
-import FormGroup from '../../components/form-group';
+import FormGroup from '../../components/ui/form-group.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios';
 import { mensagemErro } from '../../components/toastr.js';
+import { login } from '../../utils/login.js';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -19,10 +20,11 @@ function Login() {
         setTentouLogin(true);
         e.preventDefault();
 
-        await axios.get(`${BASE_URL}/${role}`).then((response) => {
+        await axios.get(`${BASE_URL}/${role}`).then(async (response) => {
             const user = response.data.find((user) => (user.email === email || user.cpf === email) && user.senha === senha);
             if (user) {
-                navigate('/');
+                await login(user);
+                window.location.href = '/';
             }
             else {
                 mensagemErro('Usuário não encontrado. Tente novamente ou cadastre-se.');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import ListagemAutor from './views/listagem/listagem-autor';
@@ -28,8 +28,17 @@ import Acervo from './views/acervo';
 
 import Login from './views/login/login';
 import Cadastro from './views/login/cadastro';
+import BookPage from './views/book-page';
+
+import { getLogin } from './utils/login';
 
 function Rotas(props) {
+    const [profile, setProfile] = useState(null);
+
+    useEffect(() => {
+        getLogin().then((dados) => setProfile(dados));
+    }, []);
+
     return (
         <Routes>
             <Route path='/' element={<Acervo />} />
@@ -59,6 +68,7 @@ function Rotas(props) {
             <Route path="/login" element={<Login />} />
             <Route path="/cadastrar" element={<Cadastro />} />
 
+            <Route path="/livros/:idParam" element={<BookPage profile={profile}/>} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )

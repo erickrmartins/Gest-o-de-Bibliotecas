@@ -24,12 +24,13 @@
         linear-gradient(rgba(74, 51, 40, 0.55),
             rgba(74, 51, 40, 0.55)),
         url("../../assets/background-login.jpg");
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     filter: sepia(1px);
 
     h1,
     span {
-        color: var(--color-surface);
+        color: var(--color-background) !important;
     }
 
 }

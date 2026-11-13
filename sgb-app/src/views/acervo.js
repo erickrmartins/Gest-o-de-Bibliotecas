@@ -1,4 +1,4 @@
-import Card from "../components/cards/card";
+import Card from "../components/ui/card";
 import GenreCarousel from "../components/main/genre-carousel";
 import Recommended from "../components/recommended/recommended";
 
@@ -7,7 +7,7 @@ import axios from "axios";
 import { BASE_URL } from "../config/axios";
 import { useEffect, useState } from "react";
 
-import { search } from "../utills/search";
+import { search } from "../utils/search";
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -45,21 +45,26 @@ function Acervo() {
         let livrosFiltrados;
 
         if (pesquisaAtiva) {
-            titulo = "Resultados da pesquisa";
+            titulo = "Resultados da busca (" + (resultadosPesquisa.length + 1) + ")";
             livrosFiltrados = resultadosPesquisa;
         } else if (generoSelec) {
-            titulo = generoSelec;
+            titulo = "Resultados da busca (" + (getLivrosByGenero(generoSelec).length + 1) + ")";
             livrosFiltrados = getLivrosByGenero(generoSelec);
         } else {
-            return (generos.map((genero) => <GenreCarousel titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />));
+            return (
+                <div>
+                    <GenreCarousel titulo="Recomendados pela biblioteca" livros={recomendados} />
+                    {generos.map((genero) => <GenreCarousel titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />)}
+                </div>
+            );
         }
 
         return (
-            <GenreCarousel titulo={titulo} livros={livrosFiltrados} maximizar={true} />
+            <GenreCarousel titulo={titulo} livros={livrosFiltrados} maximizar={true} limpar={() => limparFiltros()} />
         );
     }
 
-    useEffect(() => {   
+    useEffect(() => {
         axios.get(`${BASE_URL}/livros`).then((response) => {
             setLivros(response.data);
             setRecomendados(response.data.filter((livro) => livro.recomendado));
@@ -107,18 +112,9 @@ function Acervo() {
                             ))}
                         </select>
                     </div>
-
-                    {!filtroAtivo ? null : (
-                        <div className="col-12 col-md-6 col-lg-2">
-                            <button className="btn btn-danger w-100" onClick={() => limparFiltros()}>
-                                Limpar
-                            </button>
-                        </div>
-                    )}
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <GenreCarousel titulo="Recomendados pela biblioteca" livros={recomendados}/>
                         {mostrarLivros()}
                     </div>
                 </div>
