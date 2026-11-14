@@ -13,26 +13,26 @@ const bgColors = [
     "#78A66D"
 ];
 
-function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl }) {
+function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl, permissao }) {
     const navigate = useNavigate();
     const bgId = (Number(id) - 1) % bgColors.length;
 
-    return (
-        <div className={styles.dbCard} onClick={() => navigate(btnUrl)}>
-            <div className={styles.dbTitle}>
-                <div className={styles.dbImageBg} style={{ "--selected-color": bgColors.at(bgId) }}>
-                    {imagem}
-                </div>
-                <div className={styles.dbTextBg}>
-                    <h5>{titulo}</h5>
-                </div>
+    return !permissao ? null : (
+    <div className={`${styles.dbCard}`} onClick={() => navigate(btnUrl)}>
+        <div className={styles.dbTitle}>
+            <div className={styles.dbImageBg} style={{ "--selected-color": bgColors.at(bgId) }}>
+                {imagem}
             </div>
-            <div className={styles.dbInfo}>
-                <h1>{qtd}</h1>
-                <p>{descricao}</p>
+            <div className={styles.dbTextBg}>
+                <h5>{titulo}</h5>
             </div>
         </div>
+        <div className={styles.dbInfo}>
+            <h1>{qtd}</h1>
+            <p>{descricao}</p>
+        </div>
+    </div>
     )
 }
 
-export default DashboardCard;
+    export default DashboardCard;

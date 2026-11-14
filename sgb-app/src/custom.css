@@ -7,6 +7,7 @@
     /* Fundos */
     --color-background: #F5F1EB;
     --color-surface: #FFFFFF;
+    --color-surface-muted: #F1EFEC;
 
     /* Texto */
     --color-text: #342820;
@@ -75,7 +76,12 @@ body {
    LINKS
    ========================================================= */
 
-a, h1, h2, h3, h4, h5 {
+a,
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: var(--color-text) !important;
 }
 
@@ -252,8 +258,8 @@ body {
 }
 
 .recommended-style {
-    color: var(--color-success-light);
-    background-color: var(--color-success);
+    color: var(--color-success-light) !important;
+    background-color: var(--color-success) !important;
 }
 
 .image-cover {
@@ -271,4 +277,17 @@ body {
 
 .color-success {
     color: var(--color-success) !important;
+}
+
+.btn-entrar {
+    color: var(--color-success-light) !important;
+    background-color: var(--color-success) !important;
+
+    transition: 0.3s ease !important;
+
+    filter: brightness(1.1);
+
+    &:hover {
+        filter: brightness(1);
+    }
 }

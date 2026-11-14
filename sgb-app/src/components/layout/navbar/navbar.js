@@ -3,9 +3,12 @@ import NavbarItem from './navbarItem';
 import { useNavigate, useLocation } from 'react-router-dom';
 import NavbarProfile from './navbarProfile';
 
-import { getLogin } from '../../../utils/login';
+import { getLogin, isFuncionario } from '../../../utils/login';
 
-function Navbar({}) {
+import srcLogo from '../../../assets/logo-sgb.svg'
+
+
+function Navbar({ }) {
     const location = useLocation();
     const path = location.pathname;
     const show = path === '/login' || path === '/cadastrar';
@@ -21,7 +24,10 @@ function Navbar({}) {
         <nav className='mx-auto navbar bg-white navbar-expand-lg sticky-top shadow curvatura border-bottom'>
             <div className='container'>
                 <div className='container-fluid d-flex flex-wrap align-items-center px-3 gap-3'>
-                    <a href='/' className='navbar-brand btn-primary d-flex justify-content-center align-items-center px-2 m-0 curvatura order-0'>SGB</a>
+                    <a href='/' className='navbar d-flex gap-2'>
+                        <img src={srcLogo} style={{ width: "40px" }}/>
+                        SGB
+                    </a>
 
                     <div className='ms-auto ms-lg-0 order-1 order-lg-2'>
                         <NavbarProfile profile={profile} />
@@ -45,8 +51,14 @@ function Navbar({}) {
                     >
                         <ul className="d-flex flex-column flex-lg-row align-items-lg-center gap-3 list-unstyled m-0 p-0">
                             <NavbarItem destino="/" label="Acervo" render={true} />
-                            <NavbarItem destino="/gerenciar" label="Gerenciar" render={true} />
-                            <NavbarItem destino="/registrar" label="Registrar" render={true} />
+                            {isFuncionario(profile) ?
+                                <>
+                                    <NavbarItem destino="/gerenciar" label="Gerenciar" render={true} />
+                                    <NavbarItem destino="/registrar" label="Registrar" render={true} />
+                                </>
+                                :
+                                null
+                            }
                         </ul>
                     </div>
                 </div>

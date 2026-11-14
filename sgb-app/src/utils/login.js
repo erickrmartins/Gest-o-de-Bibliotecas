@@ -37,3 +37,28 @@ export const getLogin = async () => {
 
     return perfilResponse.data;
 };
+
+export const isFuncionario = (profile) => {
+    if (!profile) {
+        return false;
+    }
+
+    return "isAdmin" in profile;
+}
+
+export const isAdmin = (profile) => {
+    if (!profile) {
+        return false;
+    };
+
+    return Boolean(profile.isAdmin);
+}
+
+export const logout = async () => {
+    await axios.put(baseUrl, {
+        id: 1,
+        isFuncionario: false,
+        idUsuario: null
+    });
+    return;
+}

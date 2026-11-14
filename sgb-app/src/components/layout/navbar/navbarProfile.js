@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { logout } from "../../../utils/login";
 
 function NavbarProfile({ profile }) {
     if (!profile) {
-        return null;
+        return <Link className="curvatura btn btn-entrar" to="/login">ENTRAR</Link>;
     }
 
     const isLeitor = "livrosLidos" in profile;
@@ -69,7 +70,7 @@ function NavbarProfile({ profile }) {
                 <li><hr className="dropdown-divider" /></li>
 
                 <li>
-                    <Link className="dropdown-item" to="/login">Sair</Link>
+                    <Link className="dropdown-item" to="/login" onClick={() => logout()}>Sair</Link>
                 </li>
             </ul>
         </div>
