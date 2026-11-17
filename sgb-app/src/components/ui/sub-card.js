@@ -3,7 +3,7 @@ import React from 'react';
 class SubCard extends React.Component {
   render() {
     return (
-      <div className='card md-3 bg-white p-4 shadow br-12 curvatura'>
+      <div className='mb-4 card md-3 p-4 br-12 curvatura border'>
         <div>{this.props.children}</div>
       </div>
     );

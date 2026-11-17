@@ -21,48 +21,15 @@
   "leitores": [
     {
       "id": "1",
-      "dtNasc": "2001-01-01",
-      "nome": "Leitor 1",
-      "cpf": "00000000001",
+      "dtNasc": "1979-09-19",
+      "nome": "Hermione Jean Granger",
+      "cpf": "00000000011",
       "telefone": "32999999999",
-      "email": "erickrezendemartins@email.com",
-      "senha": "erick123",
+      "email": "hermione@email.com",
+      "senha": "hermione",
       "foto": "",
-      "livrosLidos": 1,
-      "ativo": true
-    },
-    {
-      "id": "1",
-      "dtNasc": "2001-01-01",
-      "nome": "Leitor 2",
-      "cpf": "00000000001",
-      "telefone": "32999999999",
-      "email": "erickrezendemartins@email.com",
-      "senha": "erick123",
-      "foto": "",
-      "livrosLidos": 1,
-      "ativo": true
-    },
-    {
-      "id": "1",
-      "dtNasc": "2001-01-01",
-      "nome": "Leitor 3",
-      "cpf": "00000000001",
-      "telefone": "32999999999",
-      "email": "erickrezendemartins@email.com",
-      "senha": "erick123",
-      "foto": "",
-      "livrosLidos": 1,
-      "ativo": true
-    },
-    {
-      "id": "mnIELbGwHdA",
-      "nome": "123",
-      "dtNasc": "2026-11-09",
-      "cpf": "123",
-      "telefone": "123123",
-      "email": "123",
-      "senha": "123"
+      "livrosLidos": 128,
+      "ativo": false
     }
   ],
   "funcionarios": [
@@ -70,11 +37,11 @@
       "id": "1",
       "isAdmin": true,
       "dtNasc": "2002-02-02",
-      "nome": "Marco Antonio",
-      "cpf": "00000000002",
+      "nome": "Gandalf, o Cinzento",
+      "cpf": "00000000013",
       "telefone": "32999999999",
-      "email": "marcoantonio@email.com",
-      "senha": "marco123",
+      "email": "gandalf@email.com",
+      "senha": "gandalf123",
       "foto": "",
       "ativo": true
     },
@@ -82,11 +49,11 @@
       "id": "2",
       "isAdmin": false,
       "dtNasc": "2003-03-03",
-      "nome": "Rhuan Pablo de Carvalho",
-      "cpf": "00000000003",
+      "nome": "Severus Snape",
+      "cpf": "00000000012",
       "telefone": "32999999999",
-      "email": "rhuanpablodecarvalho@email.com",
-      "senha": "rhuan123",
+      "email": "severus.snape@email.com",
+      "senha": "severus123",
       "foto": "",
       "ativo": true
     }
@@ -1228,6 +1195,7 @@
       "ativo": true,
       "recomendado": false
     },
+    
     {
       "id": "1",
       "nome": "1984",
@@ -1235,10 +1203,13 @@
       "dtPublicacao": "1949",
       "numPaginas": 312,
       "idEditoras": "Companhia das Letras",
+      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
       "idAutores": [
         "George Orwell"
       ],
-      "idGeneros": "Distopia"
+      "idGeneros": "Distopia",
+      "ativo": true,
+      "recomendado": true
     },
     {
       "id": "2",
@@ -1253,7 +1224,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "3",
@@ -1268,7 +1239,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Editora Melhoramentos",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "4",
@@ -1283,7 +1254,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "5",
@@ -1313,7 +1284,7 @@
       "idGeneros": "Aventura",
       "idEditoras": "Rocco",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "7",
@@ -1358,7 +1329,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Rocco",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "11",
@@ -1510,6 +1481,7 @@
       "ativo": true,
       "recomendado": false
     },
+    
     {
       "id": "1",
       "nome": "1984",
@@ -1517,10 +1489,13 @@
       "dtPublicacao": "1949",
       "numPaginas": 312,
       "idEditoras": "Companhia das Letras",
+      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
       "idAutores": [
         "George Orwell"
       ],
-      "idGeneros": "Distopia"
+      "idGeneros": "Distopia",
+      "ativo": true,
+      "recomendado": true
     },
     {
       "id": "2",
@@ -1535,7 +1510,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "3",
@@ -1550,7 +1525,7 @@
       "idGeneros": "Romance",
       "idEditoras": "Editora Melhoramentos",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "4",
@@ -1565,7 +1540,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "5",
@@ -1595,7 +1570,7 @@
       "idGeneros": "Aventura",
       "idEditoras": "Rocco",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "7",
@@ -1640,7 +1615,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Rocco",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "11",
@@ -1797,113 +1772,114 @@
     {
       "id": "1",
       "dtReserva": "2026-09-25",
+      "primeiro": true,
       "idLivros": "1984",
-      "idPerfis": "Leitor 1"
+      "idPerfis": "Hermione"
     },
     {
       "id": "2",
       "dtReserva": "2026-09-26",
       "primeiro": false,
       "idLivros": "1984",
-      "idPerfis": "Marco"
+      "idPerfis": "Hermione"
     },
     {
       "id": "3",
       "dtReserva": "2026-09-20",
       "primeiro": true,
       "idLivros": "O Hobbit",
-      "idPerfis": "Erick"
+      "idPerfis": "Hermione"
     },
     {
       "id": "4",
       "dtReserva": "2026-09-21",
       "primeiro": false,
       "idLivros": "O Hobbit",
-      "idPerfis": "Erick"
+      "idPerfis": "Hermione"
     },
     {
       "id": "5",
       "dtReserva": "2026-10-01",
       "primeiro": true,
       "idLivros": "Dom Casmurro",
-      "idPerfis": "Ana"
+      "idPerfis": "Hermione"
     },
     {
       "id": "6",
       "dtReserva": "2026-10-03",
       "primeiro": true,
       "idLivros": "Cem Anos de Solidão",
-      "idPerfis": "Lucas"
+      "idPerfis": "Hermione"
     },
     {
       "id": "7",
       "dtReserva": "2026-10-05",
       "primeiro": false,
       "idLivros": "Cem Anos de Solidão",
-      "idPerfis": "Marina"
+      "idPerfis": "Hermione"
     },
     {
       "id": "8",
       "dtReserva": "2026-10-07",
       "primeiro": true,
       "idLivros": "Duna",
-      "idPerfis": "João"
+      "idPerfis": "Hermione"
     },
     {
       "id": "9",
       "dtReserva": "2026-10-08",
       "primeiro": false,
       "idLivros": "Duna",
-      "idPerfis": "Carla"
+      "idPerfis": "Hermione"
     },
     {
       "id": "10",
       "dtReserva": "2026-10-10",
       "primeiro": true,
       "idLivros": "O Pequeno Príncipe",
-      "idPerfis": "Marina"
+      "idPerfis": "Hermione"
     },
     {
       "id": "11",
       "dtReserva": "2026-10-12",
       "primeiro": true,
       "idLivros": "Assassinato no Expresso do Oriente",
-      "idPerfis": "Lucas"
+      "idPerfis": "Hermione"
     },
     {
       "id": "12",
       "dtReserva": "2026-10-13",
       "primeiro": false,
       "idLivros": "Assassinato no Expresso do Oriente",
-      "idPerfis": "Ana"
+      "idPerfis": "Hermione"
     },
     {
       "id": "13",
       "dtReserva": "2026-10-15",
       "primeiro": true,
       "idLivros": "Frankenstein",
-      "idPerfis": "João"
+      "idPerfis": "Hermione"
     },
     {
       "id": "14",
       "dtReserva": "2026-10-17",
       "primeiro": true,
       "idLivros": "Orgulho e Preconceito",
-      "idPerfis": "Carla"
+      "idPerfis": "Hermione"
     },
     {
       "id": "15",
       "dtReserva": "2026-10-18",
       "primeiro": false,
       "idLivros": "Orgulho e Preconceito",
-      "idPerfis": "Marina"
+      "idPerfis": "Hermione"
     },
     {
       "id": "16",
       "dtReserva": "2026-10-20",
       "primeiro": true,
       "idLivros": "Ensaio sobre a Cegueira",
-      "idPerfis": "Erick"
+      "idPerfis": "Hermione"
     }
   ],
   "exemplares": [
@@ -1911,7 +1887,8 @@
       "id": "1",
       "idLivros": "1984",
       "identificacao": "1984-COP-01",
-      "status": "Em Manutenção"
+      "status": "Em Manutenção",
+      "ativo": true
     },
     {
       "id": "2",
@@ -1981,27 +1958,27 @@
     {
       "id": "1",
       "idExemplares": "1984-COP-01",
-      "idPerfis": "Erick",
+      "idPerfis": "Hermione",
       "dtEmprestimo": "2026-09-01",
       "dtEta": "2026-09-08",
       "dtDevolucao": "2026-09-08",
-      "renovado": false,
+      "renovado": true,
       "status": "Devolvido"
     },
     {
       "id": "2",
       "idExemplares": "1984-COP-01",
-      "idPerfis": "Erick",
+      "idPerfis": "Hermione",
       "dtEmprestimo": "2026-09-12",
       "dtEta": "2026-09-19",
       "dtDevolucao": null,
-      "renovado": false,
+      "renovado": true,
       "status": "Atrasado"
     },
     {
       "id": "3",
       "idExemplares": "1984-COP-02",
-      "idPerfis": "Erick",
+      "idPerfis": "Hermione",
       "dtEmprestimo": "2026-09-19",
       "dtEta": "2026-09-29",
       "dtDevolucao": "2026-09-29",
@@ -2011,7 +1988,7 @@
     {
       "id": "4",
       "idExemplares": "1984-COP-03",
-      "idPerfis": "Erick",
+      "idPerfis": "Hermione",
       "dtEmprestimo": "2026-09-22",
       "dtEta": "2026-09-29",
       "dtDevolucao": null,

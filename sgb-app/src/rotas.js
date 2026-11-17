@@ -29,6 +29,11 @@ import Acervo from './views/acervo';
 import Login from './views/login/login';
 import Cadastro from './views/login/cadastro';
 import BookPage from './views/book-page';
+import Perfil from './views/perfil/perfil';
+
+import MeusEmprestimos from './views/perfil/meus-emprestimos.js'
+import MeusReservas from './views/perfil/meus-reservas.js';
+import MeuHistorico from './views/perfil/meu-historico.js';
 
 import { getLogin } from './utils/login';
 
@@ -51,7 +56,7 @@ function VerificarPerfil({ profile, status, permitidos }) {
     const role = !("isAdmin" in profile) ? "leitor" : profile.isAdmin ? "administrador" : "bibliotecario";
 
     if (!permitidos.includes(role)) {
-        mensagemAlert("Você não possui permissão para visualizar essa página.") 
+        mensagemAlert("Você não possui permissão para visualizar essa página.")
         return <Navigate to="/" />
     }
 
@@ -72,6 +77,7 @@ function Rotas(props) {
             })
     }, []);
 
+    const usuarios = ["leitor", "bibliotecario", "administrador"];
     const funcionarios = ["bibliotecario", "administrador"];
     const administrador = ["administrador"];
 
@@ -81,11 +87,17 @@ function Rotas(props) {
             <Route path="/cadastrar" element={<Cadastro />} />
             <Route path='/' element={<Acervo />} />
             <Route path="/livros/:idParam" element={<BookPage profile={profile} />} />
-            <Route path="*" element={<NotFound />} />
+
+            <Route element={<VerificarPerfil profile={profile} status={status} permitidos={usuarios} />}>
+                <Route path="/perfil" element={<Perfil profile={profile} />} />
+                <Route path="/perfil/emprestimos" element={<MeusEmprestimos profile={profile} />} />
+                <Route path="/perfil/reservas" element={<MeusReservas profile={profile} />} />
+                <Route path='/perfil/historico' element={<MeuHistorico profile={profile} />} />
+            </Route>
 
             <Route element={<VerificarPerfil profile={profile} status={status} permitidos={funcionarios} />}>
-                <Route path='/gerenciar' element={<Gerenciar profile={profile}/>} />
-                <Route path='/registrar' element={<Registrar profile={profile}/>} />
+                <Route path='/gerenciar' element={<Gerenciar profile={profile} />} />
+                <Route path='/registrar' element={<Registrar profile={profile} />} />
 
                 <Route path="/autores" element={<ListagemAutor />} />
                 <Route path="/livros" element={<ListagemLivro />} />
@@ -115,7 +127,7 @@ function Rotas(props) {
 
             </Route>
 
-
+            <Route path="*" element={<NotFound />} />
 
         </Routes>
     )

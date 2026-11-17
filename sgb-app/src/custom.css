@@ -159,7 +159,6 @@ body {
     font-size: 0.5rem !important;
 }
 
-/* Alterando o tema para verde */
 .btn-primary {
     background-color: var(--color-button-bg) !important;
     border: 1px solid var(--color-button-border) !important;
@@ -168,6 +167,16 @@ body {
     &:hover {
         background-color: var(--color-button-bg-hover) !important;
         border: 1px solid var(--color-button-border-hover) !important;
+    }
+}
+
+.btn-outline {
+    color: var(--color-button-secondary-text) !important;
+    border: 1px solid var(--color-button-border) !important;
+
+    &:hover {
+        background-color: var(--color-button-bg) !important;
+        color: var(--color-button-text) !important;
     }
 }
 
@@ -290,4 +299,69 @@ body {
     &:hover {
         filter: brightness(1);
     }
+}
+
+.span-success {
+    color: var(--color-success) !important;
+    background-color: var(--color-success-light) !important;
+}
+
+.span-danger {
+    color: var(--color-danger) !important;
+    background-color: var(--color-danger-light) !important;
+}
+
+.span-alert {
+    color: var(--color-warning) !important;
+    background-color: var(--color-warning-light) !important;
+}
+
+.span-muted {
+    color: var(--color-text) !important;
+    background-color: var(--color-border) !important;
+}
+
+.color-danger {
+    color: var(--color-danger) !important;
+}
+
+.border {
+    border: 1px solid var(--color-border);
+}
+
+.image-perfil {
+    width: 100%;
+    height: 50vh;
+
+    background-image:
+        linear-gradient(to top,
+            var(--color-background) 0%,
+            color-mix(in srgb, var(--color-background) 0%, transparent) 55%),
+        url("./assets/background-perfil.jpg");
+
+    background-size: 100% calc(100% + 2px), cover;
+    background-position: left top, center;
+    background-repeat: no-repeat;
+    background-color: var(--color-background);
+}
+
+.no-border {
+    border: none !important;
+}
+
+.image-topo {
+    display: block;
+    width: 100%;
+    height: 40vh;
+
+    background-image:
+        linear-gradient(to top,
+            var(--color-background) 0%,
+            color-mix(in srgb, var(--color-background) 0%, transparent) 100%),
+        var(--image-topo);
+
+    background-size: 100% calc(100% + 2px), cover;
+    background-position: left top, center bottom;
+    background-repeat: no-repeat;
+    background-color: var(--color-background);
 }

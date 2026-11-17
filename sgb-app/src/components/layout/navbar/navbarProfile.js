@@ -64,8 +64,9 @@ function NavbarProfile({ profile }) {
                 <li><hr className="dropdown-divider" /></li>
 
                 <li><Link className="dropdown-item" to="/perfil">Perfil</Link></li>
-                <li><Link className="dropdown-item" to="/emprestimos">Empréstimos</Link></li>
-                <li><Link className="dropdown-item" to="/reservas">Reservas</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/emprestimos">Empréstimos</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/reservas">Reservas</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/historico">Histórico</Link></li>
 
                 <li><hr className="dropdown-divider" /></li>
 

@@ -1,7 +1,7 @@
 
 function ChecarAsterisco({ tentouSalvar, variavel }) {
     return (
-        <span className={`text-danger fs-7 ${tentouSalvar ? (variavel ? "invisible" : "") : "invisible"}`}>
+        <span className={`text-danger m-0 p-0 fs-8 ${tentouSalvar ? (variavel ? "invisible" : "") : "invisible"}`}>
             Preencha esse campo
         </span>
     )

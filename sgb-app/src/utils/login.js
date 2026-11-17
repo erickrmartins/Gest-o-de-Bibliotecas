@@ -62,3 +62,17 @@ export const logout = async () => {
     });
     return;
 }
+
+export const getRole = (profile) => {
+    if (!isFuncionario(profile)) {
+        return "Leitor";
+    }
+    else {
+        if (isAdmin(profile)) {
+            return "Administrador";
+        }
+        else {
+            return "Bibliotecário";
+        }
+    }
+}
