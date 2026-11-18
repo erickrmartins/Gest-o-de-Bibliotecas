@@ -4,8 +4,8 @@
       "id": "1",
       "prazoEmprestimo": "4",
       "limiteEmprestimo": "10",
-      "permitirRenovacao": "false",
-      "renovacaoComFila": "false",
+      "permitirRenovacao": true,
+      "renovacaoComFila": true,
       "diasRenovacao": 3,
       "prazoRetirada": 1,
       "recomendados": "5"
@@ -15,7 +15,7 @@
     {
       "id": "1",
       "isFuncionario": true,
-      "idUsuario": "1"
+      "idUsuario": "2"
     }
   ],
   "leitores": [
@@ -1787,68 +1787,64 @@
       "dtReserva": "2026-10-01",
       "primeiro": true,
       "idLivros": "Dom Casmurro",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "7",
       "dtReserva": "2026-10-05",
       "primeiro": false,
       "idLivros": "Cem Anos de Solidão",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "8",
       "dtReserva": "2026-10-07",
       "primeiro": true,
       "idLivros": "Duna",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "9",
       "dtReserva": "2026-10-08",
       "primeiro": false,
       "idLivros": "Duna",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "10",
       "dtReserva": "2026-10-10",
       "primeiro": true,
       "idLivros": "O Pequeno Príncipe",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "13",
       "dtReserva": "2026-10-15",
       "primeiro": true,
       "idLivros": "Frankenstein",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "15",
       "dtReserva": "2026-10-18",
       "primeiro": false,
       "idLivros": "Orgulho e Preconceito",
-      "idPerfis": "Hermione"
+      "idPerfis": "Hermione",
+      "status": "Na fila de espera"
     },
     {
       "id": "16",
       "dtReserva": "2026-10-20",
       "primeiro": true,
       "idLivros": "Ensaio sobre a Cegueira",
-      "idPerfis": "Hermione"
-    },
-    {
-      "dtReserva": "2026-11-17",
-      "idLivros": "O Senhor dos Anéis",
       "idPerfis": "Hermione",
-      "id": "Mi6xf5xWNrE"
-    },
-    {
-      "dtReserva": "2026-11-17",
-      "idLivros": "1984",
-      "idPerfis": "Hermione",
-      "id": "UgNQIzMSWEI"
+      "status": "Na fila de espera"
     }
   ],
   "exemplares": [
@@ -1857,13 +1853,15 @@
       "idLivros": "1984",
       "identificacao": "1984-COP-01",
       "status": "Em Manutenção",
+      "descricao": "Arranhado",
       "ativo": true
     },
     {
       "id": "2",
       "idLivros": "1984",
       "identificacao": "1984-COP-02",
-      "status": "Emprestado",
+      "status": "Perdido",
+      "descricao": "Cliente perdeu o exemplar",
       "ativo": true
     },
     {
@@ -1871,6 +1869,7 @@
       "idLivros": "1984",
       "identificacao": "1984-COP-03",
       "status": "Disponível",
+      "descricao": "",
       "ativo": true
     },
     {
@@ -1878,6 +1877,7 @@
       "idLivros": "O Hobbit",
       "identificacao": "HOB-COP-01",
       "status": "Emprestado",
+      "descricao": "",
       "ativo": false
     },
     {
@@ -1885,6 +1885,7 @@
       "idLivros": "O Hobbit",
       "identificacao": "HOB-COP-02",
       "status": "Em Manutenção",
+      "descricao": "Rasgado",
       "ativo": true
     },
     {
@@ -1892,6 +1893,7 @@
       "idLivros": "1984",
       "identificacao": "DCA-COP-01",
       "status": "Emprestado",
+      "descricao": "",
       "ativo": true
     },
     {
@@ -1899,6 +1901,7 @@
       "idLivros": "O Senhor dos Anéis",
       "identificacao": "SDA-COP-01",
       "status": "Disponível",
+      "descricao": "",
       "ativo": true
     },
     {
@@ -1906,6 +1909,7 @@
       "idLivros": "O Senhor dos Anéis",
       "identificacao": "SDA-COP-02",
       "status": "Em Manutenção",
+      "descricao": "Mofado",
       "ativo": false
     },
     {
@@ -1913,6 +1917,7 @@
       "idLivros": "O Senhor dos Anéis",
       "identificacao": "SDA-COP-03",
       "status": "Disponível",
+      "descricao": "",
       "ativo": true
     },
     {
@@ -1920,6 +1925,7 @@
       "idLivros": "O Senhor dos Anéis",
       "identificacao": "SDA-COP-01",
       "status": "Perdido",
+      "descricao": "Perdido durante roubo a biblioteca",
       "ativo": false
     }
   ],
@@ -1931,7 +1937,7 @@
       "dtEmprestimo": "2026-09-01",
       "dtEta": "2026-09-08",
       "dtDevolucao": "2026-09-08",
-      "renovado": true,
+      "renovado": false,
       "status": "Devolvido",
       "ativo": true
     },
@@ -1962,9 +1968,9 @@
       "idExemplares": "1984-COP-03",
       "idPerfis": "Hermione",
       "dtEmprestimo": "2026-09-22",
-      "dtEta": "2026-09-29",
+      "dtEta": "2026-10-07",
       "dtDevolucao": null,
-      "renovado": false,
+      "renovado": true,
       "status": "Ativo",
       "ativo": true
     },
@@ -1973,9 +1979,9 @@
       "idExemplares": "SDA-COP-02",
       "idPerfis": "Hermione",
       "dtEmprestimo": "2026-11-19",
-      "dtEta": "2026-11-21",
+      "dtEta": "2026-11-23",
       "dtDevolucao": null,
-      "renovado": false,
+      "renovado": true,
       "status": "Ativo",
       "ativo": true
     },
@@ -1984,32 +1990,32 @@
       "idExemplares": "SDA-COP-03",
       "idPerfis": "Hermione",
       "dtEmprestimo": "2026-11-20",
-      "dtEta": "2026-11-23",
+      "dtEta": "2026-11-25",
       "dtDevolucao": null,
-      "renovado": false,
+      "renovado": true,
       "status": "Ativo",
       "ativo": true
     },
     {
       "id": "b-SiDZCmcuY",
       "idExemplares": "1984-COP-02",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-11-18",
       "dtEta": "2026-11-21",
-      "dtDevolucao": null,
+      "dtDevolucao": "2026-11-21",
       "renovado": false,
-      "status": "Ativo",
+      "status": "Devolvido",
       "ativo": true
     },
     {
       "id": "LFqrTAjuoss",
       "idExemplares": "1984-COP-02",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-11-18",
       "dtEta": "2026-11-21",
-      "dtDevolucao": null,
+      "dtDevolucao": "2026-11-19",
       "renovado": false,
-      "status": "Ativo",
+      "status": "Devolvido",
       "ativo": true
     }
   ],

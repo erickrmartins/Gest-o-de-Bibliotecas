@@ -31,6 +31,9 @@ function CadastroEmprestimo() {
     const [dtDevolucao, setDtDevolucao] = useState('');
     const [status, setStatus] = useState('');
 
+    const [statusExemplar, setStatusExemplar] = useState('');
+    const [descricao, setDescricao] = useState('');
+
     const [dados, setDados] = React.useState([]);
     const [tentouSalvar, setTentouSalvar] = useState(false);
 
@@ -43,6 +46,8 @@ function CadastroEmprestimo() {
             setDtEta('');
             setDtDevolucao('');
             setStatus('');
+            setStatusExemplar('');
+            setDescricao('');
         } else {
             setId(dados.id);
             setIdExemplares(dados.idExemplares);
@@ -51,6 +56,7 @@ function CadastroEmprestimo() {
             setDtEta(dados.dtEta);
             setDtDevolucao(dados.dtDevolucao);
             setStatus(dados.status);
+            setStatusExemplar()
         }
     }
 
@@ -82,9 +88,10 @@ function CadastroEmprestimo() {
         };
         data = JSON.stringify(data);
 
+        const perfil = dadosPerfis.find((dado) => dado.nome === idPerfis);
+        const exemplar = dadosExemplares.find((dado) => dado.identificacao === idExemplares);
+
         if (idParam == null) {
-            const perfil = dadosPerfis.find((dado) => dado.nome === idPerfis);
-            const exemplar = dadosExemplares.find((dado) => dado.identificacao === idExemplares);
             const valido = await handleEmprestimo(perfil, exemplar);
 
             if (valido) {
@@ -107,6 +114,7 @@ function CadastroEmprestimo() {
                 .catch(function (error) {
                     mensagemErro(error.response.data);
                 });
+            await axios.patch(`${BASE_URL}/exemplares/${exemplar.id}`, { status: statusExemplar, descricao });
         }
     }
 
@@ -114,6 +122,14 @@ function CadastroEmprestimo() {
         await axios.get(`${baseURL}/${idParam}`).then((response) => {
             setDados(response.data);
         });
+
+        const exemplar = dadosExemplares.find((dado) => dado.identificacao === idExemplares);
+
+        await axios.get(`${BASE_URL}/exemplares/${exemplar.id}`).then((response) => {
+            setStatusExemplar(response.data.status);
+            setDescricao(response.data.descricao);
+        })
+
         setId(dados.id);
         setIdExemplares(dados.idExemplares);
         setIdPerfis(dados.idPerfis);
@@ -128,22 +144,57 @@ function CadastroEmprestimo() {
     const [prazoEmprestimo, setPrazoEmprestimos] = React.useState('')
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/leitores`).then((response) => {
-            setDadosPerfis(response.data);
-        });
-        axios.get(`${BASE_URL}/exemplares`).then((response) => {
-            setDadosExemplares(response.data);
-        });
-        axios.get(`${BASE_URL}/parametros`).then((response) => {
-            setPrazoEmprestimos(response.data[0].prazoEmprestimo)
-        })
+        async function carregarDadosIniciais() {
+            try {
+                const resLeitores = await axios.get(`${BASE_URL}/leitores`);
+                setDadosPerfis(resLeitores.data);
+
+                const resExemplares = await axios.get(`${BASE_URL}/exemplares`);
+                setDadosExemplares(resExemplares.data);
+
+                const resParametros = await axios.get(`${BASE_URL}/parametros`);
+                if (resParametros.data.length > 0) {
+                    setPrazoEmprestimos(resParametros.data[0].prazoEmprestimo);
+                }
+            } catch (error) {
+                mensagemErro("Erro ao carregar dados iniciais do sistema.");
+            }
+        }
+
+        carregarDadosIniciais();
     }, []);
 
     useEffect(() => {
         if (idParam) {
-            buscar();
+            async function buscarEmprestimo() {
+                try {
+                    const response = await axios.get(`${baseURL}/${idParam}`);
+                    const emp = response.data;
+                    setDados(emp);
+
+                    setId(emp.id);
+                    setIdExemplares(emp.idExemplares);
+                    setIdPerfis(emp.idPerfis);
+                    setDtEmprestimo(emp.dtEmprestimo);
+                    setDtEta(emp.dtEta);
+                    setDtDevolucao(emp.dtDevolucao || '');
+                    setStatus(emp.status);
+
+                    const exemplarEncontrado = dadosExemplares.find((d) => d.identificacao === emp.idExemplares);
+                    if (exemplarEncontrado) {
+                        const resEx = await axios.get(`${BASE_URL}/exemplares/${exemplarEncontrado.id}`);
+                        setStatusExemplar(resEx.data.status || '');
+                        setDescricao(resEx.data.descricao || '');
+                    }
+                } catch (error) {
+                    mensagemErro("Erro ao buscar dados do empréstimo.");
+                }
+            }
+            if (dadosExemplares.length > 0) {
+                buscarEmprestimo();
+            }
         }
-    }, [id]);
+    }, [idParam, dadosExemplares]);
 
     if (!dados) return null;
     if (!dadosPerfis) return null;
@@ -159,6 +210,7 @@ function CadastroEmprestimo() {
                 <Card>
                     <SubCard className='row'>
                         <div className='row col-12 p-4'>
+                            <h5>Dados do Exemplar </h5>
                             <div className='bs-component col-lg-6 col-sm-12'>
                                 <FormGroup label='Perfil: *' htmlFor='selectPerfil'>
                                     <select
@@ -237,6 +289,7 @@ function CadastroEmprestimo() {
                             {!idParam ? null : (
                                 <>
                                     <hr />
+                                    <h5>Dados da Devolução </h5>
                                     <div className='bs-component col-lg-6'>
                                         <FormGroup label='Data de Devolução: ' htmlFor='inputDtDevolucao'>
                                             <input
@@ -245,7 +298,11 @@ function CadastroEmprestimo() {
                                                 value={dtDevolucao}
                                                 className='form-control'
                                                 name='dtDevolucao'
-                                                onChange={(e) => setDtDevolucao(e.target.value)}
+                                                onChange={(e) => {
+                                                    setDtDevolucao(e.target.value);
+                                                    setStatus('Devolvido');
+                                                    setStatusExemplar('Disponível');
+                                                }}
                                             />
                                             <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtDevolucao} />
                                         </FormGroup>
@@ -272,6 +329,49 @@ function CadastroEmprestimo() {
                                             <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
                                         </FormGroup>
                                     </div>
+                                    <hr />
+                                    <h5>Dados do Exemplar </h5>
+                                    <div className='bs-component col-lg-4'>
+                                        <FormGroup label='Status: *' htmlFor='selectStatusExemplar'>
+                                            <select
+                                                className='form-select'
+                                                id='selectStatusExemplar'
+                                                name='statusExemplar'
+                                                value={statusExemplar}
+                                                onChange={(e) => setStatusExemplar(e.target.value)}
+                                            >
+                                                <option value='Emprestado'>
+                                                    Emprestado
+                                                </option>
+                                                <option value='Disponível'>
+                                                    Disponível
+                                                </option>
+                                                <option value='Em manutenção'>
+                                                    Em manutenção
+                                                </option>
+                                                <option value='Perdido'>
+                                                    Perdido
+                                                </option>
+                                            </select>
+                                            <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={statusExemplar} />
+                                        </FormGroup>
+                                    </div>
+                                    {statusExemplar === 'Perdido' || statusExemplar === 'Em manutenção' ? (
+                                        <div className='bs-component col-lg-8'>
+                                            <FormGroup label='Descrição: *' htmlFor='selectDescricao'>
+                                                <textarea
+                                                    rows="5"
+                                                    id='inputDescricao'
+                                                    value={descricao}
+                                                    className='form-control'
+                                                    name='descrica'
+                                                    onChange={(e) => setDescricao(e.target.value)}
+                                                />
+                                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={descricao} />
+                                            </FormGroup>
+                                        </div>
+                                    ) : null}
+
                                 </>
                             )}
                         </div>
