@@ -2,10 +2,10 @@
   "parametros": [
     {
       "id": "1",
-      "prazoEmprestimo": "3",
-      "limiteEmprestimo": "0",
-      "permitirRenovacao": true,
-      "renovacaoComFila": "true",
+      "prazoEmprestimo": "4",
+      "limiteEmprestimo": "10",
+      "permitirRenovacao": "false",
+      "renovacaoComFila": "false",
       "diasRenovacao": 3,
       "prazoRetirada": 1,
       "recomendados": "5"
@@ -29,7 +29,7 @@
       "senha": "hermione",
       "foto": "",
       "livrosLidos": 128,
-      "ativo": false
+      "ativo": true
     }
   ],
   "funcionarios": [
@@ -912,18 +912,18 @@
   "livros": [
     {
       "id": "1",
-      "nome": "1984",
+      "nome": "1983",
       "isbn": "9788535914849",
       "dtPublicacao": "1949",
       "numPaginas": 312,
       "idEditoras": "Companhia das Letras",
-      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
       "idAutores": [
         "George Orwell"
       ],
       "idGeneros": "Distopia",
-      "ativo": true,
-      "recomendado": true
+      "sinopsis": "Bilbo Bolseiro abandona sua vida confortável para acompanhar Thorin Escudo-de-Carvalho e um grupo de anões em uma jornada até a Montanha Solitária, onde enfrentará o dragão Smaug.",
+      "recomendado": false,
+      "ativo": true
     },
     {
       "id": "2",
@@ -1762,6 +1762,21 @@
       ],
       "idGeneros": "Clássico",
       "idEditoras": "HarperCollins",
+      "ativo": true,
+      "recomendado": false
+    },
+    {
+      "id": "0OgUEhBc0X4",
+      "nome": "A revolução dos bichos",
+      "isbn": "9786559573684",
+      "dtPublicacao": "1945",
+      "numPaginas": "96",
+      "idEditoras": "Vintage",
+      "idAutores": [
+        "George Orwell"
+      ],
+      "idGeneros": "Ficção",
+      "sinopsis": "Sátira política devastadora, narra a rebelião dos animais de uma fazenda contra o dono da propriedade, em busca de uma vida melhor. Porém, não muito tempo depois, os elevados ideais de liberdade, justiça e igualdade são traídos e um novo regime de opressão substitui a tirania anterior. No entanto, a correlação com os fatos que inspiraram o autor a escrevê-la quase sempre foi omitida. Nesta edição apresentamos a obra como ela, de fato, é: uma crítica contundente à Revolução Russa, ao socialismo real e a figuras como Marx, Lenin e Trotsky.",
       "ativo": true,
       "recomendado": false
     }
@@ -1848,7 +1863,7 @@
       "id": "2",
       "idLivros": "1984",
       "identificacao": "1984-COP-02",
-      "status": "Disponível",
+      "status": "Emprestado",
       "ativo": true
     },
     {
@@ -1928,7 +1943,7 @@
       "dtEta": "2026-09-19",
       "dtDevolucao": null,
       "renovado": true,
-      "status": "Atrasado",
+      "status": "Devolvido",
       "ativo": true
     },
     {
@@ -1948,6 +1963,50 @@
       "idPerfis": "Hermione",
       "dtEmprestimo": "2026-09-22",
       "dtEta": "2026-09-29",
+      "dtDevolucao": null,
+      "renovado": false,
+      "status": "Ativo",
+      "ativo": true
+    },
+    {
+      "id": "1Pra8ISJ81g",
+      "idExemplares": "SDA-COP-02",
+      "idPerfis": "Hermione",
+      "dtEmprestimo": "2026-11-19",
+      "dtEta": "2026-11-21",
+      "dtDevolucao": null,
+      "renovado": false,
+      "status": "Ativo",
+      "ativo": true
+    },
+    {
+      "id": "3gXVBrn4kaY",
+      "idExemplares": "SDA-COP-03",
+      "idPerfis": "Hermione",
+      "dtEmprestimo": "2026-11-20",
+      "dtEta": "2026-11-23",
+      "dtDevolucao": null,
+      "renovado": false,
+      "status": "Ativo",
+      "ativo": true
+    },
+    {
+      "id": "b-SiDZCmcuY",
+      "idExemplares": "1984-COP-02",
+      "idPerfis": "Hermione",
+      "dtEmprestimo": "2026-11-18",
+      "dtEta": "2026-11-21",
+      "dtDevolucao": null,
+      "renovado": false,
+      "status": "Ativo",
+      "ativo": true
+    },
+    {
+      "id": "LFqrTAjuoss",
+      "idExemplares": "1984-COP-02",
+      "idPerfis": "Hermione",
+      "dtEmprestimo": "2026-11-18",
+      "dtEta": "2026-11-21",
       "dtDevolucao": null,
       "renovado": false,
       "status": "Ativo",

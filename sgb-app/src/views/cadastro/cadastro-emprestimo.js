@@ -14,6 +14,8 @@ import { BASE_URL } from '../../config/axios.js';
 import ChecarAsterisco from '../../utils/checar-asterisco.js';
 import ImagemTopo from '../../components/topo-imagem.js';
 
+import { handleEmprestimo } from '../../utils/handle/handleEmprestimo.js';
+
 function CadastroEmprestimo() {
     const { idParam } = useParams();
 
@@ -27,7 +29,6 @@ function CadastroEmprestimo() {
     const [dtEmprestimo, setDtEmprestimo] = useState('');
     const [dtEta, setDtEta] = useState('');
     const [dtDevolucao, setDtDevolucao] = useState('');
-    const [renovado, setRenovado] = useState('');
     const [status, setStatus] = useState('');
 
     const [dados, setDados] = React.useState([]);
@@ -41,7 +42,6 @@ function CadastroEmprestimo() {
             setDtEmprestimo('');
             setDtEta('');
             setDtDevolucao('');
-            setRenovado('');
             setStatus('');
         } else {
             setId(dados.id);
@@ -50,7 +50,6 @@ function CadastroEmprestimo() {
             setDtEmprestimo(dados.dtEmprestimo);
             setDtEta(dados.dtEta);
             setDtDevolucao(dados.dtDevolucao);
-            setRenovado(dados.renovado);
             setStatus(dados.status);
         }
     }
@@ -58,38 +57,49 @@ function CadastroEmprestimo() {
     async function salvar() {
         setTentouSalvar(true);
 
-        if (!idExemplares || !idPerfis || !dtEmprestimo || !dtEta || !dtDevolucao || !renovado || !status) {
-            return;
+        if (!idParam) {
+            if (!idExemplares || !idPerfis || !dtEmprestimo) {
+                return;
+            }
+        } else {
+            if (!idExemplares || !idPerfis || !dtEmprestimo || !dtDevolucao || !status) {
+                return;
+            }
         }
+
+        const filtrado = idPerfis.split(" ")[0];
 
         let data = {
             id,
             idExemplares,
-            idPerfis,
+            idPerfis: filtrado,
             dtEmprestimo,
             dtEta,
-            dtDevolucao,
-            renovado,
-            status
+            dtDevolucao: null,
+            renovado: false,
+            status: "Ativo",
+            ativo: true
         };
         data = JSON.stringify(data);
+
         if (idParam == null) {
-            await axios
-                .post(baseURL, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
-                .then(function (response) {
-                    mensagemSucesso(`Emprestimo ${id} cadastrada com sucesso!`);
-                    navigate(`/emprestimos`);
-                })
-                .catch(function (error) {
-                    mensagemErro(error.response.data);
-                });
+            const perfil = dadosPerfis.find((dado) => dado.nome === idPerfis);
+            const exemplar = dadosExemplares.find((dado) => dado.identificacao === idExemplares);
+            const valido = await handleEmprestimo(perfil, exemplar);
+
+            if (valido) {
+                await axios.post(baseURL, data)
+                    .then(function (response) {
+                        mensagemSucesso(`Emprestimo ${id} cadastrada com sucesso!`);
+                        navigate(`/emprestimos`);
+                    })
+                    .catch(function (error) {
+                        mensagemErro(error.response.data);
+                    });
+                await axios.patch(`${BASE_URL}/exemplares/${exemplar.id}`, { status: "Emprestado" });
+            }
         } else {
-            await axios
-                .put(`${baseURL}/${idParam}`, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
+            await axios.patch(`${baseURL}/${idParam}`, { idPerfis, idExemplares, dtEmprestimo, dtDevolucao, status })
                 .then(function (response) {
                     mensagemSucesso(`Emprestimo ${id} alterada com sucesso!`);
                     navigate(`/emprestimos`);
@@ -110,7 +120,6 @@ function CadastroEmprestimo() {
         setDtEmprestimo(dados.dtEmprestimo);
         setDtEta(dados.dtEta);
         setDtDevolucao(dados.dtDevolucao);
-        setRenovado(dados.renovado);
         setStatus(dados.status);
     }
 
@@ -192,7 +201,7 @@ function CadastroEmprestimo() {
                                     <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idExemplares} />
                                 </FormGroup>
                             </div>
-                            <div className='bs-component col-lg-4'>
+                            <div className='bs-component col-lg-6'>
                                 <FormGroup label='Data do Empréstimo: *' htmlFor='inputDtEmprestimo'>
                                     <input
                                         type='date'
@@ -204,7 +213,7 @@ function CadastroEmprestimo() {
                                             setDtEmprestimo(e.target.value)
 
                                             const data = new Date(e.target.value);
-                                            data.setDate(data.getDate() + prazoEmprestimo)
+                                            data.setDate(data.getDate() + Number(prazoEmprestimo))
                                             setDtEta(data.toLocaleDateString('en-CA'));
                                         }
                                         }
@@ -212,7 +221,7 @@ function CadastroEmprestimo() {
                                     <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEmprestimo} />
                                 </FormGroup>
                             </div>
-                            <div className='bs-component col-lg-4'>
+                            <div className='bs-component col-lg-6'>
                                 <FormGroup label='Data Estimada da Devolução: ' htmlFor='inputEta'>
                                     <input
                                         type='date'
@@ -225,60 +234,46 @@ function CadastroEmprestimo() {
                                     <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEta} />
                                 </FormGroup>
                             </div>
-                            <div className='bs-component col-lg-4'>
-                                <FormGroup label='Data de Devolução: ' htmlFor='inputDtDevolucao'>
-                                    <input
-                                        type='date'
-                                        id='inputDtDevolucao'
-                                        value={dtDevolucao}
-                                        className='form-control'
-                                        name='dtDevolucao'
-                                        onChange={(e) => setDtDevolucao(e.target.value)}
-                                    />
-                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtDevolucao} />
-                                </FormGroup>
-                            </div>
-                            <div className='bs-component col-lg-6 col-sm-12'>
-                                <FormGroup label='Renovado: *' htmlFor='selectRenovado'>
-                                    <select
-                                        className='form-select'
-                                        id='selectRenovado'
-                                        name='renovado'
-                                        value={renovado}
-                                        onChange={(e) => setRenovado(e.target.value)}
-                                    >
-                                        <option value={true}>
-                                            Não
-                                        </option>
-                                        <option value={false}>
-                                            Sim
-                                        </option>
-                                    </select>
-                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={renovado} />
-                                </FormGroup>
-                            </div>
-                            <div className='bs-component col-lg-6 col-sm-12'>
-                                <FormGroup label='Status: *' htmlFor='selectStatus'>
-                                    <select
-                                        className='form-select'
-                                        id='selectStatus'
-                                        name='status'
-                                        value={status}
-                                        onChange={(e) => setStatus(e.target.value)}
-                                    >
-                                        <option value='Ativo'>
-                                            Ativo
-                                        </option>
-                                        <option value='Devolvido'>
-                                            Devolvido
-                                        </option>
-                                        <option value='Atrasado'>
-                                            Atrasado
-                                        </option>
-                                    </select>
-                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
-                                </FormGroup>
-                            </div>
+                            {!idParam ? null : (
+                                <>
+                                    <hr />
+                                    <div className='bs-component col-lg-6'>
+                                        <FormGroup label='Data de Devolução: ' htmlFor='inputDtDevolucao'>
+                                            <input
+                                                type='date'
+                                                id='inputDtDevolucao'
+                                                value={dtDevolucao}
+                                                className='form-control'
+                                                name='dtDevolucao'
+                                                onChange={(e) => setDtDevolucao(e.target.value)}
+                                            />
+                                            <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtDevolucao} />
+                                        </FormGroup>
+                                    </div>
+                                    <div className='bs-component col-lg-6'>
+                                        <FormGroup label='Status: *' htmlFor='selectStatus'>
+                                            <select
+                                                className='form-select'
+                                                id='selectStatus'
+                                                name='status'
+                                                value={status}
+                                                onChange={(e) => setStatus(e.target.value)}
+                                            >
+                                                <option value='Ativo'>
+                                                    Ativo
+                                                </option>
+                                                <option value='Devolvido'>
+                                                    Devolvido
+                                                </option>
+                                                <option value='Atrasado'>
+                                                    Atrasado
+                                                </option>
+                                            </select>
+                                            <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
+                                        </FormGroup>
+                                    </div>
+                                </>
+                            )}
                         </div>
                         <div className='d-flex flex-column justify-content-center align-items-end'>
                             <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>

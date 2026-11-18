@@ -8,7 +8,7 @@ import SubCard from '../../components/ui/sub-card.js';
 
 import FormGroup from '../../components/ui/form-group.js';
 
-import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
+import { mensagemSucesso, mensagemErro, mensagemAlert } from '../../components/toastr.js';
 
 import '../../custom.css';
 
@@ -33,7 +33,7 @@ function CadastroLivro() {
     const [idAutores, setIdAutores] = React.useState([]);
     const [idAutor, setIdAutor] = useState('');
     const [idGeneros, setIdGenero] = useState('');
-    const [sinopse, setSinopse] = useState('');
+    const [sinopsis, setSinopsis] = useState('');
 
     const [dados, setDados] = React.useState([]);
     const [tentouSalvar, setTentouSalvar] = useState(false);
@@ -48,7 +48,7 @@ function CadastroLivro() {
             setIdEditora('');
             setIdAutores([]);
             setIdGenero('');
-            setSinopse('');
+            setSinopsis('');
         } else {
             setId(dados.id);
             setNome(dados.nome);
@@ -58,16 +58,20 @@ function CadastroLivro() {
             setIdEditora(dados.idEditoras);
             setIdAutores(dados.idAutores);
             setIdGenero(dados.idGeneros);
-            setSinopse(dados.sinopse);
+            setSinopsis(dados.sinopse);
         }
     }
 
     async function salvar() {
         setTentouSalvar(true);
 
-        if (!nome || !isbn || !dtPublicacao || !numPaginas || !idEditoras || !idAutores || !idGeneros || !sinopse) {
+        if (!nome || !isbn || !dtPublicacao || !numPaginas || !idEditoras || idAutores.length === 0 || !idGeneros || !sinopsis) {
+            mensagemAlert("Algum campo não foi preenchido.")
             return;
         }
+
+        const recomendado = false;
+        const ativo = true;
 
         let data = {
             id,
@@ -78,7 +82,9 @@ function CadastroLivro() {
             idEditoras,
             idAutores,
             idGeneros,
-            sinopse
+            sinopsis,
+            recomendado,
+            ativo
         };
         data = JSON.stringify(data);
         if (idParam == null) {
@@ -121,7 +127,7 @@ function CadastroLivro() {
             setIdEditora(livro.idEditoras);
             setIdAutores(livro.idAutores ?? []);
             setIdGenero(livro.idGeneros);
-            setSinopse(livro.sinopsis);
+            setSinopsis(livro.sinopsis);
         });
     }
 
@@ -297,12 +303,12 @@ function CadastroLivro() {
                                     <textarea
                                         rows="5"
                                         id='inputSinopse'
-                                        value={sinopse}
+                                        value={sinopsis}
                                         className='form-control'
                                         name='sinopse'
-                                        onChange={(e) => setSinopse(e.target.value)}
+                                        onChange={(e) => setSinopsis(e.target.value)}
                                     />
-                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={sinopse} />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={sinopsis} />
                                 </FormGroup>
                             </div>
                         </div>
