@@ -13,57 +13,41 @@ function MeusEmprestimos({ profile }) {
     const [emprestimos, setEmprestimos] = useState([]);
     const [exemplares, setExemplares] = useState([]);
     const [livros, setLivros] = useState([]);
+    const [carregando, setCarregando] = useState(true);
 
     useEffect(() => {
-        if (profile) {
-            axios.get(urlEmprestimos).then((response) => {
-                const filtroPorPerfil = response.data.filter((emprestimo) => emprestimo.idPerfis === profile.nome.split(" ")[0]);
-                const filtroPorStatus = filtroPorPerfil.filter((emprestimo) => emprestimo.status !== "Devolvido");
-                setEmprestimos(filtroPorStatus);
-            })
-        }
-    }, [profile])
+        async function carregarDados() {
+            if (!profile || !profile.nome) return;
 
-    useEffect(() => {
-        if (emprestimos) {
-            axios.get(urlExemplares).then((response) => {
-                const dataExemplares = response.data;
-                let exemplaresFiltrados = [];
+            try {
+                setCarregando(true);
 
-                for (const exemplar of dataExemplares) {
-                    for (const emprestimo of emprestimos) {
-                        if (exemplar.identificacao === emprestimo.idExemplares) {
-                            exemplaresFiltrados.push(exemplar);
-                        }
-                    }
-                }
+                const resEmprestimos = await axios.get(urlEmprestimos);
+                const resExemplares = await axios.get(urlExemplares);
+                const resLivros = await axios.get(urlLivros);
 
-                setExemplares(exemplaresFiltrados);
-            })
-        }
-    }, [emprestimos])
+                const nomePerfilPrimeiroNome = profile.nome.split(" ")[0];
+                const filtroPorPerfil = resEmprestimos.data.filter(
+                    (emprestimo) => emprestimo.idPerfis === nomePerfilPrimeiroNome
+                );
+                const emprestimosAtivos = filtroPorPerfil.filter(
+                    (emprestimo) => emprestimo.status !== "Devolvido"
+                );
 
-    useEffect(() => {
-        if (exemplares) {
-            axios.get(urlLivros).then((response) => {
-                const livros = response.data;
-                let livrosFiltrados = [];
-
-                for (const exemplar of exemplares) {
-                    for (const livro of livros) {
-                        if (exemplar.idLivros === livro.nome) {
-                            livrosFiltrados.push(livro);
-                        }
-                    }
-                }
-
-                setLivros(livrosFiltrados);
-            })
+                setEmprestimos(emprestimosAtivos);
+                setExemplares(resExemplares.data);
+                setLivros(resLivros.data);
+            } catch (error) {
+                console.error("Erro ao carregar dados dos empréstimos:", error);
+            } finally {
+                setCarregando(false);
+            }
         }
 
-    }, [exemplares])
+        carregarDados();
+    }, [profile]);
 
-    return (
+    return carregando ? null : (
         <div>
             <ImagemTopo
                 imagem="/background-emprestimos.jpg"
@@ -71,12 +55,12 @@ function MeusEmprestimos({ profile }) {
                 subtitulo="Todos os livros que estão com você e as próximas datas de devolução."
             />
             <div className="container">
-                {emprestimos.length > 0 ? 
-                (
-                    <EmprestimoCarrossel livros={livros} emprestimos={emprestimos} exemplares={exemplares} />
-                ) : (
-                    <span>Você não possui nenhum empréstimo ativo.</span>
-                )
+                {emprestimos.length > 0 ?
+                    (
+                        <EmprestimoCarrossel livros={livros} emprestimos={emprestimos} exemplares={exemplares} />
+                    ) : (
+                        <span>Você não possui nenhum empréstimo ativo.</span>
+                    )
 
                 }
             </div>

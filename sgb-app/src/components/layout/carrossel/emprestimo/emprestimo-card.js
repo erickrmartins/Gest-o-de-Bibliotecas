@@ -1,10 +1,26 @@
 import Refresh from '@mui/icons-material/Cached';
 import { mensagemAlert } from '../../../toastr';
+import { handleRenovacao } from '../../../../utils/handle/handleRenovacao'
+import { useEffect, useState } from 'react';
+
+import axios from 'axios';
+import { BASE_URL } from '../../../../config/axios';
+const baseUrl = `${BASE_URL}/emprestimos`
+
 
 function EmprestimoCard({ emprestimo, exemplar, livro }) {
+    const [renovado, setRenovado] = useState(false);
 
     function getQtdDias() {
         return "x";
+    }
+
+    async function handleClick() {
+        const renovar = await handleRenovacao(emprestimo);
+
+        if (renovar) {
+            setRenovado(true);
+        }
     }
 
     return (
@@ -33,12 +49,12 @@ function EmprestimoCard({ emprestimo, exemplar, livro }) {
 
                 <div className='d-flex gap-4'>
                     <span className={`${getQtdDias() < 3 ? "span-alert" : "span-success"} px-1 curvatura`}>Faltam {getQtdDias()} dia(s)</span>
-                    <span className={`span-muted px-1 curvatura ${emprestimo.renovado ? undefined : "d-none"}`}>Já renovado</span>
+                    <span className={`span-muted px-1 curvatura ${emprestimo.renovado || renovado ? undefined : "d-none"}`}>Já renovado</span>
                 </div>
-                <button className="btn btn-outline" onClick={() => mensagemAlert("Ainda não implementado")} disabled={emprestimo.renovado}><Refresh /> Renovar</button>
+                <button className="btn btn-outline" onClick={() => handleClick()} disabled={emprestimo.renovado || renovado}><Refresh /> Renovar</button>
             </div>
         </div>
-    )
+    );
 }
 
 export default EmprestimoCard;
