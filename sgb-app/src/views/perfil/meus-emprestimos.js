@@ -71,7 +71,14 @@ function MeusEmprestimos({ profile }) {
                 subtitulo="Todos os livros que estão com você e as próximas datas de devolução."
             />
             <div className="container">
-                <EmprestimoCarrossel livros={livros} emprestimos={emprestimos} exemplares={exemplares} />
+                {emprestimos.length > 0 ? 
+                (
+                    <EmprestimoCarrossel livros={livros} emprestimos={emprestimos} exemplares={exemplares} />
+                ) : (
+                    <span>Você não possui nenhum empréstimo ativo.</span>
+                )
+
+                }
             </div>
         </div>
     )

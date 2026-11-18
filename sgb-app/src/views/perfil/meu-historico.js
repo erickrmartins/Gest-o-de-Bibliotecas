@@ -4,16 +4,24 @@ import ImagemTopo from "../../components/topo-imagem";
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios';
 import SubCard from "../../components/ui/sub-card";
-import { mensagemAlert } from "../../components/toastr";
+import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/toastr";
 
 const urlEmprestimos = `${BASE_URL}/emprestimos`;
 const urlExemplares = `${BASE_URL}/exemplares`;
 const urlLivros = `${BASE_URL}/livros`;
+const urlReservas = `${BASE_URL}/reservas`;
 
 function MeuHistorico({ profile }) {
     const [emprestimos, setEmprestimos] = useState([]);
     const [exemplares, setExemplares] = useState([]);
     const [livros, setLivros] = useState([]);
+
+    function getLivroNome(emprestimo) {
+        const exemplar = exemplares.find((exemplar) => emprestimo.idExemplares === exemplar.identificacao);
+        const livro = livros.find((livro) => livro.nome === exemplar.idLivros);
+
+        return livro.nome;
+    }
 
     function getLivro(emprestimo) {
         const exemplar = exemplares.find((exemplar) => emprestimo.idExemplares === exemplar.identificacao);
@@ -32,6 +40,33 @@ function MeuHistorico({ profile }) {
                 </div>
             </div>
         )
+    }
+
+    async function reservar(livro) {
+        const data = new Date();
+        const dtReserva = data.toLocaleDateString("en-CA")
+        const idPerfis = profile.nome.split(" ")[0];
+        const idLivros = livro;
+
+        const jaReservou = await axios.get(urlReservas).then((response) => {
+            const resposta = response.data;
+            const filtrar = resposta.find((reserva) => idPerfis === reserva.idPerfis && idLivros === reserva.idLivros);
+            if (filtrar) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+
+        if (!jaReservou) {
+            axios.post(urlReservas, { dtReserva, idLivros, idPerfis })
+                .then((response) => mensagemSucesso("Reserva realizada com sucesso."))
+                .catch(() => mensagemErro("Não foi possível realizar a reserva."));
+
+        } else {
+            mensagemAlert("Você já reservou esse livro");
+        }
+
     }
 
     useEffect(() => {
@@ -87,12 +122,12 @@ function MeuHistorico({ profile }) {
         <div>
             <ImagemTopo
                 imagem="/background-emprestimos.jpg"
-                titulo="Meus Empréstimos"
-                subtitulo="Todos os livros que estão com você e as próximas datas de devolução."
+                titulo="Meus Histórico"
+                subtitulo="Todo o seu histórico de empréstimo na nossa biblioteca."
             />
             <div className="container">
                 <SubCard>
-                    <table className="table table-bordered table-hover align-middle">
+                    <table className="table table-hover align-middle">
                         <thead>
                             <tr>
                                 <th>LIVRO</th>
@@ -103,10 +138,10 @@ function MeuHistorico({ profile }) {
                         <tbody>
                             {emprestimos.length > 0 && livros.length > 0 ?
                                 emprestimos.map((emprestimo) => (
-                                    <tr className="" key={emprestimo.id}>
+                                    <tr key={emprestimo.id}>
                                         <td>{getLivro(emprestimo)}</td>
                                         <td>{emprestimo.dtDevolucao}</td>
-                                        <td className="text-end"><button className="btn btn-primary" onClick={() => mensagemAlert("Ainda não implementado")}>Reservar</button></td>
+                                        <td className="text-end"><button className="btn btn-primary" onClick={() => reservar(getLivroNome(emprestimo))}>Reservar</button></td>
                                     </tr>
                                 )) : "Você ainda não possui nenhuma reserva"}
                         </tbody>

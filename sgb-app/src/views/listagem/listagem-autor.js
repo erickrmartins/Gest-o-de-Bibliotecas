@@ -15,6 +15,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
+import ImagemTopo from '../../components/topo-imagem.js';
 
 function ListagemAutor() {
     const navigate = useNavigate();
@@ -22,13 +23,10 @@ function ListagemAutor() {
     const baseURL = `${BASE_URL}/autores`;
 
     async function deletar(id) {
-        let data = JSON.stringify({ id });
+        let ativo = false;
         let url = `${baseURL}/${id}`;
         console.log(url);
-        await axios
-            .delete(url, data, {
-                headers: { 'Content-Type': 'application/json' },
-            })
+        await axios.patch(url, {ativo})
             .then(function (response) {
                 mensagemSucesso(`Autor deletado com sucesso!`);
                 setDadosFiltrados(dados.filter((item) => item.id !== id));
@@ -52,8 +50,10 @@ function ListagemAutor() {
     React.useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
-                setDados(response.data);
-                setDadosFiltrados(response.data)
+                const filtrar = response.data.filter((dado) => dado.ativo === true);
+
+                setDados(filtrar);
+                setDadosFiltrados(filtrar);
             })
             .catch((error) => {
                 mensagemErro('Erro ao se conectar ao servidor!');
@@ -61,72 +61,79 @@ function ListagemAutor() {
     }, []);
 
     return (
-        <div className="container">
-            <Card title={`Listagem de Autores`} subtitle={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}>
-                <div className='d-flex mb-4 w-100'>
-                    <div className='d-flex w-100'>
-                        <form className='d-flex w-25' role='search'>
-                            <input
-                                className='form-control me-2 curvatura shadow-sm ps-4'
-                                type='search'
-                                placeholder='Busque por um dado'
-                                aria-label='Procurar'
-                                onChange={(e) => procurar(e.target.value)}
-                            />
-                        </form>
-                        <BtnCadastrar btnText={"Novo Autor"} />
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Listagem de Autores"
+                subtitulo={`${dadosFiltrados ? dadosFiltrados.length : ""} resultados encontrados`}
+            />
+            <div className="container">
+                <Card>
+                    <div className='d-flex mb-4 w-100'>
+                        <div className='d-flex w-100'>
+                            <form className='d-flex w-25' role='search'>
+                                <input
+                                    className='form-control me-2 curvatura shadow-sm ps-4'
+                                    type='search'
+                                    placeholder='Busque por um dado'
+                                    aria-label='Procurar'
+                                    onChange={(e) => procurar(e.target.value)}
+                                />
+                            </form>
+                            <BtnCadastrar btnText={"Novo Autor"} />
+                        </div>
                     </div>
-                </div>
-                <SubCard className="row">
-                    <div className="col-lg-12">
+                    <SubCard className="row">
+                        <div className="col-lg-12">
 
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Citação</th>
-                                    <th scope="col">Nacionalidade</th>
-                                    <th scope="col">AÇÕES</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                    dadosFiltrados.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.nome}</td>
-                                            <td>{item.citacao}</td>
-                                            <td>{item.nacionalidade}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )) :
-                                    (
-                                        <tr>
-                                            <td>
-                                                Nenhum dado foi encontrado.
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </SubCard>
-            </Card>
+                            <table className="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Citação</th>
+                                        <th scope="col">Nacionalidade</th>
+                                        <th scope="col">AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                        dadosFiltrados.map((item) => (
+                                            <tr key={item.id}>
+                                                <td>{item.nome}</td>
+                                                <td>{item.citacao}</td>
+                                                <td>{item.nacionalidade}</td>
+                                                <td>
+                                                    <Stack spacing={1} padding={0} direction='row'>
+                                                        <IconButton
+                                                            aria-label='edit'
+                                                            onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                        >
+                                                            <EditIcon />
+                                                        </IconButton>
+                                                        <IconButton
+                                                            aria-label='delete'
+                                                            onClick={() => deletar(item.id)}
+                                                        >
+                                                            <DeleteIcon />
+                                                        </IconButton>
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )) :
+                                        (
+                                            <tr>
+                                                <td>
+                                                    Nenhum dado foi encontrado.
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </SubCard>
+                </Card>
+            </div>
         </div>
     );
 }

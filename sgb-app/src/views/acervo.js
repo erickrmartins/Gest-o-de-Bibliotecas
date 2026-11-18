@@ -17,10 +17,12 @@ function Acervo() {
     const [generos, setGeneros] = useState([]);
     const [generoSelec, setGeneroSelec] = useState('');
 
+    const [buscaPor, setBuscaPor] = useState('titulo');
     const [pesquisa, setPesquisa] = useState('');
     const [pesquisaAtiva, setPesquisaAtiva] = useState(false);
     const [resultadosPesquisa, setResultadosPesquisa] = useState([]);
     const [recomendados, setRecomendados] = useState([]);
+
 
     function getLivrosByGenero(genero) {
         return livros.filter((livro) => livro.idGeneros === genero);
@@ -29,7 +31,7 @@ function Acervo() {
     function filtrarLivros() {
         setPesquisaAtiva(true);
 
-        setResultadosPesquisa(search(pesquisa, livros));
+        setResultadosPesquisa(search(pesquisa, livros, buscaPor));
     }
 
     const filtroAtivo = pesquisaAtiva || generoSelec;
@@ -45,7 +47,7 @@ function Acervo() {
         let livrosFiltrados;
 
         if (pesquisaAtiva) {
-            titulo = "Resultados da busca (" + (resultadosPesquisa.length + 1) + ")";
+            titulo = "Resultados da busca (" + (resultadosPesquisa.length) + ")";
             livrosFiltrados = resultadosPesquisa;
         } else if (generoSelec) {
             titulo = "Resultados da busca (" + (getLivrosByGenero(generoSelec).length + 1) + ")";
@@ -72,13 +74,27 @@ function Acervo() {
         axios.get(`${BASE_URL}/generos`).then((response) => setGeneros(response.data));
     }, []);
 
+    const livroRecomendado = Math.floor(Math.random() * recomendados.length);
+
     return (
         <div className="container">
             {recomendados.length > 0 && (
-                <Recommended livro={recomendados[Math.floor(Math.random() * recomendados.length)]} />
+                <Recommended livro={recomendados[livroRecomendado]} />
             )}
             <Card title="Acervo" subtitle="Esses são os livros disponíveis em nosso acervo">
                 <div className="row g-2 mb-4 align-items-center">
+                    <div className="col-12 col-md-6 col-lg-1">
+                        <select
+                            className="form-select"
+                            value={buscaPor}
+                            onChange={(e) => setBuscaPor(e.target.value)}
+                        >
+                            <option value="titulo">Titulo</option>
+                            <option value="autor">Autor</option>
+                            <option value="isbn">ISBN</option>
+                        </select>
+                    </div>
+
                     <div className="col-12 col-lg-6">
                         <form className="input-group" onSubmit={(e) => {
                             e.preventDefault();
@@ -97,6 +113,7 @@ function Acervo() {
                             <button type="submit" className="d-none"></button>
                         </form>
                     </div>
+
 
                     <div className="col-12 col-md-6 col-lg-2">
                         <select

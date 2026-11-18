@@ -21,7 +21,7 @@ function Navbar({ }) {
 
 
     return show ? null : (
-        <nav className='mx-auto navbar bg-white navbar-expand-lg sticky-top shadow curvatura border-bottom'>
+        <nav className='mx-auto navbar bg-white navbar-expand-lg sticky-top shadow border-bottom'>
             <div className='container'>
                 <div className='container-fluid d-flex flex-wrap align-items-center px-3 gap-3'>
                     <a href='/' className='navbar d-flex gap-2'>

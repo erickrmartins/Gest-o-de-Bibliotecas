@@ -14,7 +14,7 @@
   "usuarioLogado": [
     {
       "id": "1",
-      "isFuncionario": false,
+      "isFuncionario": true,
       "idUsuario": "1"
     }
   ],
@@ -64,7 +64,7 @@
       "nome": "George Orwell",
       "citacao": "ORWELL, George",
       "nacionalidade": "Britânica",
-      "ativo": true
+      "ativo": false
     },
     {
       "id": "2",
@@ -1195,7 +1195,6 @@
       "ativo": true,
       "recomendado": false
     },
-    
     {
       "id": "1",
       "nome": "1984",
@@ -1481,7 +1480,6 @@
       "ativo": true,
       "recomendado": false
     },
-    
     {
       "id": "1",
       "nome": "1984",
@@ -1770,45 +1768,10 @@
   ],
   "reservas": [
     {
-      "id": "1",
-      "dtReserva": "2026-09-25",
-      "primeiro": true,
-      "idLivros": "1984",
-      "idPerfis": "Hermione"
-    },
-    {
-      "id": "2",
-      "dtReserva": "2026-09-26",
-      "primeiro": false,
-      "idLivros": "1984",
-      "idPerfis": "Hermione"
-    },
-    {
-      "id": "3",
-      "dtReserva": "2026-09-20",
-      "primeiro": true,
-      "idLivros": "O Hobbit",
-      "idPerfis": "Hermione"
-    },
-    {
-      "id": "4",
-      "dtReserva": "2026-09-21",
-      "primeiro": false,
-      "idLivros": "O Hobbit",
-      "idPerfis": "Hermione"
-    },
-    {
       "id": "5",
       "dtReserva": "2026-10-01",
       "primeiro": true,
       "idLivros": "Dom Casmurro",
-      "idPerfis": "Hermione"
-    },
-    {
-      "id": "6",
-      "dtReserva": "2026-10-03",
-      "primeiro": true,
-      "idLivros": "Cem Anos de Solidão",
       "idPerfis": "Hermione"
     },
     {
@@ -1840,31 +1803,10 @@
       "idPerfis": "Hermione"
     },
     {
-      "id": "11",
-      "dtReserva": "2026-10-12",
-      "primeiro": true,
-      "idLivros": "Assassinato no Expresso do Oriente",
-      "idPerfis": "Hermione"
-    },
-    {
-      "id": "12",
-      "dtReserva": "2026-10-13",
-      "primeiro": false,
-      "idLivros": "Assassinato no Expresso do Oriente",
-      "idPerfis": "Hermione"
-    },
-    {
       "id": "13",
       "dtReserva": "2026-10-15",
       "primeiro": true,
       "idLivros": "Frankenstein",
-      "idPerfis": "Hermione"
-    },
-    {
-      "id": "14",
-      "dtReserva": "2026-10-17",
-      "primeiro": true,
-      "idLivros": "Orgulho e Preconceito",
       "idPerfis": "Hermione"
     },
     {
@@ -1880,6 +1822,18 @@
       "primeiro": true,
       "idLivros": "Ensaio sobre a Cegueira",
       "idPerfis": "Hermione"
+    },
+    {
+      "dtReserva": "2026-11-17",
+      "idLivros": "O Senhor dos Anéis",
+      "idPerfis": "Hermione",
+      "id": "Mi6xf5xWNrE"
+    },
+    {
+      "dtReserva": "2026-11-17",
+      "idLivros": "1984",
+      "idPerfis": "Hermione",
+      "id": "UgNQIzMSWEI"
     }
   ],
   "exemplares": [
@@ -1963,7 +1917,8 @@
       "dtEta": "2026-09-08",
       "dtDevolucao": "2026-09-08",
       "renovado": true,
-      "status": "Devolvido"
+      "status": "Devolvido",
+      "ativo": true
     },
     {
       "id": "2",
@@ -1973,7 +1928,8 @@
       "dtEta": "2026-09-19",
       "dtDevolucao": null,
       "renovado": true,
-      "status": "Atrasado"
+      "status": "Atrasado",
+      "ativo": true
     },
     {
       "id": "3",
@@ -1983,7 +1939,8 @@
       "dtEta": "2026-09-29",
       "dtDevolucao": "2026-09-29",
       "renovado": true,
-      "status": "Devolvido"
+      "status": "Devolvido",
+      "ativo": true
     },
     {
       "id": "4",
@@ -1993,7 +1950,8 @@
       "dtEta": "2026-09-29",
       "dtDevolucao": null,
       "renovado": false,
-      "status": "Ativo"
+      "status": "Ativo",
+      "ativo": true
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

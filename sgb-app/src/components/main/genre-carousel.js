@@ -1,6 +1,5 @@
 import BookCard from "./book-card";
 import { useState, useEffect } from "react";
-import { mensagemAlert } from '../../components/toastr.js';
 
 function calcularVisiveis(largura) {
     if (largura >= 992) return 6; // lg e xl

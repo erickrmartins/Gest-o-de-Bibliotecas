@@ -12,6 +12,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import ChecarAsterisco from '../../utils/checar-asterisco.js';
+import ImagemTopo from '../../components/topo-imagem.js';
 
 function CadastroEmprestimo() {
     const { idParam } = useParams();
@@ -57,7 +58,7 @@ function CadastroEmprestimo() {
     async function salvar() {
         setTentouSalvar(true);
 
-        if(!idExemplares || !idPerfis || !dtEmprestimo || !dtEta || !dtDevolucao || !renovado || !status) {
+        if (!idExemplares || !idPerfis || !dtEmprestimo || !dtEta || !dtDevolucao || !renovado || !status) {
             return;
         }
 
@@ -139,161 +140,168 @@ function CadastroEmprestimo() {
     if (!dadosPerfis) return null;
 
     return (
-        <div className='container'>
-            <Card title='Cadastro de Emprestimo' subtitle="Campos com * são obrigatórios">
-                <SubCard className='row'>
-                    <div className='row col-12 p-4'>
-                        <div className='bs-component col-lg-6 col-sm-12'>
-                            <FormGroup label='Perfil: *' htmlFor='selectPerfil'>
-                                <select
-                                    className='form-select'
-                                    id='selectPerfil'
-                                    name='idPerfis'
-                                    value={idPerfis}
-                                    onChange={(e) => setIdPerfis(e.target.value)}
-                                >
-                                    <option key='0' value='0'>
-                                        {' '}
-                                    </option>
-                                    {dadosPerfis.map((dado) => (
-                                        <option key={dado.id} value={dado.nome}>
-                                            {dado.nome}
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Cadastro de Empréstimo"
+                subtitulo="Campos com * são obrigatórios."
+            />
+            <div className="container">
+                <Card>
+                    <SubCard className='row'>
+                        <div className='row col-12 p-4'>
+                            <div className='bs-component col-lg-6 col-sm-12'>
+                                <FormGroup label='Perfil: *' htmlFor='selectPerfil'>
+                                    <select
+                                        className='form-select'
+                                        id='selectPerfil'
+                                        name='idPerfis'
+                                        value={idPerfis}
+                                        onChange={(e) => setIdPerfis(e.target.value)}
+                                    >
+                                        <option key='0' value='0'>
+                                            {' '}
                                         </option>
-                                    ))}
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idPerfis} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-6 col-sm-12'>
-                            <FormGroup label='Exemplar: *' htmlFor='selectExemplar'>
-                                <select
-                                    className='form-select'
-                                    id='selectExemplar'
-                                    name='idExemplares'
-                                    value={idExemplares}
-                                    onChange={(e) => setIdExemplares(e.target.value)}
-                                >
-                                    <option key='0' value='0'>
-                                        {' '}
-                                    </option>
-                                    {dadosExemplares.map((dado) => (
-                                        <option key={dado.id} value={dado.identificacao}>
-                                            {dado.identificacao}
+                                        {dadosPerfis.map((dado) => (
+                                            <option key={dado.id} value={dado.nome}>
+                                                {dado.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idPerfis} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6 col-sm-12'>
+                                <FormGroup label='Exemplar: *' htmlFor='selectExemplar'>
+                                    <select
+                                        className='form-select'
+                                        id='selectExemplar'
+                                        name='idExemplares'
+                                        value={idExemplares}
+                                        onChange={(e) => setIdExemplares(e.target.value)}
+                                    >
+                                        <option key='0' value='0'>
+                                            {' '}
                                         </option>
-                                    ))}
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idExemplares} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-4'>
-                            <FormGroup label='Data do Empréstimo: *' htmlFor='inputDtEmprestimo'>
-                                <input
-                                    type='date'
-                                    id='inputDtEmprestimo'
-                                    value={dtEmprestimo}
-                                    className='form-control'
-                                    name='dtEmprestimo'
-                                    onChange={(e) => {
-                                        setDtEmprestimo(e.target.value)
+                                        {dadosExemplares.map((dado) => (
+                                            <option key={dado.id} value={dado.identificacao}>
+                                                {dado.identificacao}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idExemplares} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-4'>
+                                <FormGroup label='Data do Empréstimo: *' htmlFor='inputDtEmprestimo'>
+                                    <input
+                                        type='date'
+                                        id='inputDtEmprestimo'
+                                        value={dtEmprestimo}
+                                        className='form-control'
+                                        name='dtEmprestimo'
+                                        onChange={(e) => {
+                                            setDtEmprestimo(e.target.value)
 
-                                        const data = new Date(e.target.value);
-                                        data.setDate(data.getDate() + prazoEmprestimo)
-                                        setDtEta(data.toLocaleDateString('en-CA'));
-                                    }
-                                    }
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEmprestimo} />
-                            </FormGroup>
+                                            const data = new Date(e.target.value);
+                                            data.setDate(data.getDate() + prazoEmprestimo)
+                                            setDtEta(data.toLocaleDateString('en-CA'));
+                                        }
+                                        }
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEmprestimo} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-4'>
+                                <FormGroup label='Data Estimada da Devolução: ' htmlFor='inputEta'>
+                                    <input
+                                        type='date'
+                                        id='inputEta'
+                                        value={dtEta}
+                                        className='form-control'
+                                        name='dtEta'
+                                        readOnly
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEta} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-4'>
+                                <FormGroup label='Data de Devolução: ' htmlFor='inputDtDevolucao'>
+                                    <input
+                                        type='date'
+                                        id='inputDtDevolucao'
+                                        value={dtDevolucao}
+                                        className='form-control'
+                                        name='dtDevolucao'
+                                        onChange={(e) => setDtDevolucao(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtDevolucao} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6 col-sm-12'>
+                                <FormGroup label='Renovado: *' htmlFor='selectRenovado'>
+                                    <select
+                                        className='form-select'
+                                        id='selectRenovado'
+                                        name='renovado'
+                                        value={renovado}
+                                        onChange={(e) => setRenovado(e.target.value)}
+                                    >
+                                        <option value={true}>
+                                            Não
+                                        </option>
+                                        <option value={false}>
+                                            Sim
+                                        </option>
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={renovado} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6 col-sm-12'>
+                                <FormGroup label='Status: *' htmlFor='selectStatus'>
+                                    <select
+                                        className='form-select'
+                                        id='selectStatus'
+                                        name='status'
+                                        value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
+                                    >
+                                        <option value='Ativo'>
+                                            Ativo
+                                        </option>
+                                        <option value='Devolvido'>
+                                            Devolvido
+                                        </option>
+                                        <option value='Atrasado'>
+                                            Atrasado
+                                        </option>
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
+                                </FormGroup>
+                            </div>
                         </div>
-                        <div className='bs-component col-lg-4'>
-                            <FormGroup label='Data Estimada da Devolução: ' htmlFor='inputEta'>
-                                <input
-                                    type='date'
-                                    id='inputEta'
-                                    value={dtEta}
-                                    className='form-control'
-                                    name='dtEta'
-                                    readOnly
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtEta} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-4'>
-                            <FormGroup label='Data de Devolução: ' htmlFor='inputDtDevolucao'>
-                                <input
-                                    type='date'
-                                    id='inputDtDevolucao'
-                                    value={dtDevolucao}
-                                    className='form-control'
-                                    name='dtDevolucao'
-                                    onChange={(e) => setDtDevolucao(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtDevolucao} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-6 col-sm-12'>
-                            <FormGroup label='Renovado: *' htmlFor='selectRenovado'>
-                                <select
-                                    className='form-select'
-                                    id='selectRenovado'
-                                    name='renovado'
-                                    value={renovado}
-                                    onChange={(e) => setRenovado(e.target.value)}
+                        <div className='d-flex flex-column justify-content-center align-items-end'>
+                            <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                            <Stack spacing={1} padding={1} direction='row'>
+                                <button
+                                    onClick={inicializar}
+                                    type='button'
+                                    className='btn btn-outline-danger curvatura fw-semibold ls-wide'
                                 >
-                                    <option value={true}>
-                                        Não
-                                    </option>
-                                    <option value={false}>
-                                        Sim
-                                    </option>
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={renovado} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-6 col-sm-12'>
-                            <FormGroup label='Status: *' htmlFor='selectStatus'>
-                                <select
-                                    className='form-select'
-                                    id='selectStatus'
-                                    name='status'
-                                    value={status}
-                                    onChange={(e) => setStatus(e.target.value)}
+                                    Cancelar
+                                </button>
+                                <button
+                                    onClick={salvar}
+                                    type='button'
+                                    className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
                                 >
-                                    <option value='Ativo'>
-                                        Ativo
-                                    </option>
-                                    <option value='Devolvido'>
-                                        Devolvido
-                                    </option>
-                                    <option value='Atrasado'>
-                                        Atrasado
-                                    </option>
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={status} />
-                            </FormGroup>
+                                    Salvar Parâmetro
+                                </button>
+                            </Stack>
                         </div>
-                    </div>
-                    <div className='d-flex flex-column justify-content-center align-items-end'>
-                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
-                        <Stack spacing={1} padding={1} direction='row'>
-                            <button
-                                onClick={inicializar}
-                                type='button'
-                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
-                            >
-                                Cancelar
-                            </button>
-                            <button
-                                onClick={salvar}
-                                type='button'
-                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
-                            >
-                                Salvar Parâmetro
-                            </button>
-                        </Stack>
-                    </div>
-                </SubCard>
-            </Card>
+                    </SubCard>
+                </Card>
+            </div>
         </div>
     );
 }

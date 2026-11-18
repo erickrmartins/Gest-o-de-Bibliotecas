@@ -6,6 +6,8 @@ import { BASE_URL } from '../../config/axios';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import SubCard from "../../components/ui/sub-card";
 
+import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/toastr";
+
 const urlReservas = `${BASE_URL}/reservas`;
 const urlLivros = `${BASE_URL}/livros`;
 
@@ -32,8 +34,26 @@ function MeusReservas({ profile }) {
                 </div>
             );
         }
-
     }
+
+    async function deletar(reserva) {
+        await axios.delete(`${urlReservas}/${reserva.id}`)
+            .then(() => {
+                mensagemSucesso("Reserva deletada com sucesso.");
+                buscar();
+            })
+            .catch(() => {
+                mensagemErro("Não foi possível deletar a reserva.");
+            })
+    }
+
+    async function buscar() {
+        axios.get(urlReservas).then((response) => {
+            const filtrado = response.data.filter((reserva) => reserva.idPerfis === profile.nome.split(" ")[0]);
+            setReservas(filtrado);
+        })
+    }
+
     useEffect(() => {
         if (profile) {
             axios.get(urlReservas).then((response) => {
@@ -88,7 +108,7 @@ function MeusReservas({ profile }) {
                                         <td>{getLivro(reserva)}</td>
                                         <td>{reserva.dtReserva}</td>
                                         <td>{reserva.primeiro ? "Próximo da fila" : "Na fila de espera"}</td>
-                                        <td><button className="btn color-danger"><RemoveCircleIcon fontSize="small" /></button></td>
+                                        <td><button className="btn color-danger" onClick={() => deletar(reserva)}><RemoveCircleIcon fontSize="small" /></button></td>
                                     </tr>
                                 )) : "Você ainda não possui nenhuma reserva"}
                         </tbody>

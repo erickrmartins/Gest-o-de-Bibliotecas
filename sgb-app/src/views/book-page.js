@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../config/axios";
 
-import { mensagemAlert } from '../components/toastr.js';
+import { mensagemAlert, mensagemErro, mensagemSucesso } from '../components/toastr.js';
 import StarFilled from '@mui/icons-material/StarOutlined';
 import Card from "../components/ui/card.js";
 import GenreCarousel from "../components/main/genre-carousel";
@@ -20,6 +20,33 @@ function BookPage({ profile }) {
     const [exemplaresDisponiveis, setExemplaresDisponiveis] = useState([]);
 
     const isFuncionario = profile ? "isAdmin" in profile : false;
+
+    async function reservar() {
+        const data = new Date();
+        const dtReserva = data.toLocaleDateString("en-CA")
+        const idPerfis = profile.nome.split(" ")[0];
+        const idLivros = livro.nome;
+
+        const jaReservou = await axios.get(`${BASE_URL}/reservas`).then((response) => {
+            const resposta = response.data;
+            const filtrar = resposta.find((reserva) => idPerfis === reserva.idPerfis && idLivros === reserva.idLivros);
+            if (filtrar) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+
+        if (!jaReservou) {
+            axios.post(`${BASE_URL}/reservas`, { dtReserva, idLivros, idPerfis })
+                .then((response) => mensagemSucesso("Reserva realizada com sucesso."))
+                .catch(() => mensagemErro("Não foi possível realizar a reserva."));
+
+        } else {
+            mensagemAlert("Você já reservou esse livro");
+        }
+
+    }
 
     async function buscar() {
         let responseGet;
@@ -102,11 +129,7 @@ function BookPage({ profile }) {
                                             <h5 className="fs-1 m-0 color-success">{exemplaresDisponiveis.length}</h5>
                                             <label>{exemplaresDisponiveis.length != 1 ? `exemplares disponíves` : `exemplar disponível`}</label>
                                         </div>
-                                        {exemplaresDisponiveis != 0 ?
-                                            <button className="btn btn-primary" onClick={() => mensagemAlert("Ainda não implementado")}>Realizar reserva</button>
-                                            :
-                                            <button className="btn btn-primary" onClick={() => mensagemAlert("Ainda não implementado")}>Entrar na lista de reserva</button>
-                                        }
+                                        <button className="btn btn-primary" onClick={() => reservar()}>{exemplaresDisponiveis !== 0 ? "Realizar reserva" : "Entrar na lista de espera"}</button>
                                     </div>
                                 )
                             }

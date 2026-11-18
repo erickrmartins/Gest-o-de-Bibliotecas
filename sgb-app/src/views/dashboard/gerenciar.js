@@ -17,6 +17,7 @@ import axios from "axios";
 import { BASE_URL } from "../../config/axios.js";
 
 import { isAdmin } from "../../utils/login.js";
+import ImagemTopo from "../../components/topo-imagem.js";
 
 function Gerenciar({ profile }) {
 
@@ -47,24 +48,32 @@ function Gerenciar({ profile }) {
     ];
 
     return (
-        <div className="container">
-            <Card title="Gerenciar" subtitle="Selecione uma opção para obter mais informações.">
-                <div className="row g-3">
-                    {items.map((item) => (
-                        <div key={item.id} className="col-12 col-sm-12 col-md-6 col-lg-4">
-                            <DashboardCard
-                                id={item.id}
-                                imagem={item.imagem}
-                                titulo={item.titulo}
-                                qtd={item.url === "parametros" ? "Os" : quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
-                                descricao={item.descricao}
-                                btnUrl={`/${item.url}`}
-                                permissao={item.permissao}
-                            />
-                        </div>
-                    ))}
-                </div>
-            </Card>
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Gerenciar"
+                subtitulo="Selecione uma opção para obter mais informações."
+            />
+            <div className="container">
+                <Card>
+                    <div className="row g-3">
+                        {items.map((item) => (
+                            <div key={item.id} className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <DashboardCard
+                                    id={item.id}
+                                    imagem={item.imagem}
+                                    titulo={item.titulo}
+                                    qtd={item.url === "parametros" ? "Os" : quantidades[item.id] !== undefined ? quantidades[item.id] : ""}
+                                    descricao={item.descricao}
+                                    btnUrl={`/${item.url}`}
+                                    permissao={item.permissao}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </Card>
+            </div>
+
         </div>
     )
 }

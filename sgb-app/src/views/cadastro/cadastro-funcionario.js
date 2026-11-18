@@ -13,6 +13,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import ChecarAsterisco from '../../utils/checar-asterisco.js';
+import ImagemTopo from '../../components/topo-imagem.js';
 
 function CadastroFuncionario() {
     const { idParam } = useParams();
@@ -119,111 +120,118 @@ function CadastroFuncionario() {
     if (!dados) return null;
 
     return (
-        <div className='container'>
-            <Card title='Cadastro de Funcionários' subtitle="Campos com * são obrigatórios">
-                <SubCard className='row'>
-                    <div className='row col-12 p-4'>
-                        <div className='bs-component col-lg-8'>
-                            <FormGroup label='Nome: *' htmlFor='inputNome'>
-                                <input
-                                    type='text'
-                                    id='inputNome'
-                                    value={nome}
-                                    className='form-control'
-                                    name='nome'
-                                    onChange={(e) => setNome(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
-                            </FormGroup>
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Cadastro de Funcionário"
+                subtitulo="Campos com * são obrigatórios."
+            />
+            <div className="container">
+                <Card>
+                    <SubCard className='row'>
+                        <div className='row col-12 p-4'>
+                            <div className='bs-component col-lg-8'>
+                                <FormGroup label='Nome: *' htmlFor='inputNome'>
+                                    <input
+                                        type='text'
+                                        id='inputNome'
+                                        value={nome}
+                                        className='form-control'
+                                        name='nome'
+                                        onChange={(e) => setNome(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-4'>
+                                <FormGroup label='CPF: *' htmlFor='inputCpf'>
+                                    <input
+                                        type='text'
+                                        id='inputCpf'
+                                        maxLength='11'
+                                        value={cpf}
+                                        className='form-control'
+                                        name='cpf'
+                                        onChange={(e) => setCpf(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={cpf} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6'>
+                                <FormGroup label='Data de Nascimento: *' htmlFor='inputDtNasc'>
+                                    <input
+                                        type='date'
+                                        id='inputDtNasc'
+                                        value={dtNasc}
+                                        className='form-control'
+                                        name='dtNasc'
+                                        onChange={(e) => setDtNasc(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtNasc} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6'>
+                                <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
+                                    <input
+                                        type='text'
+                                        id='inputTelefone'
+                                        value={telefone}
+                                        className='form-control'
+                                        name='telefone'
+                                        onChange={(e) => setTelefone(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6'>
+                                <FormGroup label='E-mail: *' htmlFor='inputEmail'>
+                                    <input
+                                        type='email'
+                                        id='inputEmail'
+                                        value={email}
+                                        className='form-control'
+                                        name='email'
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-lg-6'>
+                                <FormGroup label='Senha: *' htmlFor='inputSenha'>
+                                    <input
+                                        type='password'
+                                        id='inputSenha'
+                                        value={senha}
+                                        className='form-control'
+                                        name='senha'
+                                        onChange={(e) => setSenha(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={senha} />
+                                </FormGroup>
+                            </div>
                         </div>
-                        <div className='bs-component col-lg-4'>
-                            <FormGroup label='CPF: *' htmlFor='inputCpf'>
-                                <input
-                                    type='text'
-                                    id='inputCpf'
-                                    maxLength='11'
-                                    value={cpf}
-                                    className='form-control'
-                                    name='cpf'
-                                    onChange={(e) => setCpf(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={cpf} />
-                            </FormGroup>
+                        <div className='d-flex flex-column justify-content-center align-items-end'>
+                            <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                            <Stack spacing={1} padding={1} direction='row'>
+                                <button
+                                    onClick={inicializar}
+                                    type='button'
+                                    className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                                >
+                                    Cancelar
+                                </button>
+                                <button
+                                    onClick={salvar}
+                                    type='button'
+                                    className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                                >
+                                    Salvar Parâmetro
+                                </button>
+                            </Stack>
                         </div>
-                        <div className='bs-component col-lg-6'>
-                            <FormGroup label='Data de Nascimento: *' htmlFor='inputDtNasc'>
-                                <input
-                                    type='date'
-                                    id='inputDtNasc'
-                                    value={dtNasc}
-                                    className='form-control'
-                                    name='dtNasc'
-                                    onChange={(e) => setDtNasc(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtNasc} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-6'>
-                            <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
-                                <input
-                                    type='text'
-                                    id='inputTelefone'
-                                    value={telefone}
-                                    className='form-control'
-                                    name='telefone'
-                                    onChange={(e) => setTelefone(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-6'>
-                            <FormGroup label='E-mail: *' htmlFor='inputEmail'>
-                                <input
-                                    type='email'
-                                    id='inputEmail'
-                                    value={email}
-                                    className='form-control'
-                                    name='email'
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-lg-6'>
-                            <FormGroup label='Senha: *' htmlFor='inputSenha'>
-                                <input
-                                    type='password'
-                                    id='inputSenha'
-                                    value={senha}
-                                    className='form-control'
-                                    name='senha'
-                                    onChange={(e) => setSenha(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={senha} />
-                            </FormGroup>
-                        </div>
-                    </div>
-                    <div className='d-flex flex-column justify-content-center align-items-end'>
-                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
-                        <Stack spacing={1} padding={1} direction='row'>
-                            <button
-                                onClick={inicializar}
-                                type='button'
-                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
-                            >
-                                Cancelar
-                            </button>
-                            <button
-                                onClick={salvar}
-                                type='button'
-                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
-                            >
-                                Salvar Parâmetro
-                            </button>
-                        </Stack>
-                    </div>
-                </SubCard>
-            </Card>
+                    </SubCard>
+                </Card>
+            </div>
         </div>
     );
 }
