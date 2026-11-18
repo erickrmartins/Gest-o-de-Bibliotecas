@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../../components/cards/card.js';
-import SubCard from '../../components/cards/sub-card.js';
+import Card from '../../components/ui/card.js';
+import SubCard from '../../components/ui/sub-card.js';
 
-import FormGroup from '../../components/form-group.js';
+import FormGroup from '../../components/ui/form-group.js';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
@@ -14,7 +14,8 @@ import '../../custom.css';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
-import ChecarAsterisco from '../../utills/checar-asterisco.js';
+import ChecarAsterisco from '../../utils/checar-asterisco.js';
+import ImagemTopo from '../../components/topo-imagem.js';
 
 function CadastroLivro() {
     const { idParam } = useParams();
@@ -149,177 +150,184 @@ function CadastroLivro() {
     if (!dados) return null;
 
     return (
-        <div className='container'>
-            <Card title='Cadastro de Livro' subtitle="Campos com * são obrigatórios">
-                <SubCard className='row'>
-                    <div className='row col-12 p-4'>
-                        <div className='bs-component'>
-                            <FormGroup label='Nome: *' htmlFor='inputNome'>
-                                <input
-                                    type='text'
-                                    id='inputNome'
-                                    value={nome}
-                                    className='form-control'
-                                    name='nome'
-                                    onChange={(e) => setNome(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-6'>
-                            <FormGroup label='ISNB: *' htmlFor='inputISBN'>
-                                <input
-                                    type='text'
-                                    id='inputISBN'
-                                    value={isbn}
-                                    className='form-control'
-                                    name='isbn'
-                                    onChange={(e) => setIsbn(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={isbn} />
-                            </FormGroup>
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Cadastro de Livro"
+                subtitulo="Campos com * são obrigatórios."
+            />
+            <div className="container">
+                <Card>
+                    <SubCard className='row'>
+                        <div className='row col-12 p-4'>
+                            <div className='bs-component'>
+                                <FormGroup label='Nome: *' htmlFor='inputNome'>
+                                    <input
+                                        type='text'
+                                        id='inputNome'
+                                        value={nome}
+                                        className='form-control'
+                                        name='nome'
+                                        onChange={(e) => setNome(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-6'>
+                                <FormGroup label='ISNB: *' htmlFor='inputISBN'>
+                                    <input
+                                        type='text'
+                                        id='inputISBN'
+                                        value={isbn}
+                                        className='form-control'
+                                        name='isbn'
+                                        onChange={(e) => setIsbn(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={isbn} />
+                                </FormGroup>
 
-                        </div>
-                        <div className='bs-component col-6'>
-                            <FormGroup label='Editora: *' htmlFor='inputIdEditora'>
-                                <select
-                                    className='form-select'
-                                    id='selectIdEditora'
-                                    name='idEditora'
-                                    value={idEditoras}
-                                    onChange={(e) => setIdEditora(e.target.value)}
-                                >
-                                    <option key='0' value='0'>
-                                        {' '}
-                                    </option>
-                                    {dadosEditoras.map((dado) => (
-                                        <option key={dado.id} value={dado.nome}>
-                                            {dado.nome}
-                                        </option>
-                                    ))}
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idEditoras} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-4'>
-                            <FormGroup label='Ano: *' htmlFor='inputDtPublicacao'>
-                                <input
-                                    type='text'
-                                    id='inputDtPublicacao'
-                                    value={dtPublicacao}
-                                    className='form-control'
-                                    name='dtPublicacao'
-                                    onChange={(e) => setDtPublicacao(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtPublicacao} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-4'>
-                            <FormGroup label='Páginas: *' htmlFor='inputNumPaginas'>
-                                <input
-                                    type='text'
-                                    id='inputNumPaginas'
-                                    value={numPaginas}
-                                    className='form-control'
-                                    name='numPaginas'
-                                    onChange={(e) => setNumPaginas(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={numPaginas} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-4'>
-                            <FormGroup label='Gênero: *' htmlFor='inputIdGenero'>
-                                <select
-                                    className='form-select'
-                                    id='inputIdGenero'
-                                    name='idGenero'
-                                    value={idGeneros}
-                                    onChange={(e) => setIdGenero(e.target.value)}
-                                >
-                                    <option key='0' value='0'>
-                                        {' '}
-                                    </option>
-                                    {dadosGeneros.map((dado) => (
-                                        <option key={dado.id} value={dado.nome}>
-                                            {dado.nome}
-                                        </option>
-                                    ))}
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idGeneros} />
-                            </FormGroup>
-                        </div>
-                        <div className='bs-component col-12'>
-                            <FormGroup label='Autor: *' htmlFor='selectIdAutor'>
-                                <select
-                                    className='form-select'
-                                    id='selectIdAutor'
-                                    name='idLivros'
-                                    value={idAutor}
-                                    onChange={(e) => {
-                                        setIdAutor(e.target.value);
-
-                                        if (!idAutores.includes(e.target.value)) {
-                                            setIdAutores((prev) => [...prev, e.target.value]);
-                                        }
-                                    }}
-                                >
-                                    <option key='0' value='0'>
-                                        {' '}
-                                    </option>
-                                    {dadosAutores.map((dado) => (
-                                        <option key={dado.id} value={dado.nome}>
-                                            {dado.nome}
-                                        </option>
-                                    ))}
-                                </select>
-                            </FormGroup>
-                            <div className='d-flex align-items-center gap-3'>
-                                <label>Autores Cadastrados: </label>
-                                {idAutores.map((autor) => (
-                                    <span className='px-2 py-1 border curvatura autorSelec'
-                                        onClick={() => setIdAutores((prev) => prev.filter((autorAtual) => autorAtual !== autor))}
+                            </div>
+                            <div className='bs-component col-6'>
+                                <FormGroup label='Editora: *' htmlFor='inputIdEditora'>
+                                    <select
+                                        className='form-select'
+                                        id='selectIdEditora'
+                                        name='idEditora'
+                                        value={idEditoras}
+                                        onChange={(e) => setIdEditora(e.target.value)}
                                     >
-                                        {autor}
-                                    </span>
-                                ))}
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idAutor} />
+                                        <option key='0' value='0'>
+                                            {' '}
+                                        </option>
+                                        {dadosEditoras.map((dado) => (
+                                            <option key={dado.id} value={dado.nome}>
+                                                {dado.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idEditoras} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-4'>
+                                <FormGroup label='Ano: *' htmlFor='inputDtPublicacao'>
+                                    <input
+                                        type='text'
+                                        id='inputDtPublicacao'
+                                        value={dtPublicacao}
+                                        className='form-control'
+                                        name='dtPublicacao'
+                                        onChange={(e) => setDtPublicacao(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtPublicacao} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-4'>
+                                <FormGroup label='Páginas: *' htmlFor='inputNumPaginas'>
+                                    <input
+                                        type='text'
+                                        id='inputNumPaginas'
+                                        value={numPaginas}
+                                        className='form-control'
+                                        name='numPaginas'
+                                        onChange={(e) => setNumPaginas(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={numPaginas} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-4'>
+                                <FormGroup label='Gênero: *' htmlFor='inputIdGenero'>
+                                    <select
+                                        className='form-select'
+                                        id='inputIdGenero'
+                                        name='idGenero'
+                                        value={idGeneros}
+                                        onChange={(e) => setIdGenero(e.target.value)}
+                                    >
+                                        <option key='0' value='0'>
+                                            {' '}
+                                        </option>
+                                        {dadosGeneros.map((dado) => (
+                                            <option key={dado.id} value={dado.nome}>
+                                                {dado.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idGeneros} />
+                                </FormGroup>
+                            </div>
+                            <div className='bs-component col-12'>
+                                <FormGroup label='Autor: *' htmlFor='selectIdAutor'>
+                                    <select
+                                        className='form-select'
+                                        id='selectIdAutor'
+                                        name='idLivros'
+                                        value={idAutor}
+                                        onChange={(e) => {
+                                            setIdAutor(e.target.value);
+
+                                            if (!idAutores.includes(e.target.value)) {
+                                                setIdAutores((prev) => [...prev, e.target.value]);
+                                            }
+                                        }}
+                                    >
+                                        <option key='0' value='0'>
+                                            {' '}
+                                        </option>
+                                        {dadosAutores.map((dado) => (
+                                            <option key={dado.id} value={dado.nome}>
+                                                {dado.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </FormGroup>
+                                <div className='d-flex align-items-center gap-3'>
+                                    <label>Autores Cadastrados: </label>
+                                    {idAutores.map((autor) => (
+                                        <span className='px-2 py-1 border curvatura autorSelec'
+                                            onClick={() => setIdAutores((prev) => prev.filter((autorAtual) => autorAtual !== autor))}
+                                        >
+                                            {autor}
+                                        </span>
+                                    ))}
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idAutor} />
+                                </div>
+                            </div>
+                            <div className='bs-component mt-2'>
+                                <FormGroup label='Sinopse: *' htmlFor='inputSinopse'>
+                                    <textarea
+                                        rows="5"
+                                        id='inputSinopse'
+                                        value={sinopse}
+                                        className='form-control'
+                                        name='sinopse'
+                                        onChange={(e) => setSinopse(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={sinopse} />
+                                </FormGroup>
                             </div>
                         </div>
-                        <div className='bs-component mt-2'>
-                            <FormGroup label='Sinopse: *' htmlFor='inputSinopse'>
-                                <textarea
-                                    rows="5"
-                                    id='inputSinopse'
-                                    value={sinopse}
-                                    className='form-control'
-                                    name='sinopse'
-                                    onChange={(e) => setSinopse(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={sinopse} />
-                            </FormGroup>
+                        <div className='d-flex flex-column justify-content-center align-items-end'>
+                            <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                            <Stack spacing={1} padding={1} direction='row'>
+                                <button
+                                    onClick={inicializar}
+                                    type='button'
+                                    className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                                >
+                                    Cancelar
+                                </button>
+                                <button
+                                    onClick={salvar}
+                                    type='button'
+                                    className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                                >
+                                    Salvar Parâmetro
+                                </button>
+                            </Stack>
                         </div>
-                    </div>
-                    <div className='d-flex flex-column justify-content-center align-items-end'>
-                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
-                        <Stack spacing={1} padding={1} direction='row'>
-                            <button
-                                onClick={inicializar}
-                                type='button'
-                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
-                            >
-                                Cancelar
-                            </button>
-                            <button
-                                onClick={salvar}
-                                type='button'
-                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
-                            >
-                                Salvar Parâmetro
-                            </button>
-                        </Stack>
-                    </div>
-                </SubCard>
-            </Card>
+                    </SubCard>
+                </Card>
+            </div>
         </div>
     );
 }

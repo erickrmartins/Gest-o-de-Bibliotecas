@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { logout } from "../../../utils/login";
 
 function NavbarProfile({ profile }) {
     if (!profile) {
-        return null;
+        return <Link className="curvatura btn btn-entrar" to="/login">ENTRAR</Link>;
     }
 
     const isLeitor = "livrosLidos" in profile;
@@ -63,15 +64,14 @@ function NavbarProfile({ profile }) {
                 <li><hr className="dropdown-divider" /></li>
 
                 <li><Link className="dropdown-item" to="/perfil">Perfil</Link></li>
-                <li><Link className="dropdown-item" to="/emprestimos">Empréstimos</Link></li>
-                <li><Link className="dropdown-item" to="/reservas">Reservas</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/emprestimos">Empréstimos</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/reservas">Reservas</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/historico">Histórico</Link></li>
 
                 <li><hr className="dropdown-divider" /></li>
 
                 <li>
-                    <button className="dropdown-item" onClick={() => console.log("Sair")}>
-                        Sair
-                    </button>
+                    <Link className="dropdown-item" to="/login" onClick={() => logout()}>Sair</Link>
                 </li>
             </ul>
         </div>

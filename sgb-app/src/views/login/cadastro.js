@@ -1,9 +1,9 @@
 import styles from './login.module.css';
 import { Link } from 'react-router-dom';
-import FormGroup from '../../components/form-group';
+import FormGroup from '../../components/ui/form-group.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ChecarAsterisco from '../../utills/checar-asterisco.js';
+import ChecarAsterisco from '../../utils/checar-asterisco.js';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 

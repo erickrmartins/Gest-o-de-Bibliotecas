@@ -1,4 +1,4 @@
-import Card from "../components/cards/card";
+import Card from "../components/ui/card";
 import GenreCarousel from "../components/main/genre-carousel";
 import Recommended from "../components/recommended/recommended";
 
@@ -7,7 +7,7 @@ import axios from "axios";
 import { BASE_URL } from "../config/axios";
 import { useEffect, useState } from "react";
 
-import { search } from "../utills/search";
+import { search } from "../utils/search";
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -17,10 +17,12 @@ function Acervo() {
     const [generos, setGeneros] = useState([]);
     const [generoSelec, setGeneroSelec] = useState('');
 
+    const [buscaPor, setBuscaPor] = useState('titulo');
     const [pesquisa, setPesquisa] = useState('');
     const [pesquisaAtiva, setPesquisaAtiva] = useState(false);
     const [resultadosPesquisa, setResultadosPesquisa] = useState([]);
     const [recomendados, setRecomendados] = useState([]);
+
 
     function getLivrosByGenero(genero) {
         return livros.filter((livro) => livro.idGeneros === genero);
@@ -29,7 +31,7 @@ function Acervo() {
     function filtrarLivros() {
         setPesquisaAtiva(true);
 
-        setResultadosPesquisa(search(pesquisa, livros));
+        setResultadosPesquisa(search(pesquisa, livros, buscaPor));
     }
 
     const filtroAtivo = pesquisaAtiva || generoSelec;
@@ -45,21 +47,26 @@ function Acervo() {
         let livrosFiltrados;
 
         if (pesquisaAtiva) {
-            titulo = "Resultados da pesquisa";
+            titulo = "Resultados da busca (" + (resultadosPesquisa.length) + ")";
             livrosFiltrados = resultadosPesquisa;
         } else if (generoSelec) {
-            titulo = generoSelec;
+            titulo = "Resultados da busca (" + (getLivrosByGenero(generoSelec).length + 1) + ")";
             livrosFiltrados = getLivrosByGenero(generoSelec);
         } else {
-            return (generos.map((genero) => <GenreCarousel titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />));
+            return (
+                <div>
+                    <GenreCarousel titulo="Recomendados pela biblioteca" livros={recomendados} />
+                    {generos.map((genero) => <GenreCarousel titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />)}
+                </div>
+            );
         }
 
         return (
-            <GenreCarousel titulo={titulo} livros={livrosFiltrados} maximizar={true} />
+            <GenreCarousel titulo={titulo} livros={livrosFiltrados} maximizar={true} limpar={() => limparFiltros()} />
         );
     }
 
-    useEffect(() => {   
+    useEffect(() => {
         axios.get(`${BASE_URL}/livros`).then((response) => {
             setLivros(response.data);
             setRecomendados(response.data.filter((livro) => livro.recomendado));
@@ -67,13 +74,27 @@ function Acervo() {
         axios.get(`${BASE_URL}/generos`).then((response) => setGeneros(response.data));
     }, []);
 
+    const livroRecomendado = Math.floor(Math.random() * recomendados.length);
+
     return (
         <div className="container">
             {recomendados.length > 0 && (
-                <Recommended livro={recomendados[Math.floor(Math.random() * recomendados.length)]} />
+                <Recommended livro={recomendados[livroRecomendado]} />
             )}
             <Card title="Acervo" subtitle="Esses são os livros disponíveis em nosso acervo">
                 <div className="row g-2 mb-4 align-items-center">
+                    <div className="col-12 col-md-6 col-lg-1">
+                        <select
+                            className="form-select"
+                            value={buscaPor}
+                            onChange={(e) => setBuscaPor(e.target.value)}
+                        >
+                            <option value="titulo">Titulo</option>
+                            <option value="autor">Autor</option>
+                            <option value="isbn">ISBN</option>
+                        </select>
+                    </div>
+
                     <div className="col-12 col-lg-6">
                         <form className="input-group" onSubmit={(e) => {
                             e.preventDefault();
@@ -93,6 +114,7 @@ function Acervo() {
                         </form>
                     </div>
 
+
                     <div className="col-12 col-md-6 col-lg-2">
                         <select
                             className="form-select"
@@ -107,18 +129,9 @@ function Acervo() {
                             ))}
                         </select>
                     </div>
-
-                    {!filtroAtivo ? null : (
-                        <div className="col-12 col-md-6 col-lg-2">
-                            <button className="btn btn-danger w-100" onClick={() => limparFiltros()}>
-                                Limpar
-                            </button>
-                        </div>
-                    )}
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <GenreCarousel titulo="Recomendados pela biblioteca" livros={recomendados}/>
                         {mostrarLivros()}
                     </div>
                 </div>

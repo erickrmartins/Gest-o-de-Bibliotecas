@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 128 128" width="128" height="128" role="img" aria-label="SGB - Sistema de Gestão de Biblioteca">
+  <title>SGB - Sistema de Gestão de Biblioteca</title>
+  <!-- Símbolo: livro aberto sobre um selo circular -->
+  <circle cx="80" cy="80" r="64" fill="#5C4033"/>
+  <circle cx="80" cy="80" r="57" fill="none" stroke="#E8D9C0" stroke-width="2" opacity="0.7"/>
+  <!-- páginas -->
+  <path d="M80 56 C68 48 52 47 38 51 L38 103 C52 99 68 100 80 108 Z" fill="#F3E9D8"/>
+  <path d="M80 56 C92 48 108 47 122 51 L122 103 C108 99 92 100 80 108 Z" fill="#E8D9C0"/>
+  <!-- lombada -->
+  <path d="M80 56 L80 108" stroke="#5C4033" stroke-width="3" stroke-linecap="round"/>
+  <!-- linhas de texto -->
+  <g stroke="#A67B5B" stroke-width="2.5" stroke-linecap="round">
+    <path d="M47 63 C55 61 63 62 71 65"/>
+    <path d="M47 73 C55 71 63 72 71 75"/>
+    <path d="M47 83 C55 81 63 82 71 85"/>
+    <path d="M89 65 C97 62 105 61 113 63"/>
+    <path d="M89 75 C97 72 105 71 113 73"/>
+  </g>
+  <!-- marcador de página -->
+  <path d="M100 51 L100 74 L106 68 L112 74 L112 49 Z" fill="#C2703D"/>
+</svg>

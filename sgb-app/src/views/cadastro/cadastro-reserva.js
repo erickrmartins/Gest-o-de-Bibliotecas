@@ -3,16 +3,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../../components/cards/card.js';
-import SubCard from '../../components/cards/sub-card.js';
-import FormGroup from '../../components/form-group.js';
+import Card from '../../components/ui/card.js';
+import SubCard from '../../components/ui/sub-card.js';
+import FormGroup from '../../components/ui/form-group.js';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 
-import ChecarAsterisco from '../../utills/checar-asterisco.js';
+import ChecarAsterisco from '../../utils/checar-asterisco.js';
+import ImagemTopo from '../../components/topo-imagem.js';
 
 function CadastroReserva() {
     const { idParam } = useParams();
@@ -118,83 +119,90 @@ function CadastroReserva() {
     if (!dadosPerfis) return null;
 
     return (
-        <div className='container'>
-            <Card title='Cadastro de Reserva' subtitle="Campos com * são obrigatórios">
-                <SubCard className='row'>
-                    <div className='col-lg-12 p-4'>
-                        <div className='bs-component mb-4'>
-                            <FormGroup className="fs-2" label='Perfil: *' htmlFor='selectPerfil'>
-                                <select
-                                    className='form-select'
-                                    id='selectPerfil'
-                                    name='idPerfis'
-                                    value={idPerfis}
-                                    onChange={(e) => setIdPerfis(e.target.value)}
-                                >
-                                    <option key='0' value=''>
-                                        {' '}
-                                    </option>
-                                    {dadosPerfis.map((dado) => (
-                                        <option key={dado.id} value={dado.nome}>
-                                            {dado.nome}
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Cadastro de Reserva"
+                subtitulo="Campos com * são obrigatórios."
+            />
+            <div className="container">
+                <Card>
+                    <SubCard className='row'>
+                        <div className='col-lg-12 p-4'>
+                            <div className='bs-component mb-4'>
+                                <FormGroup className="fs-2" label='Perfil: *' htmlFor='selectPerfil'>
+                                    <select
+                                        className='form-select'
+                                        id='selectPerfil'
+                                        name='idPerfis'
+                                        value={idPerfis}
+                                        onChange={(e) => setIdPerfis(e.target.value)}
+                                    >
+                                        <option key='0' value=''>
+                                            {' '}
                                         </option>
-                                    ))}
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idPerfis}/>
-                            </FormGroup>
-                            <FormGroup label='Data: *' htmlFor='inputDtReserva'>
-                                <input
-                                    type='date'
-                                    id='inputDtReserva'
-                                    value={dtReserva}
-                                    className='form-control'
-                                    name='dtReserva'
-                                    onChange={(e) => setDtReserva(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtReserva}/>
-                            </FormGroup>
-                            <FormGroup label='Livro: *' htmlFor='selectLivro'>
-                                <select
-                                    className='form-select'
-                                    id='selectLivro'
-                                    name='idLivros'
-                                    value={idLivros}
-                                    onChange={(e) => setIdLivros(e.target.value)}
-                                >
-                                    <option key='0' value=''>
-                                        {' '}
-                                    </option>
-                                    {dadosLivros.map((dado) => (
-                                        <option key={dado.id} value={dado.nome}>
-                                            {dado.nome}
+                                        {dadosPerfis.map((dado) => (
+                                            <option key={dado.id} value={dado.nome}>
+                                                {dado.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idPerfis} />
+                                </FormGroup>
+                                <FormGroup label='Data: *' htmlFor='inputDtReserva'>
+                                    <input
+                                        type='date'
+                                        id='inputDtReserva'
+                                        value={dtReserva}
+                                        className='form-control'
+                                        name='dtReserva'
+                                        onChange={(e) => setDtReserva(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtReserva} />
+                                </FormGroup>
+                                <FormGroup label='Livro: *' htmlFor='selectLivro'>
+                                    <select
+                                        className='form-select'
+                                        id='selectLivro'
+                                        name='idLivros'
+                                        value={idLivros}
+                                        onChange={(e) => setIdLivros(e.target.value)}
+                                    >
+                                        <option key='0' value=''>
+                                            {' '}
                                         </option>
-                                    ))}
-                                </select>
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idLivros}/>
-                            </FormGroup>
+                                        {dadosLivros.map((dado) => (
+                                            <option key={dado.id} value={dado.nome}>
+                                                {dado.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={idLivros} />
+                                </FormGroup>
+                            </div>
+                            <div className='d-flex flex-column justify-content-center align-items-end'>
+                                <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                                <Stack spacing={1} padding={1} direction='row'>
+                                    <button
+                                        onClick={inicializar}
+                                        type='button'
+                                        className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                                    >
+                                        Cancelar
+                                    </button>
+                                    <button
+                                        onClick={salvar}
+                                        type='button'
+                                        className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                                    >
+                                        Salvar Reserva
+                                    </button>
+                                </Stack>
+                            </div>
                         </div>
-                        <div className='d-flex flex-column justify-content-center align-items-end'>
-                            <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
-                            <Stack spacing={1} padding={1} direction='row'>
-                                <button
-                                    onClick={inicializar}
-                                    type='button'
-                                    className='btn btn-outline-danger curvatura fw-semibold ls-wide'
-                                >
-                                    Cancelar
-                                </button>
-                                <button
-                                    onClick={salvar}
-                                    type='button'
-                                    className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
-                                >
-                                    Salvar Reserva
-                                </button>
-                            </Stack>
-                        </div>
-                    </div>
-                </SubCard>
-            </Card>
+                    </SubCard>
+                </Card>
+            </div>
         </div>
     );
 }

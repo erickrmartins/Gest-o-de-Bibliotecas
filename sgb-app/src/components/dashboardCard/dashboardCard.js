@@ -2,23 +2,18 @@ import { useNavigate } from "react-router-dom";
 import styles from "./dashboardCard.module.css"
 
 const bgColors = [
-    "#FDE047",
-    "#FDBA74",
-    "#F9A8D4",
-    "#C4B5FD",
-    "#A5B4FC", 
-    "#93C5FD", 
-    "#67E8F9", 
-    "#6EE7B7", 
-    "#CBD5E1" 
-]
+    "#7D5F47",
+    "#6B4F3B",
+    "#5C4331",
+    "#4A3525"
+];
 
-function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl }) {
+function DashboardCard({ id, imagem, titulo, qtd, descricao, btnUrl, permissao }) {
     const navigate = useNavigate();
     const bgId = (Number(id) - 1) % bgColors.length;
 
-    return (
-        <div className={styles.dbCard} onClick={() => navigate(btnUrl)}>
+    return !permissao ? null : (
+        <div className={`${styles.dbCard}`} onClick={() => navigate(btnUrl)}>
             <div className={styles.dbTitle}>
                 <div className={styles.dbImageBg} style={{ "--selected-color": bgColors.at(bgId) }}>
                     {imagem}

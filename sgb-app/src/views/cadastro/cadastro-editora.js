@@ -3,15 +3,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../../components/cards/card.js';
-import SubCard from '../../components/cards/sub-card.js';
-import FormGroup from '../../components/form-group.js';
+import Card from '../../components/ui/card.js';
+import SubCard from '../../components/ui/sub-card.js';
+import FormGroup from '../../components/ui/form-group.js';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
-import ChecarAsterisco from '../../utills/checar-asterisco.js';
+import ChecarAsterisco from '../../utils/checar-asterisco.js';
+import ImagemTopo from '../../components/topo-imagem.js';
 
 function CadastroEditora() {
     const { idParam } = useParams();
@@ -94,45 +95,52 @@ function CadastroEditora() {
     if (!dados) return null;
 
     return (
-        <div className='container'>
-            <Card title='Cadastro de Editora' subtitle="Campos com * são obrigatórios">
-                <SubCard className='row'>
-                    <div className='row col-12 p-4'>
-                        <div className='bs-component'>
-                            <FormGroup label='Nome: *' htmlFor='inputNome'>
-                                <input
-                                    type='text'
-                                    id='inputNome'
-                                    value={nome}
-                                    className='form-control'
-                                    name='nome'
-                                    onChange={(e) => setNome(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
-                            </FormGroup>
+        <div>
+            <ImagemTopo
+                imagem="/background-gerencia.jpg"
+                titulo="Cadastro de Editora"
+                subtitulo="Campos com * são obrigatórios."
+            />
+            <div className="container">
+                <Card>
+                    <SubCard className='row'>
+                        <div className='row col-12 p-4'>
+                            <div className='bs-component'>
+                                <FormGroup label='Nome: *' htmlFor='inputNome'>
+                                    <input
+                                        type='text'
+                                        id='inputNome'
+                                        value={nome}
+                                        className='form-control'
+                                        name='nome'
+                                        onChange={(e) => setNome(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
+                                </FormGroup>
+                            </div>
                         </div>
-                    </div>
-                    <div className='d-flex flex-column justify-content-center align-items-end'>
-                        <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
-                        <Stack spacing={1} padding={1} direction='row'>
-                            <button
-                                onClick={inicializar}
-                                type='button'
-                                className='btn btn-outline-danger curvatura fw-semibold ls-wide'
-                            >
-                                Cancelar
-                            </button>
-                            <button
-                                onClick={salvar}
-                                type='button'
-                                className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
-                            >
-                                Salvar Parâmetro
-                            </button>
-                        </Stack>
-                    </div>
-                </SubCard>
-            </Card>
+                        <div className='d-flex flex-column justify-content-center align-items-end'>
+                            <span className={`text-danger fs-7 ${tentouSalvar ? undefined : "invisible"}`}>Preencha todos os campos obrigatórios</span>
+                            <Stack spacing={1} padding={1} direction='row'>
+                                <button
+                                    onClick={inicializar}
+                                    type='button'
+                                    className='btn btn-outline-danger curvatura fw-semibold ls-wide'
+                                >
+                                    Cancelar
+                                </button>
+                                <button
+                                    onClick={salvar}
+                                    type='button'
+                                    className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
+                                >
+                                    Salvar Parâmetro
+                                </button>
+                            </Stack>
+                        </div>
+                    </SubCard>
+                </Card>
+            </div>
         </div>
     );
 }
