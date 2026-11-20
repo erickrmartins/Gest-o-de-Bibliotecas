@@ -14,8 +14,8 @@
   "usuarioLogado": [
     {
       "id": "1",
-      "isFuncionario": true,
-      "idUsuario": "2"
+      "isFuncionario": false,
+      "idUsuario": "1"
     }
   ],
   "leitores": [
@@ -27,6 +27,18 @@
       "telefone": "32999999999",
       "email": "hermione@email.com",
       "senha": "hermione",
+      "foto": "",
+      "livrosLidos": 128,
+      "ativo": true
+    },
+    {
+      "id": "2",
+      "dtNasc": "1980-07-31",
+      "nome": "Harry James Potter",
+      "cpf": "00000000014",
+      "telefone": "32999999999",
+      "email": "harry@email.com",
+      "senha": "harry",
       "foto": "",
       "livrosLidos": 128,
       "ativo": true
@@ -1787,64 +1799,88 @@
       "dtReserva": "2026-10-01",
       "primeiro": true,
       "idLivros": "Dom Casmurro",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1,
+      "dtDisponibilido": null
     },
     {
       "id": "7",
       "dtReserva": "2026-10-05",
       "primeiro": false,
       "idLivros": "Cem Anos de Solidão",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1
     },
     {
       "id": "8",
       "dtReserva": "2026-10-07",
       "primeiro": true,
       "idLivros": "Duna",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
-    },
-    {
-      "id": "9",
-      "dtReserva": "2026-10-08",
-      "primeiro": false,
-      "idLivros": "Duna",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1
     },
     {
       "id": "10",
       "dtReserva": "2026-10-10",
       "primeiro": true,
       "idLivros": "O Pequeno Príncipe",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1
     },
     {
       "id": "13",
       "dtReserva": "2026-10-15",
       "primeiro": true,
       "idLivros": "Frankenstein",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1
     },
     {
       "id": "15",
       "dtReserva": "2026-10-18",
       "primeiro": false,
       "idLivros": "Orgulho e Preconceito",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1
     },
     {
       "id": "16",
       "dtReserva": "2026-10-20",
       "primeiro": true,
       "idLivros": "Ensaio sobre a Cegueira",
-      "idPerfis": "Hermione",
-      "status": "Na fila de espera"
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "posicao": 1
+    },
+    {
+      "dtReserva": "2026-11-18",
+      "idLivros": "O Hobbit",
+      "idPerfis": "Harry James Potter",
+      "status": "Na fila de espera",
+      "id": "dT0EgRp7Jnk",
+      "posicao": 1
+    },
+    {
+      "dtReserva": "2026-11-18",
+      "idLivros": "O Senhor dos Anéis",
+      "idPerfis": "Harry James Potter",
+      "status": "Na fila de espera",
+      "id": "wfkoZJ1vuRY",
+      "posicao": 1
+    },
+    {
+      "dtReserva": "2026-11-19",
+      "idLivros": "O Hobbit",
+      "idPerfis": "Hermione Jean Granger",
+      "status": "Na fila de espera",
+      "id": "ka7h-biBNZ0",
+      "posicao": 2
     }
   ],
   "exemplares": [
@@ -1900,7 +1936,7 @@
       "id": "7",
       "idLivros": "O Senhor dos Anéis",
       "identificacao": "SDA-COP-01",
-      "status": "Disponível",
+      "status": "Reservado",
       "descricao": "",
       "ativo": true
     },
@@ -1916,7 +1952,7 @@
       "id": "9",
       "idLivros": "O Senhor dos Anéis",
       "identificacao": "SDA-COP-03",
-      "status": "Disponível",
+      "status": "Reservado",
       "descricao": "",
       "ativo": true
     },

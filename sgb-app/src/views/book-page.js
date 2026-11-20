@@ -9,6 +9,7 @@ import { mensagemAlert, mensagemErro, mensagemSucesso } from '../components/toas
 import StarFilled from '@mui/icons-material/StarOutlined';
 import Card from "../components/ui/card.js";
 import GenreCarousel from "../components/main/genre-carousel";
+import { handleReserva } from "../utils/reserva/handleReserva.js";
 
 const baseUrlGeral = `${BASE_URL}/livros`
 
@@ -22,30 +23,11 @@ function BookPage({ profile }) {
     const isFuncionario = profile ? "isAdmin" in profile : false;
 
     async function reservar() {
-        const data = new Date();
-        const dtReserva = data.toLocaleDateString("en-CA")
-        const idPerfis = profile.nome.split(" ")[0];
-        const idLivros = livro.nome;
+        const verificar = await handleReserva(profile, livro);
 
-        const jaReservou = await axios.get(`${BASE_URL}/reservas`).then((response) => {
-            const resposta = response.data;
-            const filtrar = resposta.find((reserva) => idPerfis === reserva.idPerfis && idLivros === reserva.idLivros);
-            if (filtrar) {
-                return true;
-            } else {
-                return false;
-            }
-        })
-
-        if (!jaReservou) {
-            axios.post(`${BASE_URL}/reservas`, { dtReserva, idLivros, idPerfis })
-                .then((response) => mensagemSucesso("Reserva realizada com sucesso."))
-                .catch(() => mensagemErro("Não foi possível realizar a reserva."));
-
-        } else {
-            mensagemAlert("Você já reservou esse livro");
+        if (verificar) {
+            await buscar();
         }
-
     }
 
     async function buscar() {
@@ -127,9 +109,9 @@ function BookPage({ profile }) {
                                     <div className="mt-4 d-flex justify-content-between align-items-center">
                                         <div>
                                             <h5 className="fs-1 m-0 color-success">{exemplaresDisponiveis.length}</h5>
-                                            <label>{exemplaresDisponiveis.length != 1 ? `exemplares disponíves` : `exemplar disponível`}</label>
+                                            <label>{Number(exemplaresDisponiveis.length) !== 1 ? `exemplares disponíves` : `exemplar disponível`}</label>
                                         </div>
-                                        <button className="btn btn-primary" onClick={() => reservar()}>{exemplaresDisponiveis !== 0 ? "Realizar reserva" : "Entrar na lista de espera"}</button>
+                                        <button className="btn btn-primary" onClick={() => reservar()}>{Number(exemplaresDisponiveis) !== 0 ? "Realizar reserva" : "Entrar na lista de espera"}</button>
                                     </div>
                                 )
                             }

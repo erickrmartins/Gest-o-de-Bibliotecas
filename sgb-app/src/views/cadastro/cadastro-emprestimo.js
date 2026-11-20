@@ -14,7 +14,7 @@ import { BASE_URL } from '../../config/axios.js';
 import ChecarAsterisco from '../../utils/checar-asterisco.js';
 import ImagemTopo from '../../components/topo-imagem.js';
 
-import { handleEmprestimo } from '../../utils/handle/handleEmprestimo.js';
+import { handleEmprestimo } from '../../utils/emprestimo/handleEmprestimo.js';
 
 function CadastroEmprestimo() {
     const { idParam } = useParams();

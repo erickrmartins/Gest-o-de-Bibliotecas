@@ -33,3 +33,7 @@ export function mensagemSucesso(mensagem) {
 export function mensagemAlert(mensagem) {
   mostrarMensagem('Alerta', mensagem, 'warning');
 }
+
+export function mensagemServidorFalhou() {
+  mostrarMensagem('Erro', "Não foi possível se conectar ao servidor", 'error');
+}

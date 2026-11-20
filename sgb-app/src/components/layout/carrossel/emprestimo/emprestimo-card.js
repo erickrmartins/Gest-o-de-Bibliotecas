@@ -1,6 +1,6 @@
 import Refresh from '@mui/icons-material/Cached';
 import { mensagemAlert } from '../../../toastr';
-import { handleRenovacao } from '../../../../utils/handle/handleRenovacao'
+import { handleRenovacao } from '../../../../utils/emprestimo/handleRenovacao'
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
