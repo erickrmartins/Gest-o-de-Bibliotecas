@@ -100,21 +100,13 @@ function BookPage({ profile }) {
                         </div>
                         <hr className="divider" />
                         <div>
-                            {isFuncionario ?
-                                (
-                                    <button className="btn btn-primary" onClick={() => mensagemAlert("Ainda não implementado")}>Recomendar livro</button>
-                                )
-                                :
-                                (
-                                    <div className="mt-4 d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5 className="fs-1 m-0 color-success">{exemplaresDisponiveis.length}</h5>
-                                            <label>{Number(exemplaresDisponiveis.length) !== 1 ? `exemplares disponíves` : `exemplar disponível`}</label>
-                                        </div>
-                                        <button className="btn btn-primary" onClick={() => reservar()}>{Number(exemplaresDisponiveis) !== 0 ? "Realizar reserva" : "Entrar na lista de espera"}</button>
-                                    </div>
-                                )
-                            }
+                            <div className="mt-4 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 className="fs-1 m-0 color-success">{exemplaresDisponiveis.length}</h5>
+                                    <label>{Number(exemplaresDisponiveis.length) !== 1 ? `exemplares disponíves` : `exemplar disponível`}</label>
+                                </div>
+                                <button className="btn btn-primary" onClick={() => reservar()}>{Number(exemplaresDisponiveis) !== 0 ? "Realizar reserva" : "Entrar na lista de espera"}</button>
+                            </div>
                         </div>
                     </div>
                     <div>

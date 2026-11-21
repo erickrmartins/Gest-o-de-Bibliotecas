@@ -89,7 +89,6 @@ function ListagemFuncionario() {
                                 <tr>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Senha</th>
                                     <th scope="col">Telefone</th>
                                     <th scope="col">Nascimento</th>
                                     <th scope="col">CPF</th>
@@ -103,7 +102,6 @@ function ListagemFuncionario() {
                                         <tr key={item.id}>
                                             <td>{item.nome}</td>
                                             <td>{item.email}</td>
-                                            <td>{item.senha}</td>
                                             <td>{item.telefone}</td>
                                             <td>{item.dtNasc}</td>
                                             <td>{item.cpf}</td>

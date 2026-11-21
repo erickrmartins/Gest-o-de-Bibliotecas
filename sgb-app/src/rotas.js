@@ -10,6 +10,7 @@ import ListagemEmprestimo from './views/listagem/listagem-emprestimo';
 import ListagemLeitor from './views/listagem/listagem-leitor';
 import ListagemFuncionario from './views/listagem/listagem-funcionario';
 import ListagemParametro from './views/listagem/listagem-parametro';
+import ListagemRecomendados from './views/listagem/listagem-recomendados.js';
 
 import CadastroAutor from './views/cadastro/cadastro-autor';
 import CadastroLivro from './views/cadastro/cadastro-livro';
@@ -105,6 +106,7 @@ function Rotas(props) {
                 <Route path="/exemplares" element={<ListagemExemplar />} />
                 <Route path="/reservas" element={<ListagemReserva />} />
                 <Route path="/emprestimos" element={<ListagemEmprestimo />} />
+                <Route path="/recomendados" element={<ListagemRecomendados />} />
 
                 <Route path="/autores/cadastrar/:idParam?" element={<CadastroAutor />} />
                 <Route path="/livros/cadastrar/:idParam?" element={<CadastroLivro />} />

@@ -10,11 +10,12 @@ import FormGroup from '../../components/ui/form-group.js';
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
 import axios from 'axios';
-import { BASE_URL } from '../../config/axios.js';
+import { BASE_URL, urlLivros } from '../../config/axios.js';
 import ChecarAsterisco from '../../utils/checar-asterisco.js';
 import ImagemTopo from '../../components/topo-imagem.js';
 
 import { handleEmprestimo } from '../../utils/emprestimo/handleEmprestimo.js';
+import { handleDevolucao } from '../../utils/reserva/handleDevolucao.js';
 
 function CadastroEmprestimo() {
     const { idParam } = useParams();
@@ -73,7 +74,7 @@ function CadastroEmprestimo() {
             }
         }
 
-        const filtrado = idPerfis.split(" ")[0];
+        const filtrado = idPerfis;
 
         let data = {
             id,
@@ -90,6 +91,10 @@ function CadastroEmprestimo() {
 
         const perfil = dadosPerfis.find((dado) => dado.nome === idPerfis);
         const exemplar = dadosExemplares.find((dado) => dado.identificacao === idExemplares);
+        const livro = await axios.get(urlLivros).then((response) => {
+            const livros = response.data;
+            return livros.find((livro) => livro.nome === exemplar.idLivros);
+        })
 
         if (idParam == null) {
             const valido = await handleEmprestimo(perfil, exemplar);
@@ -115,6 +120,8 @@ function CadastroEmprestimo() {
                     mensagemErro(error.response.data);
                 });
             await axios.patch(`${BASE_URL}/exemplares/${exemplar.id}`, { status: statusExemplar, descricao });
+
+            await handleDevolucao(livro, exemplar);
         }
     }
 

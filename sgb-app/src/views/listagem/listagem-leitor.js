@@ -23,9 +23,8 @@ function ListagemLeitor() {
     const baseURL = `${BASE_URL}/leitores`;
 
     async function deletar(id) {
-        const ativo = false;
-        let url = `${baseURL}/${id}`;
-        await axios.patch(url, { ativo })
+        const url = `${baseURL}/${id}`;
+        await axios.patch(url, { ativo: false })
             .then(function (response) {
                 mensagemSucesso(`Leitor deletado com sucesso!`);
                 setDadosFiltrados(dados.filter((item) => item.id !== id));
@@ -40,7 +39,7 @@ function ListagemLeitor() {
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.nome.toLowerCase().includes(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
@@ -87,7 +86,6 @@ function ListagemLeitor() {
                                 <tr>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Senha</th>
                                     <th scope="col">Telefone</th>
                                     <th scope="col">Nascimento</th>
                                     <th scope="col">CPF</th>
@@ -101,7 +99,6 @@ function ListagemLeitor() {
                                         <tr key={item.id}>
                                             <td>{item.nome}</td>
                                             <td>{item.email}</td>
-                                            <td>{item.senha}</td>
                                             <td>{item.telefone}</td>
                                             <td>{item.dtNasc}</td>
                                             <td>{item.cpf}</td>

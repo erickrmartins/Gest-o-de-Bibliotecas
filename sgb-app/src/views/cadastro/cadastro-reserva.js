@@ -46,10 +46,7 @@ function CadastroReserva() {
         };
         data = JSON.stringify(data);
         if (idParam == null) {
-            await axios
-                .post(baseURL, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
+            await axios.post(baseURL, data)
                 .then(function (response) {
                     mensagemSucesso(`Reserva ${id} cadastrada com sucesso!`);
                     navigate(`/reservas`);
@@ -58,10 +55,7 @@ function CadastroReserva() {
                     mensagemErro(error.response.data);
                 });
         } else {
-            await axios
-                .put(`${baseURL}/${idParam}`, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
+            await axios.patch(`${baseURL}/${idParam}`, data)
                 .then(function (response) {
                     mensagemSucesso(`Reserva ${id} alterada com sucesso!`);
                     navigate(`/reservas`);

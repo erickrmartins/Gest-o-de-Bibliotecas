@@ -4,7 +4,7 @@ import Card from '../../components/ui/card.js';
 import SubCard from '../../components/ui/sub-card.js';
 
 import '../../custom.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
@@ -14,6 +14,7 @@ import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import EditIcon from '@mui/icons-material/EditOutlined';
 import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
+import StarIcon from '@mui/icons-material/StarBorder';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
@@ -71,17 +72,23 @@ function ListagemLivro() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4'>
-                        <form className='d-flex w-25' role='search'>
-                            <input
-                                className='form-control me-2 curvatura shadow-sm'
-                                type='search'
-                                placeholder='Busque por um dado'
-                                aria-label='Procurar'
-                                onChange={(e) => procurar(e.target.value)}
-                            />
-                        </form>
-                        <BtnCadastrar btnText={"Novo Livro"} />
+                    <div className='d-flex justify-content-between mb-4'>
+                        <div className='d-flex w-100'>
+                            <form className='d-flex w-50' role='search'>
+                                <input
+                                    className='form-control me-2 curvatura shadow-sm'
+                                    type='search'
+                                    placeholder='Busque por um dado'
+                                    aria-label='Procurar'
+                                    onChange={(e) => procurar(e.target.value)}
+                                />
+                            </form>
+                            <BtnCadastrar btnText={"Novo Livro"} />
+                        </div>
+                        <Link
+                            className='btn btn-outline d-flex justify-content-center align-items-center gap-2'
+                            to="/recomendados"
+                        > <StarIcon /> Recomendados </Link>
                     </div>
                     <SubCard className="row">
                         <table className="table table-hover">

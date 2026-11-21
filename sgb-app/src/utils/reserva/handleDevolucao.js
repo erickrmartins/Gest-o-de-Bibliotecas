@@ -33,5 +33,6 @@ const liberarExemplar = async (livro, exemplar) => {
 export const handleDevolucao = async (livro, exemplar) => {
 
     const liberar = await liberarExemplar(livro, exemplar);
+    return liberar
 
 }
