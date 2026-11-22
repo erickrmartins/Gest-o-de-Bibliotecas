@@ -75,29 +75,26 @@ function ListagemRecomendados() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4 w-100'>
-                        <div className='d-flex w-100 gap-2'>
-                            <form className='d-flex w-25' role='search'>
-                                <select
-                                    className='form-select'
-                                    id='selectLivros'
-                                    value={livro}
-                                    name='livro'
-                                    onChange={(e) => setLivro(e.target.value)}
-                                >
-                                    {dados.length > 0 ? dados.map((dado) => (
-                                        <option key={dado.id} value={dado.id}>
-                                            {dado.nome}
-                                        </option>
-                                    )) : null}
-                                </select>
-                            </form>
-                            <button className='btn btn-primary' onClick={() => recomendar()}>Recomendar</button>
-                        </div>
+                    <div className='row gy-2 mb-4'>
+                        <form className='col-lg-6' role='search'>
+                            <select
+                                className='form-select'
+                                id='selectLivros'
+                                value={livro}
+                                name='livro'
+                                onChange={(e) => setLivro(e.target.value)}
+                            >
+                                {dados.length > 0 ? dados.map((dado) => (
+                                    <option key={dado.id} value={dado.id}>
+                                        {dado.nome}
+                                    </option>
+                                )) : null}
+                            </select>
+                        </form>
+                        <button className='btn btn-primary col-lg-2 col-6' onClick={() => recomendar()}>Recomendar</button>
                     </div>
-                    <SubCard className="row">
-                        <div className="col-lg-12">
-
+                    <SubCard>
+                        <div className="row table-responsive">
                             <table className="table table-hover align-middle">
                                 <thead>
                                     <tr>
@@ -122,7 +119,7 @@ function ListagemRecomendados() {
                                         )) :
                                         (
                                             <tr>
-                                                <td>
+                                                <td colSpan='2'>
                                                     Nenhum dado foi encontrado.
                                                 </td>
                                             </tr>
@@ -134,7 +131,7 @@ function ListagemRecomendados() {
                     </SubCard>
                 </Card>
             </div>
-        </div>
+        </div >
     );
 }
 

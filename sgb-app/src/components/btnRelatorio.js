@@ -171,7 +171,7 @@ function BtnRelatorio({ tipo }) {
     }, [tipo])
 
     return (
-        <div>
+        <div className="col-lg-2 col-6 ms-lg-auto">
             <Dialog open={abrir} onClose={() => setAbrir(false)}>
                 <div className="p-3 curvatura d-flex flex-column justify-content-center align-items-center">
                     <DialogTitle>Gerar Relatório</DialogTitle>
@@ -185,9 +185,10 @@ function BtnRelatorio({ tipo }) {
                 </div>
             </Dialog>
             <button
-                className="btn btn-outline h-100 text-nowrap d-flex gap-2 align-items-center justify-content-center"
+                className="w-100 h-100 btn btn-outline d-flex gap-2 align-items-center justify-content-center"
                 onClick={() => setAbrir(true)}
-            ><PrintIcon />Relatório</button>
+            ><PrintIcon />
+            <span className="d-none d-lg-inline">Relatório</span></button>
         </div>
     )
 }

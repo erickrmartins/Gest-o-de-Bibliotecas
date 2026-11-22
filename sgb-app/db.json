@@ -950,7 +950,7 @@
       "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
-      "recomendado": true
+      "recomendado": false
     },
     {
       "id": "3",

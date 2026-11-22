@@ -72,69 +72,68 @@ function ListagemReserva() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex justify-content-between mb-4'>
-                        <div className='d-flex w-100'>
-                            <form className='d-flex w-50' role='search'>
-                                <input
-                                    className='form-control me-2 curvatura shadow-sm'
-                                    type='search'
-                                    placeholder='Busque por um dado'
-                                    aria-label='Procurar'
-                                    onChange={(e) => procurar(e.target.value)}
-                                />
-                            </form>
-                            <BtnCadastrar btnText={"Nova Reserva"} />
-                        </div>
+                    <div className='row gy-2 mb-4'>
+                        <form className='col-lg-4' role='search'>
+                            <input
+                                className='form-control me-2 curvatura shadow-sm'
+                                type='search'
+                                placeholder='Busque por um dado'
+                                aria-label='Procurar'
+                                onChange={(e) => procurar(e.target.value)}
+                            />
+                        </form>
+                        <BtnCadastrar btnText={"Nova Reserva"} />
                         <BtnRelatorio tipo="reserva" />
                     </div>
                     <SubCard className="row">
-
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Data da Reserva</th>
-                                    <th scope="col">Primeiro?</th>
-                                    <th scope="col">Livro</th>
-                                    <th scope="col">Perfil</th>
-                                    <th scope="col">AÇÕES</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                    dadosFiltrados.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.dtReserva}</td>
-                                            <td>{item.primeiro ? <True /> : <False />}</td>
-                                            <td>{item.idLivros}</td>
-                                            <td>{item.idPerfis}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )) :
-                                    (
-                                        <tr>
-                                            <td>
-                                                Nenhum dado foi encontrado.
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Data da Reserva</th>
+                                        <th scope="col">Primeiro?</th>
+                                        <th scope="col">Livro</th>
+                                        <th scope="col">Perfil</th>
+                                        <th scope="col">AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                        dadosFiltrados.map((item) => (
+                                            <tr key={item.id}>
+                                                <td>{item.dtReserva}</td>
+                                                <td>{item.primeiro ? <True /> : <False />}</td>
+                                                <td>{item.idLivros}</td>
+                                                <td>{item.idPerfis}</td>
+                                                <td>
+                                                    <Stack spacing={1} padding={0} direction='row'>
+                                                        <IconButton
+                                                            aria-label='edit'
+                                                            onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                        >
+                                                            <EditIcon />
+                                                        </IconButton>
+                                                        <IconButton
+                                                            aria-label='delete'
+                                                            onClick={() => deletar(item.id)}
+                                                        >
+                                                            <DeleteIcon />
+                                                        </IconButton>
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )) :
+                                        (
+                                            <tr>
+                                                <td>
+                                                    Nenhum dado foi encontrado.
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </SubCard>
                 </Card>
             </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Card from '../../components/ui/card.js';
 import SubCard from '../../components/ui/sub-card.js';
@@ -39,8 +39,8 @@ function ListagemLivro() {
             });
     };
 
-    const [dados, setDados] = React.useState(null);
-    const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
+    const [dados, setDados] = useState(null);
+    const [dadosFiltrados, setDadosFiltrados] = useState(null);
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
@@ -50,7 +50,7 @@ function ListagemLivro() {
         setDadosFiltrados(resultado);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 const filtrar = response.data.filter((dado) => dado.ativo === true);
@@ -72,25 +72,26 @@ function ListagemLivro() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex justify-content-between mb-4'>
-                        <div className='d-flex w-100'>
-                            <form className='d-flex w-50' role='search'>
-                                <input
-                                    className='form-control me-2 curvatura shadow-sm'
-                                    type='search'
-                                    placeholder='Busque por um dado'
-                                    aria-label='Procurar'
-                                    onChange={(e) => procurar(e.target.value)}
-                                />
-                            </form>
-                            <BtnCadastrar btnText={"Novo Livro"} />
+                    <div className='row gy-2 mb-4'>
+                        <form className='col-lg-4' role='search'>
+                            <input
+                                className='form-control me-2 curvatura shadow-sm'
+                                type='search'
+                                placeholder='Busque por um dado'
+                                aria-label='Procurar'
+                                onChange={(e) => procurar(e.target.value)}
+                            />
+                        </form>
+                        <BtnCadastrar btnText={"Novo Livro"} />
+                        <div className='col-lg-2 col-6 ms-lg-auto'>
+                            <Link
+                                className='w-100 h-100 btn btn-outline d-flex justify-content-center align-items-center gap-2'
+                                to="/recomendados"
+                            > <StarIcon />
+                                <span className='d-none d-lg-inline'>Recomendado</span></Link>
                         </div>
-                        <Link
-                            className='btn btn-outline d-flex justify-content-center align-items-center gap-2'
-                            to="/recomendados"
-                        > <StarIcon /> Recomendados </Link>
                     </div>
-                    <SubCard>   
+                    <SubCard>
                         <div className="row table-responsive">
                             <table className="table table-hover align-middle">
                                 <thead>

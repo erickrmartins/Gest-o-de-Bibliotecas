@@ -45,43 +45,45 @@ function ListagemParametro() {
             <div className="container">
                 <Card>
                     <SubCard className="row">
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Prazo Empréstimo</th>
-                                    <th scope="col">Limite Empréstimo</th>
-                                    <th scope="col">Permitir Renovação</th>
-                                    <th scope="col">Renovação com Fila</th>
-                                    <th scope="col">Dias Renovação</th>
-                                    <th scope="col">Prazo Retirada</th>
-                                    <th scope="col">Recomendados</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dados && dados.map((item) => (
-                                    <tr >
-                                        <td>{item.prazoEmprestimo}</td>
-                                        <td>{item.limiteEmprestimo}</td>
-                                        <td>{item.permitirRenovacao ? <True /> : <False />}</td>
-                                        <td>{item.renovacaoComFila ? <True /> : <False />}</td>
-                                        <td>{item.diasRenovacao}</td>
-                                        <td>{item.prazoRetirada}</td>
-                                        <td>{item.recomendados}</td>
-                                        <td>
-                                            <Stack spacing={1} padding={0} direction='row'>
-                                                <IconButton
-                                                    aria-label='edit'
-                                                    onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                >
-                                                    <EditIcon />
-                                                </IconButton>
-                                            </Stack>
-                                        </td>
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Prazo Empréstimo</th>
+                                        <th scope="col">Limite Empréstimo</th>
+                                        <th scope="col">Permitir Renovação</th>
+                                        <th scope="col">Renovação com Fila</th>
+                                        <th scope="col">Dias Renovação</th>
+                                        <th scope="col">Prazo Retirada</th>
+                                        <th scope="col">Recomendados</th>
+                                        <th scope="col">Ações</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {dados && dados.map((item) => (
+                                        <tr >
+                                            <td>{item.prazoEmprestimo}</td>
+                                            <td>{item.limiteEmprestimo}</td>
+                                            <td>{item.permitirRenovacao ? <True /> : <False />}</td>
+                                            <td>{item.renovacaoComFila ? <True /> : <False />}</td>
+                                            <td>{item.diasRenovacao}</td>
+                                            <td>{item.prazoRetirada}</td>
+                                            <td>{item.recomendados}</td>
+                                            <td>
+                                                <Stack spacing={1} padding={0} direction='row'>
+                                                    <IconButton
+                                                        aria-label='edit'
+                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                    >
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                </Stack>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </SubCard>
                 </Card>
             </div>
