@@ -1393,18 +1393,18 @@
     {
       "id": "1",
       "idExemplares": "1984-COP-01",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-09-01",
       "dtEta": "2026-09-08",
       "dtDevolucao": "2026-09-08",
       "renovado": false,
-      "status": "Devolvido",
+      "status": "Atrasado",
       "ativo": true
     },
     {
       "id": "2",
       "idExemplares": "1984-COP-01",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-09-12",
       "dtEta": "2026-09-19",
       "dtDevolucao": null,
@@ -1415,7 +1415,7 @@
     {
       "id": "3",
       "idExemplares": "1984-COP-02",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-09-19",
       "dtEta": "2026-09-29",
       "dtDevolucao": "2026-09-29",
@@ -1426,7 +1426,7 @@
     {
       "id": "4",
       "idExemplares": "1984-COP-03",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-09-22",
       "dtEta": "2026-10-07",
       "dtDevolucao": null,
@@ -1437,7 +1437,7 @@
     {
       "id": "1Pra8ISJ81g",
       "idExemplares": "SDA-COP-02",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-11-19",
       "dtEta": "2026-11-23",
       "dtDevolucao": null,
@@ -1448,7 +1448,7 @@
     {
       "id": "3gXVBrn4kaY",
       "idExemplares": "SDA-COP-03",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-11-20",
       "dtEta": "2026-11-25",
       "dtDevolucao": null,
@@ -1470,7 +1470,7 @@
     {
       "id": "rCVd7ZN0_cY",
       "idExemplares": "1984-COP-02",
-      "idPerfis": "Hermione",
+      "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-11-20",
       "dtEta": "2026-11-23",
       "dtDevolucao": "2026-11-20",

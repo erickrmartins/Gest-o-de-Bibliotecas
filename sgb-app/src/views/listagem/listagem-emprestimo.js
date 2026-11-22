@@ -16,6 +16,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 import ImagemTopo from '../../components/topo-imagem.js';
+import BtnRelatorio from '../../components/btnRelatorio.js';
 
 function ListagemEmprestimo() {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ function ListagemEmprestimo() {
     async function deletar(id) {
         const ativo = false;
         let url = `${baseURL}/${id}`;
-        await axios.patch(url, {ativo})
+        await axios.patch(url, { ativo })
             .then(function (response) {
                 mensagemSucesso(`Emprestimo deletado com sucesso!`);
                 setDadosFiltrados(dados.filter((item) => item.id !== id));
@@ -68,17 +69,20 @@ function ListagemEmprestimo() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4'>
-                        <form className='d-flex w-25' role='search'>
-                            <input
-                                className='form-control me-2 curvatura shadow-sm'
-                                type='search'
-                                placeholder='Busque por um dado'
-                                aria-label='Procurar'
-                                onChange={(e) => procurar(e.target.value)}
-                            />
-                        </form>
-                        <BtnCadastrar btnText={"Novo Empréstimo"} />
+                    <div className='d-flex justify-content-between mb-4'>
+                        <div className='d-flex w-100'>
+                            <form className='d-flex w-50' role='search'>
+                                <input
+                                    className='form-control me-2 curvatura shadow-sm'
+                                    type='search'
+                                    placeholder='Busque por um dado'
+                                    aria-label='Procurar'
+                                    onChange={(e) => procurar(e.target.value)}
+                                />
+                            </form>
+                            <BtnCadastrar btnText={"Novo Empréstimo"} />
+                        </div>
+                        <BtnRelatorio tipo="emprestimo" />
                     </div>
                     <SubCard className="row">
 

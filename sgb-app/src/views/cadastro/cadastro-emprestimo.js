@@ -146,9 +146,9 @@ function CadastroEmprestimo() {
         setStatus(dados.status);
     }
 
-    const [dadosPerfis, setDadosPerfis] = React.useState([]);
-    const [dadosExemplares, setDadosExemplares] = React.useState([]);
-    const [prazoEmprestimo, setPrazoEmprestimos] = React.useState('')
+    const [dadosPerfis, setDadosPerfis] = useState([]);
+    const [dadosExemplares, setDadosExemplares] = useState([]);
+    const [prazoEmprestimo, setPrazoEmprestimos] = useState('')
 
     useEffect(() => {
         async function carregarDadosIniciais() {

@@ -46,7 +46,7 @@ function NavbarProfile({ profile }) {
                         alt="Foto de Perfil"
                     />
 
-                    <div className="d-flex flex-column justify-content-center text-nowrap">
+                    <div className="d-none d-lg-flex flex-column justify-content-center text-nowrap">
                         <h5 className="fs-7 m-0">{nomeFormatado}</h5>
                         <span className="fs-8 m-0">
                             {getRole()}

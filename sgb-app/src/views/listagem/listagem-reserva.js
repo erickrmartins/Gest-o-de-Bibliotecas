@@ -17,6 +17,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 import ImagemTopo from '../../components/topo-imagem.js';
+import BtnRelatorio from '../../components/btnRelatorio.js';
 
 function ListagemReserva() {
     const navigate = useNavigate();
@@ -71,17 +72,20 @@ function ListagemReserva() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4'>
-                        <form className='d-flex w-25' role='search'>
-                            <input
-                                className='form-control me-2 curvatura shadow-sm'
-                                type='search'
-                                placeholder='Busque por um dado'
-                                aria-label='Procurar'
-                                onChange={(e) => procurar(e.target.value)}
-                            />
-                        </form>
-                        <BtnCadastrar btnText={"Nova Reserva"} />
+                    <div className='d-flex justify-content-between mb-4'>
+                        <div className='d-flex w-100'>
+                            <form className='d-flex w-50' role='search'>
+                                <input
+                                    className='form-control me-2 curvatura shadow-sm'
+                                    type='search'
+                                    placeholder='Busque por um dado'
+                                    aria-label='Procurar'
+                                    onChange={(e) => procurar(e.target.value)}
+                                />
+                            </form>
+                            <BtnCadastrar btnText={"Nova Reserva"} />
+                        </div>
+                        <BtnRelatorio tipo="reserva" />
                     </div>
                     <SubCard className="row">
 

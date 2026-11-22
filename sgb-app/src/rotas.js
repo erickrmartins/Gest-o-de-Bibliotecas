@@ -36,6 +36,8 @@ import MeusEmprestimos from './views/perfil/meus-emprestimos.js'
 import MeusReservas from './views/perfil/meus-reservas.js';
 import MeuHistorico from './views/perfil/meu-historico.js';
 
+import Relatorio from './views/relatorio/relatorio.js';
+
 import { getLogin } from './utils/login';
 
 import { mensagemErro, mensagemAlert } from './components/toastr';
@@ -114,6 +116,8 @@ function Rotas(props) {
                 <Route path="/exemplares/cadastrar/:idParam?" element={<CadastroExemplar />} />
                 <Route path="/reservas/cadastrar/:idParam?" element={<CadastroReserva />} />
                 <Route path="/emprestimos/cadastrar/:idParam?" element={<CadastroEmprestimo />} />
+
+                <Route path="/relatorio/:idParam?" element={<Relatorio profile={profile}/>}/>
 
             </Route>
 

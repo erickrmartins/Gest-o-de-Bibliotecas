@@ -90,64 +90,66 @@ function ListagemLivro() {
                             to="/recomendados"
                         > <StarIcon /> Recomendados </Link>
                     </div>
-                    <SubCard className="row">
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Titulo</th>
-                                    <th scope="col">Autor</th>
-                                    <th scope="col">Editora</th>
-                                    <th scope="col">ISBN</th>
-                                    <th scope="col">Genero</th>
-                                    <th scope="col">Ano</th>
-                                    <th scope="col">Pág.</th>
-                                    <th scope="col">Rec.</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                    dadosFiltrados.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.nome}</td>
-                                            <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
-                                            <td>{item.idEditoras}</td>
-                                            <td>{item.isbn}</td>
-                                            <td>{item.idGeneros}</td>
-                                            <td>{item.dtPublicacao}</td>
-                                            <td>{item.numPaginas}</td>
-                                            <td>{item.recomendado ? <True /> : <False />}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon
-                                                            style={
-                                                                { fill: "var(--bs-danger)" }}
-                                                        />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )) :
-                                    (
-                                        <tr>
-                                            <td>
-                                                Nenhum dado foi encontrado.
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                    <SubCard>   
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Titulo</th>
+                                        <th scope="col">Autor</th>
+                                        <th scope="col">Editora</th>
+                                        <th scope="col">ISBN</th>
+                                        <th scope="col">Genero</th>
+                                        <th scope="col">Ano</th>
+                                        <th scope="col">Pág.</th>
+                                        <th scope="col">Rec.</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                        dadosFiltrados.map((item) => (
+                                            <tr key={item.id}>
+                                                <td>{item.nome}</td>
+                                                <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
+                                                <td>{item.idEditoras}</td>
+                                                <td>{item.isbn}</td>
+                                                <td>{item.idGeneros}</td>
+                                                <td>{item.dtPublicacao}</td>
+                                                <td>{item.numPaginas}</td>
+                                                <td>{item.recomendado ? <True /> : <False />}</td>
+                                                <td>
+                                                    <Stack spacing={1} padding={0} direction='row'>
+                                                        <IconButton
+                                                            aria-label='edit'
+                                                            onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                        >
+                                                            <EditIcon />
+                                                        </IconButton>
+                                                        <IconButton
+                                                            aria-label='delete'
+                                                            onClick={() => deletar(item.id)}
+                                                        >
+                                                            <DeleteIcon
+                                                                style={
+                                                                    { fill: "var(--bs-danger)" }}
+                                                            />
+                                                        </IconButton>
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )) :
+                                        (
+                                            <tr>
+                                                <td colSpan='9'>
+                                                    Nenhum dado foi encontrado.
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </SubCard>
                 </Card>
             </div>
