@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Card from '../../components/ui/card.js';
 import SubCard from '../../components/ui/sub-card.js';
 
 import '../../custom.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { mensagemSucesso, mensagemErro } from '../../components/toastr.js';
 
@@ -14,6 +14,7 @@ import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import EditIcon from '@mui/icons-material/EditOutlined';
 import True from '@mui/icons-material/CheckCircleOutlineOutlined';
 import False from '@mui/icons-material/RadioButtonUncheckedOutlined';
+import StarIcon from '@mui/icons-material/StarBorder';
 
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
@@ -38,8 +39,8 @@ function ListagemLivro() {
             });
     };
 
-    const [dados, setDados] = React.useState(null);
-    const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
+    const [dados, setDados] = useState(null);
+    const [dadosFiltrados, setDadosFiltrados] = useState(null);
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
@@ -49,7 +50,7 @@ function ListagemLivro() {
         setDadosFiltrados(resultado);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 const filtrar = response.data.filter((dado) => dado.ativo === true);
@@ -71,8 +72,8 @@ function ListagemLivro() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4'>
-                        <form className='d-flex w-25' role='search'>
+                    <div className='row gy-2 mb-4'>
+                        <form className='col-lg-4' role='search'>
                             <input
                                 className='form-control me-2 curvatura shadow-sm'
                                 type='search'
@@ -82,65 +83,74 @@ function ListagemLivro() {
                             />
                         </form>
                         <BtnCadastrar btnText={"Novo Livro"} />
+                        <div className='col-lg-2 col-6 ms-lg-auto'>
+                            <Link
+                                className='w-100 h-100 btn btn-outline d-flex justify-content-center align-items-center gap-2'
+                                to="/recomendados"
+                            > <StarIcon />
+                                <span className='d-none d-lg-inline'>Recomendado</span></Link>
+                        </div>
                     </div>
-                    <SubCard className="row">
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Titulo</th>
-                                    <th scope="col">Autor</th>
-                                    <th scope="col">Editora</th>
-                                    <th scope="col">ISBN</th>
-                                    <th scope="col">Genero</th>
-                                    <th scope="col">Ano</th>
-                                    <th scope="col">Pág.</th>
-                                    <th scope="col">Rec.</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                    dadosFiltrados.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.nome}</td>
-                                            <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
-                                            <td>{item.idEditoras}</td>
-                                            <td>{item.isbn}</td>
-                                            <td>{item.idGeneros}</td>
-                                            <td>{item.dtPublicacao}</td>
-                                            <td>{item.numPaginas}</td>
-                                            <td>{item.recomendado ? <True /> : <False />}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon
-                                                            style={
-                                                                { fill: "var(--bs-danger)" }}
-                                                        />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )) :
-                                    (
-                                        <tr>
-                                            <td>
-                                                Nenhum dado foi encontrado.
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                    <SubCard>
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Titulo</th>
+                                        <th scope="col">Autor</th>
+                                        <th scope="col">Editora</th>
+                                        <th scope="col">ISBN</th>
+                                        <th scope="col">Genero</th>
+                                        <th scope="col">Ano</th>
+                                        <th scope="col">Pág.</th>
+                                        <th scope="col">Rec.</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                        dadosFiltrados.map((item) => (
+                                            <tr key={item.id}>
+                                                <td>{item.nome}</td>
+                                                <td>{item.idAutores.length > 1 ? `${item.idAutores[0]} + ${item.idAutores.length - 1}` : item.idAutores}</td>
+                                                <td>{item.idEditoras}</td>
+                                                <td>{item.isbn}</td>
+                                                <td>{item.idGeneros}</td>
+                                                <td>{item.dtPublicacao}</td>
+                                                <td>{item.numPaginas}</td>
+                                                <td>{item.recomendado ? <True /> : <False />}</td>
+                                                <td>
+                                                    <Stack spacing={1} padding={0} direction='row'>
+                                                        <IconButton
+                                                            aria-label='edit'
+                                                            onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                        >
+                                                            <EditIcon />
+                                                        </IconButton>
+                                                        <IconButton
+                                                            aria-label='delete'
+                                                            onClick={() => deletar(item.id)}
+                                                        >
+                                                            <DeleteIcon
+                                                                style={
+                                                                    { fill: "var(--bs-danger)" }}
+                                                            />
+                                                        </IconButton>
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )) :
+                                        (
+                                            <tr>
+                                                <td colSpan='9'>
+                                                    Nenhum dado foi encontrado.
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </SubCard>
                 </Card>
             </div>

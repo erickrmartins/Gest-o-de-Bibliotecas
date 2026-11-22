@@ -10,6 +10,7 @@ import ListagemEmprestimo from './views/listagem/listagem-emprestimo';
 import ListagemLeitor from './views/listagem/listagem-leitor';
 import ListagemFuncionario from './views/listagem/listagem-funcionario';
 import ListagemParametro from './views/listagem/listagem-parametro';
+import ListagemRecomendados from './views/listagem/listagem-recomendados.js';
 
 import CadastroAutor from './views/cadastro/cadastro-autor';
 import CadastroLivro from './views/cadastro/cadastro-livro';
@@ -34,6 +35,8 @@ import Perfil from './views/perfil/perfil';
 import MeusEmprestimos from './views/perfil/meus-emprestimos.js'
 import MeusReservas from './views/perfil/meus-reservas.js';
 import MeuHistorico from './views/perfil/meu-historico.js';
+
+import Relatorio from './views/relatorio/relatorio.js';
 
 import { getLogin } from './utils/login';
 
@@ -105,6 +108,7 @@ function Rotas(props) {
                 <Route path="/exemplares" element={<ListagemExemplar />} />
                 <Route path="/reservas" element={<ListagemReserva />} />
                 <Route path="/emprestimos" element={<ListagemEmprestimo />} />
+                <Route path="/recomendados" element={<ListagemRecomendados />} />
 
                 <Route path="/autores/cadastrar/:idParam?" element={<CadastroAutor />} />
                 <Route path="/livros/cadastrar/:idParam?" element={<CadastroLivro />} />
@@ -112,6 +116,8 @@ function Rotas(props) {
                 <Route path="/exemplares/cadastrar/:idParam?" element={<CadastroExemplar />} />
                 <Route path="/reservas/cadastrar/:idParam?" element={<CadastroReserva />} />
                 <Route path="/emprestimos/cadastrar/:idParam?" element={<CadastroEmprestimo />} />
+
+                <Route path="/relatorio/:idParam?" element={<Relatorio profile={profile}/>}/>
 
             </Route>
 

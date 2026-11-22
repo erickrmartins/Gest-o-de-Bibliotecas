@@ -1,17 +1,20 @@
 import Add from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 
-function BtnCadastrar({ btnText }) {
+function BtnCadastrar() {
     const navigate = useNavigate();
 
     return (
-        <button
-            type="button"
-            className="btn btn-primary extraP d-flex align-items-center justify-content-center fw-semibold curvatura shadow-sm"
-            onClick={() => navigate("cadastrar")}
-        >
-            <Add />{btnText}
-        </button>
+        <div className='col-lg-2 col-6'>
+            <button
+                type="button"
+                className="w-100 h-100 btn btn-primary d-flex justify-content-center align-items-center"
+                onClick={() => navigate("cadastrar")}
+            >
+                <Add/>
+                <span className='d-none d-lg-inline'>Novo</span>
+            </button>
+        </div>
     )
 }
 

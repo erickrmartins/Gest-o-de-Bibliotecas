@@ -59,10 +59,7 @@ function CadastroAutor() {
         };
         data = JSON.stringify(data);
         if (idParam == null) {
-            await axios
-                .post(baseURL, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
+            await axios.post(baseURL, data)
                 .then(function (response) {
                     mensagemSucesso(`Autor ${nome} cadastrado com sucesso!`);
                     navigate(`/autores`);
@@ -71,10 +68,7 @@ function CadastroAutor() {
                     mensagemErro(error.response.data);
                 });
         } else {
-            await axios
-                .put(`${baseURL}/${idParam}`, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
+            await axios.patch(`${baseURL}/${idParam}`, data)
                 .then(function (response) {
                     mensagemSucesso(`Autor ${nome} alterado com sucesso!`);
                     navigate(`/autores`);

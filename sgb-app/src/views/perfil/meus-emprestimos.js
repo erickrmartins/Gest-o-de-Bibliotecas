@@ -26,13 +26,8 @@ function MeusEmprestimos({ profile }) {
                 const resExemplares = await axios.get(urlExemplares);
                 const resLivros = await axios.get(urlLivros);
 
-                const nomePerfilPrimeiroNome = profile.nome.split(" ")[0];
-                const filtroPorPerfil = resEmprestimos.data.filter(
-                    (emprestimo) => emprestimo.idPerfis === nomePerfilPrimeiroNome
-                );
-                const emprestimosAtivos = filtroPorPerfil.filter(
-                    (emprestimo) => emprestimo.status !== "Devolvido"
-                );
+                const filtroPorPerfil = resEmprestimos.data.filter((emprestimo) => emprestimo.idPerfis === profile.nome);
+                const emprestimosAtivos = filtroPorPerfil.filter((emprestimo) => emprestimo.status !== "Devolvido");
 
                 setEmprestimos(emprestimosAtivos);
                 setExemplares(resExemplares.data);

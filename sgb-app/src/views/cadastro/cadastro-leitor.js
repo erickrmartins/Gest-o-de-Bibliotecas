@@ -72,10 +72,7 @@ function CadastroLeitor() {
         };
         data = JSON.stringify(data);
         if (idParam == null) {
-            await axios
-                .post(baseURL, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
+            await axios.post(baseURL, data)
                 .then(function (response) {
                     mensagemSucesso(`Leitor ${nome} cadastrado com sucesso!`);
                     navigate(`/leitores`);
@@ -84,15 +81,12 @@ function CadastroLeitor() {
                     mensagemErro(error.response.data);
                 });
         } else {
-            await axios
-                .put(`${baseURL}/${idParam}`, data, {
-                    headers: { 'Content-Type': 'application/json' },
-                })
-                .then(function (response) {
+            await axios.patch(`${baseURL}/${idParam}`, data)
+                .then((response) => {
                     mensagemSucesso(`Leitor ${nome} alterado com sucesso!`);
                     navigate(`/leitores`);
                 })
-                .catch(function (error) {
+                .catch((error) => {
                     mensagemErro(error.response.data);
                 });
         }

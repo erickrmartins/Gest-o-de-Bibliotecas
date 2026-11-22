@@ -1,0 +1,32 @@
+
+@media print {
+    .navbar,
+    .btn {
+        display: none !important;
+    }
+
+    body {  
+        background-color: white !important;
+        color: black !important;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    tr {
+        break-inside: avoid;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 15mm;
+    }
+}

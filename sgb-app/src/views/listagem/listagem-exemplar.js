@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../../components/ui/card.js';
 import SubCard from '../../components/ui/sub-card.js';
 
@@ -18,6 +18,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 import ImagemTopo from '../../components/topo-imagem.js';
+import BtnRelatorio from '../../components/btnRelatorio.js';
 
 function ListagemExemplar() {
     const navigate = useNavigate();
@@ -37,18 +38,18 @@ function ListagemExemplar() {
             });
     };
 
-    const [dados, setDados] = React.useState(null);
-    const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
+    const [dados, setDados] = useState(null);
+    const [dadosFiltrados, setDadosFiltrados] = useState(null);
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.identificacao.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.identificacao.toLowerCase().includes(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 const filtrar = response.data.filter((dado) => dado.ativo === true);
@@ -70,8 +71,8 @@ function ListagemExemplar() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4'>
-                        <form className='d-flex w-25' role='search'>
+                    <div className='row mb-4 gy-2'>
+                        <form className='col-lg-4' role='search'>
                             <input
                                 className='form-control me-2 curvatura shadow-sm'
                                 type='search'
@@ -81,53 +82,55 @@ function ListagemExemplar() {
                             />
                         </form>
                         <BtnCadastrar btnText={"Novo Exemplar"} />
+                        <BtnRelatorio tipo="exemplar" />
                     </div>
-                    <SubCard className="row">
-
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Livro</th>
-                                    <th scope="col">Identificação</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">AÇÕES</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                    dadosFiltrados.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.identificacao}</td>
-                                            <td>{item.idLivros}</td>
-                                            <td>{item.status}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )) :
-                                    (
-                                        <tr>
-                                            <td>
-                                                Nenhum dado foi encontrado.
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                    <SubCard>
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Livro</th>
+                                        <th scope="col">Identificação</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                        dadosFiltrados.map((item) => (
+                                            <tr key={item.id}>
+                                                <td>{item.identificacao}</td>
+                                                <td>{item.idLivros}</td>
+                                                <td>{item.status}</td>
+                                                <td>
+                                                    <Stack spacing={1} padding={0} direction='row'>
+                                                        <IconButton
+                                                            aria-label='edit'
+                                                            onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                        >
+                                                            <EditIcon />
+                                                        </IconButton>
+                                                        <IconButton
+                                                            aria-label='delete'
+                                                            onClick={() => deletar(item.id)}
+                                                        >
+                                                            <DeleteIcon />
+                                                        </IconButton>
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )) :
+                                        (
+                                            <tr>
+                                                <td>
+                                                    Nenhum dado foi encontrado.
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </SubCard>
                 </Card>
             </div>

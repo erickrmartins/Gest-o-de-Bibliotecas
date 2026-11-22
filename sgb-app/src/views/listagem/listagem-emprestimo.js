@@ -16,6 +16,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../config/axios.js';
 import BtnCadastrar from '../../components/btnForm/btnCadastrar.js';
 import ImagemTopo from '../../components/topo-imagem.js';
+import BtnRelatorio from '../../components/btnRelatorio.js';
 
 function ListagemEmprestimo() {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ function ListagemEmprestimo() {
     async function deletar(id) {
         const ativo = false;
         let url = `${baseURL}/${id}`;
-        await axios.patch(url, {ativo})
+        await axios.patch(url, { ativo })
             .then(function (response) {
                 mensagemSucesso(`Emprestimo deletado com sucesso!`);
                 setDadosFiltrados(dados.filter((item) => item.id !== id));
@@ -68,8 +69,8 @@ function ListagemEmprestimo() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4'>
-                        <form className='d-flex w-25' role='search'>
+                    <div className='row gy-2 mb-4'>
+                        <form className='col-lg-4' role='search'>
                             <input
                                 className='form-control me-2 curvatura shadow-sm'
                                 type='search'
@@ -79,57 +80,59 @@ function ListagemEmprestimo() {
                             />
                         </form>
                         <BtnCadastrar btnText={"Novo Empréstimo"} />
+                        <BtnRelatorio tipo="emprestimo" />
                     </div>
                     <SubCard className="row">
-
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Exemplar</th>
-                                    <th scope="col">Perfil</th>
-                                    <th scope="col">Empréstimo</th>
-                                    <th scope="col">ETA</th>
-                                    <th scope="col">Devolução</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dadosFiltrados && dadosFiltrados.length > 0 ?
-                                    dadosFiltrados.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.idExemplares}</td>
-                                            <td>{item.idPerfis}</td>
-                                            <td>{item.dtEmprestimo}</td>
-                                            <td>{item.dtEta}</td>
-                                            <td>{item.dtDevolucao}</td>
-                                            <td>
-                                                <Stack spacing={1} padding={0} direction='row'>
-                                                    <IconButton
-                                                        aria-label='edit'
-                                                        onClick={() => navigate(`cadastrar/${item.id}`)}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        aria-label='delete'
-                                                        onClick={() => deletar(item.id)}
-                                                    >
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )) :
-                                    (
-                                        <tr>
-                                            <td>
-                                                Nenhum dado foi encontrado.
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Exemplar</th>
+                                        <th scope="col">Perfil</th>
+                                        <th scope="col">Empréstimo</th>
+                                        <th scope="col">ETA</th>
+                                        <th scope="col">Devolução</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dadosFiltrados && dadosFiltrados.length > 0 ?
+                                        dadosFiltrados.map((item) => (
+                                            <tr key={item.id}>
+                                                <td>{item.idExemplares}</td>
+                                                <td>{item.idPerfis}</td>
+                                                <td>{item.dtEmprestimo}</td>
+                                                <td>{item.dtEta}</td>
+                                                <td>{item.dtDevolucao}</td>
+                                                <td>
+                                                    <Stack spacing={1} padding={0} direction='row'>
+                                                        <IconButton
+                                                            aria-label='edit'
+                                                            onClick={() => navigate(`cadastrar/${item.id}`)}
+                                                        >
+                                                            <EditIcon />
+                                                        </IconButton>
+                                                        <IconButton
+                                                            aria-label='delete'
+                                                            onClick={() => deletar(item.id)}
+                                                        >
+                                                            <DeleteIcon />
+                                                        </IconButton>
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )) :
+                                        (
+                                            <tr>
+                                                <td>
+                                                    Nenhum dado foi encontrado.
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </SubCard>
                 </Card >
             </div >

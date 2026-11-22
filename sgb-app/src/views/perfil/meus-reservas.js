@@ -7,6 +7,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import SubCard from "../../components/ui/sub-card";
 
 import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/toastr";
+import { ordenarReservas } from "../../utils/reserva/ordenarReservas";
 
 const urlReservas = `${BASE_URL}/reservas`;
 const urlLivros = `${BASE_URL}/livros`;
@@ -40,16 +41,17 @@ function MeusReservas({ profile }) {
         await axios.delete(`${urlReservas}/${reserva.id}`)
             .then(() => {
                 mensagemSucesso("Reserva deletada com sucesso.");
-                buscar();
             })
             .catch(() => {
                 mensagemErro("Não foi possível deletar a reserva.");
             })
+        await ordenarReservas(livros.find((livro) => livro.nome === reserva.idLivros));
+        buscar();
     }
 
     async function buscar() {
         axios.get(urlReservas).then((response) => {
-            const filtrado = response.data.filter((reserva) => reserva.idPerfis === profile.nome.split(" ")[0]);
+            const filtrado = response.data.filter((reserva) => reserva.idPerfis === profile.nome);
             setReservas(filtrado);
         })
     }
@@ -57,7 +59,7 @@ function MeusReservas({ profile }) {
     useEffect(() => {
         if (profile) {
             axios.get(urlReservas).then((response) => {
-                const filtrado = response.data.filter((reserva) => reserva.idPerfis === profile.nome.split(" ")[0]);
+                const filtrado = response.data.filter((reserva) => reserva.idPerfis === profile.nome);
                 setReservas(filtrado);
             })
         }
@@ -97,7 +99,7 @@ function MeusReservas({ profile }) {
                             <tr>
                                 <th>LIVRO</th>
                                 <th>RESERVADO EM</th>
-                                <th>SITUAÇÃO</th>
+                                <th>POSIÇÃO</th>
                                 <th>AÇÕES</th>
                             </tr>
                         </thead>
@@ -107,7 +109,7 @@ function MeusReservas({ profile }) {
                                     <tr className="" key={reserva.id}>
                                         <td>{getLivro(reserva)}</td>
                                         <td>{reserva.dtReserva}</td>
-                                        <td>{reserva.primeiro ? "Próximo da fila" : "Na fila de espera"}</td>
+                                        <td>{reserva.posicao}</td>
                                         <td><button className="btn color-danger" onClick={() => deletar(reserva)}><RemoveCircleIcon fontSize="small" /></button></td>
                                     </tr>
                                 )) : "Você ainda não possui nenhuma reserva"}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../../components/ui/card.js';
 import SubCard from '../../components/ui/sub-card.js';
 
@@ -26,7 +26,7 @@ function ListagemAutor() {
         let ativo = false;
         let url = `${baseURL}/${id}`;
         console.log(url);
-        await axios.patch(url, {ativo})
+        await axios.patch(url, { ativo })
             .then(function (response) {
                 mensagemSucesso(`Autor deletado com sucesso!`);
                 setDadosFiltrados(dados.filter((item) => item.id !== id));
@@ -36,18 +36,18 @@ function ListagemAutor() {
             });
     };
 
-    const [dados, setDados] = React.useState(null);
-    const [dadosFiltrados, setDadosFiltrados] = React.useState(null);
+    const [dados, setDados] = useState(null);
+    const [dadosFiltrados, setDadosFiltrados] = useState(null);
 
     function procurar(filtro) {
         const resultado = dados.filter((dado) =>
-            dado.nome.toLowerCase().startsWith(filtro.toLowerCase())
+            dado.nome.toLowerCase().includes(filtro.toLowerCase())
         );
 
         setDadosFiltrados(resultado);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         axios.get(baseURL)
             .then((response) => {
                 const filtrar = response.data.filter((dado) => dado.ativo === true);
@@ -69,24 +69,21 @@ function ListagemAutor() {
             />
             <div className="container">
                 <Card>
-                    <div className='d-flex mb-4 w-100'>
-                        <div className='d-flex w-100'>
-                            <form className='d-flex w-25' role='search'>
-                                <input
-                                    className='form-control me-2 curvatura shadow-sm ps-4'
-                                    type='search'
-                                    placeholder='Busque por um dado'
-                                    aria-label='Procurar'
-                                    onChange={(e) => procurar(e.target.value)}
-                                />
-                            </form>
-                            <BtnCadastrar btnText={"Novo Autor"} />
-                        </div>
+                    <div className='row gy-2 mb-4'>
+                        <form className='col-lg-4' role='search'>
+                            <input
+                                className='form-control me-2 curvatura shadow-sm ps-4'
+                                type='search'
+                                placeholder='Busque por um dado'
+                                aria-label='Procurar'
+                                onChange={(e) => procurar(e.target.value)}
+                            />
+                        </form>
+                        <BtnCadastrar btnText={"Novo Autor"} />
                     </div>
                     <SubCard className="row">
-                        <div className="col-lg-12">
-
-                            <table className="table table-hover">
+                        <div className="row table-responsive">
+                            <table className="table table-hover align-middle">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nome</th>
