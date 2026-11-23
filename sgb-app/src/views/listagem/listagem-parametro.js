@@ -61,7 +61,7 @@ function ListagemParametro() {
                                 </thead>
                                 <tbody>
                                     {dados && dados.map((item) => (
-                                        <tr >
+                                        <tr key={item.id}>
                                             <td>{item.prazoEmprestimo}</td>
                                             <td>{item.limiteEmprestimo}</td>
                                             <td>{item.permitirRenovacao ? <True /> : <False />}</td>

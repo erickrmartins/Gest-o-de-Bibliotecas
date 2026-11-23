@@ -126,7 +126,7 @@ function CadastroExemplar() {
                                         value={idLivros}
                                         onChange={(e) => setIdLivros(e.target.value)}
                                     >
-                                        <option key='0' value='0'>
+                                        <option value='0'>
                                             {' '}
                                         </option>
                                         {dadosLivros.map((dado) => (
@@ -156,16 +156,16 @@ function CadastroExemplar() {
                                         value={status}
                                         onChange={(e) => setStatus(e.target.value)}
                                     >
-                                        <option key='0' value='Disponível'>
+                                        <option value='Disponível'>
                                             Disponível
                                         </option>
-                                        <option key='1' value='Emprestado'>
+                                        <option value='Emprestado'>
                                             Emprestado
                                         </option>
-                                        <option key='0' value='Em Manutenção'>
+                                        <option value='Em Manutenção'>
                                             Em Manutenção
                                         </option>
-                                        <option key='0' value='Perdido'>
+                                        <option value='Perdido'>
                                             Perdido
                                         </option>
                                     </select>
@@ -188,7 +188,7 @@ function CadastroExemplar() {
                                     type='button'
                                     className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
                                 >
-                                    Salvar Parâmetro
+                                    Salvar
                                 </button>
                             </Stack>
                         </div>

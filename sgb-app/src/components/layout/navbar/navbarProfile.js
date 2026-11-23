@@ -42,7 +42,7 @@ function NavbarProfile({ profile }) {
                     <img
                         className="rounded-circle object-fit-cover"
                         style={{ width: "40px", height: "40px" }}
-                        src={`/profilePictures/${profile.cpf}.jpg`}
+                        src={`/profilePictures/${profile.img}`}
                         alt="Foto de Perfil"
                     />
 

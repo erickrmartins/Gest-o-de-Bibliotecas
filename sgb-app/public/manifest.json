@@ -1,0 +1,9 @@
+{
+  "short_name": "SGB",
+  "name": "Sistema de Gestão de Biblioteca",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#5C4033",
+  "background_color": "#ffffff"
+}

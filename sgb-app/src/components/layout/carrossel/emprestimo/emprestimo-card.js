@@ -3,16 +3,37 @@ import { mensagemAlert } from '../../../toastr';
 import { handleRenovacao } from '../../../../utils/emprestimo/handleRenovacao'
 import { useEffect, useState } from 'react';
 
-import axios from 'axios';
-import { BASE_URL } from '../../../../config/axios';
-const baseUrl = `${BASE_URL}/emprestimos`
-
+import { diferencaEmDias } from '../../../../utils/emprestimo/handleAtraso';
 
 function EmprestimoCard({ emprestimo, exemplar, livro }) {
     const [renovado, setRenovado] = useState(false);
 
     function getQtdDias() {
-        return "x";
+        const qtdDias = diferencaEmDias(emprestimo.dtEta, Date.now())
+
+        let resultado;
+
+        if (qtdDias < 0) {
+            resultado = (
+                <span className={`span-danger px-1 curvatura`}>
+                    {qtdDias * -1} dia(s) de atraso
+                </span>
+            )
+        } else {
+            if (qtdDias === 0) {
+                resultado = (
+                    <span className={`span-alert px-1 curvatura`}>
+                        HOJE
+                    </span>
+                )
+            } else {
+                resultado = (<span className={`span-success px-1 curvatura`}>
+                    Faltam {qtdDias} dia(s)
+                </span>)
+            }
+        }
+
+        return resultado;
     }
 
     async function handleClick() {
@@ -48,12 +69,12 @@ function EmprestimoCard({ emprestimo, exemplar, livro }) {
                 </div>
 
                 <div className='d-flex gap-4'>
-                    <span className={`${getQtdDias() < 3 ? "span-alert" : "span-success"} px-1 curvatura`}>Faltam {getQtdDias()} dia(s)</span>
+                    {getQtdDias()}
                     <span className={`span-muted px-1 curvatura ${emprestimo.renovado || renovado ? undefined : "d-none"}`}>Já renovado</span>
                 </div>
                 <button className="btn btn-outline" onClick={() => handleClick()} disabled={emprestimo.renovado || renovado}><Refresh /> Renovar</button>
             </div>
-        </div>
+        </div >
     );
 }
 

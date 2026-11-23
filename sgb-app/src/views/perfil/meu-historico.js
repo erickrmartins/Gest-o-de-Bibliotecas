@@ -72,7 +72,7 @@ function MeuHistorico({ profile }) {
     useEffect(() => {
         if (profile) {
             axios.get(urlEmprestimos).then((response) => {
-                const filtroPorPerfil = response.data.filter((emprestimo) => emprestimo.idPerfis === profile.nome.split(" ")[0]);
+                const filtroPorPerfil = response.data.filter((emprestimo) => emprestimo.idPerfis === profile.nome);
                 const filtroPorStatus = filtroPorPerfil.filter((emprestimo) => emprestimo.status === "Devolvido");
                 setEmprestimos(filtroPorStatus);
             })
@@ -127,25 +127,31 @@ function MeuHistorico({ profile }) {
             />
             <div className="container">
                 <SubCard>
-                    <table className="table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th>LIVRO</th>
-                                <th>DEVOLUÇÃO</th>
-                                <th className="text-end">AÇÕES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {emprestimos.length > 0 && livros.length > 0 ?
-                                emprestimos.map((emprestimo) => (
-                                    <tr key={emprestimo.id}>
-                                        <td>{getLivro(emprestimo)}</td>
-                                        <td>{emprestimo.dtDevolucao}</td>
-                                        <td className="text-end"><button className="btn btn-primary" onClick={() => reservar(getLivroNome(emprestimo))}>Reservar</button></td>
-                                    </tr>
-                                )) : "Você ainda não possui nenhuma reserva"}
-                        </tbody>
-                    </table>
+                    <div className="table-responsive">
+                        <table className="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>LIVRO</th>
+                                    <th>DEVOLUÇÃO</th>
+                                    <th className="text-end">AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {emprestimos.length > 0 && livros.length > 0 ?
+                                    emprestimos.map((emprestimo) => (
+                                        <tr key={emprestimo.id}>
+                                            <td>{getLivro(emprestimo)}</td>
+                                            <td>{emprestimo.dtDevolucao}</td>
+                                            <td className="text-end"><button className="btn btn-primary" onClick={() => reservar(getLivroNome(emprestimo))}>Reservar</button></td>
+                                        </tr>
+                                    )) : (
+                                        <tr>
+                                            <td colSpan='3'>Você ainda não possui nenhuma reserva</td>
+                                        </tr>
+                                    )}
+                            </tbody>
+                        </table>
+                    </div>
                 </SubCard>
             </div>
         </div>

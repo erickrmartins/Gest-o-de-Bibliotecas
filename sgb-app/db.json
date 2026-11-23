@@ -14,7 +14,7 @@
   "usuarioLogado": [
     {
       "id": "1",
-      "isFuncionario": true,
+      "isFuncionario": false,
       "idUsuario": "1"
     }
   ],
@@ -27,8 +27,7 @@
       "telefone": "32999999999",
       "email": "hermione@email.com",
       "senha": "hermione",
-      "foto": "",
-      "livrosLidos": 128,
+      "img": "hermione.jpg",
       "ativo": true
     },
     {
@@ -39,8 +38,17 @@
       "telefone": "32999999999",
       "email": "harry@email.com",
       "senha": "harry",
-      "foto": "",
-      "livrosLidos": 128,
+      "img": "harry.jpg",
+      "ativo": true
+    },
+    {
+      "id": "doevP4I0NEM",
+      "nome": "Erick Rezende Martins",
+      "dtNasc": "2026-11-25",
+      "cpf": "00000000001",
+      "telefone": "32984476444",
+      "email": "erickrmartins999@gmail.com",
+      "senha": "erick123",
       "ativo": true
     }
   ],
@@ -54,7 +62,7 @@
       "telefone": "32999999998",
       "email": "gandalf@email.com",
       "senha": "gandalf123",
-      "foto": "",
+      "img": "gandalf.jpg",
       "ativo": true
     },
     {
@@ -66,7 +74,7 @@
       "telefone": "32999999999",
       "email": "severus.snape@email.com",
       "senha": "severus123",
-      "foto": "",
+      "img": "severus.jpg",
       "ativo": true
     }
   ],
@@ -601,137 +609,176 @@
     {
       "id": "1",
       "nome": "Romance",
-      "label": "Para se apaixonar de novo"
+      "label": "Para se apaixonar",
+      "ativo": true
     },
     {
       "id": "2",
       "nome": "Fantasia",
-      "label": "Mundos que você vai querer habitar"
+      "label": "Mundos que você vai querer habitar",
+      "ativo": true
     },
     {
       "id": "3",
       "nome": "Ficção",
-      "label": "E se tudo fosse diferente?"
+      "label": "E se tudo fosse diferente?",
+      "ativo": true
     },
     {
       "id": "4",
       "nome": "Aventura",
-      "label": "Prepare-se para a próxima jornada"
+      "label": "Prepare-se para a próxima jornada",
+      "ativo": true
     },
     {
       "id": "5",
       "nome": "Mistério",
-      "label": "Você consegue descobrir primeiro?"
+      "label": "Você consegue descobrir primeiro?",
+      "ativo": true
     },
     {
       "id": "6",
       "nome": "Terror",
-      "label": "Leia com a luz acesa"
+      "label": "Leia com a luz acesa",
+      "ativo": true
     },
     {
       "id": "7",
       "nome": "Drama",
-      "label": "Histórias que apertam o coração"
+      "label": "Histórias que apertam o coração",
+      "ativo": true
     },
     {
       "id": "8",
       "nome": "Distopia",
-      "label": "O futuro que ninguém quer"
+      "label": "O futuro que ninguém quer",
+      "ativo": true
     },
     {
       "id": "9",
       "nome": "Clássico",
-      "label": "Leituras que nunca saem de moda"
+      "label": "Leituras que nunca saem de moda",
+      "ativo": true
     },
     {
       "id": "10",
       "nome": "Ficção",
-      "label": "Imaginação sem limites"
+      "label": "Imaginação sem limites",
+      "ativo": true
     },
     {
       "id": "11",
       "nome": "Infantil",
-      "label": "Para pequenos leitores sonhadores"
+      "label": "Para pequenos leitores sonhadores",
+      "ativo": true
     },
     {
       "id": "12",
       "nome": "Magia",
-      "label": "Feitiços, segredos e encantamentos"
+      "label": "Feitiços, segredos e encantamentos",
+      "ativo": true
     },
     {
       "id": "13",
       "nome": "Realismo",
-      "label": "A vida como ela é"
+      "label": "A vida como ela é",
+      "ativo": true
     },
     {
       "id": "14",
       "nome": "Ficção Científica",
-      "label": "O amanhã começa aqui"
+      "label": "O amanhã começa aqui",
+      "ativo": true
     },
     {
       "id": "15",
       "nome": "Suspense",
-      "label": "Impossível parar na metade"
+      "label": "Impossível parar na metade",
+      "ativo": true
     },
     {
       "id": "16",
       "nome": "Gótico",
-      "label": "Para noites escuras e chuvosas"
+      "label": "Para noites escuras e chuvosas",
+      "ativo": true
     },
     {
       "id": "17",
       "nome": "Naturalismo",
-      "label": "Sem filtros, sem concessões"
+      "label": "Sem filtros, sem concessões",
+      "ativo": true
     },
     {
       "id": "18",
       "nome": "Regionalismo",
-      "label": "Brasil de norte a sul"
+      "label": "Brasil de norte a sul",
+      "ativo": true
     },
     {
       "id": "19",
       "nome": "Sátira",
-      "label": "Rir para não chorar"
+      "label": "Rir para não chorar",
+      "ativo": true
     },
     {
       "id": "20",
       "nome": "Cyberpunk",
-      "label": "Neon, chips e rebeldia"
+      "label": "Neon, chips e rebeldia",
+      "ativo": true
     },
     {
       "id": "21",
       "nome": "Existencialismo",
-      "label": "Perguntas que não calam"
+      "label": "Perguntas que não calam",
+      "ativo": true
     },
     {
       "id": "22",
       "nome": "Realismo Mágico",
-      "label": "Quando o impossível parece normal"
+      "label": "Quando o impossível parece normal",
+      "ativo": true
     },
     {
       "id": "23",
       "nome": "Economia",
-      "label": "Entenda como o dinheiro move tudo"
+      "label": "Entenda como o dinheiro move tudo",
+      "ativo": true
     },
     {
       "id": "24",
       "nome": "Quadrinhos",
-      "label": "Páginas que ganham vida"
+      "label": "Páginas que ganham vida",
+      "ativo": true
     },
     {
       "id": "25",
       "nome": "Tecnologia",
-      "label": "O mundo digital por dentro"
+      "label": "O mundo digital por dentro",
+      "ativo": true
     },
     {
       "id": "26",
       "nome": "Redação",
-      "label": "Escreva melhor, convença mais"
+      "label": "Escreva melhor, convença mais",
+      "ativo": true
     },
     {
       "id": "27",
       "nome": "Política",
-      "label": "Entenda quem decide por nós"
+      "label": "Entenda quem decide por nós",
+      "ativo": true
+    },
+    {
+      "nome": "Ficção Científica",
+      "label": "Para conhecer mundos novos",
+      "id": "go_k8HSHauo",
+      "ativo": false
+    },
+    {
+      "nome": "Ficção",
+      "label": "Para conhecer mundos novos",
+      "ativo": false,
+      "id": "dplJBZML5Js"
     }
   ],
   "editoras": [
@@ -1130,7 +1177,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "16",
@@ -1305,6 +1352,12 @@
       "status": "Na fila de espera",
       "id": "w2_ES_UjzcY",
       "posicao": 2
+    },
+    {
+      "dtReserva": "2026-11-23",
+      "idLivros": "1984",
+      "idPerfis": "Hermione",
+      "id": "nbxCfxWVaBA"
     }
   ],
   "exemplares": [
@@ -1407,7 +1460,7 @@
       "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-09-12",
       "dtEta": "2026-09-19",
-      "dtDevolucao": null,
+      "dtDevolucao": "2026-09-20",
       "renovado": true,
       "status": "Devolvido",
       "ativo": true

@@ -94,27 +94,33 @@ function MeusReservas({ profile }) {
             />
             <div className="container">
                 <SubCard>
-                    <table className="table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th>LIVRO</th>
-                                <th>RESERVADO EM</th>
-                                <th>POSIÇÃO</th>
-                                <th>AÇÕES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {reservas.length > 0 && livros.length > 0 ?
-                                reservas.map((reserva) => (
-                                    <tr className="" key={reserva.id}>
-                                        <td>{getLivro(reserva)}</td>
-                                        <td>{reserva.dtReserva}</td>
-                                        <td>{reserva.posicao}</td>
-                                        <td><button className="btn color-danger" onClick={() => deletar(reserva)}><RemoveCircleIcon fontSize="small" /></button></td>
-                                    </tr>
-                                )) : "Você ainda não possui nenhuma reserva"}
-                        </tbody>
-                    </table>
+                    <div className="table-responsive">
+                        <table className="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>LIVRO</th>
+                                    <th>RESERVA</th>
+                                    <th>POSIÇÃO</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {reservas.length > 0 && livros.length > 0 ?
+                                    reservas.map((reserva) => (
+                                        <tr className="" key={reserva.id}>
+                                            <td>{getLivro(reserva)}</td>
+                                            <td>{reserva.dtReserva}</td>
+                                            <td>{reserva.posicao}</td>
+                                            <td><button className="btn color-danger" onClick={() => deletar(reserva)}><RemoveCircleIcon fontSize="small" /></button></td>
+                                        </tr>
+                                    )) : (
+                                        <tr>
+                                            <td colSpan='4'>Você ainda não possui nenhuma reserva</td>
+                                        </tr>
+                                    )}
+                            </tbody>
+                        </table>
+                    </div>
                 </SubCard>
             </div>
         </div>
