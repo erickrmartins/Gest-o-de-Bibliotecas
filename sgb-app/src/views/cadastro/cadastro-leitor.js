@@ -68,7 +68,8 @@ function CadastroLeitor() {
             cpf,
             telefone,
             email,
-            senha
+            senha,
+            ativo: true
         };
         data = JSON.stringify(data);
         if (idParam == null) {

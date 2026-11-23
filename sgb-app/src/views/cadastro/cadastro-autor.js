@@ -56,6 +56,7 @@ function CadastroAutor() {
             nome,
             citacao,
             nacionalidade,
+            ativo: true
         };
         data = JSON.stringify(data);
         if (idParam == null) {

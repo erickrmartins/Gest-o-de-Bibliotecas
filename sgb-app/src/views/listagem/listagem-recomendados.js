@@ -5,7 +5,7 @@ import SubCard from '../../components/ui/sub-card.js';
 import '../../custom.css';
 import { useNavigate } from 'react-router-dom';
 
-import { mensagemSucesso, mensagemErro, mensagemServidorFalhou } from '../../components/toastr.js';
+import { mensagemSucesso, mensagemErro, mensagemServidorFalhou, mensagemAlert } from '../../components/toastr.js';
 
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/material';
@@ -37,13 +37,21 @@ function ListagemRecomendados() {
     async function recomendar() {
         const url = `${urlLivros}/${livro}`;
 
+        const jaRecomendado = await axios.get(url).then((response) => response.data.recomendado);
+
+        if (jaRecomendado) {
+            mensagemAlert("Esse livro já está recomendado.");
+            return;
+        }
+
         await axios.patch(url, { recomendado: true })
             .then((response) => {
                 mensagemSucesso(`Recomendação realizada com sucesso!`);
                 buscarDados();
+                console.log(livro);
             })
             .catch((error) => {
-                mensagemServidorFalhou();
+                mensagemErro("Selecione um livro válido.");
             });
     }
 
@@ -84,13 +92,14 @@ function ListagemRecomendados() {
                                 name='livro'
                                 onChange={(e) => setLivro(e.target.value)}
                             >
+                                <option value="">Selecione um livro</option>
                                 {dados.length > 0 ? dados.map((dado) => (
                                     <option key={dado.id} value={dado.id}>
                                         {dado.nome}
                                     </option>
                                 )) : null}
                             </select>
-                        </form>
+                        </form> 
                         <button className='btn btn-primary col-lg-2 col-6' onClick={() => recomendar()}>Recomendar</button>
                     </div>
                     <SubCard>

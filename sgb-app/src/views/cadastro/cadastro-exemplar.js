@@ -24,7 +24,7 @@ function CadastroExemplar() {
     const [id, setId] = useState('');
     const [idLivros, setIdLivros] = useState('');
     const [identificacao, setIdentificacao] = useState('');
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState('Disponível');
 
 
     const [dados, setDados] = React.useState([]);
@@ -55,7 +55,8 @@ function CadastroExemplar() {
             id,
             idLivros,
             identificacao,
-            status
+            status,
+            ativo: true
         };
         data = JSON.stringify(data);
         if (idParam == null) {

@@ -10,6 +10,7 @@ import BookmarkBorderOutlined from '@mui/icons-material/BookmarkBorderOutlined';
 import AssignmentOutlined from '@mui/icons-material/AssignmentOutlined';
 import GroupOutlined from '@mui/icons-material/GroupOutlined';
 import BadgeOutlined from '@mui/icons-material/BadgeOutlined';
+import CategoryOutlined from '@mui/icons-material/CategoryOutlined';
 
 import { isAdmin } from '../../utils/login.js';
 import ImagemTopo from '../../components/topo-imagem.js';
@@ -22,8 +23,9 @@ function Registrar({ profile }) {
         { id: 4, imagem: <BusinessOutlined fontSize="medium" />, titulo: "Editoras", descricao: "editoras cadastradas", url: "/editoras/cadastrar", permissao: true },
         { id: 5, imagem: <BookmarkBorderOutlined fontSize="medium" />, titulo: "Reservas", descricao: "na fila de espera", url: "/reservas/cadastrar", permissao: true },
         { id: 6, imagem: <AssignmentOutlined fontSize="medium" />, titulo: "Empréstimos", descricao: "ativos atualmente", url: "/emprestimos/cadastrar", permissao: true },
-        { id: 7, imagem: <GroupOutlined fontSize="medium" />, titulo: "Leitores", descricao: "leitores cadastrados", url: "/leitores/cadastrar", permissao: isAdmin(profile) },
-        { id: 8, imagem: <BadgeOutlined fontSize="medium" />, titulo: "Funcionários", descricao: "funcionários cadastrados", url: "/funcionarios/cadastrar", permissao: isAdmin(profile) },
+        { id: 7, imagem: <CategoryOutlined fontSize="medium" />, titulo: "Gêneros", descricao: "ativos atualmente", url: "/generos/cadastrar", permissao: true },
+        { id: 8, imagem: <GroupOutlined fontSize="medium" />, titulo: "Leitores", descricao: "leitores cadastrados", url: "/leitores/cadastrar", permissao: isAdmin(profile) },
+        { id: 9, imagem: <BadgeOutlined fontSize="medium" />, titulo: "Funcionários", descricao: "funcionários cadastrados", url: "/funcionarios/cadastrar", permissao: isAdmin(profile) },
     ];
 
     return (

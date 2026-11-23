@@ -48,6 +48,7 @@ function CadastroEditora() {
         let data = {
             id,
             nome,
+            ativo: true
         };
         data = JSON.stringify(data);
         if (idParam == null) {
