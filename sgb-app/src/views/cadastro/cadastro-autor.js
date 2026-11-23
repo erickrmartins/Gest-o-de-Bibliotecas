@@ -160,7 +160,7 @@ function CadastroAutor() {
                                     type='button'
                                     className='btn btn-primary curvatura fw-semibold ls-wide px-3 py-2'
                                 >
-                                    Salvar Parâmetro
+                                    Salvar
                                 </button>
                             </Stack>
                         </div>

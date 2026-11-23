@@ -132,7 +132,7 @@ function Perfil({ profile }) {
             <div className="col-lg-12">
                 <div className="image-perfil d-flex align-items-end no-border">
                     <div className="container d-flex flex-row justify-content-start align-items-end gap-4">
-                        <img className="object-fit-cover shadow curvatura" style={{ width: "200px", height: "200px" }} src={`/profilePictures/${profile.cpf}.jpg`} alt="Foto de Perfil" />
+                        <img className="object-fit-cover shadow curvatura" style={{ width: "200px", height: "200px" }} src={`/profilePictures/${profile.img}`} alt="Foto de Perfil" />
                         <div>
                             <span className="btn btn-primary p-0 px-1 fs-7">{getRole(profile)}</span>
                             <h4 className="fs-1 fw-bold">{profile.nome}</h4>

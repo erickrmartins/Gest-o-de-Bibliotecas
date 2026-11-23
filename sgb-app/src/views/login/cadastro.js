@@ -38,7 +38,8 @@ function Cadastro() {
             cpf,
             telefone,
             email,
-            senha
+            senha,
+            ativo: true
         };
         data = JSON.stringify(data);
         await axios
@@ -68,74 +69,86 @@ function Cadastro() {
                             <h1 className="fw-bold ">Cadastrar</h1>
                             <span className={styles.subtitle}>Preencha os campos abaixo para criar sua conta.</span>
                         </div>
-                        <form className={styles.form}>
-                            <FormGroup label='Nome: *' htmlFor='inputNome'>
-                                <input
-                                    type='text'
-                                    id='inputNome'
-                                    value={nome}
-                                    className='form-control'
-                                    name='nome'
-                                    onChange={(e) => setNome(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
-                            </FormGroup>
-                            <FormGroup label='CPF: *' htmlFor='inputCpf'>
-                                <input
-                                    type='text'
-                                    id='inputCpf'
-                                    maxLength='11'
-                                    value={cpf}
-                                    className='form-control'
-                                    name='cpf'
-                                    onChange={(e) => setCpf(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={cpf} />
-                            </FormGroup>
-                            <FormGroup label='Data de Nascimento: *' htmlFor='inputDtNasc'>
-                                <input
-                                    type='date'
-                                    id='inputDtNasc'
-                                    value={dtNasc}
-                                    className='form-control'
-                                    name='dtNasc'
-                                    onChange={(e) => setDtNasc(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtNasc} />
-                            </FormGroup>
-                            <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
-                                <input
-                                    type='text'
-                                    id='inputTelefone'
-                                    value={telefone}
-                                    className='form-control'
-                                    name='telefone'
-                                    onChange={(e) => setTelefone(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
-                            </FormGroup>
-                            <FormGroup label='E-mail: *' htmlFor='inputEmail'>
-                                <input
-                                    type='email'
-                                    id='inputEmail'
-                                    value={email}
-                                    className='form-control'
-                                    name='email'
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
-                            </FormGroup>
-                            <FormGroup label='Senha: *' htmlFor='inputSenha'>
-                                <input
-                                    type='password'
-                                    id='inputSenha'
-                                    value={senha}
-                                    className='form-control'
-                                    name='senha'
-                                    onChange={(e) => setSenha(e.target.value)}
-                                />
-                                <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={senha} />
-                            </FormGroup>
+                        <form className="row">
+                            <div className='col-lg-12'>
+                                <FormGroup label='Nome:' htmlFor='inputNome'>
+                                    <input
+                                        type='text'
+                                        id='inputNome'
+                                        value={nome}
+                                        className='form-control'
+                                        name='nome'
+                                        onChange={(e) => setNome(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={nome} />
+                                </FormGroup>
+                            </div>
+                            <div className='col-lg-4'>
+                                <FormGroup label='CPF:' htmlFor='inputCpf'>
+                                    <input
+                                        type='text'
+                                        id='inputCpf'
+                                        maxLength='11'
+                                        value={cpf}
+                                        className='form-control'
+                                        name='cpf'
+                                        onChange={(e) => setCpf(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={cpf} />
+                                </FormGroup>
+                            </div>
+                            <div className='col-lg-4 col-6'>
+                                <FormGroup label='Nascimento:' htmlFor='inputDtNasc'>
+                                    <input
+                                        type='date'
+                                        id='inputDtNasc'
+                                        value={dtNasc}
+                                        className='form-control'
+                                        name='dtNasc'
+                                        onChange={(e) => setDtNasc(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={dtNasc} />
+                                </FormGroup>
+                            </div>
+                            <div className='col-lg-4 col-6'>
+                                <FormGroup label='Telefone:' htmlFor='inputTelefone'>
+                                    <input
+                                        type='text'
+                                        id='inputTelefone'
+                                        value={telefone}
+                                        className='form-control'
+                                        name='telefone'
+                                        onChange={(e) => setTelefone(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
+                                </FormGroup>
+                            </div>
+                            <div>
+                                <FormGroup label='E-mail:' htmlFor='inputEmail'>
+                                    <input
+                                        type='email'
+                                        id='inputEmail'
+                                        value={email}
+                                        className='form-control'
+                                        name='email'
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
+                                </FormGroup>
+                            </div>
+                            <div>
+                                <FormGroup label='Senha:' htmlFor='inputSenha'>
+                                    <input
+                                        type='password'
+                                        id='inputSenha'
+                                        value={senha}
+                                        className='form-control'
+                                        name='senha'
+                                        onChange={(e) => setSenha(e.target.value)}
+                                    />
+                                    <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={senha} />
+                                </FormGroup>
+                            </div>
                             <button type="submit" className="btn btn-primary" onClick={(e) => {
                                 e.preventDefault();
                                 salvar();

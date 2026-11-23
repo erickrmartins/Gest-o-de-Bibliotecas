@@ -12,6 +12,7 @@ import AssignmentOutlined from '@mui/icons-material/AssignmentOutlined';
 import GroupOutlined from '@mui/icons-material/GroupOutlined';
 import BadgeOutlined from '@mui/icons-material/BadgeOutlined';
 import TuneOutlined from '@mui/icons-material/TuneOutlined';
+import CategoryOutlined from '@mui/icons-material/CategoryOutlined';
 
 import axios from "axios";
 import { BASE_URL } from "../../config/axios.js";
@@ -42,9 +43,10 @@ function Gerenciar({ profile }) {
         { id: 4, imagem: <BusinessOutlined fontSize="medium" />, titulo: "Editoras", descricao: "editoras cadastradas", url: "editoras", permissao: true },
         { id: 5, imagem: <BookmarkBorderOutlined fontSize="medium" />, titulo: "Reservas", descricao: "na fila de espera", url: "reservas", permissao: true },
         { id: 6, imagem: <AssignmentOutlined fontSize="medium" />, titulo: "Empréstimos", descricao: "ativos atualmente", url: "emprestimos", permissao: true },
-        { id: 7, imagem: <GroupOutlined fontSize="medium" />, titulo: "Leitores", descricao: "leitores cadastrados", url: "leitores", permissao: isAdmin(profile) },
-        { id: 8, imagem: <BadgeOutlined fontSize="medium" />, titulo: "Funcionários", descricao: "funcionários cadastrados", url: "funcionarios", permissao: isAdmin(profile) },
-        { id: 9, imagem: <TuneOutlined fontSize="medium" />, titulo: "Parâmetros", descricao: "parâmetros do sistema", url: "parametros", permissao: isAdmin(profile) },
+        { id: 7, imagem: <CategoryOutlined fontSize="medium" />, titulo: "Gêneros", descricao: "cadastrados", url: "generos", permissao: true },
+        { id: 8, imagem: <GroupOutlined fontSize="medium" />, titulo: "Leitores", descricao: "leitores cadastrados", url: "leitores", permissao: isAdmin(profile) },
+        { id: 9, imagem: <BadgeOutlined fontSize="medium" />, titulo: "Funcionários", descricao: "funcionários cadastrados", url: "funcionarios", permissao: isAdmin(profile) },
+        { id: 10, imagem: <TuneOutlined fontSize="medium" />, titulo: "Parâmetros", descricao: "parâmetros do sistema", url: "parametros", permissao: isAdmin(profile) },
     ];
 
     return (

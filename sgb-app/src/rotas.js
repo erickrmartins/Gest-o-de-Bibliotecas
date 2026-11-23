@@ -11,6 +11,7 @@ import ListagemLeitor from './views/listagem/listagem-leitor';
 import ListagemFuncionario from './views/listagem/listagem-funcionario';
 import ListagemParametro from './views/listagem/listagem-parametro';
 import ListagemRecomendados from './views/listagem/listagem-recomendados.js';
+import ListagemGenero from './views/listagem/listagem-genero.js';
 
 import CadastroAutor from './views/cadastro/cadastro-autor';
 import CadastroLivro from './views/cadastro/cadastro-livro';
@@ -21,6 +22,7 @@ import CadastroEmprestimo from './views/cadastro/cadastro-emprestimo';
 import CadastroLeitor from './views/cadastro/cadastro-leitor';
 import CadastroFuncionario from './views/cadastro/cadastro-funcionario';
 import CadastroParametro from './views/cadastro/cadastro-parametro';
+import CadastroGenero from './views/cadastro/cadastro-genero.js';
 
 import NotFound from './views/notfound';
 import Gerenciar from './views/dashboard/gerenciar';
@@ -108,6 +110,7 @@ function Rotas(props) {
                 <Route path="/exemplares" element={<ListagemExemplar />} />
                 <Route path="/reservas" element={<ListagemReserva />} />
                 <Route path="/emprestimos" element={<ListagemEmprestimo />} />
+                <Route path="/generos" element={<ListagemGenero />} />
                 <Route path="/recomendados" element={<ListagemRecomendados />} />
 
                 <Route path="/autores/cadastrar/:idParam?" element={<CadastroAutor />} />
@@ -116,9 +119,9 @@ function Rotas(props) {
                 <Route path="/exemplares/cadastrar/:idParam?" element={<CadastroExemplar />} />
                 <Route path="/reservas/cadastrar/:idParam?" element={<CadastroReserva />} />
                 <Route path="/emprestimos/cadastrar/:idParam?" element={<CadastroEmprestimo />} />
+                <Route path="/generos/cadastrar/:idParam?" element={<CadastroGenero />} />
 
-                <Route path="/relatorio/:idParam?" element={<Relatorio profile={profile}/>}/>
-
+                <Route path="/relatorio/:idParam?" element={<Relatorio profile={profile} />} />
             </Route>
 
             <Route element={<VerificarPerfil profile={profile} status={status} permitidos={administrador} />}>
