@@ -62,11 +62,11 @@ function GenreCarousel({ titulo, livros, maximizar, limpar }) {
             </div>
             <div className="row">
                 {maximizar ? livros.map((livro) => (
-                    <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4">
+                    <div key={livro.id} className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4">
                         <BookCard livro={livro} />
                     </div>
                 )) : livros.slice(index, index + visiveis).map((livro) => (
-                    <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4">
+                    <div key={livro.id} className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4">
                         <BookCard livro={livro} />
                     </div>
                 ))}

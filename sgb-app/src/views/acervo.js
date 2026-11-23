@@ -56,7 +56,7 @@ function Acervo() {
             return (
                 <div>
                     <GenreCarousel titulo="Recomendados pela biblioteca" livros={recomendados} />
-                    {generos.map((genero) => <GenreCarousel titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />)}
+                    {generos.map((genero) => <GenreCarousel key={genero.id} titulo={genero.label} livros={getLivrosByGenero(genero.nome)} />)}
                 </div>
             );
         }

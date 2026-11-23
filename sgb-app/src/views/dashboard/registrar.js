@@ -19,7 +19,7 @@ function Registrar({ profile }) {
         { id: 1, imagem: <MenuBookOutlined fontSize="medium" />, titulo: "Livros", descricao: "títulos no acervo", url: "/livros/cadastrar", permissao: true },
         { id: 2, imagem: <Inventory2Outlined fontSize="medium" />, titulo: "Exemplares", descricao: "adicionados a coleção", url: "/exemplares/cadastrar", permissao: true },
         { id: 3, imagem: <PersonOutlined fontSize="medium" />, titulo: "Autores", descricao: "autores cadastrados", url: "/autores/cadastrar", permissao: true },
-        { id: 4, imagem: <BusinessOutlined fontSize="medium" />, titulo: "Editoras", descricao: "editoras cadastradas", url: "editoras", permissao: true },
+        { id: 4, imagem: <BusinessOutlined fontSize="medium" />, titulo: "Editoras", descricao: "editoras cadastradas", url: "/editoras/cadastrar", permissao: true },
         { id: 5, imagem: <BookmarkBorderOutlined fontSize="medium" />, titulo: "Reservas", descricao: "na fila de espera", url: "/reservas/cadastrar", permissao: true },
         { id: 6, imagem: <AssignmentOutlined fontSize="medium" />, titulo: "Empréstimos", descricao: "ativos atualmente", url: "/emprestimos/cadastrar", permissao: true },
         { id: 7, imagem: <GroupOutlined fontSize="medium" />, titulo: "Leitores", descricao: "leitores cadastrados", url: "/leitores/cadastrar", permissao: isAdmin(profile) },

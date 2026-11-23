@@ -24,7 +24,7 @@ function EmprestimoCarrossel({ livros, exemplares, emprestimos }) {
                 }
 
                 return (
-                    <div className="col-lg-6 col-md-12">
+                    <div key={emprestimo.id} className="col-lg-6 col-md-12">
                         <SubCard>
                             <EmprestimoCard emprestimo={emprestimo} exemplar={exemplar} livro={livro} />
                         </SubCard>

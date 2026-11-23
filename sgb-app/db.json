@@ -14,7 +14,7 @@
   "usuarioLogado": [
     {
       "id": "1",
-      "isFuncionario": true,
+      "isFuncionario": false,
       "idUsuario": "1"
     }
   ],
@@ -1130,7 +1130,7 @@
       "idGeneros": "Drama",
       "idEditoras": "Penguin",
       "ativo": true,
-      "recomendado": false
+      "recomendado": true
     },
     {
       "id": "16",
@@ -1305,6 +1305,12 @@
       "status": "Na fila de espera",
       "id": "w2_ES_UjzcY",
       "posicao": 2
+    },
+    {
+      "dtReserva": "2026-11-23",
+      "idLivros": "1984",
+      "idPerfis": "Hermione",
+      "id": "nbxCfxWVaBA"
     }
   ],
   "exemplares": [
@@ -1407,7 +1413,7 @@
       "idPerfis": "Hermione Jean Granger",
       "dtEmprestimo": "2026-09-12",
       "dtEta": "2026-09-19",
-      "dtDevolucao": null,
+      "dtDevolucao": "2026-09-20",
       "renovado": true,
       "status": "Devolvido",
       "ativo": true

@@ -58,18 +58,18 @@ function BookPage({ profile }) {
         <div className="container">
             <Card>
                 <div className="container-fluid row">
-                    <div className="col-lg-3">
-                        <img
-                            src={`/covers/${livro.isbn}.jpg`}
-                            alt={`Capa de ${livro.nome}`}
-                            className={`curvatura img-fluid image-cover`}
-                        />
+                    <div className="col-lg-3 col-sm-6">
+                            <img
+                                src={`/covers/${livro.isbn}.jpg`}
+                                alt={`Capa de ${livro.nome}`}
+                                className={`curvatura img-fluid image-cover`}
+                            />
                     </div>
-                    <div className="col-lg-9">
+                    <div className="col-lg-9 col-sm-6">
                         <div className="d-flex gap-2 mb-4">
                             <span className="fs-7 genre-style px-2 px-2 py-1 curvatura d-flex align-items-center justify-content-center gap-1">{livro.idGeneros}</span>
                             {!livro.recomendado ? null : (
-                                <span className="fs-7 recommended-style px-2 py-1 curvatura d-flex align-items-center justify-content-center gap-1"><StarFilled fontSize="small" />Recomendado</span>
+                                <span className="fs-x7 recommended-style px-2 py-1 curvatura d-flex align-items-center justify-content-center gap-1"><StarFilled fontSize="small" />Recomendado</span>
                             )}
                         </div>
                         <h1>{livro.nome}</h1>
@@ -77,23 +77,23 @@ function BookPage({ profile }) {
                         <p className="fs-7 my-4">{livro.sinopsis}</p>
                         <hr className="divider" />
                         <div className="row">
-                            <div className="col-lg-4 d-flex flex-column mb-2">
+                            <div className="col-4 d-flex flex-column mb-2">
                                 <label className="fs-8">Editora</label>
                                 <span className="fs-6 fw-semibold">{livro.idEditoras}</span>
                             </div>
-                            <div className="col-lg-4 d-flex flex-column">
+                            <div className="col-4 d-flex flex-column">
                                 <label className="fs-8">Publicação</label>
                                 <span className="fs-6 fw-semibold">{livro.dtPublicacao}</span>
                             </div>
-                            <div className="col-lg-4 d-flex flex-column">
+                            <div className="col-4 d-flex flex-column">
                                 <label className="fs-8">Genero</label>
                                 <span className="fs-6 fw-semibold">{livro.idGeneros}</span>
                             </div>
-                            <div className="col-lg-4 d-flex flex-column">
+                            <div className="col-4 d-flex flex-column">
                                 <label className="fs-8">Páginas</label>
                                 <span className="fs-6 fw-semibold">{livro.numPaginas}</span>
                             </div>
-                            <div className="col-lg-4 d-flex flex-column">
+                            <div className="col-4 d-flex flex-column">
                                 <label className="fs-8">ISBN</label>
                                 <span className="fs-6 fw-semibold">{livro.isbn}</span>
                             </div>
