@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import NavbarItem from './navbarItem';
-import { useNavigate, useLocation } from 'react-router-dom';
-import NavbarProfile from './navbarProfile';
-
-import { getLogin, isFuncionario } from '../../../utils/login';
-
+import NavbarItem from './NavbarItem';
+import { useLocation } from 'react-router-dom';
+import NavbarProfile from './NavbarProfile';
+import { getLogin, isFuncionario } from '../../../utils/auth/Login';
 import srcLogo from '../../../assets/logo-sgb.svg'
 
-
-function Navbar({ }) {
+function Navbar() {
     const location = useLocation();
     const path = location.pathname;
     const show = path === '/login' || path === '/cadastrar';
-
     const [profile, setProfile] = useState(null);
 
     useEffect(() => {
         getLogin().then((dados) => setProfile(dados));
     }, []);
-
 
     return show ? null : (
         <nav className='mx-auto navbar bg-white navbar-expand-lg sticky-top shadow border-bottom'>
@@ -28,11 +23,9 @@ function Navbar({ }) {
                         <img src={srcLogo} style={{ width: "40px" }}/>
                         SGB
                     </a>
-
                     <div className='ms-auto ms-lg-0 order-1 order-lg-2'>
                         <NavbarProfile profile={profile} />
                     </div>
-
                     <button
                         className='navbar-toggler order-2 order-lg-3'
                         type='button'
@@ -44,7 +37,6 @@ function Navbar({ }) {
                     >
                         <span className='navbar-toggler-icon'></span>
                     </button>
-
                     <div
                         className='collapse navbar-collapse justify-content-lg-center order-3 order-lg-1'
                         id='navbarResponsive'
@@ -56,8 +48,7 @@ function Navbar({ }) {
                                     <NavbarItem destino="/gerenciar" label="Gerenciar" render={true} />
                                     <NavbarItem destino="/registrar" label="Registrar" render={true} />
                                 </>
-                                :
-                                null
+                                : null
                             }
                         </ul>
                     </div>

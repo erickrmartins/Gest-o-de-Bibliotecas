@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import Card from "../../components/ui/card.js"
-import FormGroup from "../../components/ui/form-group.js";
-import SubCard from "../../components/ui/sub-card.js"
-import ChecarAsterisco from "../../utils/checar-asterisco.js";
+import Card from "../../components/ui/Card.js"
+import FormGroup from "../../components/ui/FormGroup.js";
+import SubCard from "../../components/ui/SubCard.js"
+import CampoObrigatorio from "../../utils/validacao/CampoObrigatorio.js";
 
 import { Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 
-import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/toastr.js"
-import { getRole } from "../../utils/login.js";
+import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/Toastr.js"
+import { getRole } from "../../utils/auth/Login.js";
 
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 import axios from "axios";
 import { BASE_URL } from "../../config/axios.js";
-import { isFuncionario } from "../../utils/login.js";
+import { isFuncionario } from "../../utils/auth/Login.js";
 
 function Perfil({ profile }) {
     const [id, setId] = useState('');
@@ -158,7 +158,7 @@ function Perfil({ profile }) {
                                                 name='nome'
                                                 disabled
                                             />
-                                            <ChecarAsterisco />
+                                            <CampoObrigatorio />
                                         </FormGroup>
                                     </div>
                                     <div className="col-lg-6">
@@ -171,7 +171,7 @@ function Perfil({ profile }) {
                                                 name='cpf'
                                                 disabled
                                             />
-                                            <ChecarAsterisco />
+                                            <CampoObrigatorio />
                                         </FormGroup>
                                     </div>
                                     <div className="col-lg-6">
@@ -184,7 +184,7 @@ function Perfil({ profile }) {
                                                 name='telefone'
                                                 onChange={(e) => setTelefone(e.target.value)}
                                             />
-                                            <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={telefone} />
+                                            <CampoObrigatorio tentouSalvar={tentouSalvar} variavel={telefone} />
                                         </FormGroup>
                                     </div>
                                     <div className="col-lg-6">
@@ -197,7 +197,7 @@ function Perfil({ profile }) {
                                                 name='email'
                                                 onChange={(e) => setEmail(e.target.value)}
                                             />
-                                            <ChecarAsterisco tentouSalvar={tentouSalvar} variavel={email} />
+                                            <CampoObrigatorio tentouSalvar={tentouSalvar} variavel={email} />
                                         </FormGroup>
                                     </div>
                                     <div className="col-lg-6">

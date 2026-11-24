@@ -1,7 +1,7 @@
 
 import axios from "axios"
 import { BASE_URL } from "../../config/axios"
-import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/toastr";
+import { mensagemAlert, mensagemErro, mensagemSucesso } from "../../components/Toastr";
 
 const urlParametros = `${BASE_URL}/parametros/1`;
 const urlReservas = `${BASE_URL}/reservas`;

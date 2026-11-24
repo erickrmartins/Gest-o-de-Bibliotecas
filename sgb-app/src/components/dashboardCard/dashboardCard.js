@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./dashboardCard.module.css"
+import styles from "./DashboardCard.module.css"
 
 const bgColors = [
     "#7D5F47",

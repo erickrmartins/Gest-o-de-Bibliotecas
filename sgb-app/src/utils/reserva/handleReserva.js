@@ -1,6 +1,6 @@
 import axios from "axios"
 import { BASE_URL, urlEmprestimos } from "../../config/axios"
-import { mensagemAlert, mensagemErro, mensagemServidorFalhou, mensagemSucesso } from "../../components/toastr"
+import { mensagemAlert, mensagemServidorFalhou, mensagemSucesso } from "../../components/Toastr"
 import { ordenarReservas } from "./ordenarReservas"
 const urlExemplares = `${BASE_URL}/exemplares`
 const urlReservas = `${BASE_URL}/reservas`

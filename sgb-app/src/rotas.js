@@ -1,48 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, BrowserRouter, Outlet } from 'react-router-dom';
 
-import ListagemAutor from './views/listagem/listagem-autor';
-import ListagemEditora from './views/listagem/listagem-editora';
-import ListagemLivro from './views/listagem/listagem-livro';
-import ListagemExemplar from './views/listagem/listagem-exemplar';
-import ListagemReserva from './views/listagem/listagem-reserva';
-import ListagemEmprestimo from './views/listagem/listagem-emprestimo';
-import ListagemLeitor from './views/listagem/listagem-leitor';
-import ListagemFuncionario from './views/listagem/listagem-funcionario';
-import ListagemParametro from './views/listagem/listagem-parametro';
-import ListagemRecomendados from './views/listagem/listagem-recomendados.js';
-import ListagemGenero from './views/listagem/listagem-genero.js';
+import ListagemAutor from './views/listagem/ListagemAutor';
+import ListagemEditora from './views/listagem/ListagemEditora';
+import ListagemLivro from './views/listagem/ListagemLivro';
+import ListagemExemplar from './views/listagem/ListagemExemplar';
+import ListagemReserva from './views/listagem/ListagemReserva';
+import ListagemEmprestimo from './views/listagem/ListagemEmprestimo';
+import ListagemLeitor from './views/listagem/ListagemLeitor';
+import ListagemFuncionario from './views/listagem/ListagemFuncionario';
+import ListagemParametro from './views/listagem/ListagemParametro';
+import ListagemRecomendados from './views/listagem/ListagemRecomendados';
+import ListagemGenero from './views/listagem/ListagemGenero';
 
-import CadastroAutor from './views/cadastro/cadastro-autor';
-import CadastroLivro from './views/cadastro/cadastro-livro';
-import CadastroEditora from './views/cadastro/cadastro-editora';
-import CadastroExemplar from './views/cadastro/cadastro-exemplar';
-import CadastroReserva from './views/cadastro/cadastro-reserva';
-import CadastroEmprestimo from './views/cadastro/cadastro-emprestimo';
-import CadastroLeitor from './views/cadastro/cadastro-leitor';
-import CadastroFuncionario from './views/cadastro/cadastro-funcionario';
-import CadastroParametro from './views/cadastro/cadastro-parametro';
-import CadastroGenero from './views/cadastro/cadastro-genero.js';
+import CadastroAutor from './views/cadastro/CadastroAutor';
+import CadastroLivro from './views/cadastro/CadastroLivro';
+import CadastroEditora from './views/cadastro/CadastroEditora';
+import CadastroExemplar from './views/cadastro/CadastroExemplar';
+import CadastroReserva from './views/cadastro/CadastroReserva';
+import CadastroEmprestimo from './views/cadastro/CadastroEmprestimo';
+import CadastroLeitor from './views/cadastro/CadastroLeitor';
+import CadastroFuncionario from './views/cadastro/CadastroFuncionario';
+import CadastroParametro from './views/cadastro/CadastroParametro';
+import CadastroGenero from './views/cadastro/CadastroGenero';
 
 import NotFound from './views/notfound';
-import Gerenciar from './views/dashboard/gerenciar';
-import Registrar from './views/dashboard/registrar';
-import Acervo from './views/acervo';
+import Gerenciar from './views/dashboard/Gerenciar';
+import Registrar from './views/dashboard/Registrar';
+import Acervo from './views/acervo/Acervo';
 
-import Login from './views/login/login';
-import Cadastro from './views/login/cadastro';
-import BookPage from './views/book-page';
-import Perfil from './views/perfil/perfil';
+import Login from './views/auth/Login';
+import Cadastro from './views/auth/Cadastro';
+import LivroDetalhes from './views/acervo/LivroDetalhes';
+import Perfil from './views/perfil/Perfil';
 
-import MeusEmprestimos from './views/perfil/meus-emprestimos.js'
-import MeusReservas from './views/perfil/meus-reservas.js';
-import MeuHistorico from './views/perfil/meu-historico.js';
+import MeusEmprestimos from './views/perfil/MeusEmprestimos.js'
+import MeusReservas from './views/perfil/MeusReservas.js';
+import MeuHistorico from './views/perfil/MeuHistorico.js';
 
-import Relatorio from './views/relatorio/relatorio.js';
+import Relatorio from './views/relatorio/Relatorio.js';
 
-import { getLogin } from './utils/login';
+import { getLogin } from './utils/auth/Login';
 
-import { mensagemErro, mensagemAlert } from './components/toastr';
+import { mensagemErro, mensagemAlert } from './components/Toastr';
 
 function VerificarPerfil({ profile, status, permitidos }) {
     if (status === 'error') {
@@ -91,7 +91,7 @@ function Rotas(props) {
             <Route path="/login" element={<Login />} />
             <Route path="/cadastrar" element={<Cadastro />} />
             <Route path='/' element={<Acervo />} />
-            <Route path="/livros/:idParam" element={<BookPage profile={profile} />} />
+            <Route path="/livros/:idParam" element={<LivroDetalhes profile={profile} />} />
 
             <Route element={<VerificarPerfil profile={profile} status={status} permitidos={usuarios} />}>
                 <Route path="/perfil" element={<Perfil profile={profile} />} />

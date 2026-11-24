@@ -1,6 +1,6 @@
 import React from 'react';
 import Rotas from './rotas.js';
-import NavBar from './components/layout/navbar/navbar.js';
+import Navbar from './components/layout/navbar/Navbar.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <Navbar />
         <Rotas />
       </div>
     );

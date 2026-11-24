@@ -1,7 +1,7 @@
 import axios from "axios";
 import { urlEmprestimos, urlExemplares, urlLivros, urlReservas } from "../../config/axios";
 
-import { mensagemAlert, mensagemErro, mensagemServidorFalhou, mensagemSucesso } from "../../components/toastr"
+import { mensagemAlert, mensagemErro, mensagemServidorFalhou, mensagemSucesso } from "../../components/Toastr"
 
 const filtroEmprestimo = async (status, inicio, fim) => {
     try {

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { urlExemplares, urlReservas } from "../../config/axios";
-import { urlLivros } from "../../config/axios";
-import { mensagemAlert, mensagemErro, mensagemServidorFalhou, mensagemSucesso } from "../../components/toastr"
+import { mensagemServidorFalhou, mensagemSucesso } from "../../components/Toastr"
 
 const liberarExemplar = async (livro, exemplar) => {
     try {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import Card from '../../components/ui/card.js';
-import DashboardCard from "../../components/dashboardCard/dashboardCard.js";
+import Card from '../../components/ui/Card.js';
+import DashboardCard from "../../components/dashboardCard/DashboardCard.js";
 
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
 import BusinessOutlined from '@mui/icons-material/BusinessOutlined';
@@ -17,8 +17,8 @@ import CategoryOutlined from '@mui/icons-material/CategoryOutlined';
 import axios from "axios";
 import { BASE_URL } from "../../config/axios.js";
 
-import { isAdmin } from "../../utils/login.js";
-import ImagemTopo from "../../components/topo-imagem.js";
+import { isAdmin } from "../../utils/auth/Login.js";
+import PageHeader from "../../components/layout/PageHeader.js";
 
 function Gerenciar({ profile }) {
 
@@ -51,7 +51,7 @@ function Gerenciar({ profile }) {
 
     return (
         <div>
-            <ImagemTopo
+            <PageHeader
                 imagem="/background-gerencia.jpg"
                 titulo="Gerenciar"
                 subtitulo="Selecione uma opção para obter mais informações."

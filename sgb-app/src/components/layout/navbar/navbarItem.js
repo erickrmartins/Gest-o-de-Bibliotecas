@@ -6,17 +6,16 @@ function NavbarItem({ render, destino, label }) {
   const path = location.pathname;
   const isActive = path === destino;
 
-  if (render) {
-    return (
-      <li className='nav-item'>
-        <Link to={destino} className={`p-2 nav-link curvatura ${isActive ? "navbar-item-selected" : "navbar-item-new"}`}>
-          {label}
-        </Link>
-      </li>
-    );
-  } else {
-    return false;
-  }
+  return render ? (
+    <li className="nav-item">
+      <Link
+        to={destino}
+        className={`nav-link ${isActive ? 'active' : ''}`}
+      >
+        {label}
+      </Link>
+    </li>
+  ) : null;
 }
 
 export default NavbarItem;

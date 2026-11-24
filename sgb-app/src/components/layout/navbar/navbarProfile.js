@@ -1,77 +1,43 @@
 import { Link } from "react-router-dom";
-import { logout } from "../../../utils/login";
+import { logout } from "../../../utils/auth/Login";
 
 function NavbarProfile({ profile }) {
     if (!profile) {
         return <Link className="curvatura btn btn-entrar" to="/login">ENTRAR</Link>;
     }
 
-    const isLeitor = "livrosLidos" in profile;
-
-    const nome = profile.nome.split(" ");
-    const nomeFormatado = nome[0] + " " + nome[nome.length - 1];
-
-    function getRole() {
-        let role;
-
-        if (isLeitor) {
-            role = "Leitor";
-        }
-        else {
-            if (profile.isAdmin === true) {
-                role = "Administrador";
-            }
-            else {
-                role = "Bibliotecário";
-            }
-        }
-
-        return role;
-    }
-
     return (
-        <div className="nav-item dropdown">
-            <a
-                className="nav-link dropdown-toggle d-flex align-items-center gap-2"
-                href="#"
-                role="button"
+        <div className="dropdown">
+            <button
+                className="btn p-0 border-0 dropdown-toggle d-flex align-items-center"
+                type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
             >
-                <div className="d-flex align-items-center gap-2 p-1">
-                    <img
-                        className="rounded-circle object-fit-cover"
-                        style={{ width: "40px", height: "40px" }}
-                        src={`/profilePictures/${profile.img}`}
-                        alt="Foto de Perfil"
-                    />
-
-                    <div className="d-none d-lg-flex flex-column justify-content-center text-nowrap">
-                        <h5 className="fs-7 m-0">{nomeFormatado}</h5>
-                        <span className="fs-8 m-0">
-                            {getRole()}
-                        </span>
-                    </div>
-                </div>
-            </a>
-
+                <img
+                    className="rounded-circle"
+                    src={`/profilePictures/${profile.img}`}
+                    alt={profile.nome}
+                    style={{ width: "40px", height: "40px", objectFit: "cover" }}
+                />
+            </button>
             <ul className="dropdown-menu dropdown-menu-end">
-                <li>
-                    <h5 className="m-0 dropdown-item fs-7 fw-bold">{profile.nome}</h5>
-                    <span className="m-0 fs-8 dropdown-item">{getRole()}</span>
-                </li>
-
+                <li><Link className="dropdown-item" to="/perfil">Meu perfil</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/emprestimos">Meus empréstimos</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/reservas">Minhas reservas</Link></li>
+                <li><Link className="dropdown-item" to="/perfil/historico">Meu histórico</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-
-                <li><Link className="dropdown-item" to="/perfil">Perfil</Link></li>
-                <li><Link className="dropdown-item" to="/perfil/emprestimos">Empréstimos</Link></li>
-                <li><Link className="dropdown-item" to="/perfil/reservas">Reservas</Link></li>
-                <li><Link className="dropdown-item" to="/perfil/historico">Histórico</Link></li>
-
-                <li><hr className="dropdown-divider" /></li>
-
                 <li>
-                    <Link className="dropdown-item" to="/login" onClick={() => logout()}>Sair</Link>
+                    <button
+                        className="dropdown-item"
+                        type="button"
+                        onClick={async () => {
+                            await logout();
+                            window.location.href = "/";
+                        }}
+                    >
+                        Sair
+                    </button>
                 </li>
             </ul>
         </div>

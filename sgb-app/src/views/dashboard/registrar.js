@@ -1,6 +1,6 @@
-import Card from '../../components/ui/card.js';
-import SubCard from '../../components/ui/sub-card.js';
-import DashboardCard from "../../components/dashboardCard/dashboardCard.js";
+import Card from '../../components/ui/Card.js';
+import SubCard from '../../components/ui/SubCard.js';
+import DashboardCard from "../../components/dashboardCard/DashboardCard.js";
 
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
 import BusinessOutlined from '@mui/icons-material/BusinessOutlined';
@@ -12,8 +12,8 @@ import GroupOutlined from '@mui/icons-material/GroupOutlined';
 import BadgeOutlined from '@mui/icons-material/BadgeOutlined';
 import CategoryOutlined from '@mui/icons-material/CategoryOutlined';
 
-import { isAdmin } from '../../utils/login.js';
-import ImagemTopo from '../../components/topo-imagem.js';
+import { isAdmin } from '../../utils/auth/Login.js';
+import PageHeader from '../../components/layout/PageHeader.js';
 
 function Registrar({ profile }) {
     const items = [
@@ -30,7 +30,7 @@ function Registrar({ profile }) {
 
     return (
         <div>
-            <ImagemTopo
+            <PageHeader
                 imagem="/background-gerencia.jpg"
                 titulo="Registrar"
                 subtitulo="Selecione uma opção para registrar um novo dado."

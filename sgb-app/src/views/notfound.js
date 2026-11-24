@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../components/ui/card.js';
-import SubCard from '../components/ui/sub-card.js';
+import Card from '../components/ui/Card.js';
+import SubCard from '../components/ui/SubCard.js';
 import '../custom.css';
 
 function NotFound() {

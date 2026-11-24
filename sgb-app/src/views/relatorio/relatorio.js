@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom";
-import Tabela from "./tabelas";
-import "./relatorio.css";
+import Tabela from "./Tabelas";
+import "./Relatorio.css";
 
-import { filtrarRelatorio } from "./filtrarRelatorio";
+import { filtrarRelatorio } from "./FiltrarRelatorio";
 import { useEffect, useState } from "react";
 
 function Relatorio({ profile }) {

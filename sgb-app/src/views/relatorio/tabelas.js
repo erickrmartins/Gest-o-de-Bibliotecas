@@ -153,7 +153,7 @@ function tabelaLivro(dados) {
     )
 }
 
-function Tabela({ tipo, dados }) {
+function Tabelas({ tipo, dados }) {
     switch (tipo) {
         case "emprestimo":
             return tabelaEmprestimo(dados);
@@ -166,4 +166,4 @@ function Tabela({ tipo, dados }) {
     }
 }
 
-export default Tabela;
+export default Tabelas;
