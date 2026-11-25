@@ -14,7 +14,7 @@
   "usuarioLogado": [
     {
       "id": "1",
-      "isFuncionario": false,
+      "isFuncionario": true,
       "idUsuario": "1"
     }
   ],
@@ -358,6 +358,20 @@
       "citacao": "MONTES, Raphael",
       "nacionalidade": "Brasileira",
       "ativo": true
+    },
+    {
+      "id": "97",
+      "nome": "Ray Bradbury",
+      "citacao": "BRADBURY, Ray",
+      "nacionalidade": "Norte-Americana",
+      "ativo": true
+    },
+    {
+      "id": "98",
+      "nome": "Emily Brontë",
+      "citacao": "BRONTË, Emily",
+      "nacionalidade": "Britânica",
+      "ativo": true
     }
   ],
   "generos": [
@@ -407,150 +421,6 @@
       "id": "8",
       "nome": "Distopia",
       "label": "O futuro que ninguém quer",
-      "ativo": true
-    },
-    {
-      "id": "9",
-      "nome": "Clássico",
-      "label": "Leituras que nunca saem de moda",
-      "ativo": true
-    },
-    {
-      "id": "10",
-      "nome": "Ficção",
-      "label": "Imaginação sem limites",
-      "ativo": true
-    },
-    {
-      "id": "11",
-      "nome": "Infantil",
-      "label": "Para pequenos leitores sonhadores",
-      "ativo": true
-    },
-    {
-      "id": "12",
-      "nome": "Magia",
-      "label": "Feitiços, segredos e encantamentos",
-      "ativo": true
-    },
-    {
-      "id": "13",
-      "nome": "Realismo",
-      "label": "A vida como ela é",
-      "ativo": true
-    },
-    {
-      "id": "14",
-      "nome": "Ficção Científica",
-      "label": "O amanhã começa aqui",
-      "ativo": true
-    },
-    {
-      "id": "15",
-      "nome": "Suspense",
-      "label": "Impossível parar na metade",
-      "ativo": true
-    },
-    {
-      "id": "16",
-      "nome": "Gótico",
-      "label": "Para noites escuras e chuvosas",
-      "ativo": true
-    },
-    {
-      "id": "17",
-      "nome": "Naturalismo",
-      "label": "Sem filtros, sem concessões",
-      "ativo": true
-    },
-    {
-      "id": "18",
-      "nome": "Regionalismo",
-      "label": "Brasil de norte a sul",
-      "ativo": true
-    },
-    {
-      "id": "19",
-      "nome": "Sátira",
-      "label": "Rir para não chorar",
-      "ativo": true
-    },
-    {
-      "id": "20",
-      "nome": "Cyberpunk",
-      "label": "Neon, chips e rebeldia",
-      "ativo": true
-    },
-    {
-      "id": "21",
-      "nome": "Existencialismo",
-      "label": "Perguntas que não calam",
-      "ativo": true
-    },
-    {
-      "id": "22",
-      "nome": "Realismo Mágico",
-      "label": "Quando o impossível parece normal",
-      "ativo": true
-    },
-    {
-      "id": "23",
-      "nome": "Economia",
-      "label": "Entenda como o dinheiro move tudo",
-      "ativo": true
-    },
-    {
-      "id": "24",
-      "nome": "Quadrinhos",
-      "label": "Páginas que ganham vida",
-      "ativo": true
-    },
-    {
-      "id": "25",
-      "nome": "Tecnologia",
-      "label": "O mundo digital por dentro",
-      "ativo": true
-    },
-    {
-      "id": "26",
-      "nome": "Redação",
-      "label": "Escreva melhor, convença mais",
-      "ativo": true
-    },
-    {
-      "id": "27",
-      "nome": "Política",
-      "label": "Entenda quem decide por nós",
-      "ativo": true
-    },
-    {
-      "nome": "Ficção Científica",
-      "label": "Para conhecer mundos novos",
-      "id": "go_k8HSHauo",
-      "ativo": false
-    },
-    {
-      "nome": "Ficção",
-      "label": "Para conhecer mundos novos",
-      "ativo": false,
-      "id": "dplJBZML5Js"
-    },
-    {
-      "id": "28",
-      "nome": "Filosofia",
-      "label": "Ideias sobre a vida e a sociedade",
-      "ativo": true
-    },
-    {
-      "id": "29",
-      "nome": "Romance Contemporâneo",
-      "label": "Relações e amores de hoje",
-      "ativo": true
-    },
-    {
-      "id": "30",
-      "nome": "Crônicas",
-      "label": "Textos breves sobre o cotidiano",
       "ativo": true
     }
   ],
@@ -827,7 +697,7 @@
       "idAutores": [
         "J.R.R. Tolkien"
       ],
-      "idGeneros": "Fantasia",
+      "idGeneros": "Aventura",
       "idEditoras": "HarperCollins",
       "ativo": true,
       "recomendado": false
@@ -842,7 +712,7 @@
       "idAutores": [
         "Machado de Assis"
       ],
-      "idGeneros": "Romance",
+      "idGeneros": "Drama",
       "idEditoras": "Editora Melhoramentos",
       "ativo": true,
       "recomendado": false
@@ -872,7 +742,7 @@
       "idAutores": [
         "Aldous Huxley"
       ],
-      "idGeneros": "Ficção",
+      "idGeneros": "Distopia",
       "idEditoras": "Biblioteca Azul",
       "ativo": true,
       "recomendado": false
@@ -917,7 +787,7 @@
       "idAutores": [
         "Gabriel García Márquez"
       ],
-      "idGeneros": "Realismo",
+      "idGeneros": "Fantasia",
       "idEditoras": "Record",
       "ativo": true,
       "recomendado": false
@@ -947,7 +817,7 @@
       "idAutores": [
         "José Saramago"
       ],
-      "idGeneros": "Drama",
+      "idGeneros": "Distopia",
       "idEditoras": "Companhia das Letras",
       "ativo": true,
       "recomendado": false
@@ -977,7 +847,7 @@
       "idAutores": [
         "Victor Hugo"
       ],
-      "idGeneros": "Drama",
+      "idGeneros": "Aventura",
       "idEditoras": "Penguin",
       "ativo": true,
       "recomendado": false
@@ -992,7 +862,7 @@
       "idAutores": [
         "Antoine de Saint-Exupéry"
       ],
-      "idGeneros": "Infantil",
+      "idGeneros": "Fantasia",
       "idEditoras": "HarperCollins",
       "ativo": true,
       "recomendado": false
@@ -1007,7 +877,7 @@
       "idAutores": [
         "Fyodor Dostoevsky"
       ],
-      "idGeneros": "Drama",
+      "idGeneros": "Mistério",
       "idEditoras": "Penguin",
       "ativo": true,
       "recomendado": true
@@ -1037,7 +907,7 @@
       "idAutores": [
         "Frank Herbert"
       ],
-      "idGeneros": "Ficção",
+      "idGeneros": "Aventura",
       "idEditoras": "Ace",
       "ativo": true,
       "recomendado": false
@@ -1082,7 +952,7 @@
       "idAutores": [
         "Harper Lee"
       ],
-      "idGeneros": "Clássico",
+      "idGeneros": "Mistério",
       "idEditoras": "HarperCollins",
       "ativo": true,
       "recomendado": false
@@ -1097,7 +967,7 @@
       "idAutores": [
         "Socorro Acioli"
       ],
-      "idGeneros": "Realismo Mágico",
+      "idGeneros": "Fantasia",
       "sinopsis": "Samuel chega a uma cidade do interior do Ceará em busca da família e passa a viver na cabeça de uma estátua inacabada de Santo Antônio, onde ouve pedidos de mulheres por amor e casamento.",
       "recomendado": false,
       "ativo": true
@@ -1112,7 +982,7 @@
       "idAutores": [
         "Riley Sager"
       ],
-      "idGeneros": "Suspense",
+      "idGeneros": "Terror",
       "sinopsis": "Décadas depois de um massacre que devastou a família Hope, uma cuidadora é contratada para atender Lenora, a única sobrevivente, e começa a investigar o que aconteceu naquela casa.",
       "recomendado": false,
       "ativo": true
@@ -1127,7 +997,7 @@
       "idAutores": [
         "Carla Madeira"
       ],
-      "idGeneros": "Drama",
+      "idGeneros": "Romance",
       "sinopsis": "Dalva e Venâncio têm a vida transformada por uma tragédia. A chegada de Lucy, uma prostituta determinada, entrelaça os destinos dos três em uma história sobre desejo, culpa e perdão.",
       "recomendado": false,
       "ativo": true
@@ -1164,16 +1034,16 @@
     },
     {
       "id": "26",
-      "nome": "Amar é inadiável",
-      "isbn": "9788542243147",
-      "dtPublicacao": "2026",
-      "numPaginas": 224,
-      "idEditoras": "Planeta",
+      "nome": "O Silmarillion",
+      "isbn": "9780261102422",
+      "dtPublicacao": "1977",
+      "numPaginas": 365,
+      "idEditoras": "HarperCollins",
       "idAutores": [
-        "Socorro Acioli"
+        "J.R.R. Tolkien"
       ],
-      "idGeneros": "Crônicas",
-      "sinopsis": "Coletânea de crônicas de Socorro Acioli que observa cenas cotidianas e relações humanas com sensibilidade, transformando experiências comuns em reflexão literária.",
+      "sinopsis": "Relata a criação de Arda e os acontecimentos antigos que moldaram a Terra-média antes das histórias de O Hobbit e O Senhor dos Anéis.",
+      "idGeneros": "Fantasia",
       "recomendado": false,
       "ativo": true
     },
@@ -1217,7 +1087,7 @@
       "idAutores": [
         "Caro Claire Burke"
       ],
-      "idGeneros": "Ficção",
+      "idGeneros": "Distopia",
       "sinopsis": "Natalie, uma esposa e mãe que construiu uma imagem de vida tradicional perfeita, desperta em uma realidade brutal semelhante a 1855 e precisa descobrir se vive uma farsa ou algo ainda mais estranho.",
       "recomendado": false,
       "ativo": true
@@ -1232,7 +1102,7 @@
       "idAutores": [
         "Socorro Acioli"
       ],
-      "idGeneros": "Realismo Mágico",
+      "idGeneros": "Fantasia",
       "sinopsis": "Sem memória do próprio passado, Cida precisa reconstruir sua identidade em um lugar desconhecido. A língua portuguesa é seu primeiro vínculo com uma vida que não consegue recordar.",
       "recomendado": false,
       "ativo": true
@@ -1262,7 +1132,7 @@
       "idAutores": [
         "Freida McFadden"
       ],
-      "idGeneros": "Suspense",
+      "idGeneros": "Terror",
       "sinopsis": "Isolados por uma tempestade na antiga casa de uma psiquiatra desaparecida, Tricia e Ethan encontram gravações das sessões da médica e passam a investigar o que ocorreu.",
       "recomendado": false,
       "ativo": true
@@ -1337,7 +1207,7 @@
       "idAutores": [
         "Fyodor Dostoevsky"
       ],
-      "idGeneros": "Clássico",
+      "idGeneros": "Ficção",
       "sinopsis": "Um narrador solitário e ressentido expõe suas reflexões sobre a própria consciência, a liberdade e as contradições da sociedade, em um relato introspectivo.",
       "recomendado": false,
       "ativo": true
@@ -1352,7 +1222,7 @@
       "idAutores": [
         "Leo Tolstoy"
       ],
-      "idGeneros": "Clássico",
+      "idGeneros": "Drama",
       "sinopsis": "Após adoecer gravemente, o juiz Ivan Ilitch revisita sua vida e suas escolhas, confrontando a proximidade da morte e o sentido de sua existência.",
       "recomendado": false,
       "ativo": true
@@ -1367,7 +1237,7 @@
       "idAutores": [
         "Catherine Rayner"
       ],
-      "idGeneros": "Infantil",
+      "idGeneros": "Aventura",
       "sinopsis": "Abigail adora contar, mas as zebras e os guepardos não ficam parados enquanto ela tenta contar suas listras e manchas.",
       "recomendado": false,
       "ativo": true
@@ -1382,7 +1252,7 @@
       "idAutores": [
         "Fyodor Dostoevsky"
       ],
-      "idGeneros": "Clássico",
+      "idGeneros": "Drama",
       "sinopsis": "Durante quatro noites em São Petersburgo, um jovem solitário conhece Nástienka e se envolve em uma relação marcada por esperança, companhia e amor não correspondido.",
       "recomendado": false,
       "ativo": true
@@ -1397,7 +1267,7 @@
       "idAutores": [
         "Tim Warnes"
       ],
-      "idGeneros": "Infantil",
+      "idGeneros": "Aventura",
       "sinopsis": "Bob e seu amigo encontram um chapéu com um aviso de perigo. Dele começam a sair coelhos, levando os personagens a questionar se eles são realmente ameaçadores.",
       "recomendado": false,
       "ativo": true
@@ -1412,7 +1282,7 @@
       "idAutores": [
         "Jeferson Tenório"
       ],
-      "idGeneros": "Realismo",
+      "idGeneros": "Ficção",
       "sinopsis": "Depois da morte do pai, Pedro revisita a história da família e tenta compreender Henrique, professor negro cuja vida foi atravessada pelo racismo e pela violência.",
       "recomendado": false,
       "ativo": true
@@ -1442,53 +1312,53 @@
       "idAutores": [
         "Alex Michaelides"
       ],
-      "idGeneros": "Suspense",
+      "idGeneros": "Mistério",
       "sinopsis": "A pintora Alicia Berenson é acusada de matar o marido e deixa de falar. O psicoterapeuta Theo Faber tenta descobrir o que aconteceu e por que ela permanece em silêncio.",
       "recomendado": false,
       "ativo": true
     },
     {
       "id": "45",
-      "nome": "Ainda estou aqui",
-      "isbn": "9788579624162",
-      "dtPublicacao": "2015",
-      "numPaginas": 296,
-      "idEditoras": "Alfaguara",
+      "nome": "Final Girls",
+      "isbn": "9781524745080",
+      "dtPublicacao": "2017",
+      "numPaginas": 352,
+      "idEditoras": "Dutton",
       "idAutores": [
-        "Marcelo Rubens Paiva"
+        "Riley Sager"
       ],
-      "idGeneros": "Política",
-      "sinopsis": "Marcelo Rubens Paiva narra a história de sua família e a trajetória de sua mãe, Eunice Paiva, após o desaparecimento de Rubens Paiva durante a ditadura militar brasileira.",
+      "sinopsis": "Quincy Carpenter é a única sobrevivente de um massacre. Quando outra sobrevivente morre, segredos e lembranças ameaçam revelar o que aconteceu.",
+      "idGeneros": "Terror",
       "recomendado": false,
       "ativo": true
     },
     {
       "id": "46",
-      "nome": "A caixa de preocupações",
-      "isbn": "9788538079026",
-      "dtPublicacao": "2018",
-      "numPaginas": 32,
-      "idEditoras": "Ciranda Cultural",
+      "nome": "O Vilarejo",
+      "isbn": "9788581053042",
+      "dtPublicacao": "2015",
+      "numPaginas": 96,
+      "idEditoras": "Record",
       "idAutores": [
-        "Suzanne Chiew"
+        "Raphael Montes"
       ],
-      "idGeneros": "Infantil",
-      "sinopsis": "Miguel, um ursinho preocupado, recebe a ajuda de Mila para criar uma caixa onde pode guardar seus medos e aprender a compartilhá-los.",
+      "sinopsis": "Sete narrativas interligadas acompanham moradores de um vilarejo isolado e os pecados que transformam suas vidas em histórias sombrias.",
+      "idGeneros": "Terror",
       "recomendado": false,
       "ativo": true
     },
     {
       "id": "47",
-      "nome": "O povo brasileiro",
-      "isbn": "9788526022256",
-      "dtPublicacao": "2015",
-      "numPaginas": 368,
-      "idEditoras": "Global Editora",
+      "nome": "A Revolução dos Bichos",
+      "isbn": "9786555790641",
+      "dtPublicacao": "1945",
+      "numPaginas": 152,
+      "idEditoras": "Companhia das Letras",
       "idAutores": [
-        "Darcy Ribeiro"
+        "George Orwell"
       ],
-      "idGeneros": "Política",
-      "sinopsis": "Darcy Ribeiro analisa a formação do povo brasileiro e os encontros, conflitos e desigualdades que moldaram a sociedade e a identidade do país.",
+      "sinopsis": "Os animais de uma fazenda se rebelam contra seus donos, mas a nova ordem gradualmente reproduz a opressão que pretendia abolir.",
+      "idGeneros": "Distopia",
       "recomendado": false,
       "ativo": true
     },
@@ -1502,23 +1372,23 @@
       "idAutores": [
         "Rebecca Yarros"
       ],
-      "idGeneros": "Romance Contemporâneo",
+      "idGeneros": "Romance",
       "sinopsis": "O militar Beckett aceita se corresponder com Ella a pedido de seu amigo Ryan. As cartas criam um vínculo entre os dois, enquanto guerra, luto e responsabilidades familiares desafiam essa aproximação.",
       "recomendado": false,
       "ativo": true
     },
     {
       "id": "49",
-      "nome": "Sociedade do cansaço",
-      "isbn": "9788532649966",
-      "dtPublicacao": "2015",
-      "numPaginas": 136,
-      "idEditoras": "Editora Vozes",
+      "nome": "Fahrenheit 451",
+      "isbn": "9781451673319",
+      "dtPublicacao": "1953",
+      "numPaginas": 249,
+      "idEditoras": "Simon & Schuster",
       "idAutores": [
-        "Byung-Chul Han"
+        "Ray Bradbury"
       ],
-      "idGeneros": "Filosofia",
-      "sinopsis": "Byung-Chul Han examina uma sociedade orientada pelo desempenho, na qual a cobrança por produtividade leva as pessoas a explorar a si mesmas e a adoecer.",
+      "sinopsis": "Em uma sociedade que proíbe livros, o bombeiro Guy Montag começa a questionar o sistema e arrisca tudo para preservar o conhecimento.",
+      "idGeneros": "Distopia",
       "recomendado": false,
       "ativo": true
     },
@@ -1532,8 +1402,113 @@
       "idAutores": [
         "Raphael Montes"
       ],
-      "idGeneros": "Suspense",
+      "idGeneros": "Mistério",
       "sinopsis": "Quatro amigos do interior, vivendo no Rio de Janeiro, organizam jantares clandestinos para conseguir dinheiro. O negócio cresce e os conduz a uma sequência de escolhas criminosas.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "51",
+      "nome": "Perto do Coração Selvagem",
+      "isbn": "9788532508102",
+      "dtPublicacao": "1943",
+      "numPaginas": 202,
+      "idEditoras": "Rocco",
+      "idAutores": [
+        "Clarice Lispector"
+      ],
+      "idGeneros": "Ficção",
+      "sinopsis": "Joana atravessa a infância e a vida adulta em uma narrativa introspectiva sobre identidade, liberdade e relações humanas.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "52",
+      "nome": "O Diário de um Mago",
+      "isbn": "9788576651888",
+      "dtPublicacao": "1986",
+      "numPaginas": 272,
+      "idEditoras": "Planeta",
+      "idAutores": [
+        "Paulo Coelho"
+      ],
+      "idGeneros": "Aventura",
+      "sinopsis": "Durante uma peregrinação pelo Caminho de Santiago, um homem enfrenta provas e encontros que transformam sua jornada exterior e interior.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "53",
+      "nome": "A Empregada",
+      "isbn": "9786555655063",
+      "dtPublicacao": "2022",
+      "numPaginas": 304,
+      "idEditoras": "Editora Arqueiro",
+      "idAutores": [
+        "Freida McFadden"
+      ],
+      "idGeneros": "Mistério",
+      "sinopsis": "Uma mulher aceita trabalhar para uma família rica e passa a perceber que os segredos da casa são mais perigosos do que parecem.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "54",
+      "nome": "The Maidens",
+      "isbn": "9781250304452",
+      "dtPublicacao": "2021",
+      "numPaginas": 352,
+      "idEditoras": "Record",
+      "idAutores": [
+        "Alex Michaelides"
+      ],
+      "idGeneros": "Mistério",
+      "sinopsis": "Uma terapeuta investiga mortes ocorridas entre estudantes de Cambridge e suspeita de um professor ligado a um grupo secreto.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "55",
+      "nome": "Lock Every Door",
+      "isbn": "9781524745158",
+      "dtPublicacao": "2019",
+      "numPaginas": 381,
+      "idEditoras": "Dutton",
+      "idAutores": [
+        "Riley Sager"
+      ],
+      "idGeneros": "Terror",
+      "sinopsis": "Uma jovem aceita trabalhar como cuidadora em um prédio luxuoso e descobre que os moradores escondem acontecimentos perturbadores.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "56",
+      "nome": "The Radleys",
+      "isbn": "9781847678607",
+      "dtPublicacao": "2010",
+      "numPaginas": 352,
+      "idEditoras": "Bertrand Brasil",
+      "idAutores": [
+        "Matt Haig"
+      ],
+      "idGeneros": "Terror",
+      "sinopsis": "Uma família suburbana tenta esconder sua natureza vampírica, até que um acontecimento inesperado ameaça expor todos os seus segredos.",
+      "recomendado": false,
+      "ativo": true
+    },
+    {
+      "id": "57",
+      "nome": "Wuthering Heights",
+      "isbn": "9780141439556",
+      "dtPublicacao": "1847",
+      "numPaginas": 416,
+      "idEditoras": "Penguin Classics",
+      "idAutores": [
+        "Emily Brontë"
+      ],
+      "idGeneros": "Drama",
+      "sinopsis": "A história de Catherine Earnshaw e Heathcliff retrata uma paixão intensa, conflitos familiares e vingança nos campos de Yorkshire.",
       "recomendado": false,
       "ativo": true
     }

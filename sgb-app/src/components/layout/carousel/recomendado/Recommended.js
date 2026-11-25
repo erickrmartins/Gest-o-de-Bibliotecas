@@ -5,12 +5,15 @@ import Estrela from '@mui/icons-material/StarBorderOutlined';
 import Livro from '@mui/icons-material/AutoStoriesOutlined';
 
 function Recommended({ livro }) {
-    const pathImage = `/backgroundGenre/${livro.idGeneros.toLowerCase()}.jpg`
+    const pathImage = `/backgroundGenre/${livro.idGeneros
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}.jpg`
 
     return (
         <div
-        className={`row ${styles.container}`}
-        style={{'--image-genre': `url(${pathImage})`}}
+            className={`row ${styles.container}`}
+            style={{ '--image-genre': `url(${pathImage})` }}
         >
             <div className="col-lg-4 col-md-6 col-10">
                 <span className="d-inline-flex color-accent fw-semibold gap-1 justify-self-center align-items-center"><Estrela />Recomendado</span>
